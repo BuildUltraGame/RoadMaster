@@ -18,7 +18,7 @@ public abstract class MetroGate : Railway {
 
     public static int FromWhichPoint(Vector3[] vs,Vector3 v){
      
-
+       
         float minDistance = 99;
         int minNum = 0;
         for (int i = 0; i < vs.Length; i++)

@@ -9,9 +9,9 @@ using UnityEngine;
 public class Tags {
 
     public const string RAILWAY = "railway";
-    public  const string RAILWAY_MOVABLE = "railway_movable";
+  
     public const string ROAD = "road";
-    public const string ROAD = "road";
+    
 
 
     public static class Vehicle {
@@ -20,6 +20,16 @@ public class Tags {
         public const string SKILLEDTRAMCAR = "skilled_ramcar";//老练矿车
         public const string TRAIN = "train";//火车
         
+    }
+
+
+
+    public static class Character
+    {
+        public const string GATEWORKER = "gate_worker";//搬道闸工人
+        public const string INSPECTOR = "inspector";//督察员
+        public const string ROGUE = "rogue";//流氓
+        public const string RAILWAYDESTROIER = "railway_destroier";//道路破坏者
     }
 
 }
