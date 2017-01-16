@@ -42,17 +42,17 @@ public class MetroGate3 : MetroGate {
 		
 	}
 
-    override protected void OnObjEnter(Collision collision)
+    override protected void OnObjEnter(Collider collider)
     {
-       int pointNum= FromWhichPoint(allPoint,collision.transform.position);
+        int pointNum = FromWhichPoint(allPoint, collider.transform.position);
 
        if (blockRoad == allPoint[pointNum])
        {
            print("不能通过");
            //TODO:不能通过,应该回头
-           Railwaymovable obj = collision.gameObject.GetComponent<Railwaymovable>();
+           Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
            obj.addRoadPoint(allPoint[pointNum]);
-           obj.addRoadPoint(collision.transform.position);
+           obj.addRoadPoint(collider.transform.position);
 
 
         }
@@ -60,7 +60,7 @@ public class MetroGate3 : MetroGate {
         {
             print("可以通过");
             //可以通过
-             Railwaymovable obj = collision.gameObject.GetComponent<Railwaymovable>();
+            Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
             if(allPoint[pointNum]==linkRoad[0]){
                 obj.addRoadsPoint(linkRoad);
             }

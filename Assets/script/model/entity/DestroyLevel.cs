@@ -33,19 +33,20 @@ public class DestroyLevel : MonoBehaviour {
         return level;
     }
 
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        GuardLevel guard=collision.gameObject.GetComponent<GuardLevel>();
-        if(null==guard){
+        GuardLevel guard = other.gameObject.GetComponent<GuardLevel>();
+        if (null == guard)
+        {
             return;
         }
-    
-        if(guard.getLevel()>level){
+
+        if (guard.getLevel() > level)
+        {
             //对方防御等级大于自己的攻击等级
             OnOppositeHighLevel(guard.gameObject);
         }
-        else if(guard.getLevel()<level)
+        else if (guard.getLevel() < level)
         {//对方防御等级低于自己攻击等级
             OnOppositeLowLevel(guard.gameObject);
         }
@@ -54,6 +55,9 @@ public class DestroyLevel : MonoBehaviour {
             OnEqualLevel(guard.gameObject);
         }
     }
+
+
+    
 
   
 

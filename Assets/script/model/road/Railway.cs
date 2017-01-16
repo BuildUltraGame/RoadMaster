@@ -17,41 +17,40 @@ public class Railway : MonoBehaviour {
         }
         pointList.Remove(transform.position);
 
-        print("start"+name+pointList.Count);
+       
 	}
 
-    void OnCollisionEnter(Collision collision)
-    {
+   
 
-    
-        if (collision.gameObject.tag == "moveObj")
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "moveObj")
         {
             print(name);
-            OnObjEnter(collision);
+            OnObjEnter(other);
 
-         
+
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-
-        
-        if (collision.gameObject.layer ==Layers.VEHICLE)
+        if (other.gameObject.layer == Layers.VEHICLE)
         {
 
-            Railwaymovable obj = collision.gameObject.GetComponent<Railwaymovable>();
+            Railwaymovable obj = other.gameObject.GetComponent<Railwaymovable>();
             obj.removeRoadsPoint(pointList);
         }
+
     }
 
 
-    virtual protected void OnObjEnter(Collision collision)
+    virtual protected void OnObjEnter(Collider collider)
     {
-        Railwaymovable obj = collision.gameObject.GetComponent<Railwaymovable>();
-        
-        if (Vector3.Distance(collision.transform.position, pointList[0]) <
-            Vector3.Distance(collision.transform.position, pointList[pointList.Count - 1]))
+        Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
+
+        if (Vector3.Distance(collider.transform.position, pointList[0]) <
+            Vector3.Distance(collider.transform.position, pointList[pointList.Count - 1]))
         {
             obj.addRoadsPoint(new List<Vector3>(pointList));
 

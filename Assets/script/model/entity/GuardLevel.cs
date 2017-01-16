@@ -20,9 +20,10 @@ public class GuardLevel : MonoBehaviour {
     }
 
 
-    void OnCollisionEnter(Collision collision)
+
+    void OnTriggerEnter(Collider other)
     {
-        DestroyLevel destoryModule = collision.gameObject.GetComponent<DestroyLevel>();
+        DestroyLevel destoryModule = other.gameObject.GetComponent<DestroyLevel>();
         if (null == destoryModule)
         {
             return;
@@ -40,7 +41,6 @@ public class GuardLevel : MonoBehaviour {
         {  //等级相当
             OnEqualLevel(destoryModule.gameObject);
         }
-
 
     }
 
