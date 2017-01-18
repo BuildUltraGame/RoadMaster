@@ -7,7 +7,7 @@ using UnityEngine;
 /// 用来实现防御相关的功能 和攻击模块配合使用
 /// 具体实现功能如:流氓可以破坏普通矿车一样
 /// </summary>
-public class GuardLevel : CollisionBaseHandler {
+public class GuardLevel : MonoBehaviour {
 
     private const int DEFAULT_LEVEL=1;
 
@@ -19,9 +19,11 @@ public class GuardLevel : CollisionBaseHandler {
         return level;
     }
 
-    public override void OnEnemyCollisionStart(Collider enemy)
+
+
+    void OnTriggerEnter(Collider other)
     {
-        DestroyLevel destoryModule = enemy.gameObject.GetComponent<DestroyLevel>();
+        DestroyLevel destoryModule = other.gameObject.GetComponent<DestroyLevel>();
         if (null == destoryModule)
         {
             return;
@@ -40,9 +42,7 @@ public class GuardLevel : CollisionBaseHandler {
             OnEqualLevel(destoryModule.gameObject);
         }
 
-
     }
-
 
 
 

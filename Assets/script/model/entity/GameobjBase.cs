@@ -15,7 +15,7 @@ public class GameobjBase : MonoBehaviour {
     public const int OTHER_PLAYER4 = 4;
     public const int OTHER_PLAYER5 = 5;
 
-    private int owner=PLAYER;//对象所属方,用于对战和任务模式区分敌我单位
+    public int owner=PLAYER;//对象所属方,用于对战和任务模式区分敌我单位
 
 
     public void setOwner(int newOwner)
