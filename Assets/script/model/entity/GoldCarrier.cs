@@ -11,7 +11,7 @@ public class GoldCarrier : MonoBehaviour
 
     public int MaxGold = 1000;//最大运载量
 
-    private int goldAmounts = 0;//运输黄金数
+    private int goldAmounts = 10;//运输黄金数
     
 
 	// Use this for initialization

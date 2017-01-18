@@ -20,7 +20,7 @@ public class CollisionBaseHandler : MonoBehaviour
         {
             return;
         }
-        if (gBase.getOwner() == GameobjBase.PLAYER)
+        if (gBase.getOwner() == GetComponent<GameobjBase>().getOwner())
         {
             OnSelfUnitCollisionStart(other);
         }
@@ -39,7 +39,7 @@ public class CollisionBaseHandler : MonoBehaviour
         {
             return;
         }
-        if (gBase.getOwner() == GameobjBase.PLAYER)
+        if (gBase.getOwner() == GetComponent<GameobjBase>().getOwner())
         {
             OnSelfUnitCollisionEnd(other);
         }
@@ -56,7 +56,7 @@ public class CollisionBaseHandler : MonoBehaviour
         if(gBase==null){
             return;
         }
-        if (gBase.getOwner() == GameobjBase.PLAYER)
+        if (gBase.getOwner() == GetComponent<GameobjBase>().getOwner())
         {
             OnSelfUnitCollisionStay(other);
         }
