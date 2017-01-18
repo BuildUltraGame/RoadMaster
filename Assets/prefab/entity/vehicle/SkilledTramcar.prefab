@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114886501631619942}
   - component: {fileID: 114861688629534648}
   m_Layer: 10
-  m_Name: SkilledRamcar
+  m_Name: SkilledTramcar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

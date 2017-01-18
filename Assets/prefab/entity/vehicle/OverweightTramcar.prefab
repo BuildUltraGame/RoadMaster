@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114840389207053846}
   - component: {fileID: 114020695113425272}
   m_Layer: 10
-  m_Name: marsaraminecart
+  m_Name: OverweightTramcar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
