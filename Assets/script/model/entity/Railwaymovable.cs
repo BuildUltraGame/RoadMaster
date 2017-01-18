@@ -46,7 +46,11 @@ public class Railwaymovable : MonoBehaviour {
 	}
 
 
-
+    /// <summary>
+    /// 设置转向,使得车头永远指向行车方向
+    /// TODO:目前有bug
+    /// </summary>
+    /// <param name="v">要面对的方向</param>
     private void LookAtHorizontal(Vector3 v)
     {
         transform.LookAt(new Vector3(v.x,transform.position.y,v.z));
@@ -78,6 +82,10 @@ public class Railwaymovable : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 测试用,打印路线
+    /// TODO:记得删除
+    /// </summary>
     public void printRoad()
     {
         foreach(Vector3 v in points){
