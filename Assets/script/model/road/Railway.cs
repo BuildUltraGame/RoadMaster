@@ -24,7 +24,7 @@ public class Railway : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "moveObj")
+        if (other.gameObject.layer == Layers.VEHICLE)
         {
             print(name);
             OnObjEnter(other);

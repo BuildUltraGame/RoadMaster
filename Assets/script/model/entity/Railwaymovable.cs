@@ -6,6 +6,10 @@ using UnityEngine.AI;
 
 /// <summary>
 /// 铁路上自动移动脚本,只要带这个脚本的物体都可以在铁路上自动移动
+/// 使用方法:
+/// 1. 物体挂载本脚本
+/// 2.设置物体的层为載具层
+/// 3.物体要与铁路接触
 /// </summary>
 public class Railwaymovable : MonoBehaviour {
 
@@ -40,6 +44,7 @@ public class Railwaymovable : MonoBehaviour {
             }
         }
 	}
+
 
 
     private void LookAtHorizontal(Vector3 v)
