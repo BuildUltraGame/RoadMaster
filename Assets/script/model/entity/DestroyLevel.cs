@@ -11,7 +11,7 @@ using UnityEngine;
 /// 推荐继承后重写方法
 /// 
 /// </summary>
-public class DestroyLevel : MonoBehaviour {
+public class DestroyLevel : CollisionBaseHandler {
 
 
     private const int DEFAULT_LEVEL = 1;
@@ -33,9 +33,9 @@ public class DestroyLevel : MonoBehaviour {
         return level;
     }
 
-    void OnTriggerEnter(Collider other)
+    public override void OnEnemyCollisionStart(Collider enemy)
     {
-        GuardLevel guard = other.gameObject.GetComponent<GuardLevel>();
+        GuardLevel guard = enemy.gameObject.GetComponent<GuardLevel>();
         if (null == guard)
         {
             return;
@@ -55,6 +55,7 @@ public class DestroyLevel : MonoBehaviour {
             OnEqualLevel(guard.gameObject);
         }
     }
+
 
 
     

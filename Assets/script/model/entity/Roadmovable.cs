@@ -17,6 +17,7 @@ public class Roadmovable : MonoBehaviour {
 
     private NavMeshAgent nav;
     private Vector3 destination;
+    private GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,9 @@ public class Roadmovable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if(target!=null){
+            setDestination(target.transform.position);
+        }
 	}
 
     /// <summary>
@@ -37,6 +40,15 @@ public class Roadmovable : MonoBehaviour {
     {
         destination = v;
         nav.SetDestination(destination);
+    }
+
+    /// <summary>
+    /// 设置目标对象,实时跟踪
+    /// </summary>
+    /// <param name="targetObj">目标对象</param>
+    public void setDestination(GameObject targetObj)
+    {
+        target = targetObj;
     }
 
     /// <summary>
