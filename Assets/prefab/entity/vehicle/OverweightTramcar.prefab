@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114308564902103998}
   - component: {fileID: 114840389207053846}
   - component: {fileID: 114020695113425272}
+  - component: {fileID: 114035564295917904}
   m_Layer: 10
   m_Name: OverweightTramcar
   m_TagString: Untagged
@@ -141,6 +142,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+--- !u!114 &114035564295917904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816668194362276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90321c0510370b4cab6d344b5f78bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxGold: 1000
 --- !u!114 &114308564902103998
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114525393240371310}
   - component: {fileID: 114886501631619942}
   - component: {fileID: 114861688629534648}
+  - component: {fileID: 114414575442766350}
   m_Layer: 10
   m_Name: SkilledTramcar
   m_TagString: Untagged
@@ -129,6 +130,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114414575442766350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973957703888392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90321c0510370b4cab6d344b5f78bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxGold: 1000
 --- !u!114 &114525393240371310
 MonoBehaviour:
   m_ObjectHideFlags: 1

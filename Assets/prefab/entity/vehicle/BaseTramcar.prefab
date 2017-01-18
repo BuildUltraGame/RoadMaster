@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 54101017532760826}
   - component: {fileID: 114599793304661814}
   - component: {fileID: 114152863391919878}
+  - component: {fileID: 114896513721934256}
   m_Layer: 10
   m_Name: BaseTramcar
   m_TagString: moveObj
@@ -153,6 +154,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+--- !u!114 &114896513721934256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622550531955412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90321c0510370b4cab6d344b5f78bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxGold: 1000
 --- !u!114 &114907647667156532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,4 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae7d9047ca644647b11f8aafcbf4ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   points: []
