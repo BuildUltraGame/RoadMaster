@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 碰撞处理基类
 /// 全部含有碰撞的脚本直接继承本类
+/// 已经将碰撞敌人和碰撞己方分开
 /// </summary>
 public class CollisionBaseHandler : MonoBehaviour
 {

@@ -13,7 +13,7 @@ using UnityEngine.AI;
 /// </summary>
 public class Railwaymovable : MonoBehaviour {
 
-    private float speed = 5f;//速度
+    public float speed = 5f;//速度
 
     public List<Vector3> points = new List<Vector3>();
 
