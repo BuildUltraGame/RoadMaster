@@ -26,11 +26,11 @@ GameObject:
   - component: {fileID: 114907647667156532}
   - component: {fileID: 54101017532760826}
   - component: {fileID: 114599793304661814}
-  - component: {fileID: 114152863391919878}
   - component: {fileID: 114896513721934256}
+  - component: {fileID: 114781377329615640}
   m_Layer: 10
   m_Name: BaseTramcar
-  m_TagString: moveObj
+  m_TagString: base_tramcar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,18 +130,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114152863391919878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1622550531955412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca46170bd73bca42b66cdedc627460a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 2
 --- !u!114 &114599793304661814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +142,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+--- !u!114 &114781377329615640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622550531955412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a6d9e0542b2594fa40f8e2c8b805e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114896513721934256
 MonoBehaviour:
   m_ObjectHideFlags: 1

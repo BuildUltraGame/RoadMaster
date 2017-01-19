@@ -17,7 +17,7 @@ public class Roadmovable : MonoBehaviour {
 
     private NavMeshAgent nav;
     private Vector3 destination;
-    private GameObject target;
+    public GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +29,14 @@ public class Roadmovable : MonoBehaviour {
 	void Update () {
         if(target!=null){
             setDestination(target.transform.position);
+        }
+
+        
+
+        //到达目的地,销毁自己
+        if (nav.pathStatus==NavMeshPathStatus.PathComplete&&nav.remainingDistance<=0)
+        {
+            Destroy(gameObject);
         }
 	}
 

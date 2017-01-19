@@ -26,11 +26,11 @@ GameObject:
   - component: {fileID: 65387044591666662}
   - component: {fileID: 114525393240371310}
   - component: {fileID: 114886501631619942}
-  - component: {fileID: 114861688629534648}
   - component: {fileID: 114414575442766350}
+  - component: {fileID: 114955842744854142}
   m_Layer: 10
   m_Name: SkilledTramcar
-  m_TagString: Untagged
+  m_TagString: skilled_ramcar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,18 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   points: []
---- !u!114 &114861688629534648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1973957703888392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca46170bd73bca42b66cdedc627460a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 3
 --- !u!114 &114886501631619942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,3 +167,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+--- !u!114 &114955842744854142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973957703888392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250e7da0dd4db2240b4b4ed5de95cc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

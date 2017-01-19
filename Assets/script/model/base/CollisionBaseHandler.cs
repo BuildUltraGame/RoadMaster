@@ -24,6 +24,9 @@ public class CollisionBaseHandler : MonoBehaviour
         {
             OnSelfUnitCollisionStart(other);
         }
+        else if(gBase.getOwner()==GameobjBase.WORLD){
+            OnWorldUnitCollisionStart(other);
+        }
         else
         {
             OnEnemyCollisionStart(other);
@@ -43,6 +46,10 @@ public class CollisionBaseHandler : MonoBehaviour
         {
             OnSelfUnitCollisionEnd(other);
         }
+        else if (gBase.getOwner() == GameobjBase.WORLD)
+        {
+            OnWorldUnitCollisionEnd(other);
+        }
         else
         {
             OnEnemyCollisionEnd(other);
@@ -59,6 +66,10 @@ public class CollisionBaseHandler : MonoBehaviour
         if (gBase.getOwner() == GetComponent<GameobjBase>().getOwner())
         {
             OnSelfUnitCollisionStay(other);
+        }
+        else if (gBase.getOwner() == GameobjBase.WORLD)
+        {
+            OnWorldUnitCollisionStay(other);
         }
         else
         {
@@ -114,6 +125,33 @@ public class CollisionBaseHandler : MonoBehaviour
     /// </summary>
     /// <param name="selfUnit">己方单位碰撞体</param>
     public virtual void OnSelfUnitCollisionStay(Collider selfUnit)
+    {
+
+    }
+
+
+
+    /// <summary>
+    /// 当开始碰撞到世界单位的时候
+    /// </summary>
+    /// <param name="worldUnit">世界单位碰撞体</param>
+    public virtual void OnWorldUnitCollisionStart(Collider worldUnit)
+    {
+
+    }
+    /// <summary>
+    /// 当碰撞世界单位结束的时候
+    /// </summary>
+    /// <param name="worldUnit">世界单位碰撞体</param>
+    public virtual void OnWorldUnitCollisionEnd(Collider worldUnit)
+    {
+
+    }
+    /// <summary>
+    /// 当碰撞世界单位的时候(持续)
+    /// </summary>
+    /// <param name="worldUnit">世界单位碰撞体</param>
+    public virtual void OnWorldUnitCollisionStay(Collider worldUnit)
     {
 
     }

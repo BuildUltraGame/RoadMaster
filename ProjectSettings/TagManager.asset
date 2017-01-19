@@ -7,6 +7,14 @@ TagManager:
   - moveObj
   - railway
   - road
+  - base_tramcar
+  - overweight_ramcar
+  - skilled_ramcar
+  - train
+  - gate_worker
+  - inspector
+  - rogue
+  - railway_destroier
   layers:
   - Default
   - TransparentFX

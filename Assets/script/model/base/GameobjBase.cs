@@ -8,6 +8,8 @@ using UnityEngine;
 /// 
 /// </summary>
 public class GameobjBase : MonoBehaviour {
+    public const int WORLD = -1;//世界单位
+
     public const int PLAYER = 0;//己方
     public const int OTHER_PLAYER1 = 1;//其他玩家1
     public const int OTHER_PLAYER2 = 2;//2

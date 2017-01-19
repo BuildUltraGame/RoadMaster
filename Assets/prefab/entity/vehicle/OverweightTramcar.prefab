@@ -25,12 +25,12 @@ GameObject:
   - component: {fileID: 54313069349367902}
   - component: {fileID: 65901112467862566}
   - component: {fileID: 114308564902103998}
-  - component: {fileID: 114840389207053846}
   - component: {fileID: 114020695113425272}
   - component: {fileID: 114035564295917904}
+  - component: {fileID: 114849626869452854}
   m_Layer: 10
   m_Name: OverweightTramcar
-  m_TagString: Untagged
+  m_TagString: overweight_ramcar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   points: []
---- !u!114 &114840389207053846
+--- !u!114 &114849626869452854
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,7 +175,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816668194362276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca46170bd73bca42b66cdedc627460a, type: 3}
+  m_Script: {fileID: 11500000, guid: 07f15d0007b66b0468d0722034478e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
