@@ -32,4 +32,5 @@ public class GameobjBase : MonoBehaviour {
     {
         return owner;
     }
+
 }

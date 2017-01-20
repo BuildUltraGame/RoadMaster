@@ -14,6 +14,8 @@ public class Inspector : CollisionBaseHandler {
     public override void OnEnemyCollisionStart(Collider enemy)
     {
 
+        BaseTramcar bt = enemy.GetComponent<BaseTramcar>();
+
 
         switch(enemy.gameObject.tag){
             case Tags.Vehicle.BASETRAMCAR:

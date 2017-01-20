@@ -17,7 +17,8 @@ public class Railwaymovable : MonoBehaviour {
 
     public List<Vector3> points = new List<Vector3>();
 
-    private Railway roadStand=null;
+    private Railway roadStand=null;//当前所在路
+    private Railway lastRoad = null;//前一条所在路,用于回头
 
 
 
@@ -73,13 +74,23 @@ public class Railwaymovable : MonoBehaviour {
             this.points.Remove(v);            
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == Tags.RAILWAY)
         {
-            roadStand = collision.gameObject.GetComponent<Railway>();
+            lastRoad = roadStand;
+            roadStand = collision.gameObject.GetComponent<Railway>();            
+
+            
 
         }
+    }
+    /// <summary>
+    /// 回头
+    /// </summary>
+    public void Back()
+    {
+        lastRoad.getRoad(this,transform.position);
     }
 
     /// <summary>

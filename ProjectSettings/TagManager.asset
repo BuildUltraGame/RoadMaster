@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - moveObj
   - railway
   - road
   - base_tramcar
@@ -15,6 +14,9 @@ TagManager:
   - inspector
   - rogue
   - railway_destroier
+  - exploration_tramcar
+  - mine
+  - scoring_building
   layers:
   - Default
   - TransparentFX

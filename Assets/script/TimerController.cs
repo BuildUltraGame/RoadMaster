@@ -163,6 +163,8 @@ public class TimerController : MonoBehaviour
         private bool startFlag = false;//是否处于计时状态
         private float intervalTime=0;//设置间隔时间
         private bool isRepeat = false;//是否重复计时
+        private bool autoDestory = false;//是否自动销毁
+
 
         private TimerController controller;//全局控制器
 
@@ -207,6 +209,16 @@ public class TimerController : MonoBehaviour
             intervalTime = interval;
             
         }
+         /// <summary>
+         /// 设置自动销毁
+         /// </summary>
+         /// <param name="flag">是否自动销毁</param>
+        public void setAutoDestory(bool flag)
+        {
+            autoDestory = flag;
+        }
+
+
          /// <summary>
          /// 开始
          /// </summary>
@@ -293,6 +305,9 @@ public class TimerController : MonoBehaviour
                         else
                         {
                              Stop();
+                             if(autoDestory){
+                                 Destroy();
+                             }
                         }
 
                     }
