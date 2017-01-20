@@ -48,6 +48,7 @@ public class Railway : MonoBehaviour {
     virtual protected void OnObjEnter(Collider collider)
     {
         Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
+        
         if(obj!=null){
             getRoad(obj,collider.transform.position);
         }
