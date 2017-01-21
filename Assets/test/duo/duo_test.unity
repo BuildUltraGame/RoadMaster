@@ -1553,7 +1553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMine: 1000
-  increaseRate: 0
+  increaseRate: 100
+  increaseFlashTime: 1
   isSmallMine: 0
   Lighthouse: {fileID: 1182935375}
   owner: 0

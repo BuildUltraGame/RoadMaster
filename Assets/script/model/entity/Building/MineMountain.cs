@@ -37,6 +37,7 @@ public class MineMountain : MonoBehaviour {
     }
 
     bool buildUnitByName(string name, Vector3 buildPos)
+        //通过传递名称来生成一个单位
     {
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -47,7 +48,6 @@ public class MineMountain : MonoBehaviour {
         {
             return false;
         }
-        //Debug.Log("pos:" + buildPos);
         targetSpawner.setTarget(buildPos);
         if (totalMine >= targetSpawner.getCost())
         {
@@ -57,18 +57,20 @@ public class MineMountain : MonoBehaviour {
             }
                
             else
-                // TODOS
+                // TODO
                 return false;
         }
         return false;
     }
 
     void increaseMine()
+        //控制矿的增长
     {
         totalMine += (int)(increaseRate * increaseFlashTime);
     }
 
     void InitSpawnerDict()
+        //初始化，将孵化器list存入dict
     {
         foreach(Spawner spawnerUnit in SpawnerUnitList)
         { 
@@ -77,6 +79,7 @@ public class MineMountain : MonoBehaviour {
     }
 
     void testBuild()
+        //测试用函数
     {
         Vector3 pos = Lighthouse.transform.position;
         buildUnitByName("基础运输矿车", pos);
