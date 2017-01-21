@@ -4,7 +4,8 @@ using UnityEngine;
 /// <summary>
 /// 流氓脚本
 /// </summary>
-public class Rogue : AttackAbs {
+public class RogueAttack : AttackAbs
+{
     public const int ATTACKLEVEL = 2;
 
 
