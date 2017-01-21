@@ -16,24 +16,7 @@ public abstract class MetroGate : Railway {
    public abstract void GateChange(Vector3 v,int linkNum);
 
 
-    public static int FromWhichPoint(Vector3[] vs,Vector3 v){
-     
-       
-        float minDistance = 99;
-        int minNum = 0;
-        for (int i = 0; i < vs.Length; i++)
-        {
-            float tempDist = Vector3.Distance(v, vs[i]);
-            if (tempDist < minDistance)
-            {
-                minDistance = tempDist;
-                minNum = i;
-            }
-        }
-
-        return minNum;
+    
 
 
-
-    }
 }

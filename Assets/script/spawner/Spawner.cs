@@ -17,8 +17,17 @@ public class Spawner : MonoBehaviour
     private Vector3 targetPoint;//设定建造出来的单位目的地
     private GameObject targetObj;//设置建造出来的单位的跟踪目标
 
-    private float lastBuildTime=-1;//上次建造的时间,用于CD计算
+    private TimerController.Timer CDtimer;
     private bool canBuildFlag = true;
+
+    /// <summary>
+    /// 设置是否能建造
+    /// </summary>
+    /// <param name="flag"></param>
+    public void setBuildFlag(bool flag)
+    {
+        canBuildFlag = flag;
+    }
 
     public string getName()
     {
@@ -93,21 +102,27 @@ public class Spawner : MonoBehaviour
 
     private void startTimer()
     {
-   
-            lastBuildTime = Time.time;
-            coolDown=CD-(Time.time-lastBuildTime);
+
+        CDtimer.Start();
         
     }
 
     
 	// Use this for initialization
 	void Start () {
-		
+
+        CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
+            coolDown = CD-time;
+        }, delegate()
+        {
+            setBuildFlag(true);
+        });
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        
+        
         test();
 
 	}
@@ -124,14 +139,6 @@ public class Spawner : MonoBehaviour
         }
 
 
-        if (canBuildFlag == false)
-        {
-            coolDown = CD - (Time.time - lastBuildTime);
-
-        }
-        if (coolDown <= 0)
-        {
-            canBuildFlag = true;
-        }
+       
     }
 }

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937839826265586}
   - component: {fileID: 114898488019243154}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: BaseTramcarSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

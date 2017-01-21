@@ -48,25 +48,58 @@ public class Railway : MonoBehaviour {
     virtual protected void OnObjEnter(Collider collider)
     {
         Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
-
-        if (Vector3.Distance(collider.transform.position, pointList[0]) <
-            Vector3.Distance(collider.transform.position, pointList[pointList.Count - 1]))
-        {
-            obj.addRoadsPoint(new List<Vector3>(pointList));
-
+        
+        if(obj!=null){
+            getRoad(obj,collider.transform.position);
         }
-        else
-        {
-            List<Vector3> vs = new List<Vector3>(pointList);
-            vs.Reverse();
-            obj.addRoadsPoint(vs);
-        }
+
+  
 
      //   obj.printRoad();
     
     }
 
-   
+
+    public void getRoad(Railwaymovable r,Vector3 v)
+    {
+
+        if (FromWhichPoint(pointList.ToArray(), r.transform.position) == 0)
+        {
+            r.addRoadsPoint(new List<Vector3>(pointList));
+        }
+        else
+        {
+            List<Vector3> vs = new List<Vector3>(pointList);
+            vs.Reverse();
+            r.addRoadsPoint(vs);
+        }
+    }
+
+
+    /// <summary>
+    /// 离数组中哪个点位置最近
+    /// </summary>
+    /// <param name="vs">数组</param>
+    /// <param name="v">点</param>
+    /// <returns></returns>
+    public static int FromWhichPoint(Vector3[] vs, Vector3 v)
+    {
+
+
+        float minDistance = 99;
+        int minNum = 0;
+        for (int i = 0; i < vs.Length; i++)
+        {
+            float tempDist = Vector3.Distance(v, vs[i]);
+            if (tempDist < minDistance)
+            {
+                minDistance = tempDist;
+                minNum = i;
+            }
+        }
+
+        return minNum;
+    }
     
 
     

@@ -19,6 +19,8 @@ public class Tags {
         public const string OVERWEIGHTTRAMCAR = "overweight_ramcar";//超载矿车
         public const string SKILLEDTRAMCAR = "skilled_ramcar";//老练矿车
         public const string TRAIN = "train";//火车
+
+        public const string EXPLORATIONTRAMCAR = "exploration_tramcar";//探勘车,占领矿山用
         
     }
 
@@ -31,5 +33,14 @@ public class Tags {
         public const string ROGUE = "rogue";//流氓
         public const string RAILWAYDESTROIER = "railway_destroier";//道路破坏者
     }
+
+    public static class Building
+    {
+        public const string MINE = "mine";//矿山
+        public const string MAINMINE = "main_mine";//主矿山
+        public const string SCORING = "scoring_building";//终点
+
+    }
+
 
 }

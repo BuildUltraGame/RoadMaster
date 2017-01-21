@@ -51,8 +51,9 @@ public class MetroGate3 : MetroGate {
            print("不能通过");
            //TODO:不能通过,应该回头
            Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
-           obj.addRoadPoint(allPoint[pointNum]);
-           obj.addRoadPoint(collider.transform.position);
+          // obj.addRoadPoint(allPoint[pointNum]);
+         //  obj.addRoadPoint(collider.transform.position);
+           obj.Back();
 
 
         }
