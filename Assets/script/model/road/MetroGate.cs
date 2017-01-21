@@ -16,7 +16,16 @@ public abstract class MetroGate : Railway {
    public abstract void GateChange(Vector3 v,int linkNum);
 
 
-    
 
+   /// <summary>
+   /// 摧毁本岔路的车
+   /// </summary>
+   protected void destroyVehilesOnRoad()
+   {
+       foreach (GameObject obj in vehilesOnRoad)
+       {
+           Destroy(obj);
+       }
+   }
 
 }

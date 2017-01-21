@@ -39,6 +39,8 @@ public class MetroGate3 : MetroGate {
 	
 	// Update is called once per frame
 	void Update () {
+
+      
 		
 	}
 
@@ -49,7 +51,7 @@ public class MetroGate3 : MetroGate {
        if (blockRoad == allPoint[pointNum])
        {
            print("不能通过");
-           //TODO:不能通过,应该回头
+           
            Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
           // obj.addRoadPoint(allPoint[pointNum]);
          //  obj.addRoadPoint(collider.transform.position);
@@ -93,10 +95,13 @@ public class MetroGate3 : MetroGate {
         linkRoad.Clear();
         linkRoad.Add(allPoint[minNum]);
         linkRoad.Add(allPoint[(minNum+linkNum)%3]);
-        
+
+
+        destroyVehilesOnRoad();
         
 
     }
 
+    
 
 }

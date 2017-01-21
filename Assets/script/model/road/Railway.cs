@@ -6,6 +6,8 @@ public class Railway : MonoBehaviour {
 
     protected List<Vector3> pointList = new List<Vector3>();
 
+    protected List<GameObject> vehilesOnRoad = new List<GameObject>();
+
 
 	// Use this for initialization
     protected void Start () {
@@ -27,6 +29,7 @@ public class Railway : MonoBehaviour {
         if (other.gameObject.layer == Layers.VEHICLE)
         {
             print(name);
+            addVehileOnRoad(other.gameObject);
             OnObjEnter(other);
 
 
@@ -37,7 +40,7 @@ public class Railway : MonoBehaviour {
     {
         if (other.gameObject.layer == Layers.VEHICLE)
         {
-
+            removeVehileOnRoad(other.gameObject);
             Railwaymovable obj = other.gameObject.GetComponent<Railwaymovable>();
             obj.removeRoadsPoint(pointList);
         }
@@ -73,6 +76,17 @@ public class Railway : MonoBehaviour {
             vs.Reverse();
             r.addRoadsPoint(vs);
         }
+    }
+
+
+    public void addVehileOnRoad(GameObject vehile)
+    {
+        vehilesOnRoad.Add(vehile);
+    }
+
+    public void removeVehileOnRoad(GameObject vehile)
+    {
+        vehilesOnRoad.Remove(vehile);
     }
 
 
