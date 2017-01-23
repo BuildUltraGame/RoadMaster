@@ -15,26 +15,32 @@ using UnityEngine.AI;
 /// </summary>
 public class Roadmovable : MonoBehaviour {
 
-    private NavMeshAgent nav;
+    private NavMeshAgent nav=null;
     private Vector3 destination;
     public GameObject target;
 
 	// Use this for initialization
 	void Start () {
-	    nav=GetComponent<NavMeshAgent>();
-        destination = transform.position;
+
+    
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(nav==null){
+            return;
+        }
+
         if(target!=null){
             setDestination(target.transform.position);
         }
 
-        
+        print(nav.pathStatus);
+        print(nav.remainingDistance);
 
         //到达目的地,销毁自己
-        if (nav.pathStatus==NavMeshPathStatus.PathComplete&&nav.remainingDistance<=0)
+        if (nav.pathStatus==NavMeshPathStatus.PathComplete&&Mathf.Abs(nav.remainingDistance-nav.stoppingDistance)<=0.1)
         {
             Destroy(gameObject);
         }
@@ -47,6 +53,8 @@ public class Roadmovable : MonoBehaviour {
     public void setDestination(Vector3 v)
     {
         destination = v;
+        //nav.destination = destination;
+        nav = GetComponent<NavMeshAgent>();
         nav.SetDestination(destination);
     }
 
@@ -57,6 +65,7 @@ public class Roadmovable : MonoBehaviour {
     public void setDestination(GameObject targetObj)
     {
         target = targetObj;
+        nav = GetComponent<NavMeshAgent>();
     }
 
     /// <summary>

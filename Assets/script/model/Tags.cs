@@ -11,6 +11,8 @@ public class Tags {
     public const string RAILWAY = "railway";
   
     public const string ROAD = "road";
+
+    public const string RAILWAY_POINT = "railway_point";
     
 
 

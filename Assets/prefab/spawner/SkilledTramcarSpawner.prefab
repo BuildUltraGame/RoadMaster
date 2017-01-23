@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043298227625920}
   - component: {fileID: 114446767355191598}
+  - component: {fileID: 114976269456685086}
   m_Layer: 0
   m_Name: SkilledTramcarSpawner
   m_TagString: Untagged
@@ -55,3 +56,15 @@ MonoBehaviour:
   cost: 110
   spawnUnit: {fileID: 1973957703888392, guid: 656d242aa00e53046940f2542b959c31, type: 2}
   CD: 7
+--- !u!114 &114976269456685086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1169778672093452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 0
