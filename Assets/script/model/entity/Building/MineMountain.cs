@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 矿山主体
+///  通过Inspector面板来设定是主矿还是分矿
+///  Attention：不要忘记挂载矿山的碰撞处理脚本！
+/// </summary>
 public class MineMountain : MonoBehaviour {
 
-    /// <summary>
-    ///  矿山
-    ///  通过Inspector面板来设定是主矿还是分矿
-    /// </summary>	
-
-    public int totalMine = 100;
+    public int initMine = 100;
+    private int totalMine = 100;
     public float increaseRate = 0.0f;//每秒增长速率
     public float increaseFlashTime = 1.0f;//
     public bool isSmallMine = false;
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
 
-    public int owner;
+    private int owner;
 
     public List<Spawner> SpawnerUnitList = new List<Spawner>();
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();
 
+
     void Awake()
     {
         InitSpawnerDict();
+        totalMine = initMine;
+        InitOwner();
     }
 
     void Start () {
@@ -31,12 +35,19 @@ public class MineMountain : MonoBehaviour {
 	
 
 	void Update () {
-        //testBuild();
+        testBuild();
         Debug.Log("mine" + totalMine);
 
     }
 
-    bool buildUnitByName(string name, Vector3 buildPos)
+    /// <summary>
+    /// 传递名称来调用其上的生成器
+    /// 必须要先在scene里面有对应的spawner才可以
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="buildPos"></param>
+    /// <returns></returns>
+    public bool buildUnitByName(string name,Vector3 buildPos)
     {
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -47,7 +58,6 @@ public class MineMountain : MonoBehaviour {
         {
             return false;
         }
-        //Debug.Log("pos:" + buildPos);
         targetSpawner.setTarget(buildPos);
         if (totalMine >= targetSpawner.getCost())
         {
@@ -57,7 +67,7 @@ public class MineMountain : MonoBehaviour {
             }
                
             else
-                // TODOS
+                // TODO
                 return false;
         }
         return false;
@@ -68,6 +78,9 @@ public class MineMountain : MonoBehaviour {
         totalMine += (int)(increaseRate * increaseFlashTime);
     }
 
+    /// <summary>
+    /// 初始化，将孵化器list存入dict
+    /// </summary>
     void InitSpawnerDict()
     {
         foreach(Spawner spawnerUnit in SpawnerUnitList)
@@ -76,10 +89,21 @@ public class MineMountain : MonoBehaviour {
         }
     }
 
+    void InitOwner()
+    {
+        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
+        owner = gameObjectBaseGo.getOwner();
+    }
+
     void testBuild()
     {
         Vector3 pos = Lighthouse.transform.position;
         buildUnitByName("基础运输矿车", pos);
+    }
+
+    public void getMineFromCar(int count)
+    {
+        totalMine += count;
     }
 
 }
