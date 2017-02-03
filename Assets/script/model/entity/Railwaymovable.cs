@@ -41,6 +41,7 @@ public class Railwaymovable : MonoBehaviour {
             }
             else
             {
+                LookAtHorizontal(points[0]);
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(points[0].x, transform.position.y, points[0].z), speed * Time.deltaTime);
             }
         }
