@@ -12,12 +12,14 @@ public class Railway : MonoBehaviour {
 	// Use this for initialization
     protected void Start () {
 		Transform[] ts=GetComponentsInChildren<Transform>();
-       
-        foreach(Transform t in ts){
-            pointList.Add(t.position);
 
+        
+        foreach(Transform t in ts){
+            if(t.gameObject.tag==Tags.RAILWAY_POINT){
+                pointList.Add(t.position);
+            }
         }
-        pointList.Remove(transform.position);
+      
 
        
 	}

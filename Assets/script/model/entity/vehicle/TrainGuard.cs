@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainGuard : MonoBehaviour {
+public class TrainGuard : GuardAbs {
+    public const int GUARDLEVEL = 5;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public override bool TryDestroy(AttackAbs attackObj)
+    {
+        if(attackObj.getAttackLevel()<=getGuardLevel()){
+            Destroy(attackObj);
+            return false;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return true;
+
+        }
+
+
+    }
+
+    public override int getGuardLevel()
+    {
+        return GUARDLEVEL;
+    }
 }

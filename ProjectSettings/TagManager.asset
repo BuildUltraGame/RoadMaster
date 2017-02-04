@@ -17,6 +17,7 @@ TagManager:
   - exploration_tramcar
   - mine
   - scoring_building
+  - railway_point
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// 刷怪笼脚本
+/// 注意:挂载本脚本的时候,请务必也挂载上游戏基础脚本,因为脚本带了游戏对象所属
+/// 生成所有的对象的控制权都和本刷怪笼带的游戏基础脚本指定的控制方所用
 /// 
 /// </summary>
 public class Spawner : MonoBehaviour
@@ -14,11 +16,13 @@ public class Spawner : MonoBehaviour
     
     protected float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
 
-    private Vector3 targetPoint;//设定建造出来的单位目的地
+    private Vector3 targetPoint=Vector3.zero;//设定建造出来的单位目的地
     private GameObject targetObj;//设置建造出来的单位的跟踪目标
 
     private TimerController.Timer CDtimer;
     private bool canBuildFlag = true;
+
+    private GameobjBase gBase;
 
     /// <summary>
     /// 设置是否能建造
@@ -77,6 +81,8 @@ public class Spawner : MonoBehaviour
         //生成游戏单位代码
 
         GameObject obj=GameObject.Instantiate<GameObject>(spawnUnit);
+        
+        obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
         obj.transform.position = transform.position;
 
         Roadmovable roadmovable=obj.GetComponent<Roadmovable>();
@@ -86,7 +92,9 @@ public class Spawner : MonoBehaviour
         
             if(targetObj!=null){
                 roadmovable.setDestination(targetObj);//设置跟踪目标,优先
-            }else if(targetPoint!=null){
+            }
+            else if (targetPoint != Vector3.zero)
+            {
                 roadmovable.setDestination(targetPoint);//设置目的地
             }
 
@@ -110,6 +118,10 @@ public class Spawner : MonoBehaviour
     
 	// Use this for initialization
 	void Start () {
+        gBase=GetComponent<GameobjBase>();
+        if(gBase==null){
+            throw new System.Exception("生成器忘了加基础游戏脚本了亲");
+        }
 
         CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
             coolDown = CD-time;

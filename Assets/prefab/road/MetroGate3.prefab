@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4245660252475420}
   m_Layer: 12
   m_Name: center
-  m_TagString: Untagged
+  m_TagString: railway_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4562084727750716}
   m_Layer: 12
   m_Name: p1
-  m_TagString: Untagged
+  m_TagString: railway_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4658096384620502}
   m_Layer: 12
   m_Name: p2
-  m_TagString: Untagged
+  m_TagString: railway_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 4656324759611666}
   m_Layer: 12
   m_Name: p3
-  m_TagString: Untagged
+  m_TagString: railway_point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,6 @@ GameObject:
   - component: {fileID: 65645771334479808}
   - component: {fileID: 23905787733875232}
   - component: {fileID: 114734667081578078}
-  - component: {fileID: 114764252121574466}
   m_Layer: 12
   m_Name: MetroGate3
   m_TagString: railway
@@ -98,8 +97,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752757845311336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.78205, y: 0.05, z: 3.3479247}
-  m_LocalScale: {x: 1, y: 0.009335491, z: 1}
+  m_LocalPosition: {x: 7.9217, y: 0.04, z: 15.51}
+  m_LocalScale: {x: 3.9273646, y: 0.036663905, z: 3.9273677}
   m_Children:
   - {fileID: 4245660252475420}
   - {fileID: 4562084727750716}
@@ -205,7 +204,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752757845311336}
   m_Material: {fileID: 13400000, guid: 4ee1b58a03756634594cb34f7f2497df, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -219,16 +218,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9eea7b97ce3b6f418ebce0e18d834ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114764252121574466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1752757845311336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5904ff8eab531c4eaf999b1ca1b5204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
