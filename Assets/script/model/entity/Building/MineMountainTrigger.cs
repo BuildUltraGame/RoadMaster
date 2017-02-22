@@ -11,13 +11,13 @@ public class MineMountainTrigger : CollisionBaseHandler
     public override void OnEnemyCollisionStart(Collider enemy)
     {
         MineMountain mineMountain = this.GetComponent<MineMountain>();
+        ExplorationTramcar explorationTramcar = this.GetComponent<ExplorationTramcar>();
         base.OnEnemyCollisionStart(enemy);
-        if (mineMountain.isSmallMine)
+        if (!(mineMountain.isSmallMine && explorationTramcar))
         {
-            //TODO 判断是否是占领单位
+            Destroy(enemy.gameObject);
         }
 
-        Destroy(enemy.gameObject);
 
     }
 

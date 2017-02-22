@@ -47,7 +47,7 @@ public class MineMountain : MonoBehaviour {
     /// <param name="name"></param>
     /// <param name="buildPos"></param>
     /// <returns></returns>
-    public bool buildUnitByName(string name,Vector3 buildPos)
+    public bool buildUnitByName(string name,Vector3 targetPos)
     {
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -58,7 +58,7 @@ public class MineMountain : MonoBehaviour {
         {
             return false;
         }
-        targetSpawner.setTarget(buildPos);
+        targetSpawner.setTarget(targetPos);
         if (totalMine >= targetSpawner.getCost())
         {
             if (targetSpawner.build())
@@ -104,6 +104,14 @@ public class MineMountain : MonoBehaviour {
     public void getMineFromCar(int count)
     {
         totalMine += count;
-    }
+    } 
 
+    public bool changeOwner(int targetOwner)
+    {
+        if (!isSmallMine)
+            return false;
+        owner = targetOwner;
+        Debug.Log("owner changed = to" + owner);
+        return true;
+    }
 }

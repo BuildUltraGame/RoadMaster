@@ -9,12 +9,20 @@ using UnityEngine;
 
 public class FuckHole : CollisionBaseHandler{
 
-    void OnTriggerEnter(Collider fuckedBoy)
+
+    public override void OnEnemyCollisionStart(Collider enemy)
     {
-        GameObject fuckedBoyOb = fuckedBoy.gameObject;
-        Debug.Log("name:"+ fuckedBoyOb.name);
+        GameObject fuckedBoyOb = enemy.gameObject;
+        Debug.Log("name:" + fuckedBoyOb.name);
         //应当调用物体的销毁脚本的销毁方法，但是好像还没有
         Destroy(fuckedBoyOb);
+    }
 
+    public override void OnSelfUnitCollisionStart(Collider selfUnit)
+    {
+        GameObject fuckedBoyOb = selfUnit.gameObject;
+        Debug.Log("name:" + fuckedBoyOb.name);
+        //应当调用物体的销毁脚本的销毁方法，但是好像还没有
+        Destroy(fuckedBoyOb);
     }
 }
