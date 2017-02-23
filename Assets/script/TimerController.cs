@@ -80,6 +80,7 @@ public class TimerController : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        DontDestroyOnLoad(this);
     }
 
     public static TimerController getInstance(){
