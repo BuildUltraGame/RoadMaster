@@ -1,0 +1,60 @@
+{"frames": {
+
+"Gold_400001.png":
+{
+	"frame": {"x":2,"y":2,"w":112,"h":81},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":10,"w":112,"h":81},
+	"sourceSize": {"w":134,"h":97}
+},
+"bottomBar.png":
+{
+	"frame": {"x":116,"y":2,"w":647,"h":136},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":647,"h":136},
+	"sourceSize": {"w":647,"h":136}
+},
+"left.png":
+{
+	"frame": {"x":765,"y":2,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"leftBar.png":
+{
+	"frame": {"x":2,"y":204,"w":248,"h":299},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":248,"h":299},
+	"sourceSize": {"w":248,"h":299}
+},
+"right.png":
+{
+	"frame": {"x":252,"y":204,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"ring.png":
+{
+	"frame": {"x":454,"y":204,"w":300,"h":300},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":300,"h":300},
+	"sourceSize": {"w":300,"h":300}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:52b6df7a52de233a131b3c94747416b6$"
+}
+}
