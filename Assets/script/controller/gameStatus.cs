@@ -24,7 +24,10 @@ public class gameStatus : MonoBehaviour {
     int signIn() {
         return 0;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="mode"></param>
     void setMode(int mode)
     {
         Mode = mode;
