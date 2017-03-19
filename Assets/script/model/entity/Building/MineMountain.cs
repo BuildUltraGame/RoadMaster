@@ -35,7 +35,7 @@ public class MineMountain : MonoBehaviour {
 	
 
 	void Update () {
-        testBuild();
+        //testBuild();
         Debug.Log("mine" + totalMine);
 
     }
@@ -95,7 +95,7 @@ public class MineMountain : MonoBehaviour {
         owner = gameObjectBaseGo.getOwner();
     }
 
-    void testBuild()
+    public void testBuild()
     {
         Vector3 pos = Lighthouse.transform.position;
         buildUnitByName("基础运输矿车", pos);
