@@ -41,7 +41,7 @@ public class mineGold : MonoBehaviour {
     {
         if (mineSelected == null)
            remind.sendHint("please select a mine");
-        else GoldAll.text = ""+mineSelected.totalMine;
+        //else GoldAll.text = ""+mineSelected.totalMine;
     }
     /// <summary>
     /// 当前矿山训练速度
