@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+  game_ID: 1
+  game_name: "\u57FA\u7840\u77FF\u8F66"
 --- !u!114 &114781377329615640
 MonoBehaviour:
   m_ObjectHideFlags: 1

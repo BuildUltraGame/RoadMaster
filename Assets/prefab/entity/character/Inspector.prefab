@@ -1454,6 +1454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 1
+  game_ID: 7
+  game_name: "\u7763\u5BDF\u5458"
 --- !u!137 &137119243944359970
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

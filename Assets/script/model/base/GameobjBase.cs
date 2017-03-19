@@ -8,6 +8,7 @@ using UnityEngine;
 /// 
 /// </summary>
 public class GameobjBase : MonoBehaviour {
+
     public const int WORLD = -1;//世界单位
 
     public const int PLAYER = 0;//己方
@@ -19,6 +20,9 @@ public class GameobjBase : MonoBehaviour {
 
     public int owner=PLAYER;//对象所属方,用于对战和任务模式区分敌我单位
 
+    public int game_ID=0;//游戏物体ID
+
+    public string game_name = null;//游戏物体名字
 
     public void setOwner(int newOwner)
     {
