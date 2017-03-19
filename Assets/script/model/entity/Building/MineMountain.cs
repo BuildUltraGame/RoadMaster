@@ -10,11 +10,12 @@ using UnityEngine;
 public class MineMountain : MonoBehaviour {
 
     public int initMine = 100;
-    private int totalMine = 100;
+    public int totalMine = 100;
     public float increaseRate = 0.0f;//每秒增长速率
-    public float increaseFlashTime = 1.0f;//
-    public bool isSmallMine = false;
+    public float increaseFlashTime = 1.0f;//金币更新频率
+    public bool isSmallMine = false;//是否是分矿
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
+    public float currentScore; //当前分数
 
     private int owner;
 
@@ -93,6 +94,7 @@ public class MineMountain : MonoBehaviour {
     {
         GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
         owner = gameObjectBaseGo.getOwner();
+        currentScore = 0;
     }
 
     public void testBuild()
@@ -104,7 +106,7 @@ public class MineMountain : MonoBehaviour {
     public void getMineFromCar(int count)
     {
         totalMine += count;
-    } 
+    }
 
     public bool changeOwner(int targetOwner)
     {
@@ -113,5 +115,10 @@ public class MineMountain : MonoBehaviour {
         owner = targetOwner;
         Debug.Log("owner changed = to" + owner);
         return true;
+    }
+
+    public void changeScore(float num)
+    {
+        currentScore += num;
     }
 }
