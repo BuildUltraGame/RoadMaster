@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,10 @@ public class MineMountain : MonoBehaviour {
 
     private int owner;
 
-    public List<Spawner> SpawnerUnitList = new List<Spawner>();
-    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();
+    public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
+    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
-    public Dictionary<int, Spawner> SpawnerIDDict = new Dictionary<int, Spawner>();//等待ID与Spawner的对应关系实现之后再填入
+    public TextAsset IDText;    
 
     void Awake()
     {
