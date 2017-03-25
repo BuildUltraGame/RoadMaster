@@ -81,7 +81,7 @@ public class EventCenter : MonoBehaviour {
         /// 发生事件的时候调用该接口
         /// </summary>
         /// <param name="e">事件</param>
-        public void eventHappend(Event e);
+        void eventHappend(Event e);
     }
 
     public class Event
