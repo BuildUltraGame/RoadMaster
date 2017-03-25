@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4420690156812068}
   - component: {fileID: 114036863694291578}
   m_Layer: 0
-  m_Name: MyAtlas
+  m_Name: GameControllerAtlas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

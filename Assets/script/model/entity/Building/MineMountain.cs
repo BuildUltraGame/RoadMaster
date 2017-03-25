@@ -22,6 +22,7 @@ public class MineMountain : MonoBehaviour {
     public List<Spawner> SpawnerUnitList = new List<Spawner>();
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();
 
+    public Dictionary<int, Spawner> SpawnerIDDict = new Dictionary<int, Spawner>();//等待ID与Spawner的对应关系实现之后再填入
 
     void Awake()
     {
@@ -38,7 +39,42 @@ public class MineMountain : MonoBehaviour {
 	void Update () {
         //testBuild();
         Debug.Log("mine" + totalMine);
+    }
 
+    /// <summary>
+    /// 根据ID来生产单位，原来的接口暂时还没有删
+    /// 实现方式跟之前一样，因为我在spawner上面并没有找到ID属性，所以暂时没有修改接口内部的实现方式
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="targetPos"></param>
+    /// <returns></returns>
+    public bool buildUnitByID(int id,Vector3 targetPos)
+    {
+        
+        string name = IDs.getNameByID(id);
+        Spawner targetSpawner = null;
+        if (SpawnerUnitDict.ContainsKey(name) == true)
+        {
+            targetSpawner = SpawnerUnitDict[name];
+        }
+        else
+        {
+            Debug.Log("没有查找到对应的spawner");
+            return false;
+        }
+        targetSpawner.setTarget(targetPos);
+        if (totalMine >= targetSpawner.getCost())
+        {
+            if (targetSpawner.build())
+            {
+                totalMine -= targetSpawner.getCost();
+            }
+
+            else
+                Debug.Log("行走时出错");
+                return false;
+        }
+        return false;
     }
 
     /// <summary>
