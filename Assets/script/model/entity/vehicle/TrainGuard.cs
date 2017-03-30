@@ -8,6 +8,7 @@ public class TrainGuard : GuardAbs {
 
     public override bool TryDestroy(AttackAbs attackObj)
     {
+        base.TryDestroy(attackObj);
         if(attackObj.getAttackLevel()<=getGuardLevel()){
             Destroy(attackObj);
             return false;

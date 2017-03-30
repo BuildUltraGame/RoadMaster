@@ -12,6 +12,7 @@ public class BaseTramcarGuard : GuardAbs
 
     public override bool TryDestroy(AttackAbs attackObj)
     {
+        base.TryDestroy(attackObj);
         Destroy(gameObject);
         return true;
     }
