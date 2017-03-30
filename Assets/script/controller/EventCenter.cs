@@ -42,6 +42,6 @@ public class EventCenter : MonoBehaviour,IListener<BaseEvent> {
 
     public void Handle(BaseEvent message)
     {
-        print(message.getArgs());
+        print(message.getObject());
     }
 }

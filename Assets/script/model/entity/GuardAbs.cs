@@ -13,8 +13,8 @@ public abstract class GuardAbs : CollisionBaseHandler {
     /// </summary>
     /// <param name="attackObj">发出销毁请求的对方</param>
     /// <returns>是否销毁成功</returns>
-    public bool TryDestroy(AttackAbs attackObj) {
-        EventAggregator.SendMessage<BaseEvent>(new BaseEvent(gameObject, "Destroy", attackObj.gameObject, null));
+    public virtual bool TryDestroy(AttackAbs attackObj) {
+        EventAggregator.SendMessage<BaseEvent>(new DestroyEvent(gameObject, attackObj.gameObject));
         return false;
     }
 
