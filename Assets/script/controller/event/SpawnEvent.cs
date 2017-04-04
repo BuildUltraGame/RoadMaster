@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-class SpawnEvent:BaseEvent
+public class SpawnEvent : BaseEvent
 {
 
     public SpawnEvent(GameObject gameObj)

@@ -5,7 +5,8 @@ using UnityEventAggregator;
 /// <summary>
 /// 事件中心,会监听所有事件
 /// </summary>
-public class EventCenter : MonoBehaviour,IListener<BaseEvent> {
+public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameObjSeletEvent>
+{
 
     private static EventCenter _instance;
     
@@ -27,6 +28,7 @@ public class EventCenter : MonoBehaviour,IListener<BaseEvent> {
     void Start()
     {
         EventAggregator.Register<BaseEvent>(this);
+        EventAggregator.Register<GameObjSeletEvent>(this);
     }
 
 
@@ -41,6 +43,11 @@ public class EventCenter : MonoBehaviour,IListener<BaseEvent> {
 	}
 
     public void Handle(BaseEvent message)
+    {
+        print(message.getObject());
+    }
+
+    public void Handle(GameObjSeletEvent message)
     {
         print(message.getObject());
     }
