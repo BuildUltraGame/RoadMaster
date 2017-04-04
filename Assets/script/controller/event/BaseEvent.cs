@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,43 @@ public class BaseEvent
         this._subject = _subject;
         this._object = _object;
         this.verb = verb;
+        checkIsGameObj();
+    }
 
+
+    private void checkIsGameObj()
+    {
+        if(_object!=null&&_object.GetComponent<GameobjBase>()==null){
+             throw new Exception("传入事件的并不是游戏对象");
+        }
+        if(_subject!=null&&_subject.GetComponent<GameobjBase>()==null){
+             throw new Exception("传入事件的并不是游戏对象");
+        }
+    }
+
+    public int getObjectID()
+    {
+        GameobjBase b;
+        if (_object!=null&&(b = _object.GetComponent<GameobjBase>()) != null)
+        {
+            return b.game_ID;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public int getSubjectID()
+    {
+        GameobjBase b;
+        if (_subject!=null&&(b = _subject.GetComponent<GameobjBase>()) != null)
+        {
+            return b.game_ID;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public GameObject getSubject()

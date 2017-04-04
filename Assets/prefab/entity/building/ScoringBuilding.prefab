@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95127843494431706}
   - component: {fileID: 114842657476081502}
   - component: {fileID: 114310261461779368}
+  - component: {fileID: 65867164600043840}
   m_Layer: 0
   m_Name: ScoringBuilding
   m_TagString: Untagged
@@ -82,6 +83,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082233871047610}
   m_Mesh: {fileID: 4300000, guid: a377d502b49c5574a884d927eb055b40, type: 3}
+--- !u!65 &65867164600043840
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082233871047610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.045, y: 0.110960975, z: 0.045}
+  m_Center: {x: 0, y: 0.05473952, z: 0.000000009313226}
 --- !u!95 &95127843494431706
 Animator:
   serializedVersion: 3
