@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+/// <summary>
+/// 当选择请求已经完成的时候会发送这个事件,表示用户已经选择
+/// </summary>
 public class SelectEvent : BaseEvent {
     private Type type;
     private List<Vector3> listV;
@@ -10,23 +12,36 @@ public class SelectEvent : BaseEvent {
     public SelectEvent(GameObject _obj)
         : base(null, "Select", _obj)
     {
-        
+        listV = new List<Vector3>();
+        listObj = new List<GameObject>();
     }
 
     private void setType(Type t) {
         type = t;
     }
 
-    public void setSeletList(List<Vector3> listV)
+    public void addSelect(Vector3 v)
     {
         setType(typeof(Vector3));
-        this.listV = listV;
+        listV.Add(v);
     }
 
-    public void setSeletList(List<GameObject> listObj)
+    public void addSelect(GameObject obj)
     {
         setType(typeof(GameObject));
-        this.listObj = listObj;
+        listObj.Add(obj);
+    }
+
+
+    public List<Vector3> getVectorList()
+    {
+        return listV;
+    }
+
+
+    public List<GameObject> getTargetList()
+    {
+        return listObj;
     }
 
 }
