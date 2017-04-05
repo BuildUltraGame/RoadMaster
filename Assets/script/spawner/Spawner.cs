@@ -13,7 +13,9 @@ public class Spawner : MonoBehaviour
     public string name = "null";//生成单位名称
     public int cost = 0;//造价
     public GameObject spawnUnit;//建造的单位prefab
-    public float CD = 0;//建造一个单位所需要的时间
+    public float CD = 0;//建造一个单位后需要等待的时间
+
+    public float buildTime = 0;//建造一个单位需要的时间(和CD有区别)
     
     protected float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
 
@@ -77,21 +79,30 @@ public class Spawner : MonoBehaviour
             return false;
         }
 
-        startTimer();
+        Invoke("buildNow", buildTime);
 
+        return true;
+
+    }
+
+
+    private void buildNow()
+    {
         //生成游戏单位代码
 
-        GameObject obj=GameObject.Instantiate<GameObject>(spawnUnit);
-        
+        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit);
+
         obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
         obj.transform.position = transform.position;
 
-        Roadmovable roadmovable=obj.GetComponent<Roadmovable>();
+        Roadmovable roadmovable = obj.GetComponent<Roadmovable>();
 
-        if(null!=roadmovable){
+        if (null != roadmovable)
+        {
             //只对人有效,对车无效
-        
-            if(targetObj!=null){
+
+            if (targetObj != null)
+            {
                 roadmovable.setDestination(targetObj);//设置跟踪目标,优先
             }
             else if (targetPoint != Vector3.zero)
@@ -99,16 +110,13 @@ public class Spawner : MonoBehaviour
                 roadmovable.setDestination(targetPoint);//设置目的地
             }
 
-        
+
         }
 
-
+        startTimer();
         canBuildFlag = false;
 
         EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(obj));//发送生成单位事件
-
-        return true;
-
     }
 
     private void startTimer()
