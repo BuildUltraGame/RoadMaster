@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEventAggregator;
 /// <summary>
 /// 矿山主体
 ///  通过Inspector面板来设定是主矿还是分矿
@@ -112,6 +112,7 @@ public class MineMountain : MonoBehaviour {
 
     void increaseMine()
     {
+        EventAggregator.SendMessage<MineStateChangeEvent>(new MineStateChangeEvent(this));//发送矿山状态改变事件
         totalMine += (int)(increaseRate * increaseFlashTime);
     }
 

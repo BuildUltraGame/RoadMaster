@@ -44,11 +44,11 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
 
     public void Handle(BaseEvent message)
     {
-        print(message.getObject());
+        print(message.getObject()+message.getVerb()+message.getSubject());
     }
 
     public void Handle(GameObjSeletEvent message)
     {
-        print(message.getObject());
+        print(message.getObject() + message.getVerb() + message.getSubject());
     }
 }
