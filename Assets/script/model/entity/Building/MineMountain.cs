@@ -158,4 +158,9 @@ public class MineMountain : MonoBehaviour {
     {
         currentScore += num;
     }
+
+    void OnMouseDown()
+    {
+        EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
+    }
 }

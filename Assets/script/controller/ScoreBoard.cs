@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEventAggregator;
+
 /// <summary>
 /// 计分板,包括了所有玩家的分数情况
 /// 
@@ -12,7 +14,7 @@ using UnityEngine;
 /// 但我认为,这个不初始化的话,如果玩家都没有得分,你都不知道参加的玩家有谁
 /// 如果有更好的方法,请告诉我
 /// </summary>
-public class ScoreBoard 
+public class ScoreBoard :IListener<ScoreAddEvent>
 {
     private static ScoreBoard _instance=new ScoreBoard();
     private Hashtable scores=new Hashtable();
@@ -23,7 +25,7 @@ public class ScoreBoard
 
     private ScoreBoard()
     {
-
+        EventAggregator.Register<ScoreAddEvent>(this);
     }
     /// <summary>
     /// 初始化玩家数
@@ -42,7 +44,7 @@ public class ScoreBoard
     /// </summary>
     /// <param name="player">加分的玩家</param>
     /// <param name="score">分</param>
-    public void addScore(int player,int score)
+    private void addScore(int player,int score)
     {
         if(scores.ContainsKey(player)){
             scores[player] = System.Convert.ToInt32(scores[player]) + score;
@@ -56,6 +58,10 @@ public class ScoreBoard
     }
 
 
-    
-
+    public void Handle(ScoreAddEvent message)
+    {
+        if(message!=null){
+            addScore(message.getOwner(),message.getScore());
+        }
+    }
 }
