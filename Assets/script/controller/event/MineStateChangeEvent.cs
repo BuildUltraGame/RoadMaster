@@ -5,7 +5,7 @@ using System.Text;
 
 
 
-class MineStateChangeEvent:BaseEvent
+public class MineStateChangeEvent:BaseEvent
 {
     private MineMountain mine;
     public MineStateChangeEvent(MineMountain mine):base(mine.gameObject,"StateChange",mine.gameObject)
