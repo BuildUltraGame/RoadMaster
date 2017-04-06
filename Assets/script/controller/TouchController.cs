@@ -32,10 +32,14 @@ public class TouchController : MonoBehaviour, IListener<RequestSelectEvent>
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit rh;
                     Physics.Raycast(ray, out rh);
+                    if(rh.collider==null)
+                    {
+                        return;
+                    }
                     int layout = rh.collider.gameObject.layer;
                     if (layout == Layers.ROAD || layout == Layers.RAILWAY)
                     {//如果点击到了路面(包括铁路和人行道)
-                        sendResult(reqQueue.Dequeue(), Input.mousePosition);
+                        sendResult(reqQueue.Dequeue(), rh.point);
                     }
                     else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
                     { //如果点击到了车辆,或者人
@@ -52,6 +56,10 @@ public class TouchController : MonoBehaviour, IListener<RequestSelectEvent>
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit rh;
                     Physics.Raycast(ray, out rh);
+                    if (rh.collider == null)
+                    {
+                        return;
+                    }
                     int layout = rh.collider.gameObject.layer;
                     if (layout == Layers.ROAD || layout == Layers.RAILWAY)
                     {//如果点击到了路面(包括铁路和人行道)

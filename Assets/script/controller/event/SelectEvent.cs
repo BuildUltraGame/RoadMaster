@@ -20,6 +20,11 @@ public class SelectEvent : BaseEvent {
         type = t;
     }
 
+    public Type getSelectType()
+    {
+        return type;
+    }
+
     public void addSelect(Vector3 v)
     {
         setType(typeof(Vector3));
