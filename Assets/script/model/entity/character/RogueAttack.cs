@@ -12,7 +12,8 @@ public class RogueAttack : AttackAbs
     public override void Attack(GuardAbs guardObj)
     {
         if(guardObj.getGuardLevel()<=getAttackLevel()){
-            if(guardObj.TryDestroy(this)){
+            if (guardObj.DestrotyGameObj(this))
+            {
                 TryDestroy(this);
             }
         }
