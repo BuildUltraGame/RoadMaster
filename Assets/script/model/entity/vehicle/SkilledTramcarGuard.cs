@@ -12,7 +12,7 @@ public class SkilledTramcarGuard : GuardAbs
 
 
     public override bool TryDestroy(AttackAbs attackObj)
-    {
+    {   
         if(attackObj.getAttackLevel()>=getGuardLevel()){
             Destroy(gameObject);
             return true;

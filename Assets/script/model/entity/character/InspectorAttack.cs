@@ -21,7 +21,7 @@ public class InspectorAttack : AttackAbs
                 if (Random.value < probabilityDestroy_baseTramcar)
                 {
                     //摧毁对方
-                    if (guardObj.TryDestroy(this))
+                    if (guardObj.DestrotyGameObj(this))
                     {//成功摧毁对方
                         TryDestroy(this);
                     }
@@ -32,7 +32,7 @@ public class InspectorAttack : AttackAbs
             {
 
                 //摧毁对方
-                if (guardObj.TryDestroy(this))
+                if (guardObj.DestrotyGameObj(this))
                 {//成功摧毁对方
                     TryDestroy(this);
                 }

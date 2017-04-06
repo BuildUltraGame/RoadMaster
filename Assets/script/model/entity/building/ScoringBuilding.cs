@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEventAggregator;
 /// <summary>
 /// 终点类
 /// 
@@ -25,15 +25,14 @@ public class ScoringBuilding : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        //此处违反了之前规定的写对对方造成的影响...但我觉得...这样写舒服...
+        //这里要处理所有玩家的单位,所以不去继承之前写的那个基类
         GameobjBase gBase= other.GetComponent<GameobjBase>();
         GoldCarrier carrier=other.GetComponent<GoldCarrier>();
 
         if(gBase==null||carrier==null){
             return;
         }
-
-        ScoreBoard.getInstance().addScore(gBase.getOwner(),carrier.popGold());
+        EventAggregator.SendMessage<ScoreAddEvent>(new ScoreAddEvent(gameObject, gBase.getOwner(), carrier.popGold()));//发送分数增加事件
 
         Destroy(other.gameObject);
         

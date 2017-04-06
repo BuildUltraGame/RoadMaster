@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEventAggregator;
 /// <summary>
 /// 刷怪笼脚本
 /// 注意:挂载本脚本的时候,请务必也挂载上游戏基础脚本,因为脚本带了游戏对象所属
@@ -103,6 +104,8 @@ public class Spawner : MonoBehaviour
 
 
         canBuildFlag = false;
+
+        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(obj));//发送生成单位事件
 
         return true;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEventAggregator;
 
 /// <summary>
 /// 攻击模块
@@ -40,5 +40,18 @@ public abstract class AttackAbs : CollisionBaseHandler {
     /// <param name="attackObj">发出销毁请求的对方</param>
     /// <returns>是否销毁成功</returns>
     public abstract bool TryDestroy(AttackAbs attackObj);
+
+    public bool DestrotyGameObj(AttackAbs attackObj)
+    {
+        if (TryDestroy(attackObj))
+        {
+            EventAggregator.SendMessage<DestroyEvent>(new DestroyEvent(gameObject, gameObject));
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
