@@ -5,10 +5,13 @@ using UnityEventAggregator;
 /// <summary>
 /// 触摸控制器,功能是接受RequestSelectEvent的请求事件,然后返回SelectEvent事件
 /// 只要用于当model层需要用户选择一个位置时候(发送RequestSelectEvent请求)
+/// 
+/// TODO:整合到控制器中,不应该独立开来
+/// 
 /// </summary>
 public class TouchController : MonoBehaviour, IListener<RequestSelectEvent>
 {
-    private bool DEBUG = true;//调试用
+    private bool DEBUG = true;//调试用,因为调试的时候无法触屏,直接采用了鼠标点击的方式去检测
     private Queue<RequestSelectEvent> reqQueue = new Queue<RequestSelectEvent>();
     
 	void Awake () {
