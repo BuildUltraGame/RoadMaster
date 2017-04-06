@@ -18,8 +18,6 @@ public class MineMountain : MonoBehaviour {
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
     public float currentScore; //当前分数
 
-    private int owner;
-
     public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
@@ -29,7 +27,7 @@ public class MineMountain : MonoBehaviour {
     {
         InitSpawnerDict();
         totalMine = initMine;
-        InitOwner();
+        InitScore();
     }
 
     void Start () {
@@ -128,10 +126,8 @@ public class MineMountain : MonoBehaviour {
         }
     }
 
-    void InitOwner()
+    void InitScore()
     {
-        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
-        owner = gameObjectBaseGo.getOwner();
         currentScore = 0;
     }
 
@@ -146,15 +142,15 @@ public class MineMountain : MonoBehaviour {
         totalMine += count;
     }
 
-    public bool changeOwner(int targetOwner)
+    /*public bool changeOwner(int targetOwner)
     {
         if (!isSmallMine)
             return false;
-        owner = targetOwner;
-        Debug.Log("owner changed = to" + owner);
+        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
+        gameObjectBaseGo.setOwner(targetOwner);
         return true;
-    }
-
+    }删除修改所有者的接口，由gameobjectbase来管理，没问题的话我删除注释
+    */
     public void changeScore(float num)
     {
         currentScore += num;
