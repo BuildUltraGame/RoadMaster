@@ -1,59 +1,4 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEventAggregator;
-/// <summary>
-/// 事件中心,会监听所有事件
-/// </summary>
-public class EventCenter : MonoBehaviour,IListener<BaseEvent>, IListener<GameObjSeletEvent>
-{
 
-    private static EventCenter _instance;
-    
-
-    public static EventCenter getInstance()
-    {
-        return _instance;
-    }
-
-    
-
-    void Awake()
-    {
-        _instance = this;
-        
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Start()
-    {
-        EventAggregator.Register<BaseEvent>(this);
-    }
-
-
-    void OnDestroy() {
-        EventAggregator.UnRegister<BaseEvent>(this);
-    }
-
-	
-	// Update is called once per frame
-	void Update () {
-       
-	}
-
-    public void Handle(BaseEvent message)
-    {
-        print(message.getObject());
-    }
-
-    public void Handle(GameObjSeletEvent message)
-    {
-       
-    }
-}
-=======
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,4 +53,3 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
         print(message.getObject() + message.getVerb() + message.getSubject());
     }
 }
->>>>>>> 0477fa115cf7bee779f68040ec8cd247cd633e35
