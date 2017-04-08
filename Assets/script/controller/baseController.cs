@@ -117,6 +117,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 	// Update is called once per frame
 	void Update () {
         if (unitToBuild == true) destinationConfirm();
+        else if (mineSelected != null) tryCancelMine();
         
 	}
 
@@ -189,6 +190,13 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                             idToBuild = 0;
                             EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
                         }
+                        else
+                        {
+                            unitToBuild = false;
+                            idToBuild = 0;
+                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                        }
+                    }
                         /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
                         { //如果点击到了车辆,或者人
                             sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
@@ -216,34 +224,85 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                             unitToBuild = false;
                             idToBuild = 0;
                             EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                    }
-                        /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
-                        { //如果点击到了车辆,或者人
-                            sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
+                        }
+                        else
+                        {
+                            unitToBuild = false;
+                            idToBuild = 0;
+                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                        }
+                /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
+                { //如果点击到了车辆,或者人
+                    sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
 
-                        }*/
+                }*/
 
                     }
-                }
+               }
 
 
             }
+    private void tryCancelMine()
+    {
+        if (DEBUG)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit rh;
+                Physics.Raycast(ray, out rh);
+                if (rh.collider == null)
+                {
+                    return;
+                }
+                MineMountain mine = rh.collider.gameObject.GetComponent<MineMountain>();
+                if (mine ==null)
+                {//没点击到矿山
+                    mineSelected=null;
+                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                }
+                
+            }
+        }
+        else
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit rh;
+                Physics.Raycast(ray, out rh);
+                if (rh.collider == null)
+                {
+                    return;
+                }
+                MineMountain mine = rh.collider.gameObject.GetComponent<MineMountain>();
+                if (mine == null)
+                {//没点击到矿山
+                    mineSelected = null;
+                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                }
+            }
         }
 
+    }
 
-    /*
-        private void sendResult(RequestSelectEvent e, Vector3 p)
-        {
-            SelectEvent se = e.createSelectEvent();
-            se.addSelect(p);
-            EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
-        }
 
-        private void sendResult(RequestSelectEvent e, GameObject obj)
-        {
-            SelectEvent se = e.createSelectEvent();
-            se.addSelect(obj);
-            EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
-        }*/
 
-}
+        /*
+            private void sendResult(RequestSelectEvent e, Vector3 p)
+            {
+                SelectEvent se = e.createSelectEvent();
+                se.addSelect(p);
+                EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
+            }
+
+            private void sendResult(RequestSelectEvent e, GameObject obj)
+            {
+                SelectEvent se = e.createSelectEvent();
+                se.addSelect(obj);
+                EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
+            }*/
+
+    }
