@@ -5,17 +5,14 @@ using System.IO;
 using UnityEventAggregator;
 
 public class createUnit : MonoBehaviour {
-    public MineMountain mm;
     public UISprite producer;
     public UIButton button;
     public List<int> IDList;
     public List<string> picList;
     public int nameNum=0;
-    public Vector3 pos=Vector3.zero;
-    public Reminder rm;
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
-    public TextAsset nameInfoText;
+    //public TextAsset nameInfoText;
 
 
     void Awake()
@@ -25,6 +22,7 @@ public class createUnit : MonoBehaviour {
     }
     void Start()
     {
+
         //producer = this.gameObject.GetComponent<UISprite>();
 
         /*foreach (KeyValuePair<int, string> item in nameDict)
@@ -33,10 +31,9 @@ public class createUnit : MonoBehaviour {
             {
                 picList[nameNum]=nameDict[IDList[nameNum]];
             }
-        }
+        }*/
         
-        producer.spriteName = picList[nameNum];*/
-        IDList = new List<int>{0,1,2,3};
+        IDList = new List<int>{1,1001,1000,1002};
         picList = new List<string> { "mine's truck", "police", "rogue", "worker" };
         button = this.gameObject.GetComponent<UIButton>();
     }
@@ -63,7 +60,7 @@ public class createUnit : MonoBehaviour {
             nameNum = 0;
         }
 
-        producer.spriteName = picList[IDList[nameNum]];
+        producer.spriteName = picList[nameNum];
     }
 
     public void frontButton()
@@ -73,7 +70,7 @@ public class createUnit : MonoBehaviour {
         {
             nameNum = 3;
         }
-        producer.spriteName = picList[IDList[nameNum]];
+        producer.spriteName = picList[nameNum];
     }
 /// <summary>
 /// 未知
@@ -84,12 +81,12 @@ public class createUnit : MonoBehaviour {
         IDList = newNameList;
     }*/
     /// <summary>
-    /// 用户点击制造单位，未完成
+    /// 用户点击制造单位
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, nameNum));
-        Debug.Log(nameNum,null);
+        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, IDList[nameNum]));
+        Debug.Log(IDList[nameNum], null);
         /*if (pos == Vector3.zero)
         {
             rm.sendHint("please choose your point");
