@@ -110,9 +110,9 @@ public class createUnit : MonoBehaviour {
 
     }
 
-    class unitEvent : BaseEvent
+    public class unitEvent : BaseEvent
     {
-        int unitID;
+        public int unitID;
         Vector3 p;
         public unitEvent(GameObject _subject, string verb, GameObject _object, int ID)
             : base(_subject, verb, _object)

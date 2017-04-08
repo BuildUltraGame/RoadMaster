@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 //基础的游戏进程控制器
-public class baseController : MonoBehaviour,IListener<GameObjSeletEvent> ,IListener<MineSelectEvent>,IListener<RequestSelectEvent>{
+public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>{
 
     //int[] mineList;//矿山列表
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
@@ -109,9 +109,8 @@ public class baseController : MonoBehaviour,IListener<GameObjSeletEvent> ,IListe
 
     // Use this for initialization
 	void Start () {
-        EventAggregator.Register<GameObjSeletEvent>(this);
-        EventAggregator.Register<MineStateChangeEvent>(this);
-        EventAggregator.Register<RequestSelectEvent>(this);
+        EventAggregator.Register<MineSelectEvent>(this);
+        EventAggregator.Register<createUnit.unitEvent>(this);
         unitToBuild = false;
     }
 	
@@ -125,10 +124,9 @@ public class baseController : MonoBehaviour,IListener<GameObjSeletEvent> ,IListe
 
     void OnDisable()
     {
-        EventAggregator.UnRegister<RequestSelectEvent>(this);
-        EventAggregator.UnRegister<GameObjSeletEvent>(this);
-        EventAggregator.UnRegister<MineStateChangeEvent>(this);
-    }
+        EventAggregator.UnRegister<createUnit.unitEvent>(this);
+        EventAggregator.UnRegister<MineSelectEvent>(this);
+     }
     /// <summary>
     /// 矿山选择接口
     /// </summary>
@@ -144,9 +142,9 @@ public class baseController : MonoBehaviour,IListener<GameObjSeletEvent> ,IListe
     /// todo :单位点击接口
     /// </summary>
     /// <param name="message"></param>
-    public void Handle(GameObjSeletEvent message)
+    public void Handle(createUnit.unitEvent message)
     {
-        int id=message.getObject().GetComponent<>();
+        int id = message.unitID;
         ////todo   判断id属于啥
         createUnitNoDirection(id);///无目标（车辆）
         createUnitWithDirection(id);//有目标（人）
@@ -155,10 +153,7 @@ public class baseController : MonoBehaviour,IListener<GameObjSeletEvent> ,IListe
     /// 带目标单位点击待确认消息
     /// </summary>
     /// <param name="message"></param>
-    public void Handle(RequestSelectEvent message)
-    {
-        reqQueue.Enqueue(message);
-    }
+    
     /// <summary>
     /// 当处于等待点击状态时，执行的过程
     /// </summary>
