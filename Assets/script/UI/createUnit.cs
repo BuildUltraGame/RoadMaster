@@ -2,42 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEventAggregator;
 
 public class createUnit : MonoBehaviour {
     public MineMountain mm;
-    private UISprite producer;
-    public List<int> nameList;
-    public List<string> picList;
-    private int nameNum;
+    public UISprite producer;
+    public UIButton button;
+    public List<int> IDList;
+    public List<string> picList;
+    public int nameNum=0;
     public Vector3 pos=Vector3.zero;
     public Reminder rm;
 
-    public Dictionary<int, string> nameDict = new Dictionary<int, string>();
+    //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
     public TextAsset nameInfoText;
 
 
     void Awake()
     {
-        InitText();
+        //InitText();
+        producer = this.GetComponentInChildren<UISprite>();
     }
     void Start()
     {
-        producer = this.gameObject.GetComponent<UISprite>();
+        //producer = this.gameObject.GetComponent<UISprite>();
 
-        foreach (KeyValuePair<int, string> item in nameDict)
+        /*foreach (KeyValuePair<int, string> item in nameDict)
         {
             for (nameNum = 0; nameNum < 4; nameNum++)
             {
-                picList[nameNum]=nameDict[nameList[nameNum]];
+                picList[nameNum]=nameDict[IDList[nameNum]];
             }
         }
-        nameNum = 0;
-        producer.spriteName = picList[nameNum];
+        
+        producer.spriteName = picList[nameNum];*/
+        IDList = new List<int>{0,1,2,3};
+        picList = new List<string> { "mine's truck", "police", "rogue", "worker" };
+        button = this.gameObject.GetComponent<UIButton>();
     }
     /// <summary>
     /// 
     /// </summary>
-    void InitText()
+    /*void InitText()
     {
         string text = nameInfoText.text;
         string[] strArray = text.Split('\n');
@@ -48,8 +54,8 @@ public class createUnit : MonoBehaviour {
             string name = proArray[1];
             nameDict.Add(id, name);
         }
-    }
-    public void frontButton()
+    }*/
+    public void nextButton()
     {
         nameNum++;
         if (nameNum >= 4)
@@ -57,42 +63,61 @@ public class createUnit : MonoBehaviour {
             nameNum = 0;
         }
 
-        producer.spriteName = picList[nameNum];
+        producer.spriteName = picList[IDList[nameNum]];
     }
 
-    public void nextButton()
+    public void frontButton()
     {
         nameNum--;
         if (nameNum < 0)
         {
             nameNum = 3;
         }
-        producer.spriteName = picList[nameNum];
+        producer.spriteName = picList[IDList[nameNum]];
     }
 /// <summary>
 /// 未知
 /// </summary>
 /// <param name="newNameList"></param>
-    public void updateNameList(List<int> newNameList)
+    /*public void updateNameList(List<int> newNameList)
     {
-        nameList = newNameList;
-    }
+        IDList = newNameList;
+    }*/
     /// <summary>
     /// 用户点击制造单位，未完成
     /// </summary>
     public void OnClick()
     {
-        if (pos == Vector3.zero)
+        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, nameNum));
+        Debug.Log(nameNum,null);
+        /*if (pos == Vector3.zero)
         {
             rm.sendHint("please choose your point");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
         }
-        /*else 
-        { 
-            mm.buildUnitByName(picList[nameNum], pos);
+        else 
+        {
+            
+            EventAggregator.SendMessage<BaseEvent>(new DestroyEvent(gameObject, attackObj.gameObject));
             pos = Vector3.zero;
             Tags.RAILWAY
         }*/
+    }
+
+    public void update()
+    {
+
+    }
+
+    class unitEvent : BaseEvent
+    {
+        int unitID;
+        Vector3 p;
+        public unitEvent(GameObject _subject, string verb, GameObject _object, int ID)
+            : base(_subject, verb, _object)
+        {
+            unitID = ID;
+        }
     }
 }

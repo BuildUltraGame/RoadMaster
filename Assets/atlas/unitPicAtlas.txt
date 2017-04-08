@@ -1,0 +1,44 @@
+{"frames": {
+
+"mine's truck.jpg":
+{
+	"frame": {"x":2,"y":2,"w":221,"h":284},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":221,"h":284},
+	"sourceSize": {"w":221,"h":284}
+},
+"police.jpg":
+{
+	"frame": {"x":225,"y":2,"w":222,"h":284},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":222,"h":284},
+	"sourceSize": {"w":222,"h":284}
+},
+"rogue.jpg":
+{
+	"frame": {"x":449,"y":2,"w":219,"h":290},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":219,"h":290},
+	"sourceSize": {"w":219,"h":290}
+},
+"worker.jpg":
+{
+	"frame": {"x":670,"y":2,"w":225,"h":288},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":288},
+	"sourceSize": {"w":225,"h":288}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "unitPic.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8301e8d3bb57816128e9777707754571$"
+}
+}

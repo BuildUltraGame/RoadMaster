@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class mineGold : MonoBehaviour {
-    public Reminder remind;
-    public UILabel goldNow;
-    public UILabel goldNeed;
-    public UILabel GoldAll;
-    public UILabel Train;
-    public UILabel GoldGet;
-    public UILabel GoldTime;
+    public Reminder remind;//用户提醒器
+    public UILabel scoreNow;//当前分数
+    public UILabel scoreNeed;//距胜利所需分数
+    public UILabel GoldAll;//当前矿山金钱
+    public UILabel Train;//当前矿山训练速度
+    public UILabel GoldGet;//当前矿山单次金钱获得数
+    public UILabel GoldTime;//当前矿山金钱获得间隔
     MineMountain mineSelected;
 	// Use this for initialization
 	void Start () {
@@ -20,30 +20,48 @@ public class mineGold : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void changeGold0()
+    /// <summary>
+    /// 当前已获得的分数
+    /// </summary>
+    public void getScorenow()
     {
-        goldNow.text = "";
+        scoreNow.text = "" + mineSelected.currentScore;
     }
-    public void changeGold1()
+    /// <summary>
+    /// 仍需要金钱数
+    /// </summary>
+    public void getScoreneed()
     {
-        goldNeed.text = "";
+        scoreNeed.text = "";
     }
-    public void changeGold2()
+    /// <summary>
+    /// 当前矿山金钱
+    /// </summary>
+    public void getThisMineGold()
     {
         if (mineSelected == null)
            remind.sendHint("please select a mine");
         else GoldAll.text = ""+mineSelected.totalMine;
     }
-    public void changeGold3()
+    /// <summary>
+    /// 当前矿山训练速度
+    /// </summary>
+    public void getThisMineTrain()
     {
         Train.text = "";
     }
-    public void changeGold4()
+    /// <summary>
+    /// 当前矿山单次金钱获得数
+    /// </summary>
+    public void getGoldAmount()
     {
-        GoldGet.text = "";
+        GoldGet.text = "" + mineSelected.increaseRate;
     }
-    public void changeGold5()
+    /// <summary>
+    /// 当前矿山获得金钱的时间间隔
+    /// </summary>
+    public void getGoldTime()
     {
-        GoldTime.text = "";
+        GoldTime.text = "" + mineSelected.increaseFlashTime;
     }
 }
