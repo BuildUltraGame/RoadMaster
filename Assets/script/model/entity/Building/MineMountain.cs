@@ -32,7 +32,9 @@ public class MineMountain : MonoBehaviour {
 
     void Start () {
         InvokeRepeating("increaseMine",0.0f,increaseFlashTime);
-	}
+
+        EventAggregator.Register<SpawnEvent>(this);
+    }
 	
 
 	void Update () {
@@ -100,6 +102,7 @@ public class MineMountain : MonoBehaviour {
             if (targetSpawner.build())
             {
                 totalMine -= targetSpawner.getCost();
+
             }
                
             else
@@ -160,4 +163,24 @@ public class MineMountain : MonoBehaviour {
     {
         EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
     }
+
+    public void Handle(SpawnEvent message)
+    {
+        GameObject targetObj = message.getSubject();
+        Spawner thisSpawner = targetObj.GetComponent<Spawner>();
+        if (SpawnerUnitList.Contains(thisSpawner))
+        {
+            if (targetObj.GetComponents<DestoryMe>() == null)
+            {
+                targetObj.AddComponent<DestoryMe>();
+
+            }
+            else
+            {
+                Debug.Log("不可能啊");
+            }
+        }
+        
+    }
+
 }

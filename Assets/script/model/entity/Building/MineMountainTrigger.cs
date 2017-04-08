@@ -25,14 +25,19 @@ public class MineMountainTrigger : CollisionBaseHandler
     public override void OnSelfUnitCollisionStart(Collider selfUnit)
     {
         base.OnSelfUnitCollisionEnd(selfUnit);
+        if (!this.GetComponent<DestoryMe>().couldDestory)
+        {
+            this.GetComponent<DestoryMe>().couldDestory = true;
+        }
+        else
+        { 
         GoldCarrier goldCarrier = selfUnit.GetComponent<GoldCarrier>();
         if (goldCarrier != null)
         {
             MineMountain mineMountain = this.GetComponent<MineMountain>();
             mineMountain.getMineFromCar(goldCarrier.popGold());
         }
-        Destroy(selfUnit.gameObject);        
-
+        Destroy(selfUnit.gameObject);
+        }
     }
-
 }
