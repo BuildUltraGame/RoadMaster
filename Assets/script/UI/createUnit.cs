@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEventAggregator;
-
+/// <summary>
+//已知问题,ID不对应
+/// </summary>
 public class createUnit : MonoBehaviour {
     public MineMountain mm;
     public UISprite producer;
@@ -60,7 +62,7 @@ public class createUnit : MonoBehaviour {
         nameNum++;
         if (nameNum >= 4)
         {
-            nameNum = 0;
+            nameNum = 1;
         }
 
         producer.spriteName = picList[IDList[nameNum]];
@@ -69,7 +71,7 @@ public class createUnit : MonoBehaviour {
     public void frontButton()
     {
         nameNum--;
-        if (nameNum < 0)
+        if (nameNum <=0)
         {
             nameNum = 3;
         }
@@ -88,7 +90,7 @@ public class createUnit : MonoBehaviour {
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, nameNum));
+        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, 1));
         Debug.Log(nameNum,null);
         /*if (pos == Vector3.zero)
         {

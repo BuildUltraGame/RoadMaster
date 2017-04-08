@@ -8,7 +8,7 @@ using UnityEventAggregator;
 /// 生成所有的对象的控制权都和本刷怪笼带的游戏基础脚本指定的控制方所用
 /// 
 /// </summary>
-public class Spawner : MonoBehaviour,IListener<SelectEvent>
+public class Spawner : MonoBehaviour
 {
     public string name = "null";//生成单位名称
     public int cost = 0;//造价
@@ -81,12 +81,7 @@ public class Spawner : MonoBehaviour,IListener<SelectEvent>
             return false;
         }
         canBuildFlag = false;
-        if(isCharacter){
-            //如果是人,需要先选择目的地或者跟踪目标
-           // EventAggregator.SendMessage<RequestSelectEvent>(new RequestSelectEvent(gameObject));
-            return true;
-        }
-       
+
         Invoke("buildNow", buildTime);//延迟建造所需要的时间(非CD)
 
         return true;
@@ -124,7 +119,7 @@ public class Spawner : MonoBehaviour,IListener<SelectEvent>
         startTimer();
        
 
-        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(obj));//发送生成单位事件
+        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject,obj));//发送生成单位事件
     }
 
     private void startTimer()
@@ -145,7 +140,6 @@ public class Spawner : MonoBehaviour,IListener<SelectEvent>
         if (spawnUnit.GetComponent<Roadmovable>() != null)
         {
             isCharacter = true;
-            EventAggregator.Register<SelectEvent>(this);
         }
         else {
             isCharacter = false;
@@ -182,27 +176,5 @@ public class Spawner : MonoBehaviour,IListener<SelectEvent>
        
     }
 
-    public void Handle(SelectEvent message)
-    {
-        if (!message.getObject().Equals(gameObject))
-        {//只处理和自己之前发的事件配对的返回事件
-            return;
-        }
-
-        //处理代码
-
-        if(message.getSelectType()==typeof(Vector3)){
-            //玩家选择的是目的地
-            setTarget(message.getVectorList()[0]);
-
-        }
-        else if (message.getSelectType() == typeof(GameObject))
-        {
-            //玩家选择的是目标对象(需要跟踪)
-            setTarget(message.getTargetList()[0]);
-        }
-
-         Invoke("buildNow", buildTime);//延迟建造所需要的时间(非CD)
-
-    }
+ 
 }

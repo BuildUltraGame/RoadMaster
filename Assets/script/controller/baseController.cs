@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 //基础的游戏进程控制器
+//TODO:已知问题:刚刚开局肯定空指针,毕竟用户没有点击,这个商量解决
 public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>{
 
     //int[] mineList;//矿山列表

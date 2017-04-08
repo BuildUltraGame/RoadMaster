@@ -62,10 +62,12 @@ public class IDs  : MonoBehaviour{
 
         if(IDMap.ContainsKey(ID)){
             return (string)IDMap[ID];
+        }else if(IDMap.ContainsKey(ID.ToString())){
+            return (string)IDMap[ID.ToString()];
         }
         else
         {
-            throw new Exception("无法找到对应ID的name");
+            throw new Exception("无法找到ID:"+ID+"的name");
         }
 
     

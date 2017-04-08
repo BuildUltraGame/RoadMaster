@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// 矿山的碰撞处理模块，与矿山主体分离开来
+/// 已知问题:碰到刚刚生产出来的矿车会直接被判断是送钱的.
 /// </summary>
 public class MineMountainTrigger : CollisionBaseHandler
 {

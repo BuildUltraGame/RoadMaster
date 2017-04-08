@@ -425,7 +425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377955842797244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5139ab6b167a2945bf58b9ed2954867, type: 3}
+  m_Script: {fileID: 11500000, guid: 8089535097494084ab9c472b8f2aa3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114213634823616242
@@ -440,3 +440,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 5
+  game_ID: 0
+  game_name: 
