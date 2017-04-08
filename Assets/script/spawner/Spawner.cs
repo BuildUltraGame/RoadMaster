@@ -83,7 +83,7 @@ public class Spawner : MonoBehaviour,IListener<SelectEvent>
         canBuildFlag = false;
         if(isCharacter){
             //如果是人,需要先选择目的地或者跟踪目标
-            EventAggregator.SendMessage<RequestSelectEvent>(new RequestSelectEvent(gameObject));
+           // EventAggregator.SendMessage<RequestSelectEvent>(new RequestSelectEvent(gameObject));
             return true;
         }
        
