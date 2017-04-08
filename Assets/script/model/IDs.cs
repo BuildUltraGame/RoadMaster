@@ -62,13 +62,39 @@ public class IDs  : MonoBehaviour{
 
         if(IDMap.ContainsKey(ID)){
             return (string)IDMap[ID];
+        }else if(IDMap.ContainsKey(ID.ToString())){
+            return (string)IDMap[ID.ToString()];
         }
         else
         {
-            throw new Exception("无法找到对应ID的name");
+            throw new Exception("无法找到ID:"+ID+"的name");
         }
 
     
+    }
+    /// <summary>
+    /// 通过ID获得代表的游戏单位所在层(如,建筑,车,人)
+    /// </summary>
+    /// <param name="id">id</param>
+    /// <returns>层</returns>
+    public static int getLayerByID(int id)
+    {
+
+        if(id<0){
+            return Layers.BUILDING;
+        }
+        else if (id > 0 && id < 1000)
+        {
+            return Layers.VEHICLE;
+        }
+        else if(id>=1000) {
+            return Layers.CHARACTER;
+        }
+        else
+        {
+            throw new Exception("并没有相应的ID");
+        }
+
     }
 
 

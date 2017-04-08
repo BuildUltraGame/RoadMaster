@@ -13,12 +13,16 @@ public class Spawner : MonoBehaviour
     public string name = "null";//生成单位名称
     public int cost = 0;//造价
     public GameObject spawnUnit;//建造的单位prefab
-    public float CD = 0;//建造一个单位所需要的时间
+    public float CD = 0;//建造一个单位后需要等待的时间
+
+    public float buildTime = 0;//建造一个单位需要的时间(和CD有区别)
     
     protected float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
 
     private Vector3 targetPoint=Vector3.zero;//设定建造出来的单位目的地
     private GameObject targetObj;//设置建造出来的单位的跟踪目标
+
+    private bool isCharacter = false;
 
     private TimerController.Timer CDtimer;
     private bool canBuildFlag = true;
@@ -76,22 +80,32 @@ public class Spawner : MonoBehaviour
         if(!canBuild()){
             return false;
         }
+        canBuildFlag = false;
 
-        startTimer();
+        Invoke("buildNow", buildTime);//延迟建造所需要的时间(非CD)
 
+        return true;
+
+    }
+
+
+    private void buildNow()
+    {
         //生成游戏单位代码
+       
+        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit);
 
-        GameObject obj=GameObject.Instantiate<GameObject>(spawnUnit);
-        
         obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
         obj.transform.position = transform.position;
 
-        Roadmovable roadmovable=obj.GetComponent<Roadmovable>();
-
-        if(null!=roadmovable){
-            //只对人有效,对车无效
         
-            if(targetObj!=null){
+
+        if (isCharacter)
+        {
+            //只对人有效,对车无效
+            Roadmovable roadmovable = obj.GetComponent<Roadmovable>();
+            if (targetObj != null)
+            {
                 roadmovable.setDestination(targetObj);//设置跟踪目标,优先
             }
             else if (targetPoint != Vector3.zero)
@@ -99,16 +113,13 @@ public class Spawner : MonoBehaviour
                 roadmovable.setDestination(targetPoint);//设置目的地
             }
 
-        
+
         }
 
+        startTimer();
+       
 
-        canBuildFlag = false;
-
-        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(obj));//发送生成单位事件
-
-        return true;
-
+        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject,obj));//发送生成单位事件
     }
 
     private void startTimer()
@@ -124,6 +135,14 @@ public class Spawner : MonoBehaviour
         gBase=GetComponent<GameobjBase>();
         if(gBase==null){
             throw new System.Exception("生成器忘了加基础游戏脚本了亲");
+        }
+
+        if (spawnUnit.GetComponent<Roadmovable>() != null)
+        {
+            isCharacter = true;
+        }
+        else {
+            isCharacter = false;
         }
 
         CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
@@ -156,4 +175,6 @@ public class Spawner : MonoBehaviour
 
        
     }
+
+ 
 }

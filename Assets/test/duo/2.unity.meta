@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/test/duo/2.unity.meta
 guid: c9950c0899a280a42bf22ca77a1eb71a
 timeCreated: 1483812216
+=======
+guid: 3a4cda1e2148491468c199a98933ac0d
+folderAsset: yes
+timeCreated: 1491632776
+>>>>>>> remotes/origin/FENG-DEV:Assets/NGUI.meta
 licenseType: Pro
 DefaultImporter:
   userData: 

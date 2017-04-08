@@ -1,7 +1,9 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 /// <summary>
 /// 单位生成的时候会发生该事件
@@ -9,8 +11,8 @@ using UnityEngine.AI;
 public class SpawnEvent : BaseEvent
 {
 
-    public SpawnEvent(GameObject gameObj)
-        : base(gameObj, "Spawn", null)
+    public SpawnEvent(GameObject spawner,GameObject gameObj)
+        : base(spawner, "Spawn", gameObj)
     {
         
     }
@@ -61,4 +63,5 @@ public class SpawnEvent : BaseEvent
 
 
 }
+
 
