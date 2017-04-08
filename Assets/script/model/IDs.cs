@@ -75,7 +75,7 @@ public class IDs  : MonoBehaviour{
     /// </summary>
     /// <param name="id">id</param>
     /// <returns>层</returns>
-    public static int getLayoutByID(int id)
+    public static int getLayerByID(int id)
     {
 
         if(id<0){

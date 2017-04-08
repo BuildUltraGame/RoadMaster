@@ -144,10 +144,16 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     /// <param name="message"></param>
     public void Handle(createUnit.unitEvent message)
     {
+        if (unitToBuild == true) return;//若等待中则直接屏蔽该次建造
         int id = message.unitID;
-        ////todo   判断id属于啥
+        int type = IDs.getLayerByID(id);
+        if (type == Layers.CHARACTER)
+        {
+            createUnitWithDirection(id);//有目标（人）
+            return;
+        }
         createUnitNoDirection(id);///无目标（车辆）
-        createUnitWithDirection(id);//有目标（人）
+        
     }
     /// <summary>
     /// 带目标单位点击待确认消息
