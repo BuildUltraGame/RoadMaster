@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
+
+/// <summary>
+/// 例子里面没有展示怎么去自己调用方法去造兵啊啥的,因为没写好,写的时候你可以先留空哪部分,写剩下
+/// </summary>
 public class BaseAI : MonoBehaviour, 
     IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>
 {
