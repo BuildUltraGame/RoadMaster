@@ -18,6 +18,19 @@ public class ScoreEvent :  BaseEvent {
     public ScoreEvent(ScoreBoard board,int owner,int score)
         : base(null, "Score", null)
     {
-        
+        this.score = score;
+        this.owner = owner;
+    }
+
+
+    public int getPlayer()
+    {
+        return owner;
+    }
+
+
+    public int getScore()
+    {
+        return score;
     }
 }

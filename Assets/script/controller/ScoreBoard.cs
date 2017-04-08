@@ -54,7 +54,7 @@ public class ScoreBoard :IListener<ScoreAddEvent>
             throw new System.Exception("- -你难道用了外挂不成,明明没有这个玩家,不不不,其实我知道的,你忘了初始化计分板了吧");
         }
 
-     
+        EventAggregator.SendMessage<ScoreEvent>(new ScoreEvent(this, player, System.Convert.ToInt32(scores[player])));//发送玩家分数更新信息
     }
 
 
