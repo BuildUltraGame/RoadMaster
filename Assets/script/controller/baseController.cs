@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 //基础的游戏进程控制器
-//TODO:已知问题:刚刚开局肯定空指针,毕竟用户没有点击,这个商量解决
-public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>{
+public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>{
 
     //int[] mineList;//矿山列表
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
@@ -112,12 +111,14 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 	void Start () {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<createUnit.unitEvent>(this);
+        EventAggregator.Register<UICreateUnitEvent>(this);
         unitToBuild = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (unitToBuild == true) destinationConfirm();
+        else if (mineSelected != null) tryCancelMine();
         
 	}
 
@@ -127,7 +128,8 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     {
         EventAggregator.UnRegister<createUnit.unitEvent>(this);
         EventAggregator.UnRegister<MineSelectEvent>(this);
-     }
+        EventAggregator.UnRegister<UICreateUnitEvent>(this);
+    }
     /// <summary>
     /// 矿山选择接口
     /// </summary>
@@ -146,6 +148,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     public void Handle(createUnit.unitEvent message)
     {
         if (unitToBuild == true) return;//若等待中则直接屏蔽该次建造
+        if (mineSelected == null) return;//若未选中则直接屏蔽该次建造
         int id = message.unitID;
         int type = IDs.getLayerByID(id);
         if (type == Layers.CHARACTER)
@@ -190,6 +193,13 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                             idToBuild = 0;
                             EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
                         }
+                        else
+                        {
+                            unitToBuild = false;
+                            idToBuild = 0;
+                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                        }
+                    }
                         /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
                         { //如果点击到了车辆,或者人
                             sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
@@ -217,19 +227,75 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                             unitToBuild = false;
                             idToBuild = 0;
                             EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                    }
-                        /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
-                        { //如果点击到了车辆,或者人
-                            sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
+                        }
+                        else
+                        {
+                            unitToBuild = false;
+                            idToBuild = 0;
+                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                        }
+                /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
+                { //如果点击到了车辆,或者人
+                    sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
 
-                        }*/
+                }*/
 
                     }
-                }
+               }
 
 
             }
+    private void tryCancelMine()
+    {
+        if (DEBUG)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit rh;
+                Physics.Raycast(ray, out rh);
+                if (rh.collider == null)
+                {
+                    return;
+                }
+                MineMountain mine = rh.collider.gameObject.GetComponent<MineMountain>();
+                if (mine ==null)
+                {//没点击到矿山
+                    mineSelected=null;
+                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                }
+                
+            }
         }
+        else
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit rh;
+                Physics.Raycast(ray, out rh);
+                if (rh.collider == null)
+                {
+                    return;
+                }
+                MineMountain mine = rh.collider.gameObject.GetComponent<MineMountain>();
+                if (mine == null)
+                {//没点击到矿山
+                    mineSelected = null;
+                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                }
+            }
+        }
+
+    }
+
+    public void Handle(UICreateUnitEvent message)
+    {
+        message.mine.buildUnitByID(message.ID, message.destination);
+    }
+
 
 
     /*
