@@ -12,7 +12,7 @@ public class BaseAI : MonoBehaviour,
 {
 
 	// Use this for initialization
-	void Awake () {
+	void Awake () {//这里不能改动,一定只能在Awake函数里
 		EventAggregator.Register<DestroyEvent>(this);
         EventAggregator.Register<SpawnEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
@@ -65,7 +65,13 @@ public class BaseAI : MonoBehaviour,
     }
 
     public void Handle(MineMoutainSpawnerEvent message)
-    {
-        throw new Exception("The method or operation is not implemented.");
+    {//有矿山生成,这里我估计你要做个判断,然后把自己应该控制的矿山存下来
+
+        //这里其实还有问题,首先生成单位的ID这个先不说,到时候会统一,主要是,如果你是人,那么你需要目标地点,
+        //然而现在还没有得到目标地点的办法,你不可能随便一个点都可以到,你起码必须是路上的坐标(这个还没有获得方式)
+        //不过我们可以这样,前面有生成的单位信息,你可以获取到敌人的单位,直接获取里面的位置信息(这个可以实时获取),
+        //这个是目前位置能获取位置的唯一办法
+        EventAggregator.SendMessage<UICreateUnitEvent>(new UICreateUnitEvent(1,new Vector3(0,0,0),message.getMineMountaion()));
+        
     }
 }

@@ -83,7 +83,7 @@ public class BaseEvent
         return getObject().GetComponent<GameobjBase>().getOwner();
     }
 
-    public int getObjectOwner()
+    public int getSubjectOwner()
     {
         if (getSubject() == null) { return GameobjBase.WORLD; }
         return getSubject().GetComponent<GameobjBase>().getOwner();
