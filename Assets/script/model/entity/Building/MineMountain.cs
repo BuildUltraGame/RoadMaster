@@ -22,8 +22,6 @@ public class MineMountain : MonoBehaviour
     public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
-    public TextAsset IDText;
-
     void Awake()
     {
         InitSpawnerDict();
@@ -43,7 +41,7 @@ public class MineMountain : MonoBehaviour
     void Update()
     {
         //testBuild();
-        Debug.Log("mine" + totalMine);
+        //Debug.Log("mine" + totalMine);
     }
 
     /// <summary>
