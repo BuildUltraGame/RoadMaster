@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
@@ -17,23 +18,23 @@ public class MineMountain : MonoBehaviour {
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
     public float currentScore; //当前分数
 
-    private int owner;
+    public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
+    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
-    public List<Spawner> SpawnerUnitList = new List<Spawner>();
-    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();
-
-    public Dictionary<int, Spawner> SpawnerIDDict = new Dictionary<int, Spawner>();//等待ID与Spawner的对应关系实现之后再填入
+    public TextAsset IDText;    
 
     void Awake()
     {
         InitSpawnerDict();
         totalMine = initMine;
-        InitOwner();
+        InitScore();
     }
 
     void Start () {
         InvokeRepeating("increaseMine",0.0f,increaseFlashTime);
-	}
+
+        EventAggregator.Register<SpawnEvent>(this);
+    }
 	
 
 	void Update () {
@@ -101,6 +102,7 @@ public class MineMountain : MonoBehaviour {
             if (targetSpawner.build())
             {
                 totalMine -= targetSpawner.getCost();
+
             }
                
             else
@@ -127,10 +129,8 @@ public class MineMountain : MonoBehaviour {
         }
     }
 
-    void InitOwner()
+    void InitScore()
     {
-        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
-        owner = gameObjectBaseGo.getOwner();
         currentScore = 0;
     }
 
@@ -145,15 +145,15 @@ public class MineMountain : MonoBehaviour {
         totalMine += count;
     }
 
-    public bool changeOwner(int targetOwner)
+    /*public bool changeOwner(int targetOwner)
     {
         if (!isSmallMine)
             return false;
-        owner = targetOwner;
-        Debug.Log("owner changed = to" + owner);
+        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
+        gameObjectBaseGo.setOwner(targetOwner);
         return true;
-    }
-
+    }删除修改所有者的接口，由gameobjectbase来管理，没问题的话我删除注释
+    */
     public void changeScore(float num)
     {
         currentScore += num;
@@ -163,4 +163,24 @@ public class MineMountain : MonoBehaviour {
     {
         EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
     }
+
+    public void Handle(SpawnEvent message)
+    {
+        GameObject targetObj = message.getSubject();
+        Spawner thisSpawner = targetObj.GetComponent<Spawner>();
+        if (SpawnerUnitList.Contains(thisSpawner))
+        {
+            if (targetObj.GetComponents<DestoryMe>() == null)
+            {
+                targetObj.AddComponent<DestoryMe>();
+
+            }
+            else
+            {
+                Debug.Log("不可能啊");
+            }
+        }
+        
+    }
+
 }
