@@ -8,7 +8,8 @@ using UnityEventAggregator;
 ///  通过Inspector面板来设定是主矿还是分矿
 ///  Attention：不要忘记挂载矿山的碰撞处理脚本！
 /// </summary>
-public class MineMountain : MonoBehaviour {
+public class MineMountain : MonoBehaviour
+{
 
     public int initMine = 100;
     public int totalMine = 100;
@@ -21,7 +22,7 @@ public class MineMountain : MonoBehaviour {
     public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
-    public TextAsset IDText;    
+    public TextAsset IDText;
 
     void Awake()
     {
@@ -30,14 +31,16 @@ public class MineMountain : MonoBehaviour {
         InitScore();
     }
 
-    void Start () {
-        InvokeRepeating("increaseMine",0.0f,increaseFlashTime);
+    void Start()
+    {
+        InvokeRepeating("increaseMine", 0.0f, increaseFlashTime);
 
         EventAggregator.Register<SpawnEvent>(this);
     }
-	
 
-	void Update () {
+
+    void Update()
+    {
         //testBuild();
         Debug.Log("mine" + totalMine);
     }
@@ -49,9 +52,9 @@ public class MineMountain : MonoBehaviour {
     /// <param name="id"></param>
     /// <param name="targetPos"></param>
     /// <returns></returns>
-    public bool buildUnitByID(int id,Vector3 targetPos)
+    public bool buildUnitByID(int id, Vector3 targetPos)
     {
-        
+
         string name = IDs.getNameByID(id);
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -73,7 +76,7 @@ public class MineMountain : MonoBehaviour {
 
             else
                 Debug.Log("行走时出错");
-                return false;
+            return false;
         }
         return false;
     }
@@ -85,7 +88,7 @@ public class MineMountain : MonoBehaviour {
     /// <param name="name"></param>
     /// <param name="buildPos"></param>
     /// <returns></returns>
-    public bool buildUnitByName(string name,Vector3 targetPos)
+    public bool buildUnitByName(string name, Vector3 targetPos)
     {
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -104,7 +107,7 @@ public class MineMountain : MonoBehaviour {
                 totalMine -= targetSpawner.getCost();
 
             }
-               
+
             else
                 // TODO
                 return false;
@@ -123,8 +126,8 @@ public class MineMountain : MonoBehaviour {
     /// </summary>
     void InitSpawnerDict()
     {
-        foreach(Spawner spawnerUnit in SpawnerUnitList)
-        { 
+        foreach (Spawner spawnerUnit in SpawnerUnitList)
+        {
             SpawnerUnitDict.Add(spawnerUnit.getName(), spawnerUnit);
         }
     }
@@ -167,20 +170,16 @@ public class MineMountain : MonoBehaviour {
     public void Handle(SpawnEvent message)
     {
         GameObject targetObj = message.getSubject();
-        Spawner thisSpawner = targetObj.GetComponent<Spawner>();
-        if (SpawnerUnitList.Contains(thisSpawner))
+        if (targetObj.GetComponents<DestoryMe>() == null)
         {
-            if (targetObj.GetComponents<DestoryMe>() == null)
-            {
-                targetObj.AddComponent<DestoryMe>();
+            targetObj.AddComponent<DestoryMe>();
 
-            }
-            else
-            {
-                Debug.Log("不可能啊");
-            }
         }
-        
+        else
+        {
+            Debug.Log("不可能啊");
+        }
+
     }
 
 }
