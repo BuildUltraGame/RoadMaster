@@ -8,7 +8,7 @@ using UnityEventAggregator;
 /// 例子里面没有展示怎么去自己调用方法去造兵啊啥的,因为没写好,写的时候你可以先留空哪部分,写剩下
 /// </summary>
 public class BaseAI : MonoBehaviour, 
-    IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>
+    IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>,IListener<MineMoutainSpawnerEvent>
 {
 
 	// Use this for initialization
@@ -16,7 +16,7 @@ public class BaseAI : MonoBehaviour,
 		EventAggregator.Register<DestroyEvent>(this);
         EventAggregator.Register<SpawnEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
-
+        EventAggregator.Register<MineMoutainSpawnerEvent>(this);
 	}
 	
 	// Update is called once per frame
@@ -62,5 +62,10 @@ public class BaseAI : MonoBehaviour,
 
         }
 
+    }
+
+    public void Handle(MineMoutainSpawnerEvent message)
+    {
+        throw new Exception("The method or operation is not implemented.");
     }
 }
