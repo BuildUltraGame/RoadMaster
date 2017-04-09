@@ -33,6 +33,7 @@ public class MineMountain : MonoBehaviour
 
     void Start()
     {
+        EventAggregator.SendMessage<MineMoutainSpawnerEvent>(new MineMoutainSpawnerEvent(this));
         InvokeRepeating("increaseMine", 0.0f, increaseFlashTime);
 
         EventAggregator.Register<SpawnEvent>(this);
