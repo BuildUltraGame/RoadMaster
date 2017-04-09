@@ -4,9 +4,11 @@ using UnityEngine;
 using System.IO;
 using UnityEventAggregator;
 
-public class createUnit : MonoBehaviour {
+public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
+{
     public UISprite producer;
     public UIButton button;
+    public UISprite lockButton;
     public List<int> IDList;
     public List<string> picList;
     public int nameNum=0;
@@ -22,7 +24,8 @@ public class createUnit : MonoBehaviour {
     }
     void Start()
     {
-
+        EventAggregator.Register<MineSelectEvent>(this);
+        EventAggregator.Register<cancelMountainEvent>(this);
         //producer = this.gameObject.GetComponent<UISprite>();
 
         /*foreach (KeyValuePair<int, string> item in nameDict)
@@ -87,19 +90,6 @@ public class createUnit : MonoBehaviour {
     {
         EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, IDList[nameNum]));
         Debug.Log(IDList[nameNum], null);
-        /*if (pos == Vector3.zero)
-        {
-            rm.sendHint("please choose your point");
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-        }
-        else 
-        {
-            
-            EventAggregator.SendMessage<BaseEvent>(new DestroyEvent(gameObject, attackObj.gameObject));
-            pos = Vector3.zero;
-            Tags.RAILWAY
-        }*/
     }
 
     public void update()
@@ -116,5 +106,19 @@ public class createUnit : MonoBehaviour {
         {
             unitID = ID;
         }
+    }
+
+    public void Handle(MineSelectEvent message)
+    {
+        lockButton.gameObject.SetActive(false);
+    }
+    public void Handle(cancelMountainEvent message)
+    {
+        lockButton.gameObject.SetActive(true);
+    }
+    void OnDisable()
+    {
+        EventAggregator.UnRegister<MineSelectEvent>(this);
+        EventAggregator.UnRegister<cancelMountainEvent>(this);
     }
 }

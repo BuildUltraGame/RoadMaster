@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 public class Reminder : MonoBehaviour,IListener<waitClickEvent>,IListener<cancelClickEvent> {
-    public UILabel reminder;
+    public UILabel reminder;//用户提醒器
 	// Use this for initialization
 	void Start () {
         EventAggregator.Register<waitClickEvent>(this);
