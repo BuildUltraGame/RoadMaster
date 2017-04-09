@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 //基础的游戏进程控制器
-public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>{
+public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>{
 
     //int[] mineList;//矿山列表
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
@@ -111,6 +111,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 	void Start () {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<createUnit.unitEvent>(this);
+        EventAggregator.Register<UICreateUnitEvent>(this);
         unitToBuild = false;
     }
 	
@@ -127,7 +128,8 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     {
         EventAggregator.UnRegister<createUnit.unitEvent>(this);
         EventAggregator.UnRegister<MineSelectEvent>(this);
-     }
+        EventAggregator.UnRegister<UICreateUnitEvent>(this);
+    }
     /// <summary>
     /// 矿山选择接口
     /// </summary>
@@ -146,6 +148,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     public void Handle(createUnit.unitEvent message)
     {
         if (unitToBuild == true) return;//若等待中则直接屏蔽该次建造
+        if (mineSelected == null) return;//若未选中则直接屏蔽该次建造
         int id = message.unitID;
         int type = IDs.getLayerByID(id);
         if (type == Layers.CHARACTER)
@@ -288,21 +291,26 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 
     }
 
-
-
-        /*
-            private void sendResult(RequestSelectEvent e, Vector3 p)
-            {
-                SelectEvent se = e.createSelectEvent();
-                se.addSelect(p);
-                EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
-            }
-
-            private void sendResult(RequestSelectEvent e, GameObject obj)
-            {
-                SelectEvent se = e.createSelectEvent();
-                se.addSelect(obj);
-                EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
-            }*/
-
+    public void Handle(UICreateUnitEvent message)
+    {
+        message.mine.buildUnitByID(message.ID, message.destination);
     }
+
+
+
+    /*
+        private void sendResult(RequestSelectEvent e, Vector3 p)
+        {
+            SelectEvent se = e.createSelectEvent();
+            se.addSelect(p);
+            EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
+        }
+
+        private void sendResult(RequestSelectEvent e, GameObject obj)
+        {
+            SelectEvent se = e.createSelectEvent();
+            se.addSelect(obj);
+            EventAggregator.SendMessage<SelectEvent>(se);//已经选择完毕,发送选择完毕事件
+        }*/
+
+}
