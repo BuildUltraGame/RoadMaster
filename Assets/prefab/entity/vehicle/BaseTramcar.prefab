@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 54101017532760826}
   - component: {fileID: 114599793304661814}
   - component: {fileID: 114896513721934256}
-  - component: {fileID: 114781377329615640}
+  - component: {fileID: 114935121082785260}
   m_Layer: 10
   m_Name: BaseTramcar
   m_TagString: base_tramcar
@@ -144,17 +144,6 @@ MonoBehaviour:
   owner: 0
   game_ID: 1
   game_name: "\u57FA\u7840\u77FF\u8F66"
---- !u!114 &114781377329615640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1622550531955412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30bfd5d745b81e747a32d0af6d65c819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114896513721934256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,3 +169,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   points: []
+--- !u!114 &114935121082785260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622550531955412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a6d9e0542b2594fa40f8e2c8b805e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

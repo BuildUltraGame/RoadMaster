@@ -13,8 +13,8 @@ public class Tags {
     public const string ROAD = "road";
 
     public const string RAILWAY_POINT = "railway_point";
-    
 
+    public const string GATE = "gate";
 
     public static class Vehicle {
         public const string BASETRAMCAR = "base_tramcar";//基础矿车

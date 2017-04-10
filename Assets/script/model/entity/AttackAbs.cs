@@ -12,7 +12,7 @@ public abstract class AttackAbs : CollisionBaseHandler {
     public override void OnEnemyCollisionStart(Collider enemy)
     {
         base.OnEnemyCollisionStart(enemy);
-        GuardAbs enemyG=enemy.GetComponent<GuardAbs>();
+        GuardAbs enemyG=enemy.  GetComponent<GuardAbs>();
         GameobjBase enemyB=enemy.GetComponent<GameobjBase>();
 
         if(enemyG==null||enemyB==null){

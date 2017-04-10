@@ -105,7 +105,7 @@ public class IDs  : MonoBehaviour{
     {
         IDMap = new Hashtable();
 
-        string[] lines = list.text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+        string[] lines = list.text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach(string line in lines){
             string[] s = line.Split(',');

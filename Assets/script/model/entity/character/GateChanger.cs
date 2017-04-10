@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,35 +9,38 @@ using UnityEngine;
 /// </summary>
 public class GateChanger : CollisionBaseHandler {
 
-    private Collider targetGate = null;
-    private Vector3 targetV = Vector3.zero;
+    public GameObject targetGate = null;
+
     private int linkNum;
 
-    public void setTargetGate(Collider targetGate,Vector3 v, int linkNum)
+    public void setTargetGate(GameObject target)
     {
-        this.targetGate = targetGate;
-        this.targetV = v;
-        this.linkNum = linkNum;
+        if(target==null){
+            throw new Exception("传入目标道闸为空");
+        }
+
+        MetroGate gate = target.GetComponent<MetroGate>();
+        if (gate == null)
+        {
+            throw new Exception("传入对象并没有包含道闸脚本");
+        }
+
+        targetGate = target;
+
+
     }
 
-    public override void OnWorldUnitCollisionStay(Collider targetGateOb)
+    public override void OnWorldUnitCollisionStart(Collider obj)
     {
-        if(targetGateOb == targetGate)
-        {
-            try
-            {
-                MetroGate3 metroGate = targetGateOb.GetComponent<MetroGate3>();
-                metroGate.GateChange(targetV, linkNum);
+        if(obj.gameObject!=targetGate){
+            return;
+        }
 
-            }
-            catch
-            {
-                Debug.Log("搬道闸的时候出错！");
-            }
-            finally
-            {
-                Destroy(this.gameObject,1);
-            }
+
+        if(obj.tag==Tags.GATE){
+
+            targetGate.GetComponent<MetroGate>().GateChange(transform.position);
+
         }
 
     }

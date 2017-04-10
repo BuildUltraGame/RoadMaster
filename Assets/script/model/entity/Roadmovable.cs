@@ -21,14 +21,15 @@ public class Roadmovable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        nav = GetComponent<NavMeshAgent>();
     
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if(nav==null){
+        if (destination == null)
+        {
             return;
         }
 
@@ -56,7 +57,7 @@ public class Roadmovable : MonoBehaviour {
     {
         destination = v;
         //nav.destination = destination;
-        nav = GetComponent<NavMeshAgent>();
+       
         nav.SetDestination(destination);
     }
 
@@ -67,7 +68,7 @@ public class Roadmovable : MonoBehaviour {
     public void setDestination(GameObject targetObj)
     {
         target = targetObj;
-        nav = GetComponent<NavMeshAgent>();
+       
     }
 
     /// <summary>
