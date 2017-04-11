@@ -39,10 +39,10 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     /// <param name="message"></param>
     public void Handle(cancelMountainEvent message)
     {
-        GoldAll.text = null;
-        Train.text = null;
-        GoldGet.text = null;
-        GoldTime.text = null;
+        GoldAll.text = "";
+        Train.text = ""l;
+        GoldGet.text = "";
+        GoldTime.text = "";
     }
     void OnDisable()
     {
