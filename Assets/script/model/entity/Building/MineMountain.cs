@@ -34,7 +34,7 @@ public class MineMountain : MonoBehaviour
         EventAggregator.SendMessage<MineMoutainSpawnerEvent>(new MineMoutainSpawnerEvent(this));
         InvokeRepeating("increaseMine", 0.0f, increaseFlashTime);
         PathDataCenter.registerPathPoint(transform.position);
-        EventAggregator.Register<SpawnEvent>(this);
+        
     }
 
 

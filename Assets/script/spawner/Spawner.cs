@@ -115,11 +115,11 @@ public class Spawner : MonoBehaviour
 
 
         }
-
+        EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject, obj));//发送生成单位事件
         startTimer();
        
 
-     //   EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject,obj));//发送生成单位事件
+      
     }
 
     private void startTimer()

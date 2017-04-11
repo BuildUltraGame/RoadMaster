@@ -73,7 +73,6 @@ public class NewRailwaymovable : MonoBehaviour {
             //不为零,证明找到了未走过的点中最近且可达
             goByPath.Add(nextV);
             path.Remove(nextV);
-            print("NextRoad:" + nextV.ToString());
             nav.SetDestination(nextV);
 
         }

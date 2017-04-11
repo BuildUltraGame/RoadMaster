@@ -21,6 +21,10 @@ public class BaseAI : MonoBehaviour,
 	
 	// Update is called once per frame
 	void Update () {
+
+        //感知是否可以到达某个地点,比如
+
+
 		
 	}
 

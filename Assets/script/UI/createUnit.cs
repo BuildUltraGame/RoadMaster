@@ -62,7 +62,7 @@ public class createUnit : MonoBehaviour {
         nameNum++;
         if (nameNum >= 4)
         {
-            nameNum = 1;
+            nameNum = 0;
         }
 
         producer.spriteName = picList[nameNum];
@@ -71,7 +71,7 @@ public class createUnit : MonoBehaviour {
     public void frontButton()
     {
         nameNum--;
-        if (nameNum <=0)
+        if (nameNum <0)
         {
             nameNum = 3;
         }
@@ -90,7 +90,7 @@ public class createUnit : MonoBehaviour {
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, 1));
+        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[nameNum]));
         Debug.Log(nameNum,null);
         /*if (pos == Vector3.zero)
         {
