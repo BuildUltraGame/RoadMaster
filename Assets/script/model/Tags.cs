@@ -41,6 +41,7 @@ public class Tags {
         public const string MINE = "mine";//矿山
         public const string MAINMINE = "main_mine";//主矿山
         public const string SCORING = "scoring_building";//终点
+        public const string FUCKHOLE = "fuck_hole";
 
     }
 

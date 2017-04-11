@@ -185,9 +185,9 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                     {
                         return;
                     }
-                    if (idToBuild == 1002)//扳道闸工人
+                    if (idToBuild == IDs.getIDByName(Tags.Character.GATEWORKER))//扳道闸工人
                     {
-                        if (rh.collider.tag.Equals("railway_point"))//点到扳道闸
+                        if (rh.collider.tag.Equals(Tags.GATE))//点到扳道闸
                         {
                             mineSelected.buildUnitByID(idToBuild, rh.point);
                             unitToBuild = false;
@@ -241,9 +241,9 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                 {
                     return;
                 }
-                if (idToBuild == 1002)//扳道闸工人
+                if (idToBuild == IDs.getIDByName(Tags.Character.GATEWORKER))//扳道闸工人
                 {
-                    if (rh.collider.tag.Equals("railway_point"))//点到扳道闸
+                    if (rh.collider.tag.Equals(Tags.GATE))//点到扳道闸
                     {
                         mineSelected.buildUnitByID(idToBuild, rh.point);
                         unitToBuild = false;

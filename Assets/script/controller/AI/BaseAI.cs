@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
+using UnityEngine.AI;
 
 /// <summary>
 /// 例子里面没有展示怎么去自己调用方法去造兵啊啥的,因为没写好,写的时候你可以先留空哪部分,写剩下
@@ -11,13 +12,49 @@ public class BaseAI : MonoBehaviour,
     IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>,IListener<MineMoutainSpawnerEvent>
 {
 
+    private NavMeshAgent nav;//一个神奇的东西,它可以代替车去做个模拟,看看能不能到达哪里,或者也可以代替人
+
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
 		EventAggregator.Register<DestroyEvent>(this);
         EventAggregator.Register<SpawnEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
+        nav=GetComponent<NavMeshAgent>();
 	}
+
+
+    private bool canReach(Vector3 v,int type)
+    {
+        if(type==1){
+            //我们假设这个是车
+
+            nav.areaMask = NavMesh.GetAreaFromName("railway");//设置下我们的导航只能走铁路
+            nav.transform.position = Vector3.zero;//这个是设置下导航起始点,按道理一般应该是你的某个矿山,
+            NavMeshPath path=new NavMeshPath();
+            nav.CalculatePath(v,path);//这里path会返回给你
+
+            if(path.status==NavMeshPathStatus.PathComplete){//路径完整,证明直接可达
+
+            }
+
+            if (path.status == NavMeshPathStatus.PathPartial)
+            {//有部分路径,证明到中间断了
+               Vector3 vv= path.corners[path.corners.Length - 1];//这个按道理就是最后断点的位置
+
+            }
+
+            if (path.status == NavMeshPathStatus.PathInvalid)
+            {//路径完全无效,我也不知道什么时候会出现这个情况,好像如果你起始点不在可行走的路上的话,会直接返回这个
+
+            }
+
+        }
+
+
+        nav.areaMask = NavMesh.GetAreaFromName("road");//设置下我们的导航只能走人行路
+        return false;
+    }
 	
 	// Update is called once per frame
 	void Update () {

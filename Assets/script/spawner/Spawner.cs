@@ -10,7 +10,7 @@ using UnityEventAggregator;
 /// </summary>
 public class Spawner : MonoBehaviour
 {
-    public string name = "null";//生成单位名称
+   
     public int cost = 0;//造价
     public GameObject spawnUnit;//建造的单位prefab
     public float CD = 0;//建造一个单位后需要等待的时间
@@ -38,10 +38,6 @@ public class Spawner : MonoBehaviour
         canBuildFlag = flag;
     }
 
-    public string getName()
-    {
-        return name;
-    }
 
     public int getCost()
     {

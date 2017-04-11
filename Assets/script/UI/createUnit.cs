@@ -36,7 +36,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
             }
         }*/
         
-        IDList = new List<int>{1,1001,1000,1002};
+        IDList = new List<int>{1,2,1000,1002};
         picList = new List<string> { "truck", "police", "rogue", "worker" };
         button = this.gameObject.GetComponent<UIButton>();
     }
@@ -88,7 +88,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, IDList[nameNum]));
+        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[nameNum]));
         Debug.Log(IDList[nameNum], null);
     }
 

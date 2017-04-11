@@ -133,7 +133,7 @@ public class MineMountain : MonoBehaviour
     {
         foreach (Spawner spawnerUnit in SpawnerUnitList)
         {
-            SpawnerUnitDict.Add(spawnerUnit.getName(), spawnerUnit);
+            SpawnerUnitDict.Add(spawnerUnit.GetComponent<GameobjBase>().game_name_en, spawnerUnit);
         }
     }
 
