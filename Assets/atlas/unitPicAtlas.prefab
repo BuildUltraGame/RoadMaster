@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 935ff858fd6ea6c47ab9e1bef5507103, type: 2}
   mSprites:
-  - name: mine's truck
+  - name: truck
     x: 2
     y: 2
     width: 221
