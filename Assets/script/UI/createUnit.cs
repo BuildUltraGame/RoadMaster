@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEventAggregator;
-/// <summary>
-//已知问题,ID不对应
-/// </summary>
-public class createUnit : MonoBehaviour {
-    public MineMountain mm;
+
+public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
+{
     public UISprite producer;
     public UIButton button;
+    public UISprite lockButton;
     public List<int> IDList;
     public List<string> picList;
     public int nameNum=0;
-    public Vector3 pos=Vector3.zero;
-    public Reminder rm;
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
-    public TextAsset nameInfoText;
+    //public TextAsset nameInfoText;
 
 
     void Awake()
@@ -27,6 +24,8 @@ public class createUnit : MonoBehaviour {
     }
     void Start()
     {
+        EventAggregator.Register<MineSelectEvent>(this);
+        EventAggregator.Register<cancelMountainEvent>(this);
         //producer = this.gameObject.GetComponent<UISprite>();
 
         /*foreach (KeyValuePair<int, string> item in nameDict)
@@ -35,10 +34,9 @@ public class createUnit : MonoBehaviour {
             {
                 picList[nameNum]=nameDict[IDList[nameNum]];
             }
-        }
+        }*/
         
-        producer.spriteName = picList[nameNum];*/
-        IDList = new List<int>{1,2,1000,3};
+        IDList = new List<int>{1,1001,1000,1002};
         picList = new List<string> { "mine's truck", "police", "rogue", "worker" };
         button = this.gameObject.GetComponent<UIButton>();
     }
@@ -71,7 +69,7 @@ public class createUnit : MonoBehaviour {
     public void frontButton()
     {
         nameNum--;
-        if (nameNum <0)
+        if (nameNum < 0)
         {
             nameNum = 3;
         }
@@ -86,25 +84,12 @@ public class createUnit : MonoBehaviour {
         IDList = newNameList;
     }*/
     /// <summary>
-    /// 用户点击制造单位，未完成
+    /// 用户点击制造单位
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[nameNum]));
-        Debug.Log(nameNum,null);
-        /*if (pos == Vector3.zero)
-        {
-            rm.sendHint("please choose your point");
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-        }
-        else 
-        {
-            
-            EventAggregator.SendMessage<BaseEvent>(new DestroyEvent(gameObject, attackObj.gameObject));
-            pos = Vector3.zero;
-            Tags.RAILWAY
-        }*/
+        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, IDList[nameNum]));
+        Debug.Log(IDList[nameNum], null);
     }
 
     public void update()
@@ -121,5 +106,19 @@ public class createUnit : MonoBehaviour {
         {
             unitID = ID;
         }
+    }
+
+    public void Handle(MineSelectEvent message)
+    {
+        lockButton.gameObject.SetActive(false);
+    }
+    public void Handle(cancelMountainEvent message)
+    {
+        lockButton.gameObject.SetActive(true);
+    }
+    void OnDisable()
+    {
+        EventAggregator.UnRegister<MineSelectEvent>(this);
+        EventAggregator.UnRegister<cancelMountainEvent>(this);
     }
 }
