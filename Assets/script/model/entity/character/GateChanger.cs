@@ -40,7 +40,7 @@ public class GateChanger : CollisionBaseHandler {
         if(obj.tag==Tags.GATE){
 
             targetGate.GetComponent<MetroGate>().GateChange(transform.position);
-
+            Destroy(gameObject);
         }
 
     }

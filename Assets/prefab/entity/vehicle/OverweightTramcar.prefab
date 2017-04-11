@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114020695113425272}
   - component: {fileID: 114035564295917904}
   - component: {fileID: 114849626869452854}
+  - component: {fileID: 195459998730061892}
   m_Layer: 10
   m_Name: OverweightTramcar
   m_TagString: overweight_ramcar
@@ -164,11 +165,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816668194362276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ae7d9047ca644647b11f8aafcbf4ff4, type: 3}
+  m_Script: {fileID: 11500000, guid: bcd3dfbd096aac94dac1e688777dc612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  points: []
 --- !u!114 &114849626869452854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,3 +179,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f15d0007b66b0468d0722034478e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &195459998730061892
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816668194362276}
+  m_Enabled: 1
+  m_Radius: 0.008431223
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.01
+  m_BaseOffset: 0
+  m_WalkableMask: 16
+  m_ObstacleAvoidanceType: 4

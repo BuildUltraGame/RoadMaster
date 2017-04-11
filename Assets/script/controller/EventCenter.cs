@@ -26,8 +26,14 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
         DontDestroyOnLoad(this.gameObject);
     }
 
+    void OnEnable()
+    {
+        print("OnEnable");
+    }
+
     void Start()
     {
+        print("Start");
         EventAggregator.Register<BaseEvent>(this);
         EventAggregator.Register<GameObjSeletEvent>(this);
         EventAggregator.Register<SpawnEvent>(this);

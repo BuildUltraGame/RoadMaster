@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 三道口
@@ -15,86 +16,39 @@ using UnityEngine;
 /// 
 /// </summary>
 public class MetroGate3 : MetroGate {
+    
 
-    private List<Vector3> linkRoad = new List<Vector3>();
-    private Vector3 blockRoad;//未连接的点
+    private List<Transform> linkRoad = new List<Transform>();
+    private Transform blockRoad;//未连接的点
 
-    private Vector3[] allPoint;//按顺序存的点信息.除了中心点
-
-
-
-    private Vector3 center;//中心点
 
 
 	
 	void Start () {
-
         base.Start();
-
         initPointInfo();
 
 	}
+
+
+
     /// <summary>
     /// 把点的一些信息存下来
     /// </summary>
     private void initPointInfo()
     {
-        center = pointList[0];
 
-        allPoint = new Vector3[3];
-        allPoint[0] = pointList[1];
-        allPoint[1] = pointList[2];
-        allPoint[2] = pointList[3];
 
         linkRoad.Add(allPoint[0]);
-        linkRoad.Add(center);
         linkRoad.Add(allPoint[1]);
 
         blockRoad = allPoint[2];
-    }
-	
-	
-	void Update () {
 
-      
-		
-	}
-
-    override protected void OnObjEnter(Collider collider)
-    {
-        int pointNum = FromWhichPoint(allPoint, collider.transform.position);
-
-       if (blockRoad == allPoint[pointNum])
-       {
-           print("不能通过");
-           
-           Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
-          // obj.addRoadPoint(allPoint[pointNum]);
-         //  obj.addRoadPoint(collider.transform.position);
-           obj.Back();
-
-
-        }
-        else
-        {
-            print("可以通过");
-            //可以通过
-            Railwaymovable obj = collider.gameObject.GetComponent<Railwaymovable>();
-            if(allPoint[pointNum]==linkRoad[0]){
-                obj.addRoadsPoint(linkRoad);
-            }
-            else
-            {
-                List<Vector3> l = new List<Vector3>(linkRoad);
-                l.Reverse();
-                obj.addRoadsPoint(l);
-            }
-
-
-        }
-        
+        link.startTransform = linkRoad[0];
+        link.endTransform = linkRoad[1];
 
     }
+	
 
 
     public override void GateChange(Vector3 v, int linkNum)
@@ -112,7 +66,6 @@ public class MetroGate3 : MetroGate {
             //随机将所在点和其他两个点联通
             linkRoad.Clear();
             linkRoad.Add(allPoint[minNum]);
-            linkRoad.Add(center);
             linkRoad.Add(Random.Range(0,2)>0.5?allPoint[(minNum+1)%3]:allPoint[(minNum+2)%3]);//三目装逼法
 
             
@@ -122,12 +75,12 @@ public class MetroGate3 : MetroGate {
             //直接转换另一个接口到未连接接口
             linkRoad.Clear();
             linkRoad.Add(allPoint[minNum]);
-            linkRoad.Add(center);
             linkRoad.Add(blockRoad);
         }
-       
 
-        
+        link.startTransform = linkRoad[0];
+        link.endTransform = linkRoad[1];
+
         updateblockRoad();
         destroyVehilesOnRoad();//摧毁当前在岔道口的车辆
     }
@@ -137,12 +90,13 @@ public class MetroGate3 : MetroGate {
     /// </summary>
     private void updateblockRoad()
     {
-        for (int i = 0; i < allPoint.Length;i++ )
+        for (int i = 0; i < allPoint.Count;i++ )
         {
             if(!linkRoad.Contains(allPoint[i])){
                 blockRoad = allPoint[i];
             }
         }
+
     }
 
     

@@ -39,13 +39,12 @@ public class Roadmovable : MonoBehaviour {
         }
     
 
-        print(nav.pathStatus);
-        print(nav.remainingDistance);
+ 
 
         //到达目的地,销毁自己
         if (nav.pathStatus==NavMeshPathStatus.PathComplete&&Mathf.Abs(nav.remainingDistance-nav.stoppingDistance)<=0.1)
         {
-       //     Destroy(gameObject);
+          //  Destroy(gameObject);
         }
 	}
 

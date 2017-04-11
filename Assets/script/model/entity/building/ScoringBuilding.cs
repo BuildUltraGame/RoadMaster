@@ -15,12 +15,13 @@ public class ScoringBuilding : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ScoreBoard.getInstance().Init(2);
+        PathDataCenter.registerPathPoint(transform.position);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void OnDisable()
+    {
+        PathDataCenter.unRegisterPathPoint(transform.position);
+    }
 
 
     void OnTriggerEnter(Collider other)
