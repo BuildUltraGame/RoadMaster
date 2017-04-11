@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880764320772702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.0161977, y: -3.6775322, z: 5.380135}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
+  game_ID: 0
+  game_name: 
 --- !u!114 &114091247699759962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,3 +70,4 @@ MonoBehaviour:
   cost: 10
   spawnUnit: {fileID: 1618872561931174, guid: 3e4144e818e035347941bc2fa266d03f, type: 2}
   CD: 5
+  buildTime: 0

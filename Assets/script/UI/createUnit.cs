@@ -38,7 +38,7 @@ public class createUnit : MonoBehaviour {
         }
         
         producer.spriteName = picList[nameNum];*/
-        IDList = new List<int>{0,1,2,3};
+        IDList = new List<int>{1,2,1000,3};
         picList = new List<string> { "mine's truck", "police", "rogue", "worker" };
         button = this.gameObject.GetComponent<UIButton>();
     }
@@ -65,7 +65,7 @@ public class createUnit : MonoBehaviour {
             nameNum = 1;
         }
 
-        producer.spriteName = picList[IDList[nameNum]];
+        producer.spriteName = picList[nameNum];
     }
 
     public void frontButton()
@@ -75,7 +75,7 @@ public class createUnit : MonoBehaviour {
         {
             nameNum = 3;
         }
-        producer.spriteName = picList[IDList[nameNum]];
+        producer.spriteName = picList[nameNum];
     }
 /// <summary>
 /// 未知

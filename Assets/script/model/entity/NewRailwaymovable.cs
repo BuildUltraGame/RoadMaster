@@ -15,14 +15,15 @@ public class NewRailwaymovable : MonoBehaviour {
 
     void Start()
     {
-        nav=GetComponent<NavMeshAgent>();
-        destination = transform.position;
+        nav = GetComponent<NavMeshAgent>();
 
         if(nav==null){
             throw new System.Exception("載具对象必须要有NavMeshAgent组件");
         }
 
         path = new List<Vector3>(PathDataCenter.pathPoints);//copy一份
+        
+        destination = transform.position;
     }
 
     public void setDestination(Vector3 v)
@@ -48,18 +49,17 @@ public class NewRailwaymovable : MonoBehaviour {
     /// </summary>
     private void findNewRoad()
     {
-        float tempSpeed=nav.speed;
+       
 
         Vector3 nextV =Vector3.zero;
 
         int minD = int.MaxValue;
 
-        nav.speed=0;
+        
         foreach(Vector3 v in path){
             NavMeshPath p=new NavMeshPath();
             if (nav.CalculatePath(v,p)&&p.status==0) {
                 int d = p.corners.Length;
-                print("findNewRoad:"+d);
                 if (d < minD)
                 {
                     minD = d;
@@ -73,17 +73,17 @@ public class NewRailwaymovable : MonoBehaviour {
             //不为零,证明找到了未走过的点中最近且可达
             goByPath.Add(nextV);
             path.Remove(nextV);
-
+            print("NextRoad:" + nextV.ToString());
             nav.SetDestination(nextV);
 
         }
         else {
-
+            print("Back" );
             back();
         }
 
        
-        nav.speed=tempSpeed;
+    
       
     }
 

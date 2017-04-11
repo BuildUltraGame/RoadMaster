@@ -142,11 +142,6 @@ public class MineMountain : MonoBehaviour
         currentScore = 0;
     }
 
-    public void testBuild()
-    {
-        Vector3 pos = Lighthouse.transform.position;
-        buildUnitByName("基础运输矿车", pos);
-    }
 
     public void getMineFromCar(int count)
     {

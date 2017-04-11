@@ -27,7 +27,7 @@ public class Roadmovable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        nav = nav ?? GetComponent<NavMeshAgent>();
         if (destination == null)
         {
             return;
@@ -44,7 +44,7 @@ public class Roadmovable : MonoBehaviour {
         //到达目的地,销毁自己
         if (nav.pathStatus==NavMeshPathStatus.PathComplete&&Mathf.Abs(nav.remainingDistance-nav.stoppingDistance)<=0.1)
         {
-          //  Destroy(gameObject);
+            Destroy(gameObject);
         }
 	}
 
@@ -54,8 +54,8 @@ public class Roadmovable : MonoBehaviour {
     /// <param name="v"></param>
     public void setDestination(Vector3 v)
     {
+        nav = nav ?? GetComponent<NavMeshAgent>();
         destination = v;
-        //nav.destination = destination;
        
         nav.SetDestination(destination);
     }

@@ -103,7 +103,7 @@ public class Spawner : MonoBehaviour
         if (isCharacter)
         {
             //只对人有效,对车无效
-            Roadmovable roadmovable = obj.GetComponent<Roadmovable>();
+            Roadmovable roadmovable = obj.gameObject.GetComponent<Roadmovable>();
             if (targetObj != null)
             {
                 roadmovable.setDestination(targetObj);//设置跟踪目标,优先
@@ -119,7 +119,7 @@ public class Spawner : MonoBehaviour
         startTimer();
        
 
-   //     EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject,obj));//发送生成单位事件
+     //   EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject,obj));//发送生成单位事件
     }
 
     private void startTimer()
