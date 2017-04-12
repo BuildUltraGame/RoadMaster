@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7348d62e59badbe469b9ecaa2e2539f3, type: 2}
   mSprites:
-  - name: base_tramcar.jpg
+  - name: base_tramcar
     x: 2
     y: 2
     width: 300
@@ -66,7 +66,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: gate_worker.jpg
+  - name: gate_worker
     x: 304
     y: 2
     width: 300
@@ -79,7 +79,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: inspector.jpg
+  - name: inspector
     x: 606
     y: 2
     width: 300
@@ -92,7 +92,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: overweight_ramcar.jpg
+  - name: overweight_ramcar
     x: 2
     y: 304
     width: 300
@@ -105,7 +105,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: rogue.jpg
+  - name: rogue
     x: 304
     y: 304
     width: 300
@@ -118,7 +118,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: skilled_ramcar.jpg
+  - name: skilled_ramcar
     x: 606
     y: 304
     width: 300
@@ -131,7 +131,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: train.jpg
+  - name: train
     x: 2
     y: 606
     width: 300

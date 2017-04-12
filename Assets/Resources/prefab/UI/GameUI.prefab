@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114375952781826658}
   - component: {fileID: 114157251741911356}
   - component: {fileID: 54215034059874988}
+  - component: {fileID: 114144465930968354}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -1415,6 +1416,17 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &114144465930968354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077986464149704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63635e37021cdc46907e300583ec12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114157251741911356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1939,7 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5ecb5660b11414fb042fb826e03b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalingStyle: 1
+  scalingStyle: 2
   manualWidth: 1280
   manualHeight: 720
   minimumHeight: 320
@@ -2139,8 +2151,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114911512657604122, guid: cce863ac42e309740921e102a9f07494, type: 2}
-  mSpriteName: mine's truck
+  mAtlas: {fileID: 114261433907420456, guid: def435d46f90a5f42a7387e0e35fbb58, type: 2}
+  mSpriteName: base_tramcar.jpg
   mFillCenter: 1
 --- !u!114 &114544388578246818
 MonoBehaviour:

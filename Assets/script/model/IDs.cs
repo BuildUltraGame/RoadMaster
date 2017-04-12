@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class IDs  : MonoBehaviour{
 
-
+    private static Hashtable IDMap = new Hashtable();
     void Awake(){
         
         initFromPrefab();
     }
 
-    private static Hashtable IDMap=new Hashtable();
+ 
     
     /// <summary>
     /// 根据名字获取ID 
