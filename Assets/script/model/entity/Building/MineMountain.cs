@@ -13,11 +13,10 @@ public class MineMountain : MonoBehaviour
 
     public int initMine = 100;
     public int totalMine = 100;
-    public float increaseRate = 0.0f;//每秒增长速率
+    public float increaseRate = 1.0f;//每秒增长速率
     public float increaseFlashTime = 1.0f;//金币更新频率
     public bool isSmallMine = false;//是否是分矿
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
-    public float currentScore; //当前分数
 
     public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
@@ -26,7 +25,7 @@ public class MineMountain : MonoBehaviour
     {
         InitSpawnerDict();
         totalMine = initMine;
-        InitScore();
+
     }
 
     void Start()
@@ -78,10 +77,13 @@ public class MineMountain : MonoBehaviour
             {
                 totalMine -= targetSpawner.getCost();
             }
-
             else
+            {
                 Debug.Log("行走时出错");
-            return false;
+                return false;
+            }
+
+            
         }
         return false;
     }
@@ -137,29 +139,12 @@ public class MineMountain : MonoBehaviour
         }
     }
 
-    void InitScore()
-    {
-        currentScore = 0;
-    }
+
 
 
     public void getMineFromCar(int count)
     {
         totalMine += count;
-    }
-
-    /*public bool changeOwner(int targetOwner)
-    {
-        if (!isSmallMine)
-            return false;
-        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
-        gameObjectBaseGo.setOwner(targetOwner);
-        return true;
-    }删除修改所有者的接口，由gameobjectbase来管理，没问题的话我删除注释
-    */
-    public void changeScore(float num)
-    {
-        currentScore += num;
     }
 
     void OnMouseDown()
