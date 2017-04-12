@@ -27,7 +27,7 @@ GameObject:
   m_TagString: railway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 4
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 32
   m_IsActive: 1
 --- !u!1 &1838496394602992
 GameObject:
@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1838496394602992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.40811542, y: 1, z: 1}
+  m_LocalScale: {x: 0.18676479, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4877104547821368}
   m_RootOrder: 0
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196737880161776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5671663, y: 0, z: 8.207813}
+  m_LocalPosition: {x: 7.9767, y: 0, z: 10.581}
   m_LocalScale: {x: 1.2525694, y: 0.062614694, z: 6.1887984}
   m_Children:
   - {fileID: 4847335070635252}
