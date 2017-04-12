@@ -2070,6 +2070,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114488916850140728, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 114261433907420456, guid: def435d46f90a5f42a7387e0e35fbb58,
+        type: 2}
+    - target: {fileID: 114488916850140728, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: mSpriteName
+      value: base_tramcar.jpg
+      objectReference: {fileID: 0}
+    - target: {fileID: 114742978184816014, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: mDepth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
   m_IsPrefabParent: 0

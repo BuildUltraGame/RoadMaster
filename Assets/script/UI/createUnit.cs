@@ -37,9 +37,12 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
             }
         }*/
         
-        IDList = new List<int>{1,1001,1000,1002};
-        picList = new List<string> { "truck", "police", "rogue", "worker" };
+        picList = new List<string> { Tags.Vehicle.BASETRAMCAR, Tags.Vehicle.OVERWEIGHTTRAMCAR, Tags.Vehicle.SKILLEDTRAMCAR, Tags.Vehicle.TRAIN,Tags.Character.GATEWORKER,Tags.Character.INSPECTOR,Tags.Character.ROGUE };
         button = this.gameObject.GetComponent<UIButton>();
+        for (int i = 0; i < 7; i++)
+        {
+            IDList[i] = IDs.getIDByName(picList[i]);
+        }
     }
     /// <summary>
     /// 
@@ -59,7 +62,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public void nextButton()
     {
         nameNum++;
-        if (nameNum >= 4)
+        if (nameNum >= 7)
         {
             nameNum = 0;
         }
@@ -72,7 +75,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
         nameNum--;
         if (nameNum < 0)
         {
-            nameNum = 3;
+            nameNum = 6;
         }
         producer.spriteName = picList[nameNum];
     }
