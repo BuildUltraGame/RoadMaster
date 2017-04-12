@@ -27,7 +27,7 @@ public class MetroGate3 : MetroGate {
 	void Start () {
         base.Start();
         initPointInfo();
-
+        GetComponent<Renderer>().material.mainTexture = stateTexture[2];
 	}
 
 
@@ -94,6 +94,7 @@ public class MetroGate3 : MetroGate {
         {
             if(!linkRoad.Contains(allPoint[i])){
                 blockRoad = allPoint[i];
+                GetComponent<Renderer>().material.mainTexture=stateTexture[i];
             }
         }
 
