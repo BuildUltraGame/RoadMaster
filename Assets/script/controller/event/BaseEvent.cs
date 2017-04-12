@@ -77,5 +77,15 @@ public class BaseEvent
         return verb;
     }
 
+    public int getObjectOwner()
+    {
+        if (getObject() == null) { return GameobjBase.WORLD; }
+        return getObject().GetComponent<GameobjBase>().getOwner();
+    }
 
+    public int getSubjectOwner()
+    {
+        if (getSubject() == null) { return GameobjBase.WORLD; }
+        return getSubject().GetComponent<GameobjBase>().getOwner();
+    }
 }

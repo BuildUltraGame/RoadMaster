@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
@@ -7,38 +8,45 @@ using UnityEventAggregator;
 ///  通过Inspector面板来设定是主矿还是分矿
 ///  Attention：不要忘记挂载矿山的碰撞处理脚本！
 /// </summary>
-public class MineMountain : MonoBehaviour {
+public class MineMountain : MonoBehaviour
+{
 
     public int initMine = 100;
     public int totalMine = 100;
-    public float increaseRate = 0.0f;//每秒增长速率
+    public float increaseRate = 1.0f;//每秒增长速率
     public float increaseFlashTime = 1.0f;//金币更新频率
     public bool isSmallMine = false;//是否是分矿
     public GameObject Lighthouse; //这个是我用来测试的，指定一个物体，这样比较好找到位置
-    public float currentScore; //当前分数
 
-    private int owner;
-
-    public List<Spawner> SpawnerUnitList = new List<Spawner>();
-    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();
-
-    public Dictionary<int, Spawner> SpawnerIDDict = new Dictionary<int, Spawner>();//等待ID与Spawner的对应关系实现之后再填入
+    public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
+    private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
     void Awake()
     {
         InitSpawnerDict();
         totalMine = initMine;
-        InitOwner();
+
     }
 
-    void Start () {
-        InvokeRepeating("increaseMine",0.0f,increaseFlashTime);
-	}
-	
+    void Start()
+    {
+        EventAggregator.SendMessage<MineMoutainSpawnerEvent>(new MineMoutainSpawnerEvent(this));
+        InvokeRepeating("increaseMine", 0.0f, increaseFlashTime);
+        PathDataCenter.registerPathPoint(transform.position);
+        
+    }
 
-	void Update () {
+
+    void OnDisable()
+    {
+        PathDataCenter.unRegisterPathPoint(transform.position);
+    }
+
+
+    void Update()
+    {
         //testBuild();
-        Debug.Log("mine" + totalMine);
+        //Debug.Log("mine" + totalMine);
     }
 
     /// <summary>
@@ -48,9 +56,9 @@ public class MineMountain : MonoBehaviour {
     /// <param name="id"></param>
     /// <param name="targetPos"></param>
     /// <returns></returns>
-    public bool buildUnitByID(int id,Vector3 targetPos)
+    public bool buildUnitByID(int id, Vector3 targetPos)
     {
-        
+
         string name = IDs.getNameByID(id);
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -69,10 +77,13 @@ public class MineMountain : MonoBehaviour {
             {
                 totalMine -= targetSpawner.getCost();
             }
-
             else
+            {
                 Debug.Log("行走时出错");
                 return false;
+            }
+
+            
         }
         return false;
     }
@@ -84,7 +95,7 @@ public class MineMountain : MonoBehaviour {
     /// <param name="name"></param>
     /// <param name="buildPos"></param>
     /// <returns></returns>
-    public bool buildUnitByName(string name,Vector3 targetPos)
+    public bool buildUnitByName(string name, Vector3 targetPos)
     {
         Spawner targetSpawner = null;
         if (SpawnerUnitDict.ContainsKey(name) == true)
@@ -101,8 +112,9 @@ public class MineMountain : MonoBehaviour {
             if (targetSpawner.build())
             {
                 totalMine -= targetSpawner.getCost();
+
             }
-               
+
             else
                 // TODO
                 return false;
@@ -121,46 +133,38 @@ public class MineMountain : MonoBehaviour {
     /// </summary>
     void InitSpawnerDict()
     {
-        foreach(Spawner spawnerUnit in SpawnerUnitList)
-        { 
-            SpawnerUnitDict.Add(spawnerUnit.getName(), spawnerUnit);
+        foreach (Spawner spawnerUnit in SpawnerUnitList)
+        {
+            SpawnerUnitDict.Add(spawnerUnit.GetComponent<GameobjBase>().game_name_en, spawnerUnit);
         }
     }
 
-    void InitOwner()
-    {
-        GameobjBase gameObjectBaseGo = this.GetComponent<GameobjBase>();
-        owner = gameObjectBaseGo.getOwner();
-        currentScore = 0;
-    }
 
-    public void testBuild()
-    {
-        Vector3 pos = Lighthouse.transform.position;
-        buildUnitByName("基础运输矿车", pos);
-    }
+
 
     public void getMineFromCar(int count)
     {
         totalMine += count;
     }
 
-    public bool changeOwner(int targetOwner)
-    {
-        if (!isSmallMine)
-            return false;
-        owner = targetOwner;
-        Debug.Log("owner changed = to" + owner);
-        return true;
-    }
-
-    public void changeScore(float num)
-    {
-        currentScore += num;
-    }
-
     void OnMouseDown()
     {
         EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
     }
+
+    public void Handle(SpawnEvent message)
+    {
+        GameObject targetObj = message.getSubject();
+        if (targetObj.GetComponents<DestoryMe>() == null)
+        {
+            targetObj.AddComponent<DestoryMe>();
+
+        }
+        else
+        {
+            Debug.Log("不可能啊");
+        }
+
+    }
+
 }

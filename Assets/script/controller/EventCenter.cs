@@ -6,7 +6,7 @@ using UnityEventAggregator;
 /// <summary>
 /// 事件中心,会监听所有事件
 /// </summary>
-public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameObjSeletEvent>
+public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameObjSeletEvent>,IListener<SpawnEvent>
 {
 
     private static EventCenter _instance;
@@ -26,10 +26,17 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
         DontDestroyOnLoad(this.gameObject);
     }
 
+    void OnEnable()
+    {
+        print("OnEnable");
+    }
+
     void Start()
     {
+        print("Start");
         EventAggregator.Register<BaseEvent>(this);
         EventAggregator.Register<GameObjSeletEvent>(this);
+        EventAggregator.Register<SpawnEvent>(this);
     }
 
 
@@ -50,6 +57,12 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
 
     public void Handle(GameObjSeletEvent message)
     {
+        print(message.getObject() + message.getVerb() + message.getSubject());
+    }
+
+    public void Handle(SpawnEvent message)
+    {
+        print("生产单位");
         print(message.getObject() + message.getVerb() + message.getSubject());
     }
 }

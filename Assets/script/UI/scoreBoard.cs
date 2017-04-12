@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 
-public class scoreBoard : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
+public class scoreBoard : MonoBehaviour, IListener<ScoreEvent>, IListener<cancelMountainEvent>
 {
 
-    MineMountain mineNow;
+
     public UILabel scoreNeed;//距胜利所需分数
     public UILabel scoreNow;//当前分数
 	// Use this for initialization
 	void Start () {
-        EventAggregator.Register<MineSelectEvent>(this);
+        EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<cancelMountainEvent>(this);
+        scoreNow.text = "0";
 	}
 	
 	// Update is called once per frame
@@ -20,17 +21,18 @@ public class scoreBoard : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
 		
 	}
 
-    public void Handle(MineSelectEvent message)
+    public void Handle(ScoreEvent message)
     {
-        mineNow=message.getMine();
-        scoreNow.text = ""+mineNow.currentScore;
-        //scoreNeed.text=mineNow.???//计算获得
+        if(message.getPlayer()==GameobjBase.PLAYER){
+            scoreNow.text = "" + message.getScore();
+        }
+       
     }
 
     
     void OnDisable()
     {
-        EventAggregator.UnRegister<MineSelectEvent>(this);
+        EventAggregator.UnRegister<ScoreEvent>(this);
         EventAggregator.UnRegister<cancelMountainEvent>(this);
     }
 

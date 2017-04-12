@@ -13,8 +13,8 @@ public class Tags {
     public const string ROAD = "road";
 
     public const string RAILWAY_POINT = "railway_point";
-    
 
+    public const string GATE = "gate";
 
     public static class Vehicle {
         public const string BASETRAMCAR = "base_tramcar";//基础矿车
@@ -41,6 +41,7 @@ public class Tags {
         public const string MINE = "mine";//矿山
         public const string MAINMINE = "main_mine";//主矿山
         public const string SCORING = "scoring_building";//终点
+        public const string FUCKHOLE = "fuck_hole";
 
     }
 

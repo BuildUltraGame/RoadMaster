@@ -11,8 +11,8 @@ using UnityEngine.AI;
 public class SpawnEvent : BaseEvent
 {
 
-    public SpawnEvent(GameObject gameObj)
-        : base(gameObj, "Spawn", null)
+    public SpawnEvent(GameObject spawner,GameObject gameObj)
+        : base(spawner, "Spawn", gameObj)
     {
         
     }

@@ -42,3 +42,5 @@ sysinfo.txt
 *.unitypackage
 /Assets/NGUI
 NGUI
+/Assets/NGUI.meta
+Editor Default Resources

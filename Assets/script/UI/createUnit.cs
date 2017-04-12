@@ -95,7 +95,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<BaseEvent>(new unitEvent(null, null, null, IDList[nameNum]));
+        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[nameNum]));
         Debug.Log(IDList[nameNum], null);
     }
 

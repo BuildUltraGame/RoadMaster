@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class IDs  : MonoBehaviour{
-    public TextAsset list;
+
 
     void Awake(){
-        initIDMap(list);
-
+        
+        initFromPrefab();
     }
 
-    private static Hashtable IDMap;
+    private static Hashtable IDMap=new Hashtable();
     
     /// <summary>
     /// 根据名字获取ID 
@@ -31,9 +32,9 @@ public class IDs  : MonoBehaviour{
             return 0;
         }
 
-        if(IDMap.ContainsValue(name)){
+        if(IDMap.ContainsValue(new GameObjectName(name))){
             foreach(DictionaryEntry item in IDMap){
-                if(item.Value==name){
+                if((item.Value as GameObjectName).en==name){
                     return (int)item.Key;
                 }
             }
@@ -61,11 +62,13 @@ public class IDs  : MonoBehaviour{
         }
 
         if(IDMap.ContainsKey(ID)){
-            return (string)IDMap[ID];
+            return (IDMap[ID] as GameObjectName).en;
+        }else if(IDMap.ContainsKey(ID.ToString())){
+            return (IDMap[ID.ToString()] as GameObjectName).en;
         }
         else
         {
-            throw new Exception("无法找到对应ID的name");
+            throw new Exception("无法找到ID:"+ID+"的name");
         }
 
     
@@ -99,17 +102,30 @@ public class IDs  : MonoBehaviour{
     /// <summary>
     /// 初始化ID库
     /// </summary>
-    private static void initIDMap(TextAsset list)
+    private static void initFromPrefab()
     {
-        IDMap = new Hashtable();
+        GameObject[] prefabs=Resources.LoadAll<GameObject>("prefab/entity");
+        foreach(GameObject obj in prefabs){
+            GameobjBase b=obj.GetComponent<GameobjBase>();
+            IDMap.Add(b.game_ID, new GameObjectName(b.game_name_en, b.game_name));
+        }
+    }
 
-        string[] lines = list.text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+    public class GameObjectName
+    {
+        public string en;
+        public string cn;
 
-        foreach(string line in lines){
-            string[] s = line.Split(',');
-            IDMap.Add(s[0],s[1]);
+        public GameObjectName(string en,string cn=null)
+        {
+            this.en = en;
+            this.cn = cn;
         }
 
+        public override bool Equals(object obj)
+        {
+            return (obj as GameObjectName).en==en;
+        }
     }
 	
 }

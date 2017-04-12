@@ -18,6 +18,8 @@ TagManager:
   - mine
   - scoring_building
   - railway_point
+  - moveObj
+  - gate
   layers:
   - Default
   - TransparentFX
