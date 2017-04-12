@@ -16,6 +16,11 @@ public class MineMountainTrigger : CollisionBaseHandler
         base.OnEnemyCollisionStart(enemy);
         if (!(mineMountain.isSmallMine && explorationTramcar))
         {
+            GoldCarrier goldCarrier = enemy.GetComponent<GoldCarrier>();
+            if (goldCarrier != null)
+            {
+                mineMountain.getMineFromCar(goldCarrier.popGold());
+            }
             Destroy(enemy.gameObject);
         }
 
@@ -24,7 +29,7 @@ public class MineMountainTrigger : CollisionBaseHandler
 
     public override void OnSelfUnitCollisionStart(Collider selfUnit)
     {
-        base.OnSelfUnitCollisionEnd(selfUnit);
+        base.OnSelfUnitCollisionStart(selfUnit);
         if (selfUnit.gameObject.GetComponent<DestoryMe>() != null)
         {
             if (!selfUnit.gameObject.GetComponent<DestoryMe>().couldDestory)
