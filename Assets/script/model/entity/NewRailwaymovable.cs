@@ -9,7 +9,7 @@ public class NewRailwaymovable : MonoBehaviour {
     private List<Vector3> path = null;
 
 	private NavMeshAgent nav;
-    private Vector3 destination;
+    public Vector3 destination;
 
 
 
@@ -40,7 +40,7 @@ public class NewRailwaymovable : MonoBehaviour {
         {
             findNewRoad();//如果到达目的地,赶紧找下一个地点,对,累死你,不让你停
         }
-
+        Debug.DrawLine(transform.position, destination, Color.red);
     }
 
 
@@ -67,6 +67,7 @@ public class NewRailwaymovable : MonoBehaviour {
                 }
             }
         }
+        
 
         if (!nextV.Equals(Vector3.zero))
         {
@@ -74,7 +75,7 @@ public class NewRailwaymovable : MonoBehaviour {
             goByPath.Add(nextV);
             path.Remove(nextV);
             nav.SetDestination(nextV);
-
+            destination = nextV;
         }
         else {
             print("Back" );

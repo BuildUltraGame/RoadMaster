@@ -88,11 +88,11 @@ public class Spawner : MonoBehaviour
     private void buildNow()
     {
         //生成游戏单位代码
-       
-        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit);
+
+        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit,transform.position,Quaternion.identity);
 
         obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
-        obj.transform.position = transform.position;
+        
 
         
 
