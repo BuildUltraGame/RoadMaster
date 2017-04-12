@@ -18,7 +18,14 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if(mineSelected!=null)
+        {
+            GoldAll.text = "" + mineSelected.totalMine;
+            //Train.text = ""+mineSelected.;训练速度数据，未获得
+            GoldGet.text = "" + mineSelected.increaseRate;
+            GoldTime.text = "" + mineSelected.increaseFlashTime;
+        }
+        
 	}
     /// <summary>
     /// 获取当前矿山后改变底部面板信息
@@ -27,10 +34,7 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     public void Handle(MineSelectEvent message)
     {
         mineSelected = message.getMine();
-        GoldAll.text = "" + mineSelected.totalMine;
-        //Train.text = ""+mineSelected.;训练速度数据，未获得
-        GoldGet.text = "" + mineSelected.increaseRate;
-        GoldTime.text = "" + mineSelected.increaseFlashTime;
+        
     }
 
     /// <summary>
@@ -39,6 +43,7 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     /// <param name="message"></param>
     public void Handle(cancelMountainEvent message)
     {
+        mineSelected = null;
         GoldAll.text ="";
         Train.text ="";
         GoldGet.text ="";

@@ -12,6 +12,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public List<int> IDList;
     public List<string> picList;
     public int nameNum=0;
+    
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
     //public TextAsset nameInfoText;
