@@ -16,6 +16,7 @@ public class ScoringBuilding : MonoBehaviour {
 	void Start () {
         ScoreBoard.getInstance().Init(2);
         PathDataCenter.registerPathPoint(transform.position);
+        EventAggregator.SendMessage<ScoreBuildingSpawnEvent>(new ScoreBuildingSpawnEvent(gameObject));
 	}
 
     void OnDisable()
