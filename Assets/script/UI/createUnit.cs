@@ -41,7 +41,8 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
         button = this.gameObject.GetComponent<UIButton>();
         for (int i = 0; i < 7; i++)
         {
-            IDList[i] = IDs.getIDByName(picList[i]);
+            IDList.Add(IDs.getIDByName(picList[i]));
+            Debug.Log(IDList[i]);
         }
     }
     /// <summary>
@@ -68,6 +69,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
         }
 
         producer.spriteName = picList[nameNum];
+        Debug.Log(IDList[nameNum]);
     }
 
     public void frontButton()
@@ -78,6 +80,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
             nameNum = 6;
         }
         producer.spriteName = picList[nameNum];
+        Debug.Log(IDList[nameNum]);
     }
 /// <summary>
 /// 未知
