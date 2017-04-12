@@ -1745,12 +1745,6 @@ MonoBehaviour:
   producer: {fileID: 114488916850140728}
   button: {fileID: 114235518721975852}
   lockButton: {fileID: 114742978184816014}
-  IDList: 01000000e9030000e8030000ea030000
-  picList:
-  - 
-  - 
-  - 
-  - 
   nameNum: 0
 --- !u!114 &114299678016888882
 MonoBehaviour:
@@ -2152,7 +2146,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114261433907420456, guid: def435d46f90a5f42a7387e0e35fbb58, type: 2}
-  mSpriteName: base_tramcar.jpg
+  mSpriteName: base_tramcar
   mFillCenter: 1
 --- !u!114 &114544388578246818
 MonoBehaviour:
