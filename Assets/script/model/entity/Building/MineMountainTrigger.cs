@@ -12,7 +12,7 @@ public class MineMountainTrigger : CollisionBaseHandler
     public override void OnEnemyCollisionStart(Collider enemy)
     {
         MineMountain mineMountain = this.GetComponent<MineMountain>();
-        ExplorationTramcar explorationTramcar = this.GetComponent<ExplorationTramcar>();
+        ExplorationTramcar explorationTramcar = enemy.GetComponent<ExplorationTramcar>();
         base.OnEnemyCollisionStart(enemy);
         if (!(mineMountain.isSmallMine && explorationTramcar))
         {

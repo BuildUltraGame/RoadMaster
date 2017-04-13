@@ -45,6 +45,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1348196901448348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4178547582111188}
+  - component: {fileID: 114138048541725430}
+  - component: {fileID: 114555406197136246}
+  m_Layer: 0
+  m_Name: ExplorationTramcarSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1436474472444094
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +169,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4178547582111188
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348196901448348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0553, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4401443501304094}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4327052387722108
 Transform:
   m_ObjectHideFlags: 1
@@ -185,8 +215,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746892869518828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1207085, y: -0.36610794, z: -6.51534}
-  m_LocalScale: {x: 40, y: 30, z: 40}
+  m_LocalPosition: {x: -24.98, y: -0.37, z: -1.72}
+  m_LocalScale: {x: 150, y: 140, z: 150}
   m_Children:
   - {fileID: 4439253890558122}
   - {fileID: 4524022078124442}
@@ -195,6 +225,7 @@ Transform:
   - {fileID: 4534073201259500}
   - {fileID: 4996337962342632}
   - {fileID: 4327052387722108}
+  - {fileID: 4178547582111188}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -360,6 +391,21 @@ MonoBehaviour:
   game_ID: 0
   game_name: 
   game_name_en: train
+--- !u!114 &114138048541725430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348196901448348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6211a92d8d3d824ea88e86d638840fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1000
+  spawnUnit: {fileID: 1921851916521646, guid: 2def875648336f747a904dae90888dd7, type: 2}
+  CD: 20
+  buildTime: 0
 --- !u!114 &114225342263792614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,6 +526,21 @@ MonoBehaviour:
   game_ID: 0
   game_name: 
   game_name_en: rogue
+--- !u!114 &114555406197136246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348196901448348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 0
+  game_ID: 0
+  game_name: 
+  game_name_en: exploration_tramcar
 --- !u!114 &114653358727860896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,6 +626,7 @@ MonoBehaviour:
   - {fileID: 114225342263792614}
   - {fileID: 114314294115650226}
   - {fileID: 114049154396406406}
+  - {fileID: 114138048541725430}
 --- !u!114 &114885729628183754
 MonoBehaviour:
   m_ObjectHideFlags: 1

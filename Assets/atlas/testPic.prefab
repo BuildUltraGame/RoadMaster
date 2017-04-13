@@ -54,8 +54,21 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 7348d62e59badbe469b9ecaa2e2539f3, type: 2}
   mSprites:
   - name: base_tramcar
-    x: 2
-    y: 2
+    x: 301
+    y: 724
+    width: 300
+    height: 300
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: exploration_tramcar
+    x: 0
+    y: 724
     width: 300
     height: 300
     borderLeft: 0
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gate_worker
-    x: 304
-    y: 2
+    x: 602
+    y: 724
     width: 300
     height: 300
     borderLeft: 0
@@ -80,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: inspector
-    x: 606
-    y: 2
+    x: 0
+    y: 423
     width: 300
     height: 300
     borderLeft: 0
@@ -93,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: overweight_ramcar
-    x: 2
-    y: 304
+    x: 0
+    y: 122
     width: 300
     height: 300
     borderLeft: 0
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rogue
-    x: 304
-    y: 304
+    x: 301
+    y: 423
     width: 300
     height: 300
     borderLeft: 0
@@ -119,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: skilled_ramcar
-    x: 606
-    y: 304
+    x: 602
+    y: 423
     width: 300
     height: 300
     borderLeft: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: train
-    x: 2
-    y: 606
+    x: 301
+    y: 122
     width: 300
     height: 300
     borderLeft: 0

@@ -9,44 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1343195280354420}
+  m_RootGameObject: {fileID: 1277319500385402}
   m_IsPrefabParent: 1
---- !u!1 &1343195280354420
+--- !u!1 &1277319500385402
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4382190038447552}
-  - component: {fileID: 114772460437436874}
-  - component: {fileID: 114341424466428638}
+  - component: {fileID: 4593639658142406}
+  - component: {fileID: 114937324688274500}
+  - component: {fileID: 114665005042242362}
   m_Layer: 0
-  m_Name: RogueSpawner
+  m_Name: ExplorationTramcarSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4382190038447552
+--- !u!4 &4593639658142406
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1343195280354420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1277319500385402}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 122.64207, y: 0, z: 79.80986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114341424466428638
+--- !u!114 &114665005042242362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1343195280354420}
+  m_GameObject: {fileID: 1277319500385402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
@@ -55,19 +55,19 @@ MonoBehaviour:
   owner: 0
   game_ID: 0
   game_name: 
-  game_name_en: rogue
---- !u!114 &114772460437436874
+  game_name_en: base_tramcar
+--- !u!114 &114937324688274500
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1343195280354420}
+  m_GameObject: {fileID: 1277319500385402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6211a92d8d3d824ea88e86d638840fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 80
-  spawnUnit: {fileID: 1730943180559496, guid: 00cdc1d2e67f7654b9ae7927978453e1, type: 2}
-  CD: 2
+  cost: 1000
+  spawnUnit: {fileID: 1921851916521646, guid: 2def875648336f747a904dae90888dd7, type: 2}
+  CD: 20
   buildTime: 0
