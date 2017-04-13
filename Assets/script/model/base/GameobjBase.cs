@@ -40,7 +40,13 @@ public class GameobjBase : MonoBehaviour {
 
     public virtual void OnMouseDown()
     {
-        EventAggregator.SendMessage<GameObjSeletEvent>(new GameObjSeletEvent(gameObject));//游戏物体被选择
+        if (tag == Tags.Building.MINE)
+        {
+            EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
+        }
+        else {
+            EventAggregator.SendMessage<GameObjSeletEvent>(new GameObjSeletEvent(gameObject));//游戏物体被选择
+        }
     }
 
 }

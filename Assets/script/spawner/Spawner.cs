@@ -142,7 +142,12 @@ public class Spawner : MonoBehaviour
         }
 
         CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
-            coolDown = CD-time;
+            float newcool = CD - time;
+            if(!Mathf.FloorToInt(newcool).Equals(Mathf.FloorToInt(coolDown))){
+                EventAggregator.SendMessage<SpawnerCDEvent>(new SpawnerCDEvent(gameObject,newcool));//一秒发一个CD事件
+            }
+            coolDown = newcool;
+            
         }, delegate()
         {
             setBuildFlag(true);
