@@ -500,6 +500,11 @@ Prefab:
       propertyPath: owner
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: isSmallMine
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
   m_IsPrefabParent: 0
