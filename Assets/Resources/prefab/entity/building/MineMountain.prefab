@@ -28,6 +28,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1157391077488216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4555926682925014}
+  - component: {fileID: 114740744753390124}
+  - component: {fileID: 114766937047787344}
+  m_Layer: 0
+  m_Name: OverweightTramcarSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1228400169824384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4107541413166446}
+  - component: {fileID: 114292325720832074}
+  - component: {fileID: 114891892622561446}
+  m_Layer: 0
+  m_Name: SkilledTramcarSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1241999984112890
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,40 +169,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1820779001570560
-GameObject:
-  m_ObjectHideFlags: 0
+--- !u!4 &4107541413166446
+Transform:
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4349775626792648}
-  - component: {fileID: 114358226895607834}
-  - component: {fileID: 114953733359468426}
-  m_Layer: 0
-  m_Name: OverweightTramcarSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1955676366426010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4996337962342632}
-  - component: {fileID: 114314294115650226}
-  - component: {fileID: 114739399260938064}
-  m_Layer: 0
-  m_Name: SkilledTramcarSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 1228400169824384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4401443501304094}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4178547582111188
 Transform:
   m_ObjectHideFlags: 1
@@ -195,19 +208,6 @@ Transform:
   m_Father: {fileID: 4401443501304094}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4349775626792648
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820779001570560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0553, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4401443501304094}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4401443501304094
 Transform:
   m_ObjectHideFlags: 1
@@ -221,9 +221,9 @@ Transform:
   - {fileID: 4439253890558122}
   - {fileID: 4524022078124442}
   - {fileID: 4869529675962038}
-  - {fileID: 4349775626792648}
   - {fileID: 4534073201259500}
-  - {fileID: 4996337962342632}
+  - {fileID: 4555926682925014}
+  - {fileID: 4107541413166446}
   - {fileID: 4327052387722108}
   - {fileID: 4178547582111188}
   m_Father: {fileID: 0}
@@ -266,6 +266,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4401443501304094}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4555926682925014
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157391077488216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4401443501304094}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4869529675962038
@@ -280,19 +293,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4401443501304094}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4996337962342632
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955676366426010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0553, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4401443501304094}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23580196181028446
 MeshRenderer:
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 6
-  spawnUnit: {fileID: 1066427314932644, guid: 38232f957f022f44e83986f5651acf70, type: 2}
+  spawnUnit: {fileID: 1265301212092484, guid: 0afe3b3a6610b8449a6ff5407492a642, type: 2}
   CD: 10
   buildTime: 0
 --- !u!114 &114103073895980788
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1000
-  spawnUnit: {fileID: 1921851916521646, guid: 2def875648336f747a904dae90888dd7, type: 2}
+  spawnUnit: {fileID: 1988851248063350, guid: da7f05a10b2bab54e9e81d656f98b1f6, type: 2}
   CD: 20
   buildTime: 0
 --- !u!114 &114225342263792614
@@ -436,19 +436,19 @@ MonoBehaviour:
   game_ID: 0
   game_name: 
   game_name_en: gate_worker
---- !u!114 &114314294115650226
+--- !u!114 &114292325720832074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955676366426010}
+  m_GameObject: {fileID: 1228400169824384}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6211a92d8d3d824ea88e86d638840fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 110
-  spawnUnit: {fileID: 1973957703888392, guid: 656d242aa00e53046940f2542b959c31, type: 2}
+  spawnUnit: {fileID: 1269291370032300, guid: 95c3d118a2e6bdb4aab22f210dea8fc0, type: 2}
   CD: 7
   buildTime: 0
 --- !u!114 &114344395045486326
@@ -466,21 +466,6 @@ MonoBehaviour:
   game_ID: -1
   game_name: "\u77FF\u5C71"
   game_name_en: mine
---- !u!114 &114358226895607834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820779001570560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6211a92d8d3d824ea88e86d638840fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 80
-  spawnUnit: {fileID: 1816668194362276, guid: d475112b8c295974280b7771c40be355, type: 2}
-  CD: 3
-  buildTime: 0
 --- !u!114 &114460802357533100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,21 +541,21 @@ MonoBehaviour:
   spawnUnit: {fileID: 1618872561931174, guid: 3e4144e818e035347941bc2fa266d03f, type: 2}
   CD: 5
   buildTime: 0
---- !u!114 &114739399260938064
+--- !u!114 &114740744753390124
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955676366426010}
+  m_GameObject: {fileID: 1157391077488216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
+  m_Script: {fileID: 11500000, guid: e6211a92d8d3d824ea88e86d638840fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: 0
-  game_ID: 0
-  game_name: 
-  game_name_en: skilled_ramcar
+  cost: 120
+  spawnUnit: {fileID: 1227299018505476, guid: d38a8fdc6a147684ab32fd6203a73dea, type: 2}
+  CD: 3
+  buildTime: 0
 --- !u!114 &114758491607694038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -583,9 +568,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 10
-  spawnUnit: {fileID: 1448525446867230, guid: 3e136108fd3e0f04c84b0d7e700bede5, type: 2}
+  spawnUnit: {fileID: 1547725500324574, guid: ff42890dcbeca8c469495cb5c4c21452, type: 2}
   CD: 5
   buildTime: 0
+--- !u!114 &114766937047787344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157391077488216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 0
+  game_ID: 0
+  game_name: 
+  game_name_en: overweight_ramcar
 --- !u!114 &114801599243969668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
-  spawnUnit: {fileID: 1622550531955412, guid: eb8f0f0dc5f56ed4c9b2386c643749e9, type: 2}
+  spawnUnit: {fileID: 1866666605186022, guid: 7cd4f6b0d90d1d848a487fafa4d423d5, type: 2}
   CD: 5
   buildTime: 0
 --- !u!114 &114826589863377786
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initMine: 1000
-  totalMine: 1000
+  totalMine: 1024
   increaseRate: 1
   increaseFlashTime: 1
   isSmallMine: 0
@@ -622,9 +622,9 @@ MonoBehaviour:
   - {fileID: 114801599243969668}
   - {fileID: 114758491607694038}
   - {fileID: 114653358727860896}
-  - {fileID: 114358226895607834}
+  - {fileID: 114740744753390124}
   - {fileID: 114225342263792614}
-  - {fileID: 114314294115650226}
+  - {fileID: 114292325720832074}
   - {fileID: 114049154396406406}
   - {fileID: 114138048541725430}
 --- !u!114 &114885729628183754
@@ -638,12 +638,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f790610caca034bb31738095790bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114953733359468426
+--- !u!114 &114891892622561446
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820779001570560}
+  m_GameObject: {fileID: 1228400169824384}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
@@ -652,4 +652,4 @@ MonoBehaviour:
   owner: 0
   game_ID: 0
   game_name: 
-  game_name_en: overweight_ramcar
+  game_name_en: skilled_ramcar

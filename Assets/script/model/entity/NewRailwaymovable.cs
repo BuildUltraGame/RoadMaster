@@ -37,7 +37,7 @@ public class NewRailwaymovable : MonoBehaviour {
     {
         path = path ?? new List<Vector3>(PathDataCenter.pathPoints);
    
-        if (nav.pathStatus == NavMeshPathStatus.PathComplete && Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 0.05)
+        if (nav.pathStatus == NavMeshPathStatus.PathComplete && Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 1)
         {
             findNewRoad();//如果到达目的地,赶紧找下一个地点,对,累死你,不让你停
         }

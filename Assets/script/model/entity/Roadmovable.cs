@@ -18,11 +18,16 @@ public class Roadmovable : MonoBehaviour {
     private NavMeshAgent nav=null;
     private Vector3 destination;
     public GameObject target;
+    private Animator mAnime;
 
 	// Use this for initialization
 	void Start () {
         nav = GetComponent<NavMeshAgent>();
-    
+        mAnime=GetComponent<Animator>();
+        if (mAnime != null)
+        {
+            mAnime.SetFloat("VSpeed", 1);
+        }
     }
 	
 	// Update is called once per frame
@@ -32,6 +37,7 @@ public class Roadmovable : MonoBehaviour {
         {
             return;
         }
+        
 
         if (target != null)
         {

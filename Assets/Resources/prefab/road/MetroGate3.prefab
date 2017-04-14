@@ -84,8 +84,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752757845311336}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 30.59, y: 0, z: 8.44}
-  m_LocalScale: {x: 3.6141548, y: 0.033735786, z: 3.6141677}
+  m_LocalPosition: {x: 26.11, y: -0, z: 13.06}
+  m_LocalScale: {x: 8.776142, y: 0.08742621, z: 10.632193}
   m_Children:
   - {fileID: 4658096384620502}
   - {fileID: 4656324759611666}
@@ -223,7 +223,7 @@ OffMeshLink:
   m_AreaIndex: 4
   m_Start: {fileID: 4562084727750716}
   m_End: {fileID: 4658096384620502}
-  m_CostOverride: 1
+  m_CostOverride: 20
   m_BiDirectional: 1
   m_Activated: 1
   m_AutoUpdatePositions: 1
