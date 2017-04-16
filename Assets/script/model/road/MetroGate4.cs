@@ -13,7 +13,7 @@ public class MetroGate4 : MetroGate
     {
         base.Start();
         initPointInfo();
-        GetComponent<Renderer>().material.mainTexture = stateTexture[state];
+      
 
     }
 
@@ -52,7 +52,7 @@ public class MetroGate4 : MetroGate
             state = 0;
         }
 
-        GetComponent<Renderer>().material.mainTexture = stateTexture[state];
+       
   
         destroyVehilesOnRoad();//摧毁当前在岔道口的车辆
     }
