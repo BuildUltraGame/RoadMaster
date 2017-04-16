@@ -53,22 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 935ff858fd6ea6c47ab9e1bef5507103, type: 2}
   mSprites:
-  - name: truck
-    x: 2
-    y: 2
-    width: 221
-    height: 284
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: police
-    x: 225
-    y: 2
+    x: 905
+    y: 160
     width: 222
     height: 284
     borderLeft: 0
@@ -80,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rogue
-    x: 449
-    y: 2
+    x: 905
+    y: 445
     width: 219
     height: 290
     borderLeft: 0
@@ -92,9 +79,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: test_Pic
+    x: 0
+    y: 120
+    width: 904
+    height: 904
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 118
+    paddingTop: 2
+    paddingBottom: 118
+  - name: truck
+    x: 1131
+    y: 740
+    width: 221
+    height: 284
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: worker
-    x: 670
-    y: 2
+    x: 905
+    y: 736
     width: 225
     height: 288
     borderLeft: 0

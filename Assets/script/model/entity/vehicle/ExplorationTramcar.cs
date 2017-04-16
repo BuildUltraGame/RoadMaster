@@ -1,20 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 /// <summary>
 /// 探勘车
 /// 功能:占领矿山
 /// </summary>
 public class ExplorationTramcar : MonoBehaviour {
     public float reqTime = 3f;//占领所需要时间
-
+    private GameObject mineExp = null;
 
     void OnTriggerEnter(Collider other)
     {
         GameobjBase gBase = other.GetComponent<GameobjBase>();
-
-        if(other.gameObject.layer==Layers.BUILDING&&other.gameObject.tag==Tags.Building.MINE){
+        MineMountain mine = other.GetComponent<MineMountain>();
+        if(mine==null){
+            return;
+        }
+        if (!mineExp && mine.isSmallMine)
+        {
             //是建筑且是矿山的时候
+            mineExp = other.gameObject;
             HoldMineDelay(gBase);
         }
 
@@ -27,25 +33,20 @@ public class ExplorationTramcar : MonoBehaviour {
     /// <param name="b"></param>
     private void HoldMineDelay(GameobjBase b)
     {
-      TimerController.Timer timer=TimerController.getInstance().NewTimer(reqTime, false, 
-          delegate(float time) { }, 
-          delegate() {
-              HoldMine(b);
-          });
-
-      timer.setAutoDestory(true);//自动销毁计时器
-      timer.Start();
+        Invoke("HoldMine",reqTime);
+        GetComponent<NavMeshAgent>().enabled = false;
         
     }
 
     /// <summary>
     /// 占领
     /// </summary>
-    /// <param name="b"></param>
-    private void HoldMine(GameobjBase b)
+    /// 
+    private void HoldMine()
     {
         GameobjBase myBase = GetComponent<GameobjBase>();
-        b.setOwner(myBase.getOwner());//设置游戏单位为自己方
+        mineExp.GetComponent<GameobjBase>().setOwner(myBase.getOwner());//设置游戏单位为自己方
+        Destroy(gameObject);
     }
 
 

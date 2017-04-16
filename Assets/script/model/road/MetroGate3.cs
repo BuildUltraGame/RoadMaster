@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,8 +17,9 @@ using UnityEngine.AI;
 /// 
 /// </summary>
 public class MetroGate3 : MetroGate {
-    
 
+    public GameObject roadBlockPrefab;
+    private GameObject roadBlock;
     private List<Transform> linkRoad = new List<Transform>();
     private Transform blockRoad;//未连接的点
 
@@ -25,9 +27,13 @@ public class MetroGate3 : MetroGate {
 
 	
 	void Start () {
+        if (roadBlockPrefab == null)
+        {
+            throw new Exception("岔道口没有设置路障");
+        }
         base.Start();
         initPointInfo();
-
+        
 	}
 
 
@@ -46,7 +52,7 @@ public class MetroGate3 : MetroGate {
 
         link.startTransform = linkRoad[0];
         link.endTransform = linkRoad[1];
-
+        updateBlock();
     }
 	
 
@@ -66,7 +72,7 @@ public class MetroGate3 : MetroGate {
             //随机将所在点和其他两个点联通
             linkRoad.Clear();
             linkRoad.Add(allPoint[minNum]);
-            linkRoad.Add(Random.Range(0,2)>0.5?allPoint[(minNum+1)%3]:allPoint[(minNum+2)%3]);//三目装逼法
+            linkRoad.Add(UnityEngine.Random.Range(0,2)>0.5?allPoint[(minNum+1)%3]:allPoint[(minNum+2)%3]);//三目装逼法
 
             
         }
@@ -94,10 +100,22 @@ public class MetroGate3 : MetroGate {
         {
             if(!linkRoad.Contains(allPoint[i])){
                 blockRoad = allPoint[i];
+               
             }
         }
-
+        updateBlock();
     }
+
+    private void updateBlock()
+    {
+        if (roadBlock!=null)
+        {
+           Destroy(roadBlock,0.2f);
+        }
+        roadBlock = GameObject.Instantiate<GameObject>(roadBlockPrefab, blockRoad.position + Vector3.up * 4, Quaternion.Inverse(blockRoad.rotation));
+
+    } 
+
 
     
 

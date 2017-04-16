@@ -88,11 +88,11 @@ public class Spawner : MonoBehaviour
     private void buildNow()
     {
         //生成游戏单位代码
-       
-        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit);
+
+        GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit,transform.position,Quaternion.identity);
 
         obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
-        obj.transform.position = transform.position;
+        
 
         
 
@@ -142,7 +142,12 @@ public class Spawner : MonoBehaviour
         }
 
         CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
-            coolDown = CD-time;
+            float newcool = CD - time;
+            if(!Mathf.FloorToInt(newcool).Equals(Mathf.FloorToInt(coolDown))){
+                EventAggregator.SendMessage<SpawnerCDEvent>(new SpawnerCDEvent(gameObject,newcool));//一秒发一个CD事件
+            }
+            coolDown = newcool;
+            
         }, delegate()
         {
             setBuildFlag(true);

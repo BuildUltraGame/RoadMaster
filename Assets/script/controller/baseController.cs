@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
+using UnityEngine.EventSystems; 
+
 //基础的游戏进程控制器
 public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>{
 
@@ -108,7 +110,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     //
 
     // Use this for initialization
-	void Start () {
+	void Awake () {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<createUnit.unitEvent>(this);
         EventAggregator.Register<UICreateUnitEvent>(this);
@@ -289,10 +291,16 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     }
     private void tryCancelMine()
     {
+        
         if (DEBUG)
         {
             if (Input.GetMouseButtonDown(0))
             {
+
+                if (Physics.Raycast(UICamera.mainCamera.ScreenPointToRay(Input.mousePosition),20))//检测是否点击到NGUI
+                {
+                    return;
+                }
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit rh;
                 Physics.Raycast(ray, out rh);

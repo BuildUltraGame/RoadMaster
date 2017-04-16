@@ -9,7 +9,7 @@ public class NewRailwaymovable : MonoBehaviour {
     private List<Vector3> path = null;
 
 	private NavMeshAgent nav;
-    private Vector3 destination;
+    public Vector3 destination;
 
 
 
@@ -22,8 +22,9 @@ public class NewRailwaymovable : MonoBehaviour {
         }
 
         path = new List<Vector3>(PathDataCenter.pathPoints);//copy一份
-        
         destination = transform.position;
+        nav.SetDestination(destination);
+
     }
 
     public void setDestination(Vector3 v)
@@ -35,12 +36,12 @@ public class NewRailwaymovable : MonoBehaviour {
     void Update()
     {
         path = path ?? new List<Vector3>(PathDataCenter.pathPoints);
-        
-        if (nav.pathStatus == NavMeshPathStatus.PathComplete && Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 0.05)
+   
+        if (nav.pathStatus == NavMeshPathStatus.PathComplete && Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 1)
         {
             findNewRoad();//如果到达目的地,赶紧找下一个地点,对,累死你,不让你停
         }
-
+        Debug.DrawLine(transform.position, destination, Color.red);
     }
 
 
@@ -54,7 +55,7 @@ public class NewRailwaymovable : MonoBehaviour {
         Vector3 nextV =Vector3.zero;
 
         int minD = int.MaxValue;
-
+       
         
         foreach(Vector3 v in path){
             NavMeshPath p=new NavMeshPath();
@@ -67,6 +68,7 @@ public class NewRailwaymovable : MonoBehaviour {
                 }
             }
         }
+        
 
         if (!nextV.Equals(Vector3.zero))
         {
@@ -74,15 +76,15 @@ public class NewRailwaymovable : MonoBehaviour {
             goByPath.Add(nextV);
             path.Remove(nextV);
             nav.SetDestination(nextV);
-
+            destination = nextV;
         }
         else {
             print("Back" );
             back();
         }
 
+
        
-    
       
     }
 

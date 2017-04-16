@@ -9,8 +9,8 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public UISprite producer;
     public UIButton button;
     public UISprite lockButton;
-    public List<int> IDList;
-    public List<string> picList;
+    private List<int> IDList;
+    private List<string> picList;
     public int nameNum=0;
     
 
@@ -37,9 +37,13 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
             }
         }*/
         
-        IDList = new List<int>{1,2,1000,1002};
-        picList = new List<string> { "truck", "police", "rogue", "worker" };
+        picList = new List<string> { Tags.Vehicle.BASETRAMCAR, Tags.Vehicle.OVERWEIGHTTRAMCAR, Tags.Vehicle.SKILLEDTRAMCAR, Tags.Vehicle.TRAIN,Tags.Character.GATEWORKER,Tags.Character.INSPECTOR,Tags.Character.ROGUE,Tags.Vehicle.EXPLORATIONTRAMCAR };
+        IDList= new List<int>();
         button = this.gameObject.GetComponent<UIButton>();
+        for (int i = 0; i < 8; i++)
+        {
+            IDList.Add(IDs.getIDByName(picList[i]));
+        }
     }
     /// <summary>
     /// 
@@ -59,12 +63,13 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public void nextButton()
     {
         nameNum++;
-        if (nameNum >= 4)
+        if (nameNum >= 8)
         {
             nameNum = 0;
         }
 
         producer.spriteName = picList[nameNum];
+        Debug.Log(picList[nameNum]);
     }
 
     public void frontButton()
@@ -72,9 +77,10 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
         nameNum--;
         if (nameNum < 0)
         {
-            nameNum = 3;
+            nameNum = 7;
         }
         producer.spriteName = picList[nameNum];
+        //Debug.Log(IDList[nameNum]);
     }
 /// <summary>
 /// 未知
