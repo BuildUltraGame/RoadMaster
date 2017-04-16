@@ -88,6 +88,11 @@ public class MineMountain : MonoBehaviour
         return false;
     }
 
+    public List<Spawner> getSpawnerList()
+    {
+        return SpawnerUnitList;
+    }
+
     /// <summary>
     /// 传递名称来调用其上的生成器
     /// 必须要先在scene里面有对应的spawner才可以
