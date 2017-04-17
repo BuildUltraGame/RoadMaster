@@ -2,7 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// 铁路寻路脚本
+/// 
+/// 寻路遵循以下原则
+/// 
+/// 1.优先检测到关键点是否可达,选择最近的作为目的地
+/// 2.关键点没有可达的时候,选择最近的点,尽可能靠近
+/// 3.最后无路可走,回头
+/// 
+/// </summary>
 public class NewRailwaymovable : MonoBehaviour {
 
     private List<Vector3> goByPath=new List<Vector3>();
@@ -11,7 +20,7 @@ public class NewRailwaymovable : MonoBehaviour {
 	private NavMeshAgent nav;
     public Vector3 destination;
 
-
+    private bool lastIsTerminal = false;//最后一次寻路是否为末尾
 
     void Start()
     {
@@ -36,8 +45,8 @@ public class NewRailwaymovable : MonoBehaviour {
     void Update()
     {
         path = path ?? new List<Vector3>(PathDataCenter.pathPoints);
-   
-        if (nav.pathStatus == NavMeshPathStatus.PathComplete && Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 1)
+
+        if (!nav.hasPath||Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 1)
         {
             findNewRoad();//如果到达目的地,赶紧找下一个地点,对,累死你,不让你停
         }
@@ -59,7 +68,7 @@ public class NewRailwaymovable : MonoBehaviour {
         
         foreach(Vector3 v in path){
             NavMeshPath p=new NavMeshPath();
-            if (nav.CalculatePath(v,p)&&p.status==0) {
+            if (nav.CalculatePath(v,p)&&p.status==NavMeshPathStatus.PathComplete) {
                 int d = p.corners.Length;
                 if (d < minD)
                 {
@@ -79,8 +88,44 @@ public class NewRailwaymovable : MonoBehaviour {
             destination = nextV;
         }
         else {
-            print("Back" );
-            back();
+            if (lastIsTerminal)
+            {
+                print("Back");
+                back();
+                lastIsTerminal = false;
+                return;
+            }
+
+            minD = int.MaxValue;
+            foreach (Vector3 v in path)
+            {
+                NavMeshPath p = new NavMeshPath();
+                if (nav.CalculatePath(v, p) && p.status == NavMeshPathStatus.PathPartial)
+                {
+                    int d = p.corners.Length;
+                    if (d < minD)
+                    {
+                        minD = d;
+                        nextV = v;
+                    }
+                }
+            }
+
+            if (nextV.Equals(Vector3.zero))
+            {
+                print("Back");
+                back();
+            }
+            else
+            {
+                lastIsTerminal = true;
+                goByPath.Add(nextV);
+                nav.SetDestination(nextV);
+                destination = nextV;
+
+            }
+
+           
         }
 
 
