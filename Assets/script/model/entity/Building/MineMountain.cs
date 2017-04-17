@@ -79,7 +79,7 @@ public class MineMountain : MonoBehaviour
             }
             else
             {
-                Debug.Log("行走时出错");
+//                Debug.Log("行走时出错");
                 return false;
             }
 

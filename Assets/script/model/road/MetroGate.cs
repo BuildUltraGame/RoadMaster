@@ -12,7 +12,7 @@ public abstract class MetroGate :MonoBehaviour{
 
     protected List<GameObject> vehilesOnRoad = new List<GameObject>();
     protected List<Transform> allPoint=new List<Transform>();//按顺序存的点信息
-    public Texture[] stateTexture;
+
     /// <summary>
     /// 变换道口连接情况
     /// 
