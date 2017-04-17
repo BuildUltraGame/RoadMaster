@@ -21,7 +21,8 @@ public class BaseAI : MonoBehaviour,
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
         nav=GetComponent<NavMeshAgent>();
-	}
+      
+    }
 
 
     private bool canReach(Vector3 v,int type)
@@ -61,8 +62,11 @@ public class BaseAI : MonoBehaviour,
 
         //感知是否可以到达某个地点,比如
         NavMeshPath path = new NavMeshPath();
-        nav.transform.position = new Vector3(108f,0f,140.8f);
-        nav.CalculatePath(new Vector3(135f, 0f, 140.8f), path);//这里path会返回给你
+        nav.Warp(new Vector3(102f, 0f, 140.8f));
+ 
+        bool b=nav.CalculatePath(new Vector3(135f, 0f, 140.8f), path);//这里path会返回给你
+        print(b);
+        print(path.status);
 
 		
 	}
