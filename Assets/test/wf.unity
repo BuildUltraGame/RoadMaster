@@ -1210,6 +1210,16 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 119.77
       objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: initMine
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseFlashTime
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
   m_IsPrefabParent: 0
@@ -2397,11 +2407,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4337739186297074, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4337739186297074, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4654009176980098, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3133,6 +3143,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: initMine
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseFlashTime
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
   m_IsPrefabParent: 0
@@ -3476,6 +3496,16 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: initMine
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseFlashTime
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
