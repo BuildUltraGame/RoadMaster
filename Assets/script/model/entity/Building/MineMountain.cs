@@ -79,13 +79,18 @@ public class MineMountain : MonoBehaviour
             }
             else
             {
-                Debug.Log("行走时出错");
+                Debug.Log("无法建造");
                 return false;
             }
 
             
         }
         return false;
+    }
+
+    public List<Spawner> getSpawnerList()
+    {
+        return SpawnerUnitList;
     }
 
     /// <summary>
