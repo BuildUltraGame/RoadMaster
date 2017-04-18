@@ -46,7 +46,7 @@ public class NewRailwaymovable : MonoBehaviour {
     {
         path = path ?? new List<Vector3>(PathDataCenter.pathPoints);
 
-        if (!nav.hasPath||Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 1)
+        if (!nav.hasPath||Mathf.Abs(nav.remainingDistance - nav.stoppingDistance) <= 0)
         {
             findNewRoad();//如果到达目的地,赶紧找下一个地点,对,累死你,不让你停
         }
@@ -63,13 +63,17 @@ public class NewRailwaymovable : MonoBehaviour {
 
         Vector3 nextV =Vector3.zero;
 
-        int minD = int.MaxValue;
+        float minD = float.MaxValue;
        
         
         foreach(Vector3 v in path){
             NavMeshPath p=new NavMeshPath();
             if (nav.CalculatePath(v,p)&&p.status==NavMeshPathStatus.PathComplete) {
-                int d = p.corners.Length;
+                float d =0;
+                for(int i=0;i<p.corners.Length-1;i++){
+                    d+=Vector3.Distance(p.corners[i],p.corners[i+1]);
+                }
+               
                 if (d < minD)
                 {
                     minD = d;
@@ -102,7 +106,11 @@ public class NewRailwaymovable : MonoBehaviour {
                 NavMeshPath p = new NavMeshPath();
                 if (nav.CalculatePath(v, p) && p.status == NavMeshPathStatus.PathPartial)
                 {
-                    int d = p.corners.Length;
+                    float d =0;
+                    for(int i=0;i<p.corners.Length-1;i++){
+                        d+=Vector3.Distance(p.corners[i],p.corners[i+1]);
+                    }
+               
                     if (d < minD)
                     {
                         minD = d;

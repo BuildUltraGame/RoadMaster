@@ -12,6 +12,11 @@ public class BaseAI : MonoBehaviour,
     IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>,IListener<MineMoutainSpawnerEvent>
 {
 
+    public Transform t1;
+    public Transform t2;
+
+
+
     private NavMeshAgent nav;//一个神奇的东西,它可以代替车去做个模拟,看看能不能到达哪里,或者也可以代替人
 
 	// Use this for initialization
@@ -62,11 +67,18 @@ public class BaseAI : MonoBehaviour,
 
         //感知是否可以到达某个地点,比如
         NavMeshPath path = new NavMeshPath();
-        nav.Warp(new Vector3(102f, 0f, 140.8f));
  
-        bool b=nav.CalculatePath(new Vector3(135f, 0f, 140.8f), path);//这里path会返回给你
-        print(b);
-        print(path.status);
+        if(Input.GetKey(KeyCode.C)){
+            nav.Warp(t1.position);
+            bool b=nav.CalculatePath(t2.position, path);//这里path会返回给你
+            print(b);
+            print(path.status);
+        }
+
+        //bool b=nav.CalculatePath(new Vector3(135f, 0f, 140.8f), path);//这里path会返回给你
+        //print(b);
+        //print(path.status);
+
 
 		
 	}
