@@ -7,17 +7,17 @@ using UnityEngine;
 /// 还有一个reset回初始位置的接口
 /// </summary>
 public class viewPortMove : MonoBehaviour {
-    public GameObject mainCamera;
-    private float speed = -0.1f;
+    private GameObject mainCamera;
+    private float speed = -1f;
     Vector3 cameraInitPos;
     public float totalDistanceX = 0f;
     public float totalDistanceY = 0f;
     float offsetX = 0f;
     float offsetY = 0f;
-    public float maxDistancePositiveX = 5f;
-    public float maxDistancePositiveY = 5f;
-    public float maxDistanceMinusX = -5f;
-    public float maxDistanceMinusY = -5f;
+    public float maxDistancePositiveX = 50f;
+    public float maxDistancePositiveY = 50f;
+    public float maxDistanceMinusX = -50f;
+    public float maxDistanceMinusY = -50f;
     public bool canMoveX = true;
     public bool canMoveY = true;
     int count;

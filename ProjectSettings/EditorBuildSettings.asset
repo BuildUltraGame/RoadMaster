@@ -7,5 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/test/1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/test/wf.unity
+  - enabled: 0
+    path: Assets/test/wyd.unity
+  - enabled: 1
+    path: Assets/test/testWF.unity
