@@ -8,6 +8,8 @@ using UnityEngine.AI;
 /// <summary>
 /// 例子里面没有展示怎么去自己调用方法去造兵啊啥的,因为没写好,写的时候你可以先留空哪部分,写剩下
 /// </summary>
+/// 
+[RequireComponent(typeof(AIDetector))]
 public class BaseAI : MonoBehaviour, 
     IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>,IListener<MineMoutainSpawnerEvent>
 {
@@ -15,9 +17,12 @@ public class BaseAI : MonoBehaviour,
     public Transform t1;
     public Transform t2;
 
+    public RoadPoint start;
+	private RailwayMovable rm;
 
+    public Transform t;
 
-    private NavMeshAgent nav;//一个神奇的东西,它可以代替车去做个模拟,看看能不能到达哪里,或者也可以代替人
+ 
 
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
@@ -25,8 +30,8 @@ public class BaseAI : MonoBehaviour,
         EventAggregator.Register<SpawnEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
-        nav=GetComponent<NavMeshAgent>();
-      
+        rm = GetComponent<AIDetector>();
+        t = rm.transform;
     }
 
 
@@ -34,50 +39,45 @@ public class BaseAI : MonoBehaviour,
     {
         if(type==1){
             //我们假设这个是车
+            rm.fromPoint = start;
+			rm.nextPoint = start;
+            RoadPoint temp;
+            bool flag = false; 
+            while (true) {
+				temp = rm.nextPoint;
 
-            nav.areaMask = NavMesh.GetAreaFromName("railway");//设置下我们的导航只能走铁路
-            nav.transform.position = Vector3.zero;//这个是设置下导航起始点,按道理一般应该是你的某个矿山,
-            NavMeshPath path=new NavMeshPath();
-            nav.CalculatePath(v,path);//这里path会返回给你
+				rm.nextPoint = rm.nextPoint.getNextPoint (rm,out flag);
 
-            if(path.status==NavMeshPathStatus.PathComplete){//路径完整,证明直接可达
+				rm.fromPoint = temp;
+
+				if (Mathf.Abs(Vector3.Distance(v,rm.nextPoint.transform.position))<0.5) {
+					return true;
+				}
+
+				if(!flag){
+					return false;
+				}
 
             }
 
-            if (path.status == NavMeshPathStatus.PathPartial)
-            {//有部分路径,证明到中间断了
-               Vector3 vv= path.corners[path.corners.Length - 1];//这个按道理就是最后断点的位置
 
-            }
 
-            if (path.status == NavMeshPathStatus.PathInvalid)
-            {//路径完全无效,我也不知道什么时候会出现这个情况,好像如果你起始点不在可行走的路上的话,会直接返回这个
-
-            }
+            return false;
 
         }
-
-
-        nav.areaMask = NavMesh.GetAreaFromName("road");//设置下我们的导航只能走人行路
         return false;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //感知是否可以到达某个地点,比如
-        NavMeshPath path = new NavMeshPath();
- 
+
         if(Input.GetKey(KeyCode.C)){
-            nav.Warp(t1.position);
-            bool b=nav.CalculatePath(t2.position, path);//这里path会返回给你
+            bool b=canReach(t.position,1);//这里path会返回给你
             print(b);
-            print(path.status);
+
         }
 
-        //bool b=nav.CalculatePath(new Vector3(135f, 0f, 140.8f), path);//这里path会返回给你
-        //print(b);
-        //print(path.status);
 
 
 		
@@ -130,7 +130,7 @@ public class BaseAI : MonoBehaviour,
         //然而现在还没有得到目标地点的办法,你不可能随便一个点都可以到,你起码必须是路上的坐标(这个还没有获得方式)
         //不过我们可以这样,前面有生成的单位信息,你可以获取到敌人的单位,直接获取里面的位置信息(这个可以实时获取),
         //这个是目前位置能获取位置的唯一办法
-        EventAggregator.SendMessage<UICreateUnitEvent>(new UICreateUnitEvent(1,new Vector3(0,0,0),message.getMineMountaion()));
+     //   EventAggregator.SendMessage<UICreateUnitEvent>(new UICreateUnitEvent(1,new Vector3(0,0,0),message.getMineMountaion()));
         
     }
 }

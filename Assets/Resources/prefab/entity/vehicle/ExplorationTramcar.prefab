@@ -401,7 +401,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4470925903423910}
-  - component: {fileID: 195066021704690102}
   - component: {fileID: 114061850455463406}
   - component: {fileID: 114663017445011364}
   - component: {fileID: 54333512381146190}
@@ -851,6 +850,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23026243185772362
 MeshRenderer:
@@ -882,6 +882,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23128712074758252
 MeshRenderer:
@@ -913,6 +914,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23132518897448094
 MeshRenderer:
@@ -944,6 +946,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23181499520855020
 MeshRenderer:
@@ -975,6 +978,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23321061507387296
 MeshRenderer:
@@ -1006,6 +1010,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23471393601877112
 MeshRenderer:
@@ -1037,6 +1042,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23535345424338424
 MeshRenderer:
@@ -1068,6 +1074,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23561073844514270
 MeshRenderer:
@@ -1099,6 +1106,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23720803688107742
 MeshRenderer:
@@ -1130,6 +1138,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23968510175157740
 MeshRenderer:
@@ -1161,6 +1170,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33079564631956892
 MeshFilter:
@@ -1250,7 +1260,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1286,10 +1296,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1988851248063350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd3dfbd096aac94dac1e688777dc612, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f23dbf6df5d2dc43afbfd470ed8b001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
+  Tag: 0
+  fromPoint: {fileID: 0}
+  nextPoint: {fileID: 0}
+  step: 0.5
+  ignoreY: 1
 --- !u!114 &114663017445011364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1305,23 +1319,3 @@ MonoBehaviour:
   game_ID: 4
   game_name: "\u63A2\u52D8\u77FF\u8F66"
   game_name_en: exploration_tramcar
---- !u!195 &195066021704690102
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1988851248063350}
-  m_Enabled: 1
-  m_Radius: 0.00001
-  m_Speed: 10
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.00001
-  m_BaseOffset: 0
-  m_WalkableMask: 16
-  m_ObstacleAvoidanceType: 4

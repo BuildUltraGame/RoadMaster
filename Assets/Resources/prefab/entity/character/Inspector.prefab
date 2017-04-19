@@ -399,13 +399,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4685442736737046}
-  - component: {fileID: 95866880710656804}
   - component: {fileID: 54182901125591628}
+  - component: {fileID: 95866880710656804}
   - component: {fileID: 65363685221091234}
+  - component: {fileID: 195014984342317268}
   - component: {fileID: 114994769635156942}
   - component: {fileID: 114414893085468362}
   - component: {fileID: 114050942374391234}
-  - component: {fileID: 195014984342317268}
   m_Layer: 0
   m_Name: Inspector
   m_TagString: Untagged
@@ -1328,6 +1328,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23639316698553084
 MeshRenderer:
@@ -1359,6 +1360,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33303624564893986
 MeshFilter:
@@ -1453,7 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2efbf3095dcb942a38041693485eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: 1
+  owner: 0
   game_ID: 1001
   game_name: "\u7763\u5BDF\u5458"
   game_name_en: inspector
@@ -1487,6 +1489,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -1529,6 +1532,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618872561931174}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 8
   m_Acceleration: 8

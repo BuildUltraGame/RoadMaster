@@ -26,8 +26,8 @@ public class MetroGate4 : MetroGate
     {
 
 
-        link.startTransform = allPoint[0];
-        link.endTransform = allPoint[2];
+      //  link.startTransform = allPoint[0];
+     //   link.endTransform = allPoint[2];
 
     }
 
@@ -39,15 +39,15 @@ public class MetroGate4 : MetroGate
         if (state==0)
         {
            
-            link.startTransform = allPoint[1];
-            link.endTransform = allPoint[3];
+      //      link.startTransform = allPoint[1];
+      //      link.endTransform = allPoint[3];
             state = 1;
         }
         else if(state==1)
         {
             
-            link.startTransform = allPoint[0];
-            link.endTransform = allPoint[2];
+     //       link.startTransform = allPoint[0];
+     //       link.endTransform = allPoint[2];
 
             state = 0;
         }

@@ -15,14 +15,8 @@ public class ScoringBuilding : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ScoreBoard.getInstance().Init(2);
-        PathDataCenter.registerPathPoint(transform.position);
         EventAggregator.SendMessage<ScoreBuildingSpawnEvent>(new ScoreBuildingSpawnEvent(gameObject));
 	}
-
-    void OnDisable()
-    {
-        PathDataCenter.unRegisterPathPoint(transform.position);
-    }
 
 
     void OnTriggerEnter(Collider other)

@@ -1147,14 +1147,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4780177713117986}
-  - component: {fileID: 95775115354803616}
-  - component: {fileID: 114514247083479252}
   - component: {fileID: 54312438870877460}
+  - component: {fileID: 95775115354803616}
   - component: {fileID: 65452493020269326}
   - component: {fileID: 195034206936010508}
   - component: {fileID: 114856135926458944}
   - component: {fileID: 114769187314406262}
   - component: {fileID: 114845856063130112}
+  - component: {fileID: 114514247083479252}
   m_Layer: 0
   m_Name: GaterChanger
   m_TagString: Untagged
@@ -4092,6 +4092,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33357228172099686
 MeshFilter:
@@ -4287,6 +4288,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4501,6 +4503,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4564,6 +4567,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -4647,7 +4651,8 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547725500324574}
   m_Enabled: 1
-  m_Radius: 0.00001
+  m_AgentTypeID: 0
+  m_Radius: 0.5
   m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
@@ -4656,7 +4661,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.00001
+  m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 24
   m_ObstacleAvoidanceType: 4
