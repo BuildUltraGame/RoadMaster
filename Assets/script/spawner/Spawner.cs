@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
 
     public float buildTime = 0;//建造一个单位需要的时间(和CD有区别)
     
-    protected float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
+    public float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
 
     private Vector3 targetPoint=Vector3.zero;//设定建造出来的单位目的地
     private GameObject targetObj;//设置建造出来的单位的跟踪目标
