@@ -2152,7 +2152,7 @@ MonoBehaviour:
   Tag: 0
   fromPoint: {fileID: 0}
   nextPoint: {fileID: 0}
-  step: 0.5
+  step: 0.3
   ignoreY: 1
 --- !u!114 &114578341952034796
 MonoBehaviour:
