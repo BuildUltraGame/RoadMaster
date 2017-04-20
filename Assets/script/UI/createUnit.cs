@@ -17,7 +17,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public int nameNum=0;     //将ID与name相对应
 
     public int unitSelected;    //当前所选单位序号
-    public List<Spawner> sp;
+    public List<Spawner> sp=new List<Spawner>();
     
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();

@@ -377,7 +377,6 @@ GameObject:
   - component: {fileID: 23905787733875232}
   - component: {fileID: 114734667081578078}
   - component: {fileID: 114276512853554694}
-  - component: {fileID: 191685197898352366}
   m_Layer: 12
   m_Name: MetroGate3
   m_TagString: gate
@@ -577,9 +576,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752757845311336}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.09, y: -0, z: 53.68}
-  m_LocalScale: {x: 8.776142, y: 0.08742621, z: 10.632193}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 25.88, y: -0, z: 33.82}
+  m_LocalScale: {x: 10.6321535, y: 0.08742621, z: 8.776177}
   m_Children:
   - {fileID: 4063387002669498}
   - {fileID: 4759815354034440}
@@ -1826,19 +1825,3 @@ MonoBehaviour:
   - {fileID: 0}
   Tag: 0
   active: 1
---- !u!191 &191685197898352366
-OffMeshLink:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1752757845311336}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_AreaIndex: 4
-  m_AgentTypeID: 0
-  m_Start: {fileID: 0}
-  m_End: {fileID: 0}
-  m_CostOverride: 20
-  m_BiDirectional: 1
-  m_Activated: 1
-  m_AutoUpdatePositions: 1

@@ -22,7 +22,7 @@ public class BaseAI : MonoBehaviour,
 
     public Transform t;
 
- 
+    private static float roadW = 0.1f;
 
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
@@ -42,13 +42,25 @@ public class BaseAI : MonoBehaviour,
             rm.fromPoint = start;
 			rm.nextPoint = start;
             RoadPoint temp;
-            bool flag = false; 
+            bool flag = false;  
             while (true) {
 				temp = rm.nextPoint;
 
 				rm.nextPoint = rm.nextPoint.getNextPoint (rm,out flag);
-
+                
 				rm.fromPoint = temp;
+
+                int i=Mathf.FloorToInt(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position) / roadW);
+                Vector3 nv = (rm.fromPoint.transform.position-rm.nextPoint.transform.position)/i;
+                for (;i>0;i--)
+                {
+                    Bounds bs = new Bounds(rm.fromPoint.transform.position-nv*i,new Vector3(roadW,0,roadW));
+                    Debug.DrawLine(bs.center,bs.center+bs.size);
+                    if (bs.Contains(v)) {
+                        return true;
+                    }
+                }
+
 
 				if (Mathf.Abs(Vector3.Distance(v,rm.nextPoint.transform.position))<0.5) {
 					return true;
@@ -67,9 +79,13 @@ public class BaseAI : MonoBehaviour,
         }
         return false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private float getCross(Vector3 v1,Vector3 v2,Vector3 v) {
+        return (v2.x - v1.x) * (v.z - v1.z) - (v.x - v1.x) * (v2.z - v1.z);
+    }
+
+    // Update is called once per frame
+    void Update () {
 
 
         if(Input.GetKey(KeyCode.C)){
