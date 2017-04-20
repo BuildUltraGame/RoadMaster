@@ -1389,6 +1389,11 @@ Prefab:
       propertyPath: reachList.Array.data[3]
       value: 
       objectReference: {fileID: 777645368}
+    - target: {fileID: 114647413061051426, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
   m_IsPrefabParent: 0
@@ -3496,6 +3501,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114647413061051426, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
   m_IsPrefabParent: 0
@@ -3662,8 +3672,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1327106532}
-  - component: {fileID: 1327106531}
   - component: {fileID: 1327106529}
+  - component: {fileID: 1327106530}
+  - component: {fileID: 1327106531}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -3687,6 +3698,20 @@ MonoBehaviour:
   nextPoint: {fileID: 0}
   step: 0.5
   ignoreY: 1
+--- !u!114 &1327106530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327106528}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd421063d9b28f419dfe22ace976a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 1
+  aiThinkingTime: 0.1
+  start: {fileID: 1984201017}
 --- !u!114 &1327106531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,8 +3725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t1: {fileID: 0}
   t2: {fileID: 0}
-  start: {fileID: 0}
-  t: {fileID: 0}
+  start: {fileID: 1984201017}
+  t: {fileID: 2032425402}
 --- !u!4 &1327106532
 Transform:
   m_ObjectHideFlags: 0
@@ -3873,6 +3898,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4327052387722108, guid: e705919653e12a541841307461c1f980, type: 2}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114647413061051426, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: active
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -5682,6 +5712,11 @@ Prefab:
       propertyPath: reachList.Array.data[3]
       value: 
       objectReference: {fileID: 777645368}
+    - target: {fileID: 114631858604693572, guid: c3b5720ca3fcd294ab069db9250de45b,
+        type: 2}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3b5720ca3fcd294ab069db9250de45b, type: 2}
   m_IsPrefabParent: 0

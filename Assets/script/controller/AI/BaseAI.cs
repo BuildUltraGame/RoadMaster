@@ -22,7 +22,7 @@ public class BaseAI : MonoBehaviour,
 
     public Transform t;
 
-    private static float roadW = 0.1f;
+    private static float roadW = 0.5f;
 
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
@@ -31,7 +31,6 @@ public class BaseAI : MonoBehaviour,
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
         rm = GetComponent<AIDetector>();
-        t = rm.transform;
     }
 
 
@@ -50,12 +49,13 @@ public class BaseAI : MonoBehaviour,
                 
 				rm.fromPoint = temp;
 
-                int i=Mathf.FloorToInt(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position) / roadW);
+                int i=(Mathf.FloorToInt(Mathf.Abs(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position)) / roadW)+1);
                 Vector3 nv = (rm.fromPoint.transform.position-rm.nextPoint.transform.position)/i;
-                for (;i>0;i--)
+                for (;i>=0;i--)
                 {
-                    Bounds bs = new Bounds(rm.fromPoint.transform.position-nv*i,new Vector3(roadW,0,roadW));
-                    Debug.DrawLine(bs.center,bs.center+bs.size);
+                   
+                    Bounds bs = new Bounds(rm.fromPoint.transform.position-nv*i,new Vector3(roadW,0.01f,roadW));
+                    
                     if (bs.Contains(v)) {
                         return true;
                     }
