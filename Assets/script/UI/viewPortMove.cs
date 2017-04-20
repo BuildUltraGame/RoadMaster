@@ -8,18 +8,18 @@ using UnityEngine;
 /// </summary>
 public class viewPortMove : MonoBehaviour {
     private GameObject mainCamera;
-    private float speed = -1f;
+    public float speed = -1f;
     Vector3 cameraInitPos;
-    public float totalDistanceX = 0f;
-    public float totalDistanceY = 0f;
+    private float totalDistanceX = 0f;
+    private float totalDistanceZ = 0f;
     float offsetX = 0f;
-    float offsetY = 0f;
-    public float maxDistancePositiveX = 50f;
-    public float maxDistancePositiveY = 50f;
-    public float maxDistanceMinusX = -50f;
-    public float maxDistanceMinusY = -50f;
-    public bool canMoveX = true;
-    public bool canMoveY = true;
+    float offsetZ = 0f;
+    public float maxDistancePositiveX = 50f;//X轴最大正向移动距离
+    public float maxDistancePositiveZ = 50f;//Z轴最大正向移动距离
+    public float maxDistanceMinusX = -50f;//X轴最大负向移动距离
+    public float maxDistanceMinusZ = -50f;//Z轴最大负向移动距离
+    private bool canMoveX = true;
+    private bool canMoveZ = true;
     int count;
     Vector3 touchposition;
 
@@ -52,25 +52,25 @@ public class viewPortMove : MonoBehaviour {
         {
             touchposition = Input.GetTouch(0).deltaPosition;
             offsetX = (touchposition.x * speed);
-            offsetY = (touchposition.y * speed);
+            offsetZ = (touchposition.y * speed);
 
             canMoveX = ((totalDistanceX + offsetX) <= maxDistancePositiveX) && ((totalDistanceX + offsetX) >= maxDistanceMinusX);
-            canMoveY = ((totalDistanceY + offsetY) <= maxDistancePositiveY) && ((totalDistanceY + offsetY) >= maxDistanceMinusY);
-            if (canMoveX & canMoveY)
+            canMoveZ = ((totalDistanceZ + offsetZ) <= maxDistancePositiveZ) && ((totalDistanceZ + offsetZ) >= maxDistanceMinusZ);
+            if (canMoveX & canMoveZ)
             {
-                mainCamera.transform.Translate(offsetX, offsetY, 0);
+                mainCamera.transform.Translate(offsetX, 0, offsetZ, Space.World);
                 totalDistanceX += offsetX;
-                totalDistanceY += offsetY;
+                totalDistanceZ += offsetZ;
             }
-            else if (canMoveX & !canMoveY)
+            else if (canMoveX & !canMoveZ)
             {
-                mainCamera.transform.Translate(offsetX, 0, 0);
+                mainCamera.transform.Translate(offsetX, 0, 0 ,Space.World);
                 totalDistanceX += offsetX;
             }
-            else if (!canMoveX & canMoveY)
+            else if (!canMoveX & canMoveZ)
             {
-                mainCamera.transform.Translate(0, offsetY, 0);
-                totalDistanceY += offsetY;
+                mainCamera.transform.Translate(0, 0 , offsetZ, Space.World);
+                totalDistanceZ += offsetZ;
             }
             else
             {
