@@ -110,7 +110,7 @@ public class Roadmovable : MonoBehaviour {
                                                 path.vectorPath[currentWayPoint].y + playerCenterY,
                                                 path.vectorPath[currentWayPoint].z);
         Vector3 dir = (currentWayPointV - transform.position).normalized;
-
+        transform.LookAt(currentWayPointV);
         //计算这一帧要朝着 dir方向 移动多少距离;  
         dir *= playerMoveSpeed * Time.fixedDeltaTime;
 
