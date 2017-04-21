@@ -52,8 +52,8 @@ public class RailwayMovable : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(nextPoint!=null){
-			//向下一个点走
-			
+            //向下一个点走
+            print(Application.targetFrameRate);
 
 			Vector3 target = nextPoint.transform.position;
 
