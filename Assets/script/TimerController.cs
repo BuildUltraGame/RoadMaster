@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,9 +30,9 @@ using UnityEngine;
 
 //    // Use this for initialization
 //    void Start () {
-        
+
 //    }
-	
+
 //    // Update is called once per frame
 //    void Update () {
 //        if(Input.GetKeyUp(KeyCode.A)){
@@ -66,7 +67,7 @@ using UnityEngine;
 
 //    }
 //}
-   
+
 /// 
 /// 
 /// 
@@ -102,7 +103,22 @@ public class TimerController : MonoBehaviour
         return timer;
     }
 
-    
+    /// <summary>
+    /// 生产计时器
+    /// </summary>
+    /// <param name="intervalGen">时间间隔产生器</param>
+    /// <param name="repeat">是否重复执行</param>
+    /// <param name="update">回调函数,会一直返回当前开始到现在多久,排开暂停的时间</param>
+    /// <param name="run">到达指定时间间隔后执行的函数</param>
+    /// <returns></returns>
+    public Timer NewTimer(Func<float> intervalGen, bool repeat, Timer.UpdataHandle update, Timer.RunEventHandle run)
+    {
+        Timer timer = new Timer(this, intervalGen, repeat, update, run);
+        timerList.Add(timer);
+        return timer;
+    }
+
+
     /// <summary>
     /// 生成计时器,默认不重复执行,而且还要手动设定函数,不推荐
     /// </summary>
@@ -175,7 +191,7 @@ public class TimerController : MonoBehaviour
         public delegate void RunEventHandle();//这里用的委托
         public RunEventHandle runFun;//委托对象,到达间隔时间会执行一次,是否重复执行取决于repeat的值
 
-
+        public Func<float> intervalTimeGenFunc=null;
 
          /// <summary>
         /// 不要直接使用本方法生成计时器,请用TimerController.newTimer
@@ -193,12 +209,20 @@ public class TimerController : MonoBehaviour
             runFun = run;
         }
 
-         /// <summary>
+        public Timer(TimerController c, Func<float> gen, bool repeat, UpdataHandle update, RunEventHandle run)
+           : this(c, gen(), repeat)
+        {
+            intervalTimeGenFunc = gen;
+            updataFun = update;
+            runFun = run;
+        }
+
+        /// <summary>
         /// 不要直接使用本方法生成计时器,请用TimerController.newTimer
-         /// </summary>
-         /// <param name="c"></param>
-         /// <param name="interval"></param>
-         /// <param name="repeat"></param>
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="interval"></param>
+        /// <param name="repeat"></param>
         public Timer(TimerController c, float interval, bool repeat=false)
         {
             if (interval <= 0)
@@ -225,6 +249,10 @@ public class TimerController : MonoBehaviour
          /// </summary>
         public void Start()
         {
+            if (intervalTimeGenFunc!=null)
+            {
+                intervalTime = intervalTimeGenFunc();
+            }
             startFlag = true;
             if(startPauseFlag){
                 startPauseFlag = false;

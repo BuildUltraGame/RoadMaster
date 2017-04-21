@@ -53,20 +53,21 @@ public class RailwayMovable : MonoBehaviour {
 	void FixedUpdate () {
 		if(nextPoint!=null){
 			//向下一个点走
-			lookFront(nextPoint.transform.position);
+			
 
 			Vector3 target = nextPoint.transform.position;
 
-			target.y = ignoreY ? target.y : transform.position.y;
+            target.y = ignoreY ? transform.position.y : target.y;
 			transform.position = Vector3.MoveTowards (transform.position,target,step);
-		
-				
-			if(Vector3.Distance(transform.position,target)<0.05){
+
+           
+            if (Vector3.Distance(transform.position,target)<0.05){
 				//到了终点附近逻辑等价于已经到达
 				RoadPoint tempp=nextPoint;
 				nextPoint = nextPoint.getNextPoint(this);
 				fromPoint = tempp;
-			}
+                lookFront(nextPoint.transform.position);
+            }
 		}
 
 
@@ -75,12 +76,13 @@ public class RailwayMovable : MonoBehaviour {
 
 
 	private void lookFront(Vector3 v){
-		Vector3 front = Vector3.Normalize(v - transform.position);
+		Vector3 front = v;
+        
 
 		if(ignoreY){
 			front.y = transform.position.y;
 		}
 
-		transform.forward = front;
+		transform.LookAt(front);
 	}
 }

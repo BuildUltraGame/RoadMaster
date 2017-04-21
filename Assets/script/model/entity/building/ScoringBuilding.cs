@@ -14,7 +14,7 @@ public class ScoringBuilding : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ScoreBoard.getInstance().Init(2);
+        
         EventAggregator.SendMessage<ScoreBuildingSpawnEvent>(new ScoreBuildingSpawnEvent(gameObject));
 	}
 

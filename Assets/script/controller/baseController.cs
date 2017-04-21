@@ -115,6 +115,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
         EventAggregator.Register<createUnit.unitEvent>(this);
         EventAggregator.Register<UICreateUnitEvent>(this);
         unitToBuild = false;
+        ScoreBoard.getInstance().Init(2);
     }
 	
 	// Update is called once per frame
@@ -182,7 +183,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit rh;
-                    Physics.Raycast(ray, out rh,float.MaxValue,Layers.RAILWAY);
+                    Physics.Raycast(ray, out rh);
                     if (rh.collider == null)
                     {
                         return;
@@ -238,7 +239,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit rh;
-                Physics.Raycast(ray, out rh, float.MaxValue, Layers.RAILWAY);
+                Physics.Raycast(ray, out rh);
                 if (rh.collider == null)
                 {
                     return;

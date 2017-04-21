@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4202973170709516}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4463151029903914}
   - component: {fileID: 33206694194786712}
   - component: {fileID: 23578272317088696}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4279700808478832}
   - component: {fileID: 33487537148439150}
   - component: {fileID: 23087272387868680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159446178962142}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4247102846087792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blueFull) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4640112947762884}
   - component: {fileID: 33391609226360470}
   - component: {fileID: 23514993117354636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4033744997720846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4031947499280276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blueFull)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4080183988417502}
   - component: {fileID: 33062982756403040}
   - component: {fileID: 23158645138883084}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4167713591366310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4288348628045906}
   - component: {fileID: 33336225574418558}
   - component: {fileID: 23233719243011518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4162056345762534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_wheel_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4082016495899098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blueFull) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4367673705952046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4250929383894778}
   - component: {fileID: 33173300532327120}
   - component: {fileID: 23181502967543388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4529208611665610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4087772218841614}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 4268650622911984}
   - component: {fileID: 33519041872847254}
   - component: {fileID: 23697092612955626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4855680116531448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blueFull) (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4899398679266398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4199220327959680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4699719422692888}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 4743147026311350}
   - component: {fileID: 33743155751003466}
   - component: {fileID: 23077921412258884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4643538813600506}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bogies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4854773924716800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 4622918824746356}
   - component: {fileID: 33253284821415598}
   - component: {fileID: 23456897993270738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4220082487912620}
   - component: {fileID: 33477301254927412}
   - component: {fileID: 23860705313447772}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 4604149493549428}
   - component: {fileID: 33264338582371890}
   - component: {fileID: 23115803469576412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 4820013704375668}
   - component: {fileID: 33657070262547678}
   - component: {fileID: 23841122488077288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 4954779512320444}
   - component: {fileID: 33775402561072268}
   - component: {fileID: 23594545923754960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4882975364948972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 4034301765917398}
   - component: {fileID: 33640885063854770}
   - component: {fileID: 23177829554626302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4270006270481006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_wheel_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4607446589267288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4416555183641520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4423991615432370}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flatCarkit_3-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 65949713943443366}
   - component: {fileID: 54152849900022470}
   - component: {fileID: 114382293656441108}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BaseTramcar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 4688566429840860}
   - component: {fileID: 33578829852255794}
   - component: {fileID: 23631641467355052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 4052362490629036}
   - component: {fileID: 33497766730198136}
   - component: {fileID: 23258743498207212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4492385941070000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4281157985463970}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 4018242645130978}
   - component: {fileID: 33162585267146182}
   - component: {fileID: 23650692899216896}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 4916117016391362}
   - component: {fileID: 33159643860008282}
   - component: {fileID: 23822735786182298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4633143058183228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 4525354461612626}
   - component: {fileID: 33743857038692538}
   - component: {fileID: 23775134361549148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2123,7 @@ BoxCollider:
   m_GameObject: {fileID: 1866666605186022}
   m_Material: {fileID: 13400000, guid: 4ee1b58a03756634594cb34f7f2497df, type: 2}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 8.605425, y: 5.773265, z: 11.049604}
   m_Center: {x: 0.39955398, y: 4.196382, z: -0.20616175}
