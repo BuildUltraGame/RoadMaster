@@ -2034,7 +2034,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945482536}
-  m_LocalRotation: {x: 0.61025083, y: -0.0059414045, z: 0.004576959, w: 0.7921728}
+  m_LocalRotation: {x: -0.00000014234283, y: 0.79219365, z: -0.61026984, w: -0.00000012373252}
   m_LocalPosition: {x: 130.9474, y: 45.16221, z: 104.711105}
   m_LocalScale: {x: 1.9086672, y: 1, z: 1.5754778}
   m_Children: []
@@ -2071,14 +2071,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b95b9722bc0ef64d8404d068ef0ac41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalDistanceX: 0
-  totalDistanceY: 0
+  speed: 1
   maxDistancePositiveX: 50
-  maxDistancePositiveY: 50
+  maxDistancePositiveZ: 50
   maxDistanceMinusX: -50
-  maxDistanceMinusY: -50
-  canMoveX: 1
-  canMoveY: 1
+  maxDistanceMinusZ: -50
 --- !u!4 &967096141 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4401443501304094, guid: e705919653e12a541841307461c1f980,
@@ -2185,37 +2182,37 @@ Prefab:
     - target: {fileID: 114670130314045188, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12180.625
+      value: 12179.292
       objectReference: {fileID: 0}
     - target: {fileID: 114884682283008866, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12710.174
+      value: 12708.782
       objectReference: {fileID: 0}
     - target: {fileID: 114047444408650176, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584698
+      value: 584634
       objectReference: {fileID: 0}
     - target: {fileID: 114047444408650176, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12710.826
+      value: 12709.435
       objectReference: {fileID: 0}
     - target: {fileID: 114070540546146860, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12710.761
+      value: 12709.369
       objectReference: {fileID: 0}
     - target: {fileID: 114890678124756814, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12710.913
+      value: 12709.521
       objectReference: {fileID: 0}
     - target: {fileID: 114119304699513602, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 12180.6455
+      value: 12179.3125
       objectReference: {fileID: 0}
     - target: {fileID: 114456246959813500, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
@@ -2292,27 +2289,27 @@ Prefab:
     - target: {fileID: 114670130314045188, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584670
+      value: 584606
       objectReference: {fileID: 0}
     - target: {fileID: 114119304699513602, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584671
+      value: 584607
       objectReference: {fileID: 0}
     - target: {fileID: 114890678124756814, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584702
+      value: 584638
       objectReference: {fileID: 0}
     - target: {fileID: 114884682283008866, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584668
+      value: 584604
       objectReference: {fileID: 0}
     - target: {fileID: 114070540546146860, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mWidth
-      value: 584695
+      value: 584631
       objectReference: {fileID: 0}
     - target: {fileID: 114456246959813500, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
