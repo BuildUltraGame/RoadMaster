@@ -182,7 +182,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit rh;
-                    Physics.Raycast(ray, out rh);
+                    Physics.Raycast(ray, out rh,float.MaxValue,Layers.RAILWAY);
                     if (rh.collider == null)
                     {
                         return;
@@ -238,7 +238,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit rh;
-                Physics.Raycast(ray, out rh);
+                Physics.Raycast(ray, out rh, float.MaxValue, Layers.RAILWAY);
                 if (rh.collider == null)
                 {
                     return;

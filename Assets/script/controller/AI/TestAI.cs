@@ -8,12 +8,21 @@ using UnityEngine.AI;
 /// <summary>
 /// 例子里面没有展示怎么去自己调用方法去造兵啊啥的,因为没写好,写的时候你可以先留空哪部分,写剩下
 /// </summary>
+
+[RequireComponent(typeof(AIDetector))]
 public class TestAI : MonoBehaviour,
     IListener<DestroyEvent>, IListener<SpawnEvent>, IListener<ScoreEvent>, IListener<MineMoutainSpawnerEvent>
 {
 
-    private NavMeshAgent nav;//一个神奇的东西,它可以代替车去做个模拟,看看能不能到达哪里,或者也可以代替人
-    public int owner=GameobjBase.OTHER_PLAYER1  ;
+    public int owner=GameobjBase.OTHER_PLAYER1;
+
+	public float aiThinkingTime =10f;
+
+	public RoadPoint start;
+	private RailwayMovable rm;
+
+    private static float roadW = 0.1f;
+
 
     // Use this for initialization
     void Awake()
@@ -22,36 +31,52 @@ public class TestAI : MonoBehaviour,
         EventAggregator.Register<SpawnEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
-        nav = GetComponent<NavMeshAgent>();
+		rm = GetComponent<AIDetector>();
+		rm.fromPoint = start;
+		rm.nextPoint = start;
     }
 
-
-    private bool canReach(Vector3 v1, Vector3 v2, int type)
+    private bool canReach(Vector3 v)
     {
-        //    nav.areaMask = NavMesh.GetAreaFromName("railway");//设置下我们的导航只能走铁路
-			nav.Warp(v1);//这个是设置下导航起始点,按道理一般应该是你的某个矿山,
-            NavMeshPath path = new NavMeshPath();
-            nav.CalculatePath(v2, path);//这里path会返回给你
+        //我们假设这个是车
+        rm.fromPoint = start;
+        rm.nextPoint = start;
+        RoadPoint temp;
+        bool flag = false;
+        while (true)
+        {
+            temp = rm.nextPoint;
 
-            if (path.status == NavMeshPathStatus.PathComplete)
-            {//路径完整,证明直接可达
+            rm.nextPoint = rm.nextPoint.getNextPoint(rm, out flag);
+
+            rm.fromPoint = temp;
+
+            int i = (Mathf.FloorToInt(Mathf.Abs(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position)) / roadW) + 1);
+            Vector3 nv = (rm.fromPoint.transform.position - rm.nextPoint.transform.position) / i;
+            for (; i >= 0; i--)
+            {
+
+                Bounds bs = new Bounds(rm.fromPoint.transform.position - nv * i, new Vector3(roadW, 0.1f, roadW));
+
+                if (bs.Contains(v))
+                {
+                    return true;
+                }
+            }
+
+
+            if (Mathf.Abs(Vector3.Distance(v, rm.nextPoint.transform.position)) < 0.5)
+            {
                 return true;
             }
-            if (path.status == NavMeshPathStatus.PathPartial)
-            {//有部分路径,证明到中间断了
-                Vector3 vv = path.corners[path.corners.Length - 1];//这个按道理就是最后断点的位置
-            }
-			return false;  
-        //nav.areaMask = NavMesh.GetAreaFromName("road");//设置下我们的导航只能走人行路
-    }
-	private float distance(Vector3 v1, Vector3 v2, int type)
-	{
-		nav.Warp(v1);//这个是设置下导航起始点
-		NavMeshPath path = new NavMeshPath();
-		nav.CalculatePath(v2, path);//这里path会返回给你
 
-		return nav.remainingDistance;
-	}
+            if (!flag)
+            {
+                return false;
+            }
+        }
+    }
+
 	private bool coolDownIsOK(int gameId)
 	{
 		if (mineList.Count == 0)
@@ -70,19 +95,19 @@ public class TestAI : MonoBehaviour,
 
     //testAI stage
     /********************************************
-             矿山A                 矿山B
-              |                     |
-              |                     |(14,0,54)
-              |           (26,0,44) |
-             路口a——————路口b——————路口c
-              |          |          |
-              |          |(43,0,34) |(41,0,54)
-              |          |          |           
-    		路口d——————矿山C——————路口e
-              |          | (56,0,44)|           
-              |          |          |(67,0,54)
-              |          |          |
-              └———————— 出口 ———————┘
+             矿山A                                      矿山B
+              |                                          |
+              |                                          |(15.6,0,53.9)
+              |                          (25.8,0,43.7)   |
+             路口a————————————————路口b—————————————————路口c
+              |                     |                    |
+              |                     |(41.8,0,33.8)       |(41.4,0,53.8)
+              |                     |                    |           
+    		路口d—————————————————矿山C——————————————————路口e
+              |                     |     (56.4,0,43)    |           
+              |                     |                    |(68.3,0,54.2)
+              |                     |                    |
+              └—————————————————— 出口 ———————————————————┘
 
 
     *********************************************/
@@ -96,9 +121,9 @@ public class TestAI : MonoBehaviour,
     /// </summary>
 
     private Vector3 subPos = new Vector3(94, 0, 86.8f);
-    private Vector3 endPos = new Vector3(45, 0, 18);//存放终点坐标
-    private Vector3 cForkPos = new Vector3(26, 0, 54);//道闸c坐标
-    private Vector3 eForkPos = new Vector3(56, 0, 54);//道闸e坐标
+    private Vector3 endPos = new Vector3(45.5f, 0, 18.4f);//存放终点坐标
+    private Vector3 cForkPos = new Vector3(26.1f, 0, 53.7f);//道闸c坐标
+    private Vector3 eForkPos = new Vector3(56.3f, 0, 53.9f);//道闸e坐标
 
     //存放各类变量
     int roadIsOK = 0;
@@ -112,20 +137,20 @@ public class TestAI : MonoBehaviour,
 
 
 
-
         //场面分析，逐个判断道闸口状态
         //以后可能的判断： 时间相关的，场上现有单位对道路的影响
         //                时间相关的，场上未出现的单位对道路的影响
         //                可能的组合套路技
-    	if (canReach(new Vector3(14, 0, 54)+subPos, new Vector3(41, 0, 54) + subPos, 1))
+
+    	if (canReach(new Vector3(41.4f, 0, 53.8f) + subPos))
   	     	cForkFlag = 0;
-    	else if (canReach(new Vector3(14, 0, 54) + subPos, new Vector3(26, 0, 44) + subPos, 1))
+    	else if (canReach(new Vector3(25.8f, 0, 43.7f) + subPos))
     	    cForkFlag = 1;
     	else
    	     	cForkFlag = 2;
-		if (canReach (new Vector3 (41, 0, 54) + subPos, new Vector3 (67, 0, 54) + subPos, 1))
+		if (canReach (new Vector3(68.3f, 0, 54.2f) + subPos))
 			eForkFlag = 0;
-		else if (canReach (new Vector3 (41, 0, 54) + subPos, new Vector3 (56, 0, 44) + subPos, 1))
+		else if (canReach (new Vector3(56.4f, 0, 43f) + subPos))
 			eForkFlag = 1;
 		else
 			eForkFlag = 2;
@@ -136,7 +161,7 @@ public class TestAI : MonoBehaviour,
 		else
 			roadIsOK = 0;
 
-        
+        //*/
 
         //根据场面情况开始处理
 
@@ -156,7 +181,7 @@ public class TestAI : MonoBehaviour,
 				return;
 			}
         }
-		if (eForkFlag != 0 && eForkWorker == 0)
+		if (cForkFlag == 0 && eForkFlag != 0 && eForkWorker == 0)
         {
             //道闸e方向不对，派遣道闸工人
 			if (coolDownIsOK (IDs.getIDByName (Tags.Character.GATEWORKER))) {
@@ -202,7 +227,7 @@ public class TestAI : MonoBehaviour,
 			if (mineList.Count != 0)
 				mainAI ();
 			airelay = 0;
-			TimerController.getInstance().NewTimer(3f, false, delegate(float time){}, delegate()
+			TimerController.getInstance().NewTimer(aiThinkingTime, false, delegate(float time){}, delegate()
 				{
 					airelay = 1;
 				}).Start();
