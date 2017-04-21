@@ -17,7 +17,8 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     public int nameNum=0;     //将ID与name相对应
 
     public int unitSelected;    //当前所选单位序号
-    public List<Spawner> sp=new List<Spawner>();
+    public List<Spawner> sp;
+    public bool isMineSelected;    //是否选择矿山
     
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
@@ -27,23 +28,25 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     void Awake()
     {
         //InitText();
-        producer = this.GetComponentInChildren<UISprite>();
     }
     void Start()
     {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<cancelMountainEvent>(this);
-
+        sp = new List<Spawner>();
         picList = new List<string>();
         IDList= new List<int>();
-        button = this.gameObject.GetComponent<UIButton>();
+        producer = this.transform.Find("producer").GetComponent<UISprite>();
+        button = this.transform.Find("producer").GetComponent<UIButton>();
         cdsprite = this.transform.Find("forCD").GetComponent<UISprite>();
         cdsprite.fillAmount = 0.0f;
         CDTime = new List<float>();
-       
+        isMineSelected = false;
+        button.normalSprite = null;
     }
     public void Handle(MineSelectEvent message)
     {
+        isMineSelected = true;
         lockButton.gameObject.SetActive(false);
         sp = message.getMine().getSpawnerList();
         for (int i = 0; i < sp.Count; i++)
@@ -61,40 +64,41 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     
     public void nextButton()
     {
-        nameNum++;
-        if (nameNum >= 8)
+        if (isMineSelected == true)
         {
-            nameNum = 0;
+            nameNum++;
+            if (nameNum >= sp.Count)
+            {
+                nameNum = 0;
+            }
+            producer.spriteName = picList[nameNum];
+            unitSelected = nameNum;
         }
-
-        producer.spriteName = picList[nameNum];
-        unitSelected = nameNum;
     }
 
     public void frontButton()
     {
-        nameNum--;
-        if (nameNum < 0)
+        if (isMineSelected == true)
         {
-            nameNum = 7;
+            nameNum--;
+            if (nameNum < 0)
+            {
+                nameNum = sp.Count - 1;
+            }
+            producer.spriteName = picList[nameNum];
+            unitSelected = nameNum;
         }
-        producer.spriteName = picList[nameNum];
-        unitSelected = nameNum;
     }
-/// <summary>
-/// 未知
-/// </summary>
-/// <param name="newNameList"></param>
-    /*public void updateNameList(List<int> newNameList)
-    {
-        IDList = newNameList;
-    }*/
+
     /// <summary>
     /// 用户点击制造单位
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[unitSelected]));
+        if (isMineSelected == true)
+        {
+            EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[unitSelected]));
+        }
     }
 
     public void LateUpdate()
@@ -104,11 +108,14 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
 
     public void Update()
     {
-        for (int i = 0; i < sp.Count;i++ )
+        if (isMineSelected == true)
         {
-            if (IDList[unitSelected]==sp[i].spawnUnit.GetComponent<GameobjBase>().game_ID)
+            for (int i = 0; i < sp.Count; i++)
             {
-                cdsprite.fillAmount = (sp[i].coolDown / sp[unitSelected].CD);
+                if (IDList[unitSelected] == sp[i].spawnUnit.GetComponent<GameobjBase>().game_ID)
+                {
+                    cdsprite.fillAmount = (sp[i].coolDown / sp[i].CD);
+                }
             }
         }
     }
@@ -128,6 +135,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     
     public void Handle(cancelMountainEvent message)
     {
+        isMineSelected = false;
         lockButton.gameObject.SetActive(true);
     }
     void OnDisable()
