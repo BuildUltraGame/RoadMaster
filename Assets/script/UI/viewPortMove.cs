@@ -35,7 +35,7 @@ public class viewPortMove : MonoBehaviour {
     private cameraEulerAnglesMode cameraEulerState;
     private bool changeXZ = false;
     
-
+    
     Vector3 touchposition;
 
     public static viewPortMove _instance;
@@ -58,7 +58,7 @@ public class viewPortMove : MonoBehaviour {
     void Update()
     {
         moveCameraWithMouse();
-        print(cameraEulerState);
+       
     }
 
     void moveCameraWithMouse()
