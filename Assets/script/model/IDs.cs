@@ -103,6 +103,7 @@ public class IDs  : MonoBehaviour{
     /// </summary>
     private static void initFromPrefab()
     {
+        IDMap.Clear();
         GameObject[] prefabs=Resources.LoadAll<GameObject>("prefab/entity");
         foreach(GameObject obj in prefabs){
             GameobjBase b=obj.GetComponent<GameobjBase>();
