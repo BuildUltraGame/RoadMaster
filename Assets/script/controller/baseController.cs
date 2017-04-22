@@ -6,8 +6,9 @@ using UnityEventAggregator;
 
 
 //基础的游戏进程控制器
-public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>{
+public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>,IListener<ScoreEvent>{
 
+    GameObject controller;
     //int[] mineList;//矿山列表
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
     
@@ -102,11 +103,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 
     }
 
-    public virtual void isWin()
-    {
-
-
-    }
+   
     //
 
     // Use this for initialization
@@ -115,6 +112,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
         EventAggregator.Register<createUnit.unitEvent>(this);
         EventAggregator.Register<UICreateUnitEvent>(this);
         unitToBuild = false;
+        controller= GameObject.Find("Controller");
     }
 	
 	// Update is called once per frame
@@ -181,7 +179,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
             if (Input.GetMouseButtonDown(0))
             {
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Physics.Raycast(ray, out rh,Layers.BUILDING|Layers.ROAD);
+                Physics.Raycast(ray, out rh,1<<Layers.BUILDING|1<<Layers.RAILWAY);
                 target = rh.point;
                 if (rh.collider == null)
                 {
@@ -196,7 +194,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
             if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
             {
                 ray = Camera.main.ScreenPointToRay(touch.position);
-                Physics.Raycast(ray, out rh, Layers.BUILDING | Layers.ROAD);
+                Physics.Raycast(ray, out rh, 1 << Layers.BUILDING| 1 << Layers.RAILWAY);
                 target = touch.position;
                 if (rh.collider == null)
                 {
@@ -309,6 +307,16 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     public void Handle(UICreateUnitEvent message)
     {
         message.mine.buildUnitByID(message.ID, message.destination);
+    }
+    /// <summary>
+    /// 判断积分消息
+    /// </summary>
+    /// <param name="message"></param>
+    public void Handle(ScoreEvent message)
+    {
+        int player=message.getPlayer();
+        int score=message.getScore();
+        controller.GetComponent<MapDescription>().isWin(new playerInformation(player, score));
     }
 
 
