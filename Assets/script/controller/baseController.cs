@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
-using UnityEngine.EventSystems; 
+
 
 //基础的游戏进程控制器
 public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>{
@@ -171,124 +171,89 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     /// </summary>
     private void destinationConfirm()
     {
-
-        if (unitToBuild == true)
+        if (unitToBuild != true) return;
+        Ray ray;
+        RaycastHit rh;
+        Vector3 target;
+        ////公用变量
+        if (DEBUG)
         {
-            //有请求,需要监听用户点击的事件情况
-
-            if (DEBUG)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit rh;
-                    Physics.Raycast(ray, out rh);
-                    if (rh.collider == null)
-                    {
-                        return;
-                    }
-                    if (idToBuild == IDs.getIDByName(Tags.Character.GATEWORKER))//扳道闸工人
-                    {
-                        if (rh.collider.tag.Equals(Tags.GATE))//点到扳道闸
-                        {
-                            mineSelected.buildUnitByID(idToBuild, rh.point);
-                            unitToBuild = false;
-                            idToBuild = 0;
-                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                            return;
-                        }
-                        else
-                        {
-                            unitToBuild = false;
-                            idToBuild = 0;
-                            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                            return;
-                        }
-
-                    }
-                    int layout = rh.collider.gameObject.layer;
-                    if (layout == Layers.ROAD || layout == Layers.RAILWAY)
-                    {//如果点击到了路面(包括铁路和人行道)
-                        mineSelected.buildUnitByID(idToBuild, rh.point);
-                        unitToBuild = false;
-                        idToBuild = 0;
-                        EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                        return;
-                    }
-                    else
-                    {
-                        unitToBuild = false;
-                        idToBuild = 0;
-                        EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                        return;
-                    }
-                }
-                /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
-                { //如果点击到了车辆,或者人
-                    sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
-
-                }*/
-            }
-        }
-        else
-        {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
-            {
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit rh;
-                Physics.Raycast(ray, out rh);
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Physics.Raycast(ray, out rh,Layers.BUILDING|Layers.ROAD);
+                target = rh.point;
                 if (rh.collider == null)
                 {
                     return;
                 }
-                if (idToBuild == IDs.getIDByName(Tags.Character.GATEWORKER))//扳道闸工人
-                {
-                    if (rh.collider.tag.Equals(Tags.GATE))//点到扳道闸
-                    {
-                        mineSelected.buildUnitByID(idToBuild, rh.point);
-                        unitToBuild = false;
-                        idToBuild = 0;
-                        EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                        return;
-                    }
-                    else
-                    {
-                        unitToBuild = false;
-                        idToBuild = 0;
-                        EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                        return;
-                    }
-
-                }
-                int layout = rh.collider.gameObject.layer;
-                if (layout == Layers.ROAD || layout == Layers.RAILWAY)
-                {//如果点击到了路面(包括铁路和人行道)
-                    mineSelected.buildUnitByID(idToBuild, touch.position);
-                    unitToBuild = false;
-                    idToBuild = 0;
-                    EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                    return;
-                }
-                else
-                {
-                    unitToBuild = false;
-                    idToBuild = 0;
-                    EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
-                    return;
-                }
-                /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
-                { //如果点击到了车辆,或者人
-                    sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
-
-                }*/
-
             }
-        }
+            else return;
+         }
+        else
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
+            {
+                ray = Camera.main.ScreenPointToRay(touch.position);
+                Physics.Raycast(ray, out rh, Layers.BUILDING | Layers.ROAD);
+                target = touch.position;
+                if (rh.collider == null)
+                {
+                    return;
+                }  
+            }
+            else return;
+         }
+        /////当前所属状态判断
 
+        ////todo:各射线判断
+        if (idToBuild == IDs.getIDByName(Tags.Character.GATEWORKER))//扳道闸工人
+        {
+            if (rh.collider.tag.Equals(Tags.GATE))//点到扳道闸
+            {
+                mineSelected.buildUnitByID(idToBuild, rh.point);
+                unitToBuild = false;
+                idToBuild = 0;
+                EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                return;
+            }
+            else
+            {
+                unitToBuild = false;
+                idToBuild = 0;
+                EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+                return;
+            }
+
+        }
+        /////////////////////////////////////
+        int layout = rh.collider.gameObject.layer;
+        if (layout == Layers.ROAD || layout == Layers.RAILWAY)
+        {//如果点击到了路面(包括铁路和人行道)
+            mineSelected.buildUnitByID(idToBuild, target);
+            unitToBuild = false;
+            idToBuild = 0;
+            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+            return;
+        }
+        else
+        {
+            unitToBuild = false;
+            idToBuild = 0;
+            EventAggregator.SendMessage<cancelClickEvent>(new cancelClickEvent(null, null));
+            return;
+        }
+        ///////////////////////////////////
 
     }
+    
+    /*else if (rh.collider.gameObject.layer == Layers.VEHICLE || rh.collider.gameObject.layer == Layers.CHARACTER)
+                    { //如果点击到了车辆,或者人
+                        sendResult(reqQueue.Dequeue(), rh.collider.gameObject);
+
+                    }*/
+
     private void tryCancelMine()
     {
         
