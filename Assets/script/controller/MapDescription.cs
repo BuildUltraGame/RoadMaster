@@ -44,11 +44,13 @@ public class MapDescription : MonoBehaviour {
                             if (player.playerNum == GameobjBase.PLAYER)
                             {
                                 Debug.Log("那就是赢了");
+                                Application.LoadLevel("realism gameStart");
                                 return 1;
                             }
                             else
                             {
                                 Debug.Log("你输了");
+                                Application.LoadLevel("realism gameStart");
                                 return -1;
                             }
                         }
