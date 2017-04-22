@@ -34,6 +34,7 @@ public class ScoreBoard :IListener<ScoreAddEvent>
     public void Init(int playerNum)
     {//这里暂时不考虑联机的问题....想考虑的话你可以自己改代码先
         scores.Clear();
+        scores.Add(-1, 0);//这个是世界,也算是一个玩家
         for (int i = 0; i < playerNum;i++ )
         {
             scores.Add(i,0);//这里是因为gameobjbase中对玩家的定义都是用整数..

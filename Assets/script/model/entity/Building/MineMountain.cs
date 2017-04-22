@@ -31,16 +31,9 @@ public class MineMountain : MonoBehaviour
     void Start()
     {
         EventAggregator.SendMessage<MineMoutainSpawnerEvent>(new MineMoutainSpawnerEvent(this));
-        InvokeRepeating("increaseMine", 0.0f, increaseFlashTime);
-        PathDataCenter.registerPathPoint(transform.position);
-        
+        InvokeRepeating("increaseMine", 0.0f, increaseFlashTime); 
     }
 
-
-    void OnDisable()
-    {
-        PathDataCenter.unRegisterPathPoint(transform.position);
-    }
 
 
     void Update()
@@ -79,13 +72,18 @@ public class MineMountain : MonoBehaviour
             }
             else
             {
-                Debug.Log("行走时出错");
+                Debug.Log("无法建造");
                 return false;
             }
 
             
         }
         return false;
+    }
+
+    public List<Spawner> getSpawnerList()
+    {
+        return SpawnerUnitList;
     }
 
     /// <summary>
@@ -147,6 +145,10 @@ public class MineMountain : MonoBehaviour
         totalMine += count;
     }
 
+    void OnMouseDown()
+    {
+        EventAggregator.SendMessage<MineSelectEvent>(new MineSelectEvent(gameObject));//矿山被选择事件
+    }
 
     public void Handle(SpawnEvent message)
     {

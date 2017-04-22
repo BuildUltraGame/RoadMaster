@@ -27,7 +27,7 @@ public class GameobjBase : MonoBehaviour {
     public string game_name_en = null;
     public void setOwner(int newOwner)
     {
-        if(newOwner>5||newOwner<0){
+        if(newOwner>5||newOwner<-1){
             return;
         }
         owner = newOwner;

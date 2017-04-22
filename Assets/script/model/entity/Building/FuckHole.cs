@@ -9,15 +9,8 @@ using UnityEngine;
 
 public class FuckHole : CollisionBaseHandler{
 
-    void Start() 
-    {
-        PathDataCenter.registerPathPoint(transform.position);
-    }
+  
 
-    void OnDisable()
-    {
-        PathDataCenter.unRegisterPathPoint(transform.position);
-    }
     public override void OnEnemyCollisionStart(Collider enemy)
     {
         GameObject fuckedBoyOb = enemy.gameObject;

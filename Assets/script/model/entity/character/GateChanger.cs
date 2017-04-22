@@ -35,7 +35,7 @@ public class GateChanger : CollisionBaseHandler {
     {
         if(targetGate==null){//确定目的地所在的道闸口
             RaycastHit hit=new RaycastHit();
-            if (Physics.Raycast(new Ray(GetComponent<NavMeshAgent>().destination+Vector3.up, Vector3.down), out hit))
+            if (Physics.Raycast(new Ray(GetComponent<Roadmovable>().targetPosition + Vector3.up, Vector3.down), out hit,Layers.RAILWAY))
             {
                 setTargetGate(hit.collider.gameObject);
             }

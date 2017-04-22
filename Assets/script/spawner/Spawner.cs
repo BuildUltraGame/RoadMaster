@@ -17,17 +17,17 @@ public class Spawner : MonoBehaviour
 
     public float buildTime = 0;//建造一个单位需要的时间(和CD有区别)
     
-    protected float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
+    [HideInInspector]public float coolDown = 0;//建造下一个单位还需要等待的时间(CD)
 
     private Vector3 targetPoint=Vector3.zero;//设定建造出来的单位目的地
     private GameObject targetObj;//设置建造出来的单位的跟踪目标
 
     private bool isCharacter = false;
 
-    private TimerController.Timer CDtimer;
+    protected TimerController.Timer CDtimer;
     private bool canBuildFlag = true;
 
-    private GameobjBase gBase;
+    protected GameobjBase gBase;
 
     /// <summary>
     /// 设置是否能建造
@@ -85,16 +85,18 @@ public class Spawner : MonoBehaviour
     }
 
 
-    private void buildNow()
+    protected void buildNow()
     {
         //生成游戏单位代码
 
         GameObject obj = GameObject.Instantiate<GameObject>(spawnUnit,transform.position,Quaternion.identity);
 
         obj.gameObject.GetComponent<GameobjBase>().setOwner(gBase.getOwner());//设置控制权
-        
 
-        
+        if (obj.GetComponent<Stone>()!=null)
+        {
+            obj.GetComponent<Stone>().setSpawner(gameObject.transform.parent.gameObject);
+        }
 
         if (isCharacter)
         {
@@ -111,6 +113,7 @@ public class Spawner : MonoBehaviour
 
 
         }
+        obj.GetComponent<Collider>().enabled = true;
         EventAggregator.SendMessage<SpawnEvent>(new SpawnEvent(gameObject, obj));//发送生成单位事件
         startTimer();
        
@@ -127,7 +130,7 @@ public class Spawner : MonoBehaviour
 
     
 	// Use this for initialization
-	void Start () {
+    public	void Start () {
         gBase=GetComponent<GameobjBase>();
         if(gBase==null){
             throw new System.Exception("生成器忘了加基础游戏脚本了亲");
@@ -143,9 +146,6 @@ public class Spawner : MonoBehaviour
 
         CDtimer = TimerController.getInstance().NewTimer(CD, false, delegate(float time) {
             float newcool = CD - time;
-            if(!Mathf.FloorToInt(newcool).Equals(Mathf.FloorToInt(coolDown))){
-                EventAggregator.SendMessage<SpawnerCDEvent>(new SpawnerCDEvent(gameObject,newcool));//一秒发一个CD事件
-            }
             coolDown = newcool;
             
         }, delegate()
@@ -154,28 +154,6 @@ public class Spawner : MonoBehaviour
         });
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-        
-        test();
-
-	}
-
-    /// <summary>
-    /// TODO: 测试出兵用
-    /// </summary>
-    private void test()
-    {
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            build();
-        }
-
-
-       
-    }
-
+	
  
 }

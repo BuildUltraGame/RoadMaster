@@ -8,7 +8,7 @@ using UnityEngine;
 public class savedData
 {
     public Achievement achievement;
-    public Progress progress;
+    public MyProgress progress;
 }
 
 public class gameStatus : MonoBehaviour {

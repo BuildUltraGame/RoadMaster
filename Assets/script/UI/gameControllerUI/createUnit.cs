@@ -4,14 +4,21 @@ using UnityEngine;
 using System.IO;
 using UnityEventAggregator;
 
+
 public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
 {
+    public UISprite cdsprite;
     public UISprite producer;
     public UIButton button;
-    public UISprite lockButton;
-    private List<int> IDList;
-    private List<string> picList;
-    public int nameNum=0;
+    public UISprite lockButton;    //封锁建造
+    private List<int> IDList;   //存放ID
+    private List<string> picList;    //存放名称
+    private List<float> CDTime;    //存放冷却时间
+    public int nameNum=0;     //将ID与name相对应
+
+    public int unitSelected;    //当前所选单位序号
+    public List<Spawner> sp;
+    public bool isMineSelected;    //是否选择矿山
     
 
     //public Dictionary<int, string> nameDict = new Dictionary<int, string>();
@@ -21,88 +28,98 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     void Awake()
     {
         //InitText();
-        producer = this.GetComponentInChildren<UISprite>();
     }
     void Start()
     {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<cancelMountainEvent>(this);
-        //producer = this.gameObject.GetComponent<UISprite>();
-
-        /*foreach (KeyValuePair<int, string> item in nameDict)
-        {
-            for (nameNum = 0; nameNum < 4; nameNum++)
-            {
-                picList[nameNum]=nameDict[IDList[nameNum]];
-            }
-        }*/
-        
-        picList = new List<string> { Tags.Vehicle.BASETRAMCAR, Tags.Vehicle.OVERWEIGHTTRAMCAR, Tags.Vehicle.SKILLEDTRAMCAR, Tags.Vehicle.TRAIN,Tags.Character.GATEWORKER,Tags.Character.INSPECTOR,Tags.Character.ROGUE,Tags.Vehicle.EXPLORATIONTRAMCAR };
+        sp = new List<Spawner>();
+        picList = new List<string>();
         IDList= new List<int>();
-        button = this.gameObject.GetComponent<UIButton>();
-        for (int i = 0; i < 8; i++)
+        producer = this.transform.Find("producer").GetComponent<UISprite>();
+        button = this.transform.Find("producer").GetComponent<UIButton>();
+        cdsprite = this.transform.Find("forCD").GetComponent<UISprite>();
+        cdsprite.fillAmount = 0.0f;
+        CDTime = new List<float>();
+        isMineSelected = false;
+        button.normalSprite = null;
+    }
+    public void Handle(MineSelectEvent message)
+    {
+        isMineSelected = true;
+        lockButton.gameObject.SetActive(false);
+        sp = message.getMine().getSpawnerList();
+        for (int i = 0; i < sp.Count; i++)
         {
+            //sp[i].spawnUnit.GetComponent<GameobjBase>().game_ID;
+            picList.Add(sp[i].spawnUnit.GetComponent<GameobjBase>().game_name_en);
             IDList.Add(IDs.getIDByName(picList[i]));
         }
     }
+
+    
     /// <summary>
     /// 
     /// </summary>
-    /*void InitText()
-    {
-        string text = nameInfoText.text;
-        string[] strArray = text.Split('\n');
-        foreach (string str in strArray)
-        {
-            string[] proArray = str.Split(',');
-            int id = int.Parse(proArray[0]);
-            string name = proArray[1];
-            nameDict.Add(id, name);
-        }
-    }*/
+    
     public void nextButton()
     {
-        nameNum++;
-        if (nameNum >= 8)
+        if (isMineSelected == true)
         {
-            nameNum = 0;
+            nameNum++;
+            if (nameNum >= sp.Count)
+            {
+                nameNum = 0;
+            }
+            producer.spriteName = picList[nameNum];
+            unitSelected = nameNum;
         }
-
-        producer.spriteName = picList[nameNum];
-        Debug.Log(picList[nameNum]);
     }
 
     public void frontButton()
     {
-        nameNum--;
-        if (nameNum < 0)
+        if (isMineSelected == true)
         {
-            nameNum = 7;
+            nameNum--;
+            if (nameNum < 0)
+            {
+                nameNum = sp.Count - 1;
+            }
+            producer.spriteName = picList[nameNum];
+            unitSelected = nameNum;
         }
-        producer.spriteName = picList[nameNum];
-        //Debug.Log(IDList[nameNum]);
     }
-/// <summary>
-/// 未知
-/// </summary>
-/// <param name="newNameList"></param>
-    /*public void updateNameList(List<int> newNameList)
-    {
-        IDList = newNameList;
-    }*/
+
     /// <summary>
     /// 用户点击制造单位
     /// </summary>
     public void OnClick()
     {
-        EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[nameNum]));
-        Debug.Log(IDList[nameNum], null);
+        if (isMineSelected == true)
+        {
+            EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[unitSelected]));
+        }
     }
 
-    public void update()
+    public void LateUpdate()
     {
-
+     
     }
+
+    public void Update()
+    {
+        if (isMineSelected == true)
+        {
+            for (int i = 0; i < sp.Count; i++)
+            {
+                if (IDList[unitSelected] == sp[i].spawnUnit.GetComponent<GameobjBase>().game_ID)
+                {
+                    cdsprite.fillAmount = (sp[i].coolDown / sp[i].CD);
+                }
+            }
+        }
+    }
+   
 
     public class unitEvent : BaseEvent
     {
@@ -115,12 +132,10 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
         }
     }
 
-    public void Handle(MineSelectEvent message)
-    {
-        lockButton.gameObject.SetActive(false);
-    }
+    
     public void Handle(cancelMountainEvent message)
     {
+        isMineSelected = false;
         lockButton.gameObject.SetActive(true);
     }
     void OnDisable()

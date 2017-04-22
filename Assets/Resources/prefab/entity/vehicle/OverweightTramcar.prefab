@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4390526775783188}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (red) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4483425927582760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4325818316075876}
   - component: {fileID: 33878944126454196}
   - component: {fileID: 23805065147816902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4982275926825520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blue) (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4365801644655038}
   - component: {fileID: 33797194682486458}
   - component: {fileID: 23901236976315194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4129006488596888}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4339950793971846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4071145829802394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4905926526377764}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bogies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4156870896420486}
   - component: {fileID: 33493570993550208}
   - component: {fileID: 23670153466518158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4779236087091012}
   - component: {fileID: 33649013314033248}
   - component: {fileID: 23160430204312962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4262736541661496}
   - component: {fileID: 33108526797715790}
   - component: {fileID: 23745224025523728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,14 +209,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4658341227905830}
-  - component: {fileID: 195452581358437830}
   - component: {fileID: 114940774351780940}
   - component: {fileID: 114689172405652404}
   - component: {fileID: 114581001233334450}
   - component: {fileID: 114812014901285400}
   - component: {fileID: 65523185825752578}
   - component: {fileID: 54341849691774796}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OverweightTramcar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +230,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159658695097966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blue) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +245,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4882591277452062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +260,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4838294911186456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_wheel_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +277,7 @@ GameObject:
   - component: {fileID: 4753741003216278}
   - component: {fileID: 33161247229886476}
   - component: {fileID: 23783688617294610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +294,7 @@ GameObject:
   - component: {fileID: 4873868539033138}
   - component: {fileID: 33506273987262774}
   - component: {fileID: 23829223066023066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +309,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4465379500949374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box1-1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +326,7 @@ GameObject:
   - component: {fileID: 4420176027222832}
   - component: {fileID: 33121173354478730}
   - component: {fileID: 23163037510751186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +343,7 @@ GameObject:
   - component: {fileID: 4690613198398430}
   - component: {fileID: 33712160941293366}
   - component: {fileID: 23827952535191934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +358,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4346565247204214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_f_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +373,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4406465250323278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +388,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4419702811530460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (red) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +403,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4164621253487754}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blue) (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +420,7 @@ GameObject:
   - component: {fileID: 4904801811473724}
   - component: {fileID: 33050664174200946}
   - component: {fileID: 23944468610744596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +435,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4157588937885166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blue) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +452,7 @@ GameObject:
   - component: {fileID: 4499086208988690}
   - component: {fileID: 33073239384884702}
   - component: {fileID: 23922793404177484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +469,7 @@ GameObject:
   - component: {fileID: 4786381826134642}
   - component: {fileID: 33617246328411124}
   - component: {fileID: 23085599848194178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +484,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4376549908002028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +499,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4109544941518250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (blue)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +516,7 @@ GameObject:
   - component: {fileID: 4608400440648674}
   - component: {fileID: 33837702460782544}
   - component: {fileID: 23435941986872690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +533,7 @@ GameObject:
   - component: {fileID: 4092677338154258}
   - component: {fileID: 33166138180923956}
   - component: {fileID: 23854380653133154}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +550,7 @@ GameObject:
   - component: {fileID: 4648890058650716}
   - component: {fileID: 33867588122061238}
   - component: {fileID: 23955118037027980}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +565,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4422488181022984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bogies_wheel_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +582,7 @@ GameObject:
   - component: {fileID: 4382381119169284}
   - component: {fileID: 33274398991305404}
   - component: {fileID: 23875541020973652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +597,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4793209692076228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box1-1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +614,7 @@ GameObject:
   - component: {fileID: 4427546979329882}
   - component: {fileID: 33012156890764496}
   - component: {fileID: 23880736565960706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +631,7 @@ GameObject:
   - component: {fileID: 4998451353695068}
   - component: {fileID: 33729090493576634}
   - component: {fileID: 23065874068346006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +648,7 @@ GameObject:
   - component: {fileID: 4978382016216494}
   - component: {fileID: 33896674804430402}
   - component: {fileID: 23815735731772264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +663,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4737128959415312}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: box1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +678,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4751153978587062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carBody_hook_e_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +695,7 @@ GameObject:
   - component: {fileID: 4619158826456336}
   - component: {fileID: 33852967190708260}
   - component: {fileID: 23906715060853784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +712,7 @@ GameObject:
   - component: {fileID: 4208955548791788}
   - component: {fileID: 33169919480061338}
   - component: {fileID: 23371288965348936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +727,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4305993560106376}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (red) (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +742,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4900378003694446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (red) (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +757,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4142715424848320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bucket (red)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,6 +1451,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23085599848194178
 MeshRenderer:
@@ -1483,6 +1483,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23160430204312962
 MeshRenderer:
@@ -1514,6 +1515,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23163037510751186
 MeshRenderer:
@@ -1545,6 +1547,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23371288965348936
 MeshRenderer:
@@ -1576,6 +1579,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23435941986872690
 MeshRenderer:
@@ -1607,6 +1611,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23670153466518158
 MeshRenderer:
@@ -1638,6 +1643,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23745224025523728
 MeshRenderer:
@@ -1669,6 +1675,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23783688617294610
 MeshRenderer:
@@ -1700,6 +1707,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23805065147816902
 MeshRenderer:
@@ -1731,6 +1739,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23815735731772264
 MeshRenderer:
@@ -1762,6 +1771,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23827952535191934
 MeshRenderer:
@@ -1793,6 +1803,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23829223066023066
 MeshRenderer:
@@ -1824,6 +1835,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23854380653133154
 MeshRenderer:
@@ -1855,6 +1867,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23875541020973652
 MeshRenderer:
@@ -1886,6 +1899,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23880736565960706
 MeshRenderer:
@@ -1917,6 +1931,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23901236976315194
 MeshRenderer:
@@ -1948,6 +1963,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23906715060853784
 MeshRenderer:
@@ -1979,6 +1995,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23922793404177484
 MeshRenderer:
@@ -2010,6 +2027,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23944468610744596
 MeshRenderer:
@@ -2041,6 +2059,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23955118037027980
 MeshRenderer:
@@ -2072,6 +2091,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33012156890764496
 MeshFilter:
@@ -2231,7 +2251,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2282,10 +2302,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227299018505476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd3dfbd096aac94dac1e688777dc612, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f23dbf6df5d2dc43afbfd470ed8b001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
+  Tag: 0
+  fromPoint: {fileID: 0}
+  nextPoint: {fileID: 0}
+  step: 0.25
+  ignoreY: 1
 --- !u!114 &114940774351780940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2297,23 +2321,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f15d0007b66b0468d0722034478e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!195 &195452581358437830
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1227299018505476}
-  m_Enabled: 1
-  m_Radius: 0.00001
-  m_Speed: 8
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.00001
-  m_BaseOffset: 0
-  m_WalkableMask: 16
-  m_ObstacleAvoidanceType: 4
