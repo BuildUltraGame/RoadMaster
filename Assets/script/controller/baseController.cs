@@ -111,8 +111,10 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<createUnit.unitEvent>(this);
         EventAggregator.Register<UICreateUnitEvent>(this);
+        EventAggregator.Register<ScoreEvent>(this);
         unitToBuild = false;
         controller= GameObject.Find("Controller");
+		ScoreBoard.getInstance ().Init (2);
     }
 	
 	// Update is called once per frame

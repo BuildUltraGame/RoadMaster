@@ -22,8 +22,8 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
         {
             GoldAll.text = "" + mineSelected.totalMine;
             //Train.text = ""+mineSelected.;训练速度数据，未获得
-            GoldGet.text = "" + mineSelected.increaseRate;
-            GoldTime.text = "" + mineSelected.increaseFlashTime;
+            GoldGet.text = "+" + mineSelected.increaseRate;
+            //GoldTime.text = "" + mineSelected.increaseFlashTime;
         }
         
 	}

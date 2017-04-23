@@ -18,6 +18,8 @@ public class ScoreBoard :IListener<ScoreAddEvent>
 {
     private static ScoreBoard _instance=new ScoreBoard();
     private Hashtable scores=new Hashtable();
+
+    public int playerNum=2;
     public static ScoreBoard getInstance()
     {
         return _instance;
@@ -33,6 +35,7 @@ public class ScoreBoard :IListener<ScoreAddEvent>
     /// <param name="playerNum">玩家的数目</param>
     public void Init(int playerNum)
     {//这里暂时不考虑联机的问题....想考虑的话你可以自己改代码先
+        this.playerNum = playerNum;
         scores.Clear();
         scores.Add(-1, 0);//这个是世界,也算是一个玩家
         for (int i = 0; i < playerNum;i++ )
