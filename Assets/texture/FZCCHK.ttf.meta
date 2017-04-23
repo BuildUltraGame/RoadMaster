@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b1a79eb3f9fbbeb4aaac36d4f3fa5ea6
+timeCreated: 1492963199
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FZChaoCuHei-M10
+  fontNames:
+  - FZChaoCuHei-M10
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

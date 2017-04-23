@@ -6,7 +6,7 @@ using UnityEventAggregator;
 
 
 //基础的游戏进程控制器
-public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<UICreateUnitEvent>,IListener<ScoreEvent>{
+public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,IListener<MineSelectEvent>,IListener<CreateUnitEvent>,IListener<ScoreEvent>{
 
     GameObject controller;
     //int[] mineList;//矿山列表
@@ -110,7 +110,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 	void Awake () {
         EventAggregator.Register<MineSelectEvent>(this);
         EventAggregator.Register<createUnit.unitEvent>(this);
-        EventAggregator.Register<UICreateUnitEvent>(this);
+        EventAggregator.Register<CreateUnitEvent>(this);
         EventAggregator.Register<ScoreEvent>(this);
         unitToBuild = false;
         controller= GameObject.Find("Controller");
@@ -130,7 +130,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
     {
         EventAggregator.UnRegister<createUnit.unitEvent>(this);
         EventAggregator.UnRegister<MineSelectEvent>(this);
-        EventAggregator.UnRegister<UICreateUnitEvent>(this);
+        EventAggregator.UnRegister<CreateUnitEvent>(this);
     }
     /// <summary>
     /// 矿山选择接口
@@ -306,7 +306,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
 
     }
 
-    public void Handle(UICreateUnitEvent message)
+    public void Handle(CreateUnitEvent message)
     {
         message.mine.buildUnitByID(message.ID, message.destination);
     }
