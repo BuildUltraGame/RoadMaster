@@ -8,10 +8,9 @@ using UnityEngine.AI;
 /// </summary>
 public abstract class MetroGate :MonoBehaviour{
 
-    protected OffMeshLink link;//道闸连线集合
 
     protected List<GameObject> vehilesOnRoad = new List<GameObject>();
-    protected List<Transform> allPoint=new List<Transform>();//按顺序存的点信息
+	protected List<RoadPoint> allPoint=new List<RoadPoint>();//按顺序存的点信息
 
     /// <summary>
     /// 变换道口连接情况
@@ -32,19 +31,19 @@ public abstract class MetroGate :MonoBehaviour{
 
    public void Start()
    {
-       link = GetComponent<OffMeshLink>();
+     
 
-       Transform[] ts = GetComponentsInChildren<Transform>();
+		RoadPoint[] rps = GetComponentsInChildren<RoadPoint>();
 
 
-       foreach (Transform t in ts)
+		foreach (RoadPoint p in rps)
        {
-           if (t.gameObject.tag == Tags.RAILWAY_POINT)
+           if (p.gameObject.tag == Tags.RAILWAY_POINT)
            {
-               allPoint.Add(t);
+               allPoint.Add(p);
            }
        }
-       regiseterPathPoint();
+       
    }
 
    /// <summary>
@@ -88,7 +87,7 @@ public abstract class MetroGate :MonoBehaviour{
 
 
 
-   public static int FromWhichPoint(List<Transform> vs, Vector3 v)
+   public static int FromWhichPoint<T>(List<T> vs, Vector3 v) where T:MonoBehaviour
    {
 
 
@@ -96,7 +95,7 @@ public abstract class MetroGate :MonoBehaviour{
        int minNum = 0;
        for (int i = 0; i < vs.Count; i++)
        {
-           float tempDist = Vector3.Distance(v, vs[i].position);
+           float tempDist = Vector3.Distance(v, vs[i].gameObject.transform.position);
            if (tempDist < minDistance)
            {
                minDistance = tempDist;
@@ -107,26 +106,6 @@ public abstract class MetroGate :MonoBehaviour{
        return minNum;
    }
 
-  
-   private void regiseterPathPoint()
-   {
-       foreach(Transform t in allPoint){
-           PathDataCenter.registerPathPoint(t.transform.position);
-       }
-   }
-
-   private void unRegiseterPathPoint()
-   {
-       foreach (Transform t in allPoint)
-       {
-           PathDataCenter.unRegisterPathPoint(t.transform.position);
-       }
-   }
-
-   void OnDisable()
-   {
-       unRegiseterPathPoint();
-   }
 
 
 }

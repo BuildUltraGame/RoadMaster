@@ -34,7 +34,7 @@ public class ExplorationTramcar : MonoBehaviour {
     private void HoldMineDelay(GameobjBase b)
     {
         Invoke("HoldMine",reqTime);
-        GetComponent<NavMeshAgent>().enabled = false;
+
         
     }
 

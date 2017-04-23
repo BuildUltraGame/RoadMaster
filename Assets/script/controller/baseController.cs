@@ -115,6 +115,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
         EventAggregator.Register<createUnit.unitEvent>(this);
         EventAggregator.Register<UICreateUnitEvent>(this);
         unitToBuild = false;
+        ScoreBoard.getInstance().Init(2);
     }
 	
 	// Update is called once per frame
@@ -233,7 +234,7 @@ public class baseController : MonoBehaviour,IListener<createUnit.unitEvent> ,ILi
         else
         {
             Touch touch = Input.GetTouch(0);
-
+            
             if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
