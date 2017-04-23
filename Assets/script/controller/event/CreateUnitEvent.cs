@@ -6,8 +6,9 @@ using UnityEngine;
 /// <summary>
 /// UI创建单位的消息
 /// </summary>
-public class UICreateUnitEvent : BaseEvent
+public class CreateUnitEvent : BaseEvent
 {
+    public int player=GameobjBase.PLAYER;
     public int ID;//单位ID
     public Vector3 destination;//目的地
     public MineMountain mine;//创建单位的矿山
@@ -19,13 +20,15 @@ public class UICreateUnitEvent : BaseEvent
     /// <param name="Mine">生产单位的矿山</param>
     /// <param name="_subject"></param>
     /// <param name="_object"></param>
-    public UICreateUnitEvent(int id,Vector3 dest,MineMountain Mine, GameObject _subject=null, GameObject _object=null)
-        : base(_subject, "UICreate", _object)
+    public CreateUnitEvent(int id,Vector3 dest,int player=GameobjBase.PLAYER, MineMountain Mine = null)
+        : base(null, "Create", null)
     {
         ID = id;
         destination = dest;
         mine = Mine;
+        this.player = player;
     }
+
 
 
 }
