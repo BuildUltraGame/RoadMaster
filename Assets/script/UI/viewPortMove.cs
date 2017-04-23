@@ -58,7 +58,6 @@ public class viewPortMove : MonoBehaviour {
     void Update()
     {
         moveCameraWithMouse();
-        print(cameraEulerState);
     }
 
     void moveCameraWithMouse()
