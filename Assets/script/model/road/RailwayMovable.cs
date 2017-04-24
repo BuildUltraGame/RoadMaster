@@ -53,7 +53,7 @@ public class RailwayMovable : MonoBehaviour {
 	void FixedUpdate () {
 		if(nextPoint!=null){
             //向下一个点走
-            print(Application.targetFrameRate);
+       
 
 			Vector3 target = nextPoint.transform.position;
 

@@ -44,10 +44,7 @@ public class Spawner : MonoBehaviour
         return cost;
     }
 
-    public float getCD()
-    {
-        return coolDown;
-    }
+    
 
     public bool canBuild()
     {

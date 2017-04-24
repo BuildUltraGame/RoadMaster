@@ -53,7 +53,7 @@ public class Roadmovable : MonoBehaviour {
     //寻路结束;  
     private void OnPathComplete(Path p)
     {
-        Debug.Log("OnPathComplete error = " + p.error);
+       
 
         if (!p.error)
         {
@@ -62,10 +62,7 @@ public class Roadmovable : MonoBehaviour {
             stopMove = false;
         }
 
-        for (int index = 0; index < path.vectorPath.Count; index++)
-        {
-            Debug.Log("path.vectorPath[" + index + "]=" + path.vectorPath[index]);
-        }
+        
     }
 
     /// <summary>
@@ -110,7 +107,7 @@ public class Roadmovable : MonoBehaviour {
                                                 path.vectorPath[currentWayPoint].y + playerCenterY,
                                                 path.vectorPath[currentWayPoint].z);
         Vector3 dir = (currentWayPointV - transform.position).normalized;
-
+        transform.LookAt(currentWayPointV);
         //计算这一帧要朝着 dir方向 移动多少距离;  
         dir *= playerMoveSpeed * Time.fixedDeltaTime;
 

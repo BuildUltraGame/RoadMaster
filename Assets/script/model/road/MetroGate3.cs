@@ -18,7 +18,7 @@ using UnityEngine.AI;
 /// </summary>
 public class MetroGate3 : MetroGate {
 
-    public GameObject roadBlockPrefab;
+   
     private RoadPoint blockPoint;
 	private GameObject roadBlock;
 
@@ -27,10 +27,7 @@ public class MetroGate3 : MetroGate {
 
 	
 	void Start () {
-        if (roadBlockPrefab == null)
-        {
-            throw new Exception("岔道口没有设置路障");
-        }
+        
         base.Start();
         initPointInfo();
         

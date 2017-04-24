@@ -16,8 +16,8 @@ public class GoldCarrier : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        setGoldAmounts(MaxGold);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,7 +36,7 @@ public class GoldCarrier : MonoBehaviour
         {
             if(MaxGold<amounts){
                 goldAmounts = MaxGold;
-                return goldAmounts - MaxGold;
+                return amounts - MaxGold;
             }
             else {
                 goldAmounts = amounts;
@@ -45,6 +45,8 @@ public class GoldCarrier : MonoBehaviour
         }
         return 0;
     }
+
+    
 
     /// <summary>
     /// 改变金矿数量
