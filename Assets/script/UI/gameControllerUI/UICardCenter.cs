@@ -49,8 +49,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
         {
             GameObject g = NGUITools.AddChild(grid.gameObject, cardPrefab);
             cards.Add(g);
-            g.GetComponent<UICard>().setID(sp[i].spawnUnit.GetComponent<GameobjBase>().game_ID);
-            g.GetComponent<UICard>().setName(sp[i].spawnUnit.GetComponent<GameobjBase>().game_name);
+            g.GetComponent<UICard>().setSpawner(sp[i]);
         }
 
         grid.Reposition();

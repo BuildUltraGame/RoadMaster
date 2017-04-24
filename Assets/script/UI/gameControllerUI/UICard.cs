@@ -7,6 +7,11 @@ public class UICard : UIDragDropItem {
     public TweenScale ts;
     private static bool DEBUG = true;
 
+    private Spawner sp;
+
+    public UISprite CD;
+    public BoxCollider cardCollider;
+
     private int ID;
     protected override void OnDragDropStart()
     {
@@ -46,15 +51,22 @@ public class UICard : UIDragDropItem {
         
     }
 
-    public void setID(int i)
+    private void setID(int i)
     {
         ID = i;
     }
 
+    public void setSpawner(Spawner sp)
+    {
+        this.sp = sp;
+
+        setID(sp.spawnUnit.GetComponent<GameobjBase>().game_ID);
+        setName(sp.spawnUnit.GetComponent<GameobjBase>().game_name);
+        
+    }
 
 
-
-    public void setName(string name)
+    private void setName(string name)
     {
        GetComponentInChildren<UILabel>().text=name;
     }
@@ -62,6 +74,22 @@ public class UICard : UIDragDropItem {
     public int getID()
     {
         return ID;
+    }
+
+    void Update()
+    {
+        base.Update();
+
+        CD.fillAmount = sp.coolDown / sp.CD;
+        if (CD.fillAmount.Equals(0f))
+        {
+            cardCollider.enabled = true;
+        }
+        else
+        {
+            cardCollider.enabled = false;
+        }
+
     }
 
 
