@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,7 +9,7 @@ using UnityEngine.AI;
 /// </summary>
 public abstract class MetroGate :MonoBehaviour{
 
-
+    public GameObject roadBlockPrefab;
     protected List<GameObject> vehilesOnRoad = new List<GameObject>();
 	protected List<RoadPoint> allPoint=new List<RoadPoint>();//按顺序存的点信息
 
@@ -31,9 +32,12 @@ public abstract class MetroGate :MonoBehaviour{
 
    public void Start()
    {
-     
+        if (roadBlockPrefab == null)
+        {
+            throw new Exception("岔道口没有设置路障");
+        }
 
-		RoadPoint[] rps = GetComponentsInChildren<RoadPoint>();
+        RoadPoint[] rps = GetComponentsInChildren<RoadPoint>();
 
 
 		foreach (RoadPoint p in rps)

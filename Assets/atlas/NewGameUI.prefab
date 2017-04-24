@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: b1
     x: 0
-    y: 250
+    y: 194
     width: 128
     height: 100
     borderLeft: 38
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: black
-    x: 164
-    y: 353
+    x: 129
+    y: 241
     width: 53
     height: 53
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card
-    x: 164
-    y: 407
+    x: 0
+    y: 88
     width: 81
     height: 105
     borderLeft: 39
@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card2
-    x: 0
+    x: 317
     y: 351
     width: 163
     height: 161
@@ -105,6 +105,45 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: UI_CRB_Basekit_2_0_1035.tex
+    x: 0
+    y: 6
+    width: 94
+    height: 81
+    borderLeft: 22
+    borderRight: 21
+    borderTop: 24
+    borderBottom: 24
+    paddingLeft: 8
+    paddingRight: 8
+    paddingTop: 8
+    paddingBottom: 6
+  - name: UI_CRB_HUD_ActionBar_0_467.tex
+    x: 0
+    y: 295
+    width: 376
+    height: 45
+    borderLeft: 23
+    borderRight: 23
+    borderTop: 12
+    borderBottom: 12
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_InventoryBubble.tex
+    x: 0
+    y: 341
+    width: 316
+    height: 171
+    borderLeft: 51
+    borderRight: 51
+    borderTop: 25
+    borderBottom: 25
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

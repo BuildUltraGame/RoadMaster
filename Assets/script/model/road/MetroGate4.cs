@@ -7,11 +7,13 @@ public class MetroGate4 : MetroGate
 
     private int state = 0;
 
-
+    private List<RoadPoint> edge = new List<RoadPoint>();
+    private RoadPoint centerPoint;
 
     void Start()
     {
         base.Start();
+
         initPointInfo();
       
 
@@ -24,37 +26,39 @@ public class MetroGate4 : MetroGate
     /// </summary>
     private void initPointInfo()
     {
+        foreach (RoadPoint p in allPoint)
+        {
+            if (p.gameObject.name == "c")
+            {
+                centerPoint = p;
+            }
+            else
+            {
+                edge.Add(p);
+            }
+
+        }
+
+        setState();
+
+    }
 
 
-      //  link.startTransform = allPoint[0];
-     //   link.endTransform = allPoint[2];
-
+    private void setState()
+    {
+        edge[state].active = false;
+        edge[state+1].active = true;
+        edge[state+2].active = false;
+        edge[(state + 3)%4].active = true;
+        state = 1 - state;
     }
 
 
 
     public override void GateChange(Vector3 v, int linkNum)
     {
-  
-        if (state==0)
-        {
-           
-      //      link.startTransform = allPoint[1];
-      //      link.endTransform = allPoint[3];
-            state = 1;
-        }
-        else if(state==1)
-        {
-            
-     //       link.startTransform = allPoint[0];
-     //       link.endTransform = allPoint[2];
-
-            state = 0;
-        }
-
-       
-  
-        destroyVehilesOnRoad();//摧毁当前在岔道口的车辆
+       setState();
+       destroyVehilesOnRoad();//摧毁当前在岔道口的车辆
     }
 
 
