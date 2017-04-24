@@ -57,6 +57,10 @@ public class viewPortMove : MonoBehaviour {
 
     void Update()
     {
+        if (Physics.Raycast(UICamera.mainCamera.ScreenPointToRay(Input.mousePosition), 20))//检测是否点击到NGUI
+        {
+            return;
+        }
         moveCameraWithMouse();
        
     }

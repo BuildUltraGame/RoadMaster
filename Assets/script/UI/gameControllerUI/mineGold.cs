@@ -45,9 +45,9 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     {
         mineSelected = null;
         GoldAll.text ="";
-        Train.text ="";
+      //  Train.text ="";
         GoldGet.text ="";
-        GoldTime.text ="";
+      //  GoldTime.text ="";
     }
     void OnDisable()
     {

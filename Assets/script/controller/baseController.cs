@@ -13,7 +13,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
     
     ////touchController部分
-    private bool DEBUG = true;//调试用,因为调试的时候无法触屏,直接采用了鼠标点击的方式去检测
+    private bool DEBUG = false;//调试用,因为调试的时候无法触屏,直接采用了鼠标点击的方式去检测
    
 
     ////

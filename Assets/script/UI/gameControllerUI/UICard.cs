@@ -18,6 +18,7 @@ public class UICard : UIDragDropItem {
         base.OnDragDropStart();
         ts.enabled = true;
         ts.PlayForward();
+        EventAggregator.SendMessage<ViewMoveEvent>(new ViewMoveEvent(false));
 
     }
 
@@ -48,7 +49,7 @@ public class UICard : UIDragDropItem {
         {
             EventAggregator.SendMessage<CreateUnitEvent>(new CreateUnitEvent(ID,hit.point));
         }
-        
+        EventAggregator.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));
     }
 
     private void setID(int i)
