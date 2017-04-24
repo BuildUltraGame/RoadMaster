@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 2
-  cloneOnDrag: 1
+  cloneOnDrag: 0
   pressAndHoldDelay: 1
   interactable: 1
   ts: {fileID: 114949796966026714}
