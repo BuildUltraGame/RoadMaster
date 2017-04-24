@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEventAggregator;
 
 public enum cameraEulerAnglesMode//如果是一个能够正常玩的摄像机视口，欧拉角有四种方式(还有别的方式，但那些玩不了，比如摄像机朝天)
 {
@@ -15,7 +16,8 @@ public enum cameraEulerAnglesMode//如果是一个能够正常玩的摄像机视
 /// 通过触摸移动视口，可以在inspector面板配置速度，最大上下左右偏移
 /// 还有一个reset回初始位置的接口
 /// </summary>
-public class viewPortMove : MonoBehaviour {
+public class viewPortMove : MonoBehaviour, IListener<ViewMoveEvent>
+{
     private GameObject mainCamera;
     public float speed = 1f;
     private float speedX;
@@ -34,8 +36,9 @@ public class viewPortMove : MonoBehaviour {
     int count;
     private cameraEulerAnglesMode cameraEulerState;
     private bool changeXZ = false;
-    
+    private bool canMove = true;
 
+    
     Vector3 touchposition;
 
     public static viewPortMove _instance;
@@ -50,13 +53,17 @@ public class viewPortMove : MonoBehaviour {
 
     void Start()
     {
+        EventAggregator.Register<ViewMoveEvent>(this);
         mainCamera = this.GetComponent<Camera>().gameObject;
         cameraInitPos = mainCamera.transform.position;
-
     }
 
     void Update()
     {
+        if (Physics.Raycast(UICamera.mainCamera.ScreenPointToRay(Input.mousePosition), 20))//检测是否点击到NGUI
+        {
+            return;
+        }
         moveCameraWithMouse();
     }
 
@@ -156,6 +163,19 @@ public class viewPortMove : MonoBehaviour {
         if ((cameraEulerState == cameraEulerAnglesMode.ZXminus) || (cameraEulerState == cameraEulerAnglesMode.ZminusX))
         {
             changeXZ = true;
+        }
+    }
+
+    public void Handle(ViewMoveEvent message)
+    {
+        canMove = message.canMove();
+        if (canMove)
+        {
+            setCameraMoveMode();
+        }
+        else{
+            speedX = 0;
+            speedZ = 0;
         }
     }
 }

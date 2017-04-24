@@ -45,4 +45,10 @@ NGUI
 /Assets/NGUI.meta
 Editor Default Resources
 UnityVS
+<<<<<<< HEAD
 .vs
+=======
+UnityVS
+>>>>>>> remotes/origin/FENG-DEV
+/.gitignore
+/.gitignore
