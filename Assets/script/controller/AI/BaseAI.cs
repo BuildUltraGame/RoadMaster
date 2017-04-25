@@ -41,7 +41,9 @@ public class BaseAI : MonoBehaviour,
             rm.fromPoint = start;
 			rm.nextPoint = start;
             RoadPoint temp;
-            bool flag = false;  
+            bool flag = false;
+            //距离
+            float len = 0;
             while (true) {
 				temp = rm.nextPoint;
 
@@ -57,12 +59,16 @@ public class BaseAI : MonoBehaviour,
                     Bounds bs = new Bounds(rm.fromPoint.transform.position-nv*i,new Vector3(roadW,0.01f,roadW));
                     
                     if (bs.Contains(v)) {
+                        //距离
+                        len += Vector3.Distance(rm.fromPoint.transform.position,bs.center);
                         return true;
                     }
                 }
 
+                //距离
+                len += Vector3.Distance(rm.fromPoint.gameObject.transform.position, rm.nextPoint.transform.position);
 
-				if (Mathf.Abs(Vector3.Distance(v,rm.nextPoint.transform.position))<0.5) {
+                if (Mathf.Abs(Vector3.Distance(v,rm.nextPoint.transform.position))<0.5) {
 					return true;
 				}
 
