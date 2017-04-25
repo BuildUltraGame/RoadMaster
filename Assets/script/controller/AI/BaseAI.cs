@@ -17,12 +17,14 @@ public class BaseAI : MonoBehaviour,
     public Transform t1;
     public Transform t2;
 
-    public RoadPoint start;
+
 	private RailwayMovable rm;
 
     public Transform t;
 
     private static float roadW = 0.5f;
+
+    private List<RoadPoint> rps;
 
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
@@ -31,12 +33,33 @@ public class BaseAI : MonoBehaviour,
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
         rm = GetComponent<AIDetector>();
+        
+        GameObject.FindGameObjectsWithTag(Tags.RAILWAY_POINT).Each(x=> {
+            rps.Add(x.GetComponent<RoadPoint>());
+        });
     }
 
 
-    private bool canReach(Vector3 v,int type)
+    private RoadPoint getStartPoint(Vector3 v)
+    {
+        float d = float.MaxValue;
+        RoadPoint rp = null;
+        rps.Each(x=> {
+            float temp = Vector3.Distance(v, x.transform.position);
+            if (temp<d)
+            {
+                d = temp;
+                rp = x;
+            }
+        });
+
+        return rp;
+    }
+
+    private bool canReach(Vector3 startP,Vector3 v,int type)
     {
         if(type==1){
+            RoadPoint start = getStartPoint(startP);
             //我们假设这个是车
             rm.fromPoint = start;
 			rm.nextPoint = start;
