@@ -139,7 +139,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24172579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 107, y: -13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1198862710}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 195022918}
   - component: {fileID: 195022919}
   m_Layer: 5
-  m_Name: Container
+  m_Name: c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,13 +641,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1275
+  mWidth: 1281
   mHeight: 182
   mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 7.340659
+  aspectRatio: 7.0384617
 --- !u!114 &196909618 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114236808536918520, guid: 62af14c0c9b9ccb45ac25b535c0110df,
@@ -1050,7 +1050,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283914353}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 97, y: -14, z: 0}
+  m_LocalPosition: {x: 204, y: -12, z: 0}
   m_LocalScale: {x: 1.0008, y: 1.0008, z: 1.0008}
   m_Children: []
   m_Father: {fileID: 1198862710}
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 342531842}
   - component: {fileID: 342531843}
   m_Layer: 5
-  m_Name: Sprite
+  m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1460,7 +1460,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352246970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65, y: -15, z: 0}
+  m_LocalPosition: {x: -27, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1198862710}
@@ -2308,7 +2308,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506985586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -676, y: -160, z: -31}
+  m_LocalPosition: {x: -679, y: -160, z: -31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 252005786}
@@ -2561,7 +2561,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574244806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 710, y: 357, z: -30}
+  m_LocalPosition: {x: 713, y: 357, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1078155385}
@@ -3609,7 +3609,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 921428065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: -15, z: 0}
+  m_LocalPosition: {x: 71, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1198862710}
@@ -3646,13 +3646,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 262
+  mWidth: 368
   mHeight: 94
   mDepth: 7
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.787234
+  aspectRatio: 3.9148936
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -3664,7 +3664,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114603268384089070, guid: f5d4596d8b1dd2d4d8594716d6f8a981, type: 2}
-  mSpriteName: b1
+  mSpriteName: UI_CRB_CharacterWindowPrototype_23_936.tex
   mFillCenter: 1
 --- !u!114 &930064915 stripped
 MonoBehaviour:
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b95b9722bc0ef64d8404d068ef0ac41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.1
   maxDistancePositiveX: 50
   maxDistancePositiveZ: 50
   maxDistanceMinusX: -50
@@ -4234,7 +4234,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1198862709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -740, y: 256, z: -30}
+  m_LocalPosition: {x: -743, y: 256, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 921428066}
@@ -4281,7 +4281,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.0016762703
+  aspectRatio: 1.0666667
 --- !u!1 &1205238926
 GameObject:
   m_ObjectHideFlags: 0
@@ -4592,17 +4592,16 @@ Transform:
 --- !u!114 &1270563594
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114522597629330244, guid: b88ef946633338e4bb9eb51b8e829b8f,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1270563592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c4de3b4b6fe9045b059ee627c100df, type: 3}
+  m_Script: {fileID: 11500000, guid: bf5a8d1b86c76894499c63b049a01906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   arrangement: 0
-  sorting: 2
+  sorting: 0
   pivot: 0
   maxPerLine: 0
   cellWidth: 170
@@ -4710,6 +4709,56 @@ Prefab:
     - target: {fileID: 4555926682925014, guid: e705919653e12a541841307461c1f980, type: 2}
       propertyPath: m_LocalPosition.y
       value: -0.0009
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: initMine
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: totalMine
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801599243969668, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114758491607694038, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseFlashTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114653358727860896, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114225342263792614, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740744753390124, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049154396406406, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: cost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseRate
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e705919653e12a541841307461c1f980, type: 2}
@@ -5109,6 +5158,26 @@ Prefab:
         type: 2}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: initMine
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: totalMine
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseFlashTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826589863377786, guid: e705919653e12a541841307461c1f980,
+        type: 2}
+      propertyPath: increaseRate
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -6825,7 +6894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178bf31ed5b784c429b530f080d6eac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionScore: 300
+  missionScore: 3000
   missionType: 1
   missionNum: 2
   gameType: 1002

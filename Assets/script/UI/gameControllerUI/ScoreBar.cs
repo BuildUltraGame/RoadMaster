@@ -41,6 +41,6 @@ public class ScoreBar : UIWidgetContainer,IListener<ScoreEvent> {
 
     public void Handle(ScoreEvent message)
     {
-        bars[message.getPlayer()].GetComponent<UIScrollBar>().value= message.getScore()/300f;
+        bars[message.getPlayer()].GetComponent<UIScrollBar>().value= message.getScore()/(float)GameObject.Find("Controller").GetComponent<MapDescription>().missionScore;
     }
 }

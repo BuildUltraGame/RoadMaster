@@ -26,6 +26,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
 
     public void Handle(MineSelectEvent message)
     {
+
         mine = message.getMine();
         initCards();
     }
@@ -44,6 +45,14 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
 
     private void initCards()
     {
+        foreach (GameObject o in cards)
+        {
+            grid.RemoveChild(o.transform);
+            Destroy(o);
+        }
+
+        cards.Clear();
+
         List<Spawner> sp = mine.getSpawnerList();
         for (int i=0; i<sp.Count;i++)
         {
@@ -51,7 +60,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
             cards.Add(g);
             g.GetComponent<UICard>().setSpawner(sp[i]);
         }
-
+        grid.repositionNow = true;
         grid.Reposition();
 
     }

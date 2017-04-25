@@ -55,6 +55,7 @@ public class UICard : UIDragDropItem {
     private void setID(int i)
     {
         ID = i;
+        gameObject.name = ID+"";
     }
 
     public void setSpawner(Spawner sp)

@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: b1
     x: 0
-    y: 194
+    y: 90
     width: 128
     height: 100
     borderLeft: 38
@@ -68,7 +68,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: black
     x: 129
-    y: 241
+    y: 31
     width: 53
     height: 53
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card
-    x: 0
-    y: 88
+    x: 129
+    y: 85
     width: 81
     height: 105
     borderLeft: 39
@@ -107,7 +107,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_CRB_Basekit_2_0_1035.tex
     x: 0
-    y: 6
+    y: 8
     width: 94
     height: 81
     borderLeft: 22
@@ -118,9 +118,22 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 8
     paddingBottom: 6
+  - name: UI_CRB_CharacterWindowPrototype_23_936.tex
+    x: 0
+    y: 237
+    width: 482
+    height: 103
+    borderLeft: 162
+    borderRight: 20
+    borderTop: 27
+    borderBottom: 22
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: UI_CRB_HUD_ActionBar_0_467.tex
     x: 0
-    y: 295
+    y: 191
     width: 376
     height: 45
     borderLeft: 23
