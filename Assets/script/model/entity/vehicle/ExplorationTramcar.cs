@@ -21,7 +21,7 @@ public class ExplorationTramcar : MonoBehaviour {
         {
             //是建筑且是矿山的时候
             mineExp = other.gameObject;
-            HoldMineDelay(gBase);
+            HoldMineDelay();
         }
 
     }
@@ -31,10 +31,10 @@ public class ExplorationTramcar : MonoBehaviour {
     /// 延迟占领
     /// </summary>
     /// <param name="b"></param>
-    private void HoldMineDelay(GameobjBase b)
+    private void HoldMineDelay()
     {
         Invoke("HoldMine",reqTime);
-
+        GetComponent<RailwayMovable>().enabled=false;
         
     }
 
@@ -42,7 +42,7 @@ public class ExplorationTramcar : MonoBehaviour {
     /// 占领
     /// </summary>
     /// 
-    private void HoldMine()
+    void HoldMine()
     {
         GameobjBase myBase = GetComponent<GameobjBase>();
         mineExp.GetComponent<GameobjBase>().setOwner(myBase.getOwner());//设置游戏单位为自己方

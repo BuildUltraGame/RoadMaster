@@ -5,7 +5,7 @@ using UnityEventAggregator;
 
 public class UICard : UIDragDropItem {
     public TweenScale ts;
-    private static bool DEBUG = true;
+    
 
     private Spawner sp;
 
@@ -46,13 +46,25 @@ public class UICard : UIDragDropItem {
 
 
 
-
-
         RaycastHit hit = new RaycastHit();
-        Physics.Raycast(ray,out hit);
+        //if (Layers.CHARACTER == IDs.getLayerByID(sp.spawnUnit.GetComponent<GameobjBase>().game_ID))
+        if (sp.spawnUnit.GetComponent<GameobjBase>().game_ID == IDs.getIDByName(Tags.Character.GATEWORKER))
+        {//如果是人的话,检测到是搬道闸才能发送信息建造
+            Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << Layers.BUILDING | 1 << Layers.RAILWAY);
+            if (hit.collider==null||hit.collider.gameObject.tag!=Tags.GATE)
+            {
+                return;
+            }
+        }
+        else {
+            //如果是其他的话,随便拖
+            Physics.Raycast(ray, out hit);
+        }
+       
+       
 
         if (hit.collider!=null)
-        {
+        {//建造信息
             EventAggregator.SendMessage<CreateUnitEvent>(new CreateUnitEvent(ID,hit.point));
         }
         EventAggregator.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 23028725521145826}
   - component: {fileID: 33344873274441936}
   - component: {fileID: 64420020655824994}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23911447923321246}
   - component: {fileID: 33811071460207576}
   - component: {fileID: 64735832623557058}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4229023134085616}
   - component: {fileID: 33871269283691292}
   - component: {fileID: 23146762736543018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4759815354034440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4873252206839928}
   - component: {fileID: 33799808097086346}
   - component: {fileID: 23388611137000218}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4004410999338134}
   - component: {fileID: 33457222184213648}
   - component: {fileID: 23541328696827764}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4891096510911280}
   - component: {fileID: 33095079325228152}
   - component: {fileID: 23571330226221068}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4063387002669498}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4042572435536946}
   - component: {fileID: 33640958713700046}
   - component: {fileID: 23518737158820626}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 23956216970350758}
   - component: {fileID: 33265595965635226}
   - component: {fileID: 64842918294617576}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 4682472818995786}
   - component: {fileID: 33265723361264906}
   - component: {fileID: 23006381600337048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 4907301231472748}
   - component: {fileID: 33287189063341878}
   - component: {fileID: 23131787835899848}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 4721344638637364}
   - component: {fileID: 33005175582046700}
   - component: {fileID: 23740671428901748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 4482839221464086}
   - component: {fileID: 33094871479866974}
   - component: {fileID: 23727499353905222}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 4684745982535586}
   - component: {fileID: 33581444786312522}
   - component: {fileID: 23486021578061844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4930857200567924}
   - component: {fileID: 33344267370500126}
   - component: {fileID: 23496950670584392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4756939853126948}
   - component: {fileID: 33611341851148216}
   - component: {fileID: 23509862998261950}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 4767331045681912}
   - component: {fileID: 33560906377814558}
   - component: {fileID: 23967190572334558}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 4853537240451386}
   - component: {fileID: 33609763020939534}
   - component: {fileID: 23624186569760806}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 23903083483467636}
   - component: {fileID: 33687455890720264}
   - component: {fileID: 64082464073581520}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 4203652610113644}
   - component: {fileID: 33847716746022306}
   - component: {fileID: 23503482703629920}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 4966051577961466}
   - component: {fileID: 33330691122256894}
   - component: {fileID: 23192697591782872}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752757845311336}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 26.22, y: -0.2, z: 13.06}
+  m_LocalPosition: {x: 26.22, y: -0.37, z: 13.06}
   m_LocalScale: {x: 10.6321535, y: 0.08742621, z: 8.776177}
   m_Children:
   - {fileID: 4063387002669498}
@@ -1731,8 +1731,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 9.523666, z: 1}
-  m_Center: {x: 0, y: 4.2618313, z: 0}
+  m_Size: {x: 1, y: 9.523667, z: 0.6805406}
+  m_Center: {x: -3.5380524e-16, y: 4.2618318, z: -0.15973014}
 --- !u!114 &114093029774164264
 MonoBehaviour:
   m_ObjectHideFlags: 1

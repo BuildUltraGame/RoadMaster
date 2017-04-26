@@ -10,7 +10,8 @@ using UnityEngine;
 /// </summary>
 public class CheckPointAttack : AttackAbs
 {
-    public float tax = 0.5f;//摧毁基础矿车概率
+    public float tax = 0.5f;//税率
+    public float desTime = 8f;
 
     public const int ATTACKLEVEL = 1;
 
@@ -62,4 +63,12 @@ public class CheckPointAttack : AttackAbs
     {
         return ATTACKLEVEL;
     }
+
+    void Start()
+    {
+        Destroy(gameObject, desTime);
+    }
+
+    
+
 }
