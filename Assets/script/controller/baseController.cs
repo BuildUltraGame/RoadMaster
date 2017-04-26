@@ -112,6 +112,8 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
     public void Handle(MineSelectEvent message)
     {
         MineMountain temp =message.getMine();
+        if (message.getObject().GetComponent<GameobjBase>().owner != GameobjBase.PLAYER)
+            return;//不可选择非玩家的矿山
         if (temp != null)
             mineSelected = temp;
     }

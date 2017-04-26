@@ -10,6 +10,8 @@ public class MapDescription : MonoBehaviour {
     public int missionType;//关卡大分类
     public int missionNum;//当前分类下的哪一小关
     public int gameType;//游戏类型，指定了胜利条件
+    public bool loadFinished;//载入是否完毕
+   
 
     ///游戏类型参数
     public const int EXPLORE = 1001;//探索模式
@@ -27,6 +29,13 @@ public class MapDescription : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    Dictionary<string, string> items = new Dictionary<string, string>();
+    void loadMapDescription()
+    {
+        loadFinished = true;
+    }
+
     /// <summary>
     /// 游戏结束判定，返回1为胜利，0为未结束，-1为失败
     /// </summary>
