@@ -33,10 +33,14 @@ public class BaseAI : MonoBehaviour,
         EventAggregator.Register<ScoreEvent>(this);
         EventAggregator.Register<MineMoutainSpawnerEvent>(this);
         rm = GetComponent<AIDetector>();
-        
-        GameObject.FindGameObjectsWithTag(Tags.RAILWAY_POINT).Each(x=> {
+
+        GameObject[] gos = GameObject.FindGameObjectsWithTag(Tags.RAILWAY_POINT);
+
+        foreach (GameObject x in gos)
+        {
             rps.Add(x.GetComponent<RoadPoint>());
-        });
+        }
+       
     }
 
 
@@ -44,7 +48,8 @@ public class BaseAI : MonoBehaviour,
     {
         float d = float.MaxValue;
         RoadPoint rp = null;
-        rps.Each(x=> {
+     
+        rps.ForEach(x=> {
             float temp = Vector3.Distance(v, x.transform.position);
             if (temp<d)
             {
@@ -118,7 +123,7 @@ public class BaseAI : MonoBehaviour,
 
 
         if(Input.GetKey(KeyCode.C)){
-            bool b=canReach(t.position,1);//这里path会返回给你
+            bool b=canReach(Vector3.zero,t.position,1);//这里path会返回给你
             print(b);
 
         }

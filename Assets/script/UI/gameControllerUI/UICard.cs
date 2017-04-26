@@ -11,6 +11,8 @@ public class UICard : UIDragDropItem {
 
     public UISprite CD;
     public BoxCollider cardCollider;
+    public UILabel nameLabel;
+    public UILabel costLabel;
 
     private int ID;
     protected override void OnDragDropStart()
@@ -30,17 +32,21 @@ public class UICard : UIDragDropItem {
     protected override void OnDragDropRelease(GameObject surface)
     {
         base.OnDragDropRelease(surface);
-
-        
-
         Ray ray = new Ray();
-        if (DEBUG)
+
+        if (Application.platform == RuntimePlatform.WindowsEditor||Application.platform==RuntimePlatform.WindowsPlayer)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         }
         else {
             ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+
         }
+
+
+
+
 
         RaycastHit hit = new RaycastHit();
         Physics.Raycast(ray,out hit);
@@ -64,13 +70,18 @@ public class UICard : UIDragDropItem {
 
         setID(sp.spawnUnit.GetComponent<GameobjBase>().game_ID);
         setName(sp.spawnUnit.GetComponent<GameobjBase>().game_name);
-        
+        setCost(sp.getCost());
+    }
+
+    private void setCost(int cost)
+    {
+        costLabel.text = cost + "";
     }
 
 
     private void setName(string name)
     {
-       GetComponentInChildren<UILabel>().text=name;
+        nameLabel.text=name;
     }
 
     public int getID()

@@ -94,7 +94,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: card2
     x: 317
-    y: 351
+    y: 201
     width: 163
     height: 161
     borderLeft: 76
@@ -105,6 +105,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: card3
+    x: 483
+    y: 163
+    width: 263
+    height: 349
+    borderLeft: 83
+    borderRight: 64
+    borderTop: 129
+    borderBottom: 85
+    paddingLeft: 6
+    paddingRight: 3
+    paddingTop: 11
+    paddingBottom: 3
   - name: UI_CRB_Basekit_2_0_1035.tex
     x: 0
     y: 8
@@ -120,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: UI_CRB_CharacterWindowPrototype_23_936.tex
     x: 0
-    y: 237
+    y: 409
     width: 482
     height: 103
     borderLeft: 162
@@ -133,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_CRB_HUD_ActionBar_0_467.tex
     x: 0
-    y: 191
+    y: 363
     width: 376
     height: 45
     borderLeft: 23
@@ -146,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_InventoryBubble.tex
     x: 0
-    y: 341
+    y: 191
     width: 316
     height: 171
     borderLeft: 51

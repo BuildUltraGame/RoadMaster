@@ -1,12 +1,14 @@
 
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEventAggregator;
 /// <summary>
 /// 事件中心,会监听所有事件
 /// </summary>
-public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameObjSeletEvent>,IListener<SpawnEvent>
+public class EventCenter : MonoBehaviour, 
+    IListener<BaseEvent>, IListener<GameObjSeletEvent>,IListener<SpawnEvent>,IListener<ScoreAddEvent>
 {
 
     private static EventCenter _instance;
@@ -37,6 +39,7 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
         EventAggregator.Register<BaseEvent>(this);
         EventAggregator.Register<GameObjSeletEvent>(this);
         EventAggregator.Register<SpawnEvent>(this);
+        EventAggregator.Register<ScoreAddEvent>(this);
     }
 
 
@@ -64,5 +67,12 @@ public class EventCenter : MonoBehaviour, IListener<BaseEvent>, IListener<GameOb
     {
         print("生产单位");
         print(message.getObject() + message.getVerb() + message.getSubject());
+    }
+
+    public void Handle(ScoreAddEvent message)
+    {
+        print("增加分数啦");
+        print(message.getOwner()+":"+message.getScore());
+        
     }
 }

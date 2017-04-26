@@ -15,7 +15,7 @@ using UnityEngine.AI;
 /// 
 /// </summary>
 public class Roadmovable : MonoBehaviour {
-
+    public const string ARRIVEFUNC = "Arrive";
 
     //目标位置;  
     public Vector3 targetPosition;
@@ -123,9 +123,11 @@ public class Roadmovable : MonoBehaviour {
             if (currentWayPoint == path.vectorPath.Count)
             {
                 stopMove = true;
-                Destroy(gameObject, 0.5f);
+                //到达
                 currentWayPoint = 0;
                 path = null;
+
+                SendMessage(ARRIVEFUNC);
             }
         }
         else
@@ -144,7 +146,8 @@ public class Roadmovable : MonoBehaviour {
                     currentWayPoint = 0;
                     path = null;
 
-                    Destroy(gameObject, 0.5f);
+                    //到达
+                    SendMessage(ARRIVEFUNC);
                 }
             }
             transform.localPosition += dir;

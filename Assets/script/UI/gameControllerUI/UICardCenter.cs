@@ -18,7 +18,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
         mine = null;
         foreach (GameObject o in cards)
         {
-            Destroy(o);
+            NGUITools.Destroy(o);
         }
 
         cards.Clear();
@@ -48,7 +48,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
         foreach (GameObject o in cards)
         {
             grid.RemoveChild(o.transform);
-            Destroy(o);
+            NGUITools.Destroy(o);
         }
 
         cards.Clear();

@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 114414893085468362}
   - component: {fileID: 114050942374391234}
   - component: {fileID: 114311994752337022}
+  - component: {fileID: 114356728974725510}
   m_Layer: 9
   m_Name: Inspector
   m_TagString: Untagged
@@ -1431,7 +1432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77041fbe86778b47a1f4f75798225a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityDestroy_baseTramcar: 1
 --- !u!114 &114311994752337022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1459,6 +1459,19 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114356728974725510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618872561931174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5956c99f0682ff47b21e86fa98a8a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1399406979378804, guid: 21fb3934af5ba164ba4973b0b5a6187a, type: 2}
+  entity: {fileID: 0}
 --- !u!114 &114414893085468362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1471,6 +1484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
+  playerMoveSpeed: 10
 --- !u!114 &114994769635156942
 MonoBehaviour:
   m_ObjectHideFlags: 1

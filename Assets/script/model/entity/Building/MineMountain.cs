@@ -142,7 +142,7 @@ public class MineMountain : MonoBehaviour
 
     public void getMineFromCar(int count)
     {
-        totalMine += count;
+        totalMine += count/2;
     }
 
     void OnMouseDown()
