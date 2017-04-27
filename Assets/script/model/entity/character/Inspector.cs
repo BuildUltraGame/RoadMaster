@@ -5,11 +5,11 @@ using UnityEngine;
 /// <summary>
 /// 督察员
 /// </summary>
-public class Inspector : MonoBehaviour
+public class Inspector : ArriveDo
 {
-    public void Arrive()
+    public override void Arrive()
     {
-        Destroy(gameObject, 1f);
+        base.Arrive();
         SendMessage(Builder.BUILDFUNC);
     }
 }
