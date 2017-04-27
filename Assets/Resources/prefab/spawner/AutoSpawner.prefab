@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: -1
   game_ID: 0
-  game_name: "\u6EDA\u77F3"
+  game_name: "\u6EDA\u77F3\u751F\u6210\u5668"
   game_name_en: stone
 --- !u!114 &114716488961954746
 MonoBehaviour:

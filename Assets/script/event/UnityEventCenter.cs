@@ -34,10 +34,11 @@ namespace UnityEvent
 
 
         /// <summary>
-        /// Register the game object to listen for events of type T.
+        /// 注册监听事件T
         /// </summary>
-        /// <typeparam name="T">The type of event being listened for.</typeparam>
-        /// <param name="obj"></param>
+        /// <typeparam name="T">监听事件类型</typeparam>
+        /// <param name="obj">监听者</param>
+        /// <param name="priority">优先级,优先级越高越先接收</param>
         public static void Register<T>(this object obj, int priority = 10)
         {
             if (!_cache.ContainsKey(typeof(T))) _cache[typeof(T)] = new List<object>();
@@ -47,10 +48,10 @@ namespace UnityEvent
         }
 
         /// <summary>
-        /// Removes the registration for listening to events of type T.
+        /// 针对事件T,移除监听者
         /// </summary>
-        /// <typeparam name="T">The type of event to no longer listen for.</typeparam>
-        /// <param name="obj"></param>
+        /// <typeparam name="T">移除的监听事件类型</typeparam>
+        /// <param name="obj">取消监听的监听者</param>
         public static void UnRegister<T>(this object obj)
         {
             if (!_cache.ContainsKey(typeof(T))) return;
@@ -72,11 +73,12 @@ namespace UnityEvent
         }
 
         /// <summary>
-        /// Register the game object to listen for events of type T.
+        /// 注册Type类型事件的监听者
         /// </summary>
-        /// <typeparam name="T">The type of event being listened for.</typeparam>
-        /// <param name="obj"></param>
-        /// <param name="listener"></param>
+        /// <typeparam name="T">想要监听的事件类型</typeparam>
+        /// <param name="obj">监听者</param>
+        /// <param name="listener">类型</param>
+        /// <param name="priority">优先级,优先级越高越先接收</param>
         public static void Register(object obj, Type listener, int priority = 10)
         {
             if (!_cache.ContainsKey(listener))
@@ -87,11 +89,10 @@ namespace UnityEvent
         }
 
         /// <summary>
-        /// Removes the registration for listening to events of type T.
+        /// 移除监听者
         /// </summary>
-        /// <typeparam name="T">The type of event to no longer listen for.</typeparam>
-        /// <param name="obj"></param>
-        /// <param name="listener"></param>
+        /// <param name="obj">监听者</param>
+        /// <param name="listener">不想监听的事件类型</param>
         public static void UnRegister(object obj, Type listener)
         {
             if (!_cache.ContainsKey(listener)) return;
@@ -113,10 +114,10 @@ namespace UnityEvent
         }
 
         /// <summary>
-        /// Notifies all listeners of event type T.
+        /// 发送事件T到各个监听者
         /// </summary>
-        /// <typeparam name="T">The type of event being notified.</typeparam>
-        /// <param name="message"></param>
+        /// <typeparam name="T">事件类型.</typeparam>
+        /// <param name="message">事件</param>
         public static void SendMessage<T>(object message)
         {
             if (!_cache.ContainsKey(message.GetType())) return;
@@ -145,7 +146,9 @@ namespace UnityEvent
 
     }
 
-
+    /// <summary>
+    /// 简单的包装下事件和优先级
+    /// </summary>
     internal class ListenerPack
     {
         public int priority = 10;
