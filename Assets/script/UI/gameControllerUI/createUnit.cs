@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEventAggregator;
+using UnityEvent;
 
 
 public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
@@ -31,8 +31,8 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     }
     void Start()
     {
-        EventAggregator.Register<MineSelectEvent>(this);
-        EventAggregator.Register<cancelMountainEvent>(this);
+        UnityEventCenter.Register<MineSelectEvent>(this);
+        UnityEventCenter.Register<cancelMountainEvent>(this);
         sp = new List<Spawner>();
         picList = new List<string>();
         IDList= new List<int>();
@@ -97,7 +97,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     {
         if (isMineSelected == true)
         {
-            EventAggregator.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[unitSelected]));
+            UnityEventCenter.SendMessage<unitEvent>(new unitEvent(null, null, null, IDList[unitSelected]));
         }
     }
 
@@ -140,7 +140,7 @@ public class createUnit : MonoBehaviour, IListener<MineSelectEvent>, IListener<c
     }
     void OnDisable()
     {
-        EventAggregator.UnRegister<MineSelectEvent>(this);
-        EventAggregator.UnRegister<cancelMountainEvent>(this);
+        UnityEventCenter.UnRegister<MineSelectEvent>(this);
+        UnityEventCenter.UnRegister<cancelMountainEvent>(this);
     }
 }

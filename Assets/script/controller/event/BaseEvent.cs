@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEvent;
 /// <summary>
 /// 所有游戏事件的基础类
 /// </summary>
-public class BaseEvent
+public class BaseEvent:IEvent
 {
     private GameObject _subject;
     private string verb;

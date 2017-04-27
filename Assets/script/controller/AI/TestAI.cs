@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 using UnityEngine.AI;
 
 /// <summary>
@@ -27,10 +27,10 @@ public class TestAI : MonoBehaviour,
     // Use this for initialization
     void Awake()
     {//这里不能改动,一定只能在Awake函数里
-        EventAggregator.Register<DestroyEvent>(this);
-        EventAggregator.Register<SpawnEvent>(this);
-        EventAggregator.Register<ScoreEvent>(this);
-        EventAggregator.Register<MineMoutainSpawnerEvent>(this);
+        UnityEventCenter.Register<DestroyEvent>(this);
+        UnityEventCenter.Register<SpawnEvent>(this);
+        UnityEventCenter.Register<ScoreEvent>(this);
+        UnityEventCenter.Register<MineMoutainSpawnerEvent>(this);
 		rm = GetComponent<AIDetector>();
 		rm.fromPoint = start;
 		rm.nextPoint = start;
@@ -171,7 +171,7 @@ public class TestAI : MonoBehaviour,
         {
             //道闸c方向不对，派遣道闸工人
 			if (coolDownIsOK (IDs.getIDByName (Tags.Character.GATEWORKER))) {
-				EventAggregator.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Character.GATEWORKER), cForkPos + subPos, owner, mineList [0]));
+                UnityEventCenter.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Character.GATEWORKER), cForkPos + subPos, owner, mineList [0]));
 				cForkWorker = 1;
 				TimerController.getInstance ().NewTimer (3f, false, delegate(float time) {
 				}, delegate() {
@@ -185,7 +185,7 @@ public class TestAI : MonoBehaviour,
         {
             //道闸e方向不对，派遣道闸工人
 			if (coolDownIsOK (IDs.getIDByName (Tags.Character.GATEWORKER))) {
-				EventAggregator.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Character.GATEWORKER), eForkPos + subPos, owner, mineList [0]));
+                UnityEventCenter.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Character.GATEWORKER), eForkPos + subPos, owner, mineList [0]));
 				eForkWorker = 1;
 				TimerController.getInstance ().NewTimer (3f, false, delegate(float time) {
 				}, delegate() {
@@ -200,7 +200,7 @@ public class TestAI : MonoBehaviour,
         {
             //前方道路畅通，该发车了
 			if (coolDownIsOK (IDs.getIDByName (Tags.Vehicle.BASETRAMCAR))) {
-				EventAggregator.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Vehicle.BASETRAMCAR), cForkPos + subPos, owner, mineList [0]));
+                UnityEventCenter.SendMessage<CreateUnitEvent> (new CreateUnitEvent (IDs.getIDByName (Tags.Vehicle.BASETRAMCAR), cForkPos + subPos, owner, mineList [0]));
 				return;
 			}
         }
@@ -235,7 +235,7 @@ public class TestAI : MonoBehaviour,
 		}
 		
 		//int man_speed = 7;
-        //EventAggregator.SendMessage<CreateUnitEvent>(new CreateUnitEvent(IDs.getIDByName(Tags.Character.GATEWORKER), cForkPos+subPos, mineList[0]));	
+        //EventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(IDs.getIDByName(Tags.Character.GATEWORKER), cForkPos+subPos, mineList[0]));	
 
 		//mineList [0].getSpawnerList () [0].CD;//
 		//mineList [0].getSpawnerList () [0].coolDown;
@@ -289,7 +289,7 @@ public class TestAI : MonoBehaviour,
         //然而现在还没有得到目标地点的办法,你不可能随便一个点都可以到,你起码必须是路上的坐标(这个还没有获得方式)
         //不过我们可以这样,前面有生成的单位信息,你可以获取到敌人的单位,直接获取里面的位置信息(这个可以实时获取),
         //这个是目前位置能获取位置的唯一办法
-        //EventAggregator.SendMessage<CreateUnitEvent>(new CreateUnitEvent(1, new Vector3(0, 0, 0), message.getMineMountaion()));
+        //EventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(1, new Vector3(0, 0, 0), message.getMineMountaion()));
         if(message.getSubjectOwner() == owner)
             mineList.Add(message.getMineMountaion());
 

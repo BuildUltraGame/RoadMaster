@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<cancelMountainEvent> {
    
@@ -46,8 +46,8 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
 
     // Use this for initialization
     void Awake () {
-        EventAggregator.Register<MineSelectEvent>(this);
-        EventAggregator.Register<cancelMountainEvent>(this);
+        UnityEventCenter.Register<MineSelectEvent>(this);
+        UnityEventCenter.Register<cancelMountainEvent>(this);
         
     }
 	

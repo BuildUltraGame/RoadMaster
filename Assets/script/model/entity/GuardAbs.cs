@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 /// <summary>
 /// 防御模块
 /// </summary>
@@ -19,7 +19,7 @@ public abstract class GuardAbs : CollisionBaseHandler {
     {
         if (TryDestroy(attackObj))
         {
-            EventAggregator.SendMessage<DestroyEvent>(new DestroyEvent(gameObject, gameObject));
+            UnityEventCenter.SendMessage<DestroyEvent>(new DestroyEvent(gameObject, gameObject));
             return true;
         }
         else {

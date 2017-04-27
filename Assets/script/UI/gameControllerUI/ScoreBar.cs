@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 public class ScoreBar : UIWidgetContainer,IListener<ScoreEvent> {
 
     public GameObject barPrefab;
@@ -14,7 +14,7 @@ public class ScoreBar : UIWidgetContainer,IListener<ScoreEvent> {
 
     // Use this for initialization
     void Start () {
-        EventAggregator.Register<ScoreEvent>(this);
+        UnityEventCenter.Register<ScoreEvent>(this);
         barNum = ScoreBoard.getInstance().playerNum;
 
         for (int i =0;i<barNum;i++)

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 /// <summary>
 /// 终点类
 /// 
@@ -14,8 +14,8 @@ public class ScoringBuilding : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
-        EventAggregator.SendMessage<ScoreBuildingSpawnEvent>(new ScoreBuildingSpawnEvent(gameObject));
+
+        UnityEventCenter.SendMessage<ScoreBuildingSpawnEvent>(new ScoreBuildingSpawnEvent(gameObject));
 	}
 
 
@@ -28,7 +28,7 @@ public class ScoringBuilding : MonoBehaviour {
         if(gBase==null||carrier==null){
             return;
         }
-        EventAggregator.SendMessage<ScoreAddEvent>(new ScoreAddEvent(gameObject, gBase.getOwner(), carrier.popGold()));//发送分数增加事件
+        UnityEventCenter.SendMessage<ScoreAddEvent>(new ScoreAddEvent(gameObject, gBase.getOwner(), carrier.popGold()));//发送分数增加事件
 
         Destroy(other.gameObject);
         

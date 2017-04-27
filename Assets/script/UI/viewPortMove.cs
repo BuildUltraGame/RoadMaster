@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 public enum cameraEulerAnglesMode//如果是一个能够正常玩的摄像机视口，欧拉角有四种方式(还有别的方式，但那些玩不了，比如摄像机朝天)
 {
@@ -53,7 +53,7 @@ public class viewPortMove : MonoBehaviour, IListener<ViewMoveEvent>
 
     void Start()
     {
-        EventAggregator.Register<ViewMoveEvent>(this);
+        UnityEventCenter.Register<ViewMoveEvent>(this);
         mainCamera = this.GetComponent<Camera>().gameObject;
         cameraInitPos = mainCamera.transform.position;
     }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 public class scoreBoard : MonoBehaviour, IListener<ScoreEvent>, IListener<cancelMountainEvent>
 {
@@ -11,8 +11,8 @@ public class scoreBoard : MonoBehaviour, IListener<ScoreEvent>, IListener<cancel
     public UILabel scoreNow;//当前分数
 	// Use this for initialization
 	void Start () {
-        EventAggregator.Register<ScoreEvent>(this);
-        EventAggregator.Register<cancelMountainEvent>(this);
+        UnityEventCenter.Register<ScoreEvent>(this);
+        UnityEventCenter.Register<cancelMountainEvent>(this);
         scoreNow.text = "0";
 	}
 	
@@ -32,8 +32,8 @@ public class scoreBoard : MonoBehaviour, IListener<ScoreEvent>, IListener<cancel
     
     void OnDisable()
     {
-        EventAggregator.UnRegister<ScoreEvent>(this);
-        EventAggregator.UnRegister<cancelMountainEvent>(this);
+        UnityEventCenter.UnRegister<ScoreEvent>(this);
+        UnityEventCenter.UnRegister<cancelMountainEvent>(this);
     }
 
     public void Handle(cancelMountainEvent message)

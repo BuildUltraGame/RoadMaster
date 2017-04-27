@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 public class Reminder : MonoBehaviour,IListener<waitClickEvent>,IListener<cancelClickEvent> {
     public UILabel reminder;//用户提醒器
 	// Use this for initialization
 	void Start () {
-        EventAggregator.Register<waitClickEvent>(this);
-        EventAggregator.Register<cancelClickEvent>(this);
+        UnityEventCenter.Register<waitClickEvent>(this);
+        UnityEventCenter.Register<cancelClickEvent>(this);
 	}
 	
 	// Update is called once per frame
@@ -32,7 +32,7 @@ public class Reminder : MonoBehaviour,IListener<waitClickEvent>,IListener<cancel
     }
     void OnDisable()
     {
-        EventAggregator.UnRegister<waitClickEvent>(this);
-        EventAggregator.UnRegister<cancelClickEvent>(this);
+        UnityEventCenter.UnRegister<waitClickEvent>(this);
+        UnityEventCenter.UnRegister<cancelClickEvent>(this);
     }
 }

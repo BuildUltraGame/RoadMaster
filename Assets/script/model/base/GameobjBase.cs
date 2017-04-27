@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 /// <summary>
 /// 所有游戏对象最基础脚本
@@ -40,8 +40,8 @@ public class GameobjBase : MonoBehaviour {
 
     public virtual void OnMouseDown()
     {
-        
-            EventAggregator.SendMessage<GameObjSeletEvent>(new GameObjSeletEvent(gameObject));//游戏物体被选择
+
+        UnityEventCenter.SendMessage<GameObjSeletEvent>(new GameObjSeletEvent(gameObject));//游戏物体被选择
         
     }
 

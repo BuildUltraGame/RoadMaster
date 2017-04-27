@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace UnityEventAggregator
+namespace UnityEvent
 {
-    public abstract class IEvent<T>
+    public abstract class IEvent
     {
-        protected T result;
+        protected object result;
         public bool cancelable = false;
         public void setCancel(bool cancel = true)
         {
             cancelable = cancel;
         }
 
-        public void setResult(T result)
+        public void setResult<T>(T result)
         {
             this.result = result;
         }
 
-        public T getResult()
+        public T getResult<T>()
         {
-            return result;
+            return (T)result;
         }
 
     }

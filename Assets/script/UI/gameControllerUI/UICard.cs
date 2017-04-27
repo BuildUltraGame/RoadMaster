@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 public class UICard : UIDragDropItem {
     public TweenScale ts;
@@ -20,7 +20,7 @@ public class UICard : UIDragDropItem {
         base.OnDragDropStart();
         ts.enabled = true;
         ts.PlayForward();
-        EventAggregator.SendMessage<ViewMoveEvent>(new ViewMoveEvent(false));
+        UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(false));
 
     }
 
@@ -65,9 +65,9 @@ public class UICard : UIDragDropItem {
 
         if (hit.collider!=null)
         {//建造信息
-            EventAggregator.SendMessage<CreateUnitEvent>(new CreateUnitEvent(ID,hit.point));
+            UnityEventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(ID,hit.point));
         }
-        EventAggregator.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));
+        UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));
     }
 
     private void setID(int i)

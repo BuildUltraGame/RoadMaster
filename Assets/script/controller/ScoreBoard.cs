@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEventAggregator;
+using UnityEvent;
 
 /// <summary>
 /// 计分板,包括了所有玩家的分数情况
@@ -27,7 +27,7 @@ public class ScoreBoard :IListener<ScoreAddEvent>
 
     private ScoreBoard()
     {
-        EventAggregator.Register<ScoreAddEvent>(this);
+        UnityEventCenter.Register<ScoreAddEvent>(this);
     }
     /// <summary>
     /// 初始化玩家数
@@ -58,7 +58,7 @@ public class ScoreBoard :IListener<ScoreAddEvent>
             throw new System.Exception("- -你难道用了外挂不成,明明没有这个玩家,不不不,其实我知道的,你忘了初始化计分板了吧");
         }
 
-        EventAggregator.SendMessage<ScoreEvent>(new ScoreEvent(this, player, System.Convert.ToInt32(scores[player])));//发送玩家分数更新信息
+        UnityEventCenter.SendMessage<ScoreEvent>(new ScoreEvent(this, player, System.Convert.ToInt32(scores[player])));//发送玩家分数更新信息
     }
 
 

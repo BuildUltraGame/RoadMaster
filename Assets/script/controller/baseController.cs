@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 
 //基础的游戏进程控制器
@@ -84,9 +84,9 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
 
     // Use this for initialization
 	void Awake () {
-        EventAggregator.Register<MineSelectEvent>(this);
-        EventAggregator.Register<CreateUnitEvent>(this);
-        EventAggregator.Register<ScoreEvent>(this);
+        UnityEventCenter.Register<MineSelectEvent>(this);
+        UnityEventCenter.Register<CreateUnitEvent>(this);
+        UnityEventCenter.Register<ScoreEvent>(this);
         controller= GameObject.Find("Controller");
 		ScoreBoard.getInstance ().Init (2);
     }
@@ -101,9 +101,9 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
 
     void OnDisable()
     {
-        EventAggregator.UnRegister<MineSelectEvent>(this);
-        EventAggregator.UnRegister<CreateUnitEvent>(this);
-        EventAggregator.UnRegister<ScoreEvent>(this);
+        UnityEventCenter.UnRegister<MineSelectEvent>(this);
+        UnityEventCenter.UnRegister<CreateUnitEvent>(this);
+        UnityEventCenter.UnRegister<ScoreEvent>(this);
     }
     /// <summary>
     /// 矿山选择接口
@@ -166,7 +166,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
                 if (mine ==null)
                 {//没点击到矿山
                     mineSelected=null;
-                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                    UnityEventCenter.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
                 }
                 
             }
@@ -188,7 +188,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
                 if (mine == null)
                 {//没点击到矿山
                     mineSelected = null;
-                    EventAggregator.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
+                    UnityEventCenter.SendMessage<cancelMountainEvent>(new cancelMountainEvent(null, null));
                 }
             }
         }

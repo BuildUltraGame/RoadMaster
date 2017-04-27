@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEventAggregator;
+using UnityEvent;
 
 public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<cancelMountainEvent>
 {
@@ -12,8 +12,8 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     MineMountain mineSelected;
 	// Use this for initialization
 	void Start () {
-        EventAggregator.Register<MineSelectEvent>(this);
-        EventAggregator.Register<cancelMountainEvent> (this);
+        UnityEventCenter.Register<MineSelectEvent>(this);
+        UnityEventCenter.Register<cancelMountainEvent> (this);
 	}
 	
 	// Update is called once per frame
@@ -63,7 +63,7 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     }
     void OnDisable()
     {
-        EventAggregator.UnRegister<MineSelectEvent>(this);
-        EventAggregator.UnRegister<cancelMountainEvent>(this);
+        UnityEventCenter.UnRegister<MineSelectEvent>(this);
+        UnityEventCenter.UnRegister<cancelMountainEvent>(this);
     }
 }
