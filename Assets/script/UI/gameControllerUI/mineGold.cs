@@ -33,7 +33,19 @@ public class mineGold : MonoBehaviour, IListener<MineSelectEvent>, IListener<can
     /// <param name="message"></param>
     public void Handle(MineSelectEvent message)
     {
-        mineSelected = message.getMine();
+        MineMountain temp = message.getMine();
+        if (temp.gameObject.GetComponent<GameobjBase>().getOwner() == GameobjBase.PLAYER)
+        {
+            mineSelected = temp;
+
+        }
+        else
+        {
+            mineSelected = null;
+            GoldAll.text = "";
+            GoldGet.text = "";
+        }
+
         
     }
 

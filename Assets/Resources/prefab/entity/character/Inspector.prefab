@@ -1471,6 +1471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1399406979378804, guid: 21fb3934af5ba164ba4973b0b5a6187a, type: 2}
+  buildTime: 0.5
   entity: {fileID: 0}
 --- !u!114 &114414893085468362
 MonoBehaviour:
@@ -1484,7 +1485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  playerMoveSpeed: 10
+  speed: 10
+  step: 0.5
 --- !u!114 &114994769635156942
 MonoBehaviour:
   m_ObjectHideFlags: 1

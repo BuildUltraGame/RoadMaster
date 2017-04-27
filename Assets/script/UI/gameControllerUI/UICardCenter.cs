@@ -26,9 +26,22 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
 
     public void Handle(MineSelectEvent message)
     {
+        
+       MineMountain temp = message.getMine();
+        if (temp.gameObject.GetComponent<GameobjBase>().getOwner() == GameobjBase.PLAYER)
+        {
+            mine = temp;
+            initCards();
+        }
+        else {
+            mine = null;
+            foreach (GameObject o in cards)
+            {
+                NGUITools.Destroy(o);
+            }
 
-        mine = message.getMine();
-        initCards();
+            cards.Clear();
+        }
     }
 
     // Use this for initialization
