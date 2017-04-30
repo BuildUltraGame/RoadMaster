@@ -1076,7 +1076,8 @@ Prefab:
       propertyPath: lable
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114779927468798790, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &296703821
@@ -6026,7 +6027,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3008
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -6723,7 +6724,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3008
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -7390,6 +7391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barPrefab: {fileID: 1374917826567684, guid: a06d676dad353a947bbde6cc87eda5a3, type: 2}
   barNum: 0
+  mapDes: {fileID: 1908729728}
 --- !u!114 &1843328801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8373,7 +8375,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3008
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
