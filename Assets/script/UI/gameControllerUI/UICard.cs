@@ -41,7 +41,7 @@ public class UICard : UIDragDropItem {
         }
         else {
             ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
+         
         }
 
 

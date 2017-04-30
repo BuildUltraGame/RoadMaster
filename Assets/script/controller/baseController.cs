@@ -8,7 +8,7 @@ using UnityEvent;
 //基础的游戏进程控制器
 public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener<CreateUnitEvent>,IListener<ScoreEvent>{
 
-    GameObject controller;
+ 
 
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
     
@@ -87,7 +87,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
         UnityEventCenter.Register<MineSelectEvent>(this);
         UnityEventCenter.Register<CreateUnitEvent>(this);
         UnityEventCenter.Register<ScoreEvent>(this);
-        controller= GameObject.Find("Controller");
+
 		ScoreBoard.getInstance ().Init (2);
     }
 	
@@ -173,6 +173,9 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
         }
         else
         {
+            if (Input.touchCount<=0) {
+                return;
+            }
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began && touch.tapCount >= 2)
@@ -218,7 +221,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
     {
         int player=message.getPlayer();
         int score=message.getScore();
-        controller.GetComponent<MapDescription>().isWin(new playerInformation(player, score));
+        GetComponent<MapDescription>().isWin(new playerInformation(player, score));
     }
 
 

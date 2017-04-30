@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65800336261725770}
   - component: {fileID: 114486857062378646}
   - component: {fileID: 114532578335084274}
+  - component: {fileID: 114133908698123748}
   m_Layer: 0
   m_Name: checkpoint
   m_TagString: Untagged
@@ -335,6 +336,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08520852, y: 0.031233262, z: 0.041808832}
   m_Center: {x: 0.024823494, y: 0.013011803, z: 0.0009044146}
+--- !u!114 &114133908698123748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399406979378804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb0b09f72a1a7f4d869c666c27def92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
 --- !u!114 &114486857062378646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7b76f2983ca47439c930168b7bfee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityDestroy_baseTramcar: 0.7
+  tax: 0.5
+  desTime: 8
 --- !u!114 &114631882843593980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,3 +387,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77041fbe86778b47a1f4f75798225a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destoryTime: 1

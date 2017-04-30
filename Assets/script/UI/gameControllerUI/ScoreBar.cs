@@ -7,8 +7,9 @@ public class ScoreBar : UIWidgetContainer,IListener<ScoreEvent> {
 
     public GameObject barPrefab;
     public int barNum;
+    public MapDescription mapDes;
 
-    private Color[] cs= {Color.black,Color.white,Color.yellow };
+    private Color[] cs= {Color.white,Color.yellow, Color.red };
 
     private List<GameObject> bars=new List<GameObject>();
 
@@ -41,6 +42,6 @@ public class ScoreBar : UIWidgetContainer,IListener<ScoreEvent> {
 
     public void Handle(ScoreEvent message)
     {
-        bars[message.getPlayer()].GetComponent<UIScrollBar>().value= message.getScore()/(float)GameObject.Find("Controller").GetComponent<MapDescription>().missionScore;
+        bars[message.getPlayer()].GetComponent<UIScrollBar>().value= message.getScore()/(float)mapDes.missionScore;
     }
 }

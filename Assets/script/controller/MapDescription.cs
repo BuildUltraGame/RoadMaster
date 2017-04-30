@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEvent;
 
 /// <summary>
 /// 关卡信息脚本
@@ -49,19 +50,9 @@ public class MapDescription : MonoBehaviour {
                 {
                         if (player.score >= missionScore)
                         {
-                            //todo:胜利后/失败后
-                            if (player.playerNum == GameobjBase.PLAYER)
-                            {
-                                Debug.Log("那就是赢了");
-                                Application.LoadLevel("realism gameStart");
-                                return 1;
-                            }
-                            else
-                            {
-                                Debug.Log("你输了");
-                                Application.LoadLevel("realism gameStart");
-                                return -1;
-                            }
+                            //发送游戏结束消息
+                            UnityEventCenter.SendMessage<GameOverEvent>(new GameOverEvent(player.playerNum, ScoreBoard.getInstance().getScoreData()));
+
                         }
                     return 0;
 

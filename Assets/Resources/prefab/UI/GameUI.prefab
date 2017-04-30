@@ -453,7 +453,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1706665493148936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -755, y: 256, z: -30}
+  m_LocalPosition: {x: -747, y: 355, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4533669912596644}
@@ -470,7 +470,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474377733574316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -691, y: -160, z: -31}
+  m_LocalPosition: {x: -677, y: -160, z: -31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4642413946409558}
@@ -618,7 +618,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746643734322202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 724, y: 357, z: -30}
+  m_LocalPosition: {x: 711, y: 357, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4030284363951464}
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114603268384089070, guid: f5d4596d8b1dd2d4d8594716d6f8a981, type: 2}
-  mSpriteName: UI_CRB_HUD_ActionBar_0_467.tex
+  mSpriteName: UI_CRB_HUD_Nameplates_173_55.tex
   mFillCenter: 1
 --- !u!114 &114166302803001816
 MonoBehaviour:
@@ -1238,13 +1238,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1304
+  mWidth: 1277
   mHeight: 182
   mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 7.164835
+  aspectRatio: 7.4725275
 --- !u!114 &114279395536184068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1815,19 +1815,19 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 4083004071672194}
     relative: 0
-    absolute: 81
+    absolute: 75
   rightAnchor:
     target: {fileID: 4083004071672194}
     relative: 0
-    absolute: 145
+    absolute: 139
   bottomAnchor:
     target: {fileID: 4083004071672194}
     relative: 0.5
-    absolute: 180
+    absolute: 279
   topAnchor:
     target: {fileID: 4083004071672194}
     relative: 1
-    absolute: -120
+    absolute: -21
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4

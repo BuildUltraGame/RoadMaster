@@ -68,4 +68,11 @@ public class ScoreBoard :IListener<ScoreAddEvent>
             addScore(message.getOwner(),message.getScore());
         }
     }
+
+    public Hashtable getScoreData()
+    {
+        Hashtable table = scores.Clone() as Hashtable;
+        table.Remove(-1);
+        return table;
+    }
 }

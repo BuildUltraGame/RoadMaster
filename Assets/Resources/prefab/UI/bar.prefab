@@ -50,8 +50,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1374917826567684}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000031714965, w: 1}
-  m_LocalPosition: {x: 237, y: 155, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4363801160670100}
@@ -93,7 +93,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: 0.003
+  mSize: 0.048
   mScroll: 0
   mDir: 2
 --- !u!114 &114154774042133224
@@ -126,13 +126,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 774
-  mHeight: 34
+  mWidth: 654
+  mHeight: 28
   mDepth: 14
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 22.764706
+  aspectRatio: 23.357143
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -143,8 +143,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
-  mSpriteName: Flat
+  mAtlas: {fileID: 114603268384089070, guid: f5d4596d8b1dd2d4d8594716d6f8a981, type: 2}
+  mSpriteName: UI_CRB_Adventure_TEMP_0_0.tex
   mFillCenter: 1
 --- !u!114 &114200533029316712
 MonoBehaviour:
@@ -176,10 +176,10 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 774
-  mHeight: 34
+  mWidth: 654
+  mHeight: 28
   mDepth: 13
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 22.764706
+  aspectRatio: 23.357143

@@ -21,11 +21,18 @@ public class MineMountain : MonoBehaviour
     public List<Spawner> SpawnerUnitList = new List<Spawner>();//old
     private Dictionary<string, Spawner> SpawnerUnitDict = new Dictionary<string, Spawner>();//old
 
+    public List<BoxCollider> choosePoint;
+
     void Awake()
     {
         InitSpawnerDict();
         totalMine = initMine;
 
+    }
+
+    private void initChoosePoint()
+    {
+        choosePoint.ForEach((box)=> { box.gameObject.SetActive(false); });
     }
 
     void Start()

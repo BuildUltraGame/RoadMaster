@@ -41,9 +41,6 @@ public class CheckPointAttack : AttackAbs
                 int gold=gc.popGold();
                 gc.setGoldAmounts(Mathf.FloorToInt(gold*tax));
 
-                
-                TryDestroy(this);
-                
             }
         
 

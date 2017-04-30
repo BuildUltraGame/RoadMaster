@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: e9b9dee4eceda1648816f590eb4f0ab9, type: 2}
   mSprites:
   - name: b1
-    x: 0
-    y: 90
+    x: 581
+    y: 861
     width: 128
     height: 100
     borderLeft: 38
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: black
-    x: 129
-    y: 31
+    x: 208
+    y: 414
     width: 53
     height: 53
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card
-    x: 129
-    y: 85
+    x: 710
+    y: 856
     width: 81
     height: 105
     borderLeft: 39
@@ -93,21 +93,21 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card2
-    x: 317
-    y: 201
-    width: 163
-    height: 161
-    borderLeft: 76
-    borderRight: 71
-    borderTop: 77
-    borderBottom: 70
+    x: 0
+    y: 116
+    width: 169
+    height: 167
+    borderLeft: 79
+    borderRight: 74
+    borderTop: 80
+    borderBottom: 73
     paddingLeft: 1
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: card3
-    x: 483
-    y: 163
+    x: 0
+    y: 675
     width: 263
     height: 349
     borderLeft: 83
@@ -118,9 +118,22 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 11
     paddingBottom: 3
+  - name: UI_CRB_Adventure_TEMP_0_0.tex
+    x: 898
+    y: 963
+    width: 59
+    height: 61
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 4
+    paddingTop: 1
+    paddingBottom: 2
   - name: UI_CRB_Basekit_2_0_1035.tex
-    x: 0
-    y: 8
+    x: 792
+    y: 880
     width: 94
     height: 81
     borderLeft: 22
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 6
   - name: UI_CRB_CharacterWindowPrototype_23_936.tex
-    x: 0
-    y: 409
+    x: 264
+    y: 749
     width: 482
     height: 103
     borderLeft: 162
@@ -145,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_CRB_HUD_ActionBar_0_467.tex
-    x: 0
-    y: 363
+    x: 407
+    y: 703
     width: 376
     height: 45
     borderLeft: 23
@@ -157,9 +170,100 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: UI_InventoryBubble.tex
+  - name: UI_CRB_HUD_ChallengeTracker_91_480.tex
+    x: 170
+    y: 174
+    width: 90
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 1
+    paddingBottom: 0
+  - name: UI_CRB_HUD_Nameplates_173_55.tex
     x: 0
-    y: 191
+    y: 26
+    width: 109
+    height: 8
+    borderLeft: 5
+    borderRight: 5
+    borderTop: 2
+    borderBottom: 2
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_HUD_Tooltip_0_0.tex
+    x: 0
+    y: 284
+    width: 207
+    height: 183
+    borderLeft: 17
+    borderRight: 17
+    borderTop: 17
+    borderBottom: 17
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_RaidFrames_488_0.tex
+    x: 0
+    y: 468
+    width: 249
+    height: 206
+    borderLeft: 60
+    borderRight: 63
+    borderTop: 67
+    borderBottom: 23
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_UIKITWindows_0_284.tex
+    x: 264
+    y: 564
+    width: 142
+    height: 184
+    borderLeft: 17
+    borderRight: 17
+    borderTop: 21
+    borderBottom: 21
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_UIKITWindows_0_570.tex
+    x: 581
+    y: 962
+    width: 316
+    height: 62
+    borderLeft: 7
+    borderRight: 7
+    borderTop: 10
+    borderBottom: 10
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_UIKITWindows_143_489.tex
+    x: 0
+    y: 35
+    width: 205
+    height: 80
+    borderLeft: 48
+    borderRight: 48
+    borderTop: 25
+    borderBottom: 25
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_InventoryBubble.tex
+    x: 264
+    y: 853
     width: 316
     height: 171
     borderLeft: 51

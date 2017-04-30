@@ -7,9 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/test/1.unity
+    guid: 6e3bdc51417605e49b5f9d4639545779
   - enabled: 0
     path: Assets/test/MC gameStart.unity
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/test/realism gameStart.unity
+    guid: 024273b149eb65d4d8fc0e2893be46fd
+  - enabled: 1
+    path: Assets/test/start2.unity
+    guid: a54d4f535d9213e469ee72e9dcd084d8
   - enabled: 1
     path: Assets/test/wf.unity
+    guid: a7cf1996fa1c8bb4f9115f3106557f8f
