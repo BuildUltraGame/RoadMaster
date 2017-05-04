@@ -17,8 +17,9 @@ public class BaseAI : MonoBehaviour,
     public Transform t1;
     public Transform t2;
 
-
-	private RailwayMovable rm;
+    public GameObject obj;
+    public GameObject objend;
+    private RailwayMovable rm;
 
     public Transform t;
 
@@ -69,8 +70,10 @@ public class BaseAI : MonoBehaviour,
 
     private bool canReach(Vector3 startP,Vector3 v)
     {
-
+        int time = 3;
             RoadPoint start = getStartPoint(startP);
+        obj.transform.position = start.transform.position;
+        objend.transform.position = v;
             //我们假设这个是车
             rm.fromPoint = start;
             rm.nextPoint = start;
@@ -102,12 +105,19 @@ public class BaseAI : MonoBehaviour,
                 {
                     return true;
                 }
-
+                
                 if (!flag)
                 {
-                    return false;
+                    time--;
+                    
                 }
-            }
+
+                if (time<0)
+                {
+                    return false;
+   
+                }
+                }
     }
 
     private float getCross(Vector3 v1,Vector3 v2,Vector3 v) {
