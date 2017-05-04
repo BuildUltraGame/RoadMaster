@@ -23,7 +23,7 @@ public class BaseAI : MonoBehaviour,
 
     public Transform t;
 
-    private static float roadW = 0.5f;
+    private static float roadW = 2f;
 
     private List<RoadPoint> rps=new List<RoadPoint>();
 

@@ -46,14 +46,18 @@ public class SpawnEvent : BaseEvent
     /// <summary>
     /// 获得生成单位的速度(必须先判断是否是人)
     /// </summary>
-    ///  <seealso cref="hasNavData"/>
     /// <returns>速度</returns>
     public float getSpeed()
     {
         Roadmovable roadABble;
+        RailwayMovable railwayMovable;
         if ((roadABble = getObject().GetComponent<Roadmovable>()) != null)
         {
             return roadABble.speed;
+        }
+        else if ((railwayMovable = getObject().GetComponent<RailwayMovable>()) != null) 
+        {
+            return railwayMovable.speed;
         }
         else
         {
@@ -65,14 +69,18 @@ public class SpawnEvent : BaseEvent
     /// <summary>
     /// 获得生成单位的脚步(必须先判断是否是人)
     /// </summary>
-    ///  <seealso cref="hasNavData"/>
     /// <returns>速度</returns>
     public float getStep()
     {
         Roadmovable roadABble;
+        RailwayMovable railwayMovable;
         if ((roadABble = getObject().GetComponent<Roadmovable>()) != null)
         {
             return roadABble.step;
+        }
+        else if ((railwayMovable = getObject().GetComponent<RailwayMovable>()) != null)
+        {
+            return railwayMovable.step;
         }
         else
         {
