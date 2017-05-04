@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: e9b9dee4eceda1648816f590eb4f0ab9, type: 2}
   mSprites:
   - name: b1
-    x: 581
-    y: 861
+    x: 747
+    y: 752
     width: 128
     height: 100
     borderLeft: 38
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: card
-    x: 710
-    y: 856
+    x: 264
+    y: 458
     width: 81
     height: 105
     borderLeft: 39
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 3
   - name: UI_CRB_Adventure_TEMP_0_0.tex
-    x: 898
-    y: 963
+    x: 346
+    y: 502
     width: 59
     height: 61
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: UI_CRB_Basekit_2_0_1035.tex
-    x: 792
-    y: 880
+    x: 876
+    y: 771
     width: 94
     height: 81
     borderLeft: 22
@@ -144,6 +144,32 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 8
     paddingBottom: 6
+  - name: UI_CRB_Basekit_4_0_658.tex
+    x: 0
+    y: 16
+    width: 117
+    height: 18
+    borderLeft: 8
+    borderRight: 8
+    borderTop: 7
+    borderBottom: 7
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_CharacterCreate_TEMP_2_353_1200.tex
+    x: 869
+    y: 907
+    width: 111
+    height: 117
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: UI_CRB_CharacterWindowPrototype_23_936.tex
     x: 264
     y: 749
@@ -157,9 +183,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: UI_CRB_Crafting_3_0_0.tex
+    x: 581
+    y: 880
+    width: 144
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_Crafting_3_0_145.tex
+    x: 726
+    y: 882
+    width: 142
+    height: 142
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
   - name: UI_CRB_HUD_ActionBar_0_467.tex
     x: 407
-    y: 703
+    y: 640
     width: 376
     height: 45
     borderLeft: 23
@@ -185,13 +237,39 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_CRB_HUD_Nameplates_173_55.tex
     x: 0
-    y: 26
+    y: 7
     width: 109
     height: 8
-    borderLeft: 5
-    borderRight: 5
-    borderTop: 2
-    borderBottom: 2
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_HUD_TargetFrames_0_139.tex
+    x: 264
+    y: 375
+    width: 82
+    height: 82
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_HUD_TargetFrames_3_67.tex
+    x: 264
+    y: 305
+    width: 68
+    height: 69
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -205,6 +283,32 @@ MonoBehaviour:
     borderRight: 17
     borderTop: 17
     borderBottom: 17
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_CRB_Megamap_40_346.tex
+    x: 208
+    y: 334
+    width: 38
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: UI_CRB_Megamap_69_174.tex
+    x: 208
+    y: 373
+    width: 42
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -236,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_CRB_UIKITWindows_0_570.tex
-    x: 581
-    y: 962
+    x: 407
+    y: 686
     width: 316
     height: 62
     borderLeft: 7

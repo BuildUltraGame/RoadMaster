@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class stopBtn : MonoBehaviour {
-    public UISprite icon;
     float formerTimeScale;
     bool isPause;
     // Use this for initialization
@@ -17,7 +16,7 @@ public class stopBtn : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void Click()
+    public void stop()
     {
         if(isPause==false)
         {

@@ -37,6 +37,8 @@ public class Roadmovable : MonoBehaviour {
     float playerCenterY = 1.0f;
     private Animator mAnime;
 
+    private float distance = 0f;
+
     // Use this for initialization  
     void Awake()
     {
@@ -60,6 +62,7 @@ public class Roadmovable : MonoBehaviour {
             currentWayPoint = 0;
             path = p;
             stopMove = false;
+            distance=p.GetTotalLength();
         }
 
         
@@ -73,6 +76,7 @@ public class Roadmovable : MonoBehaviour {
     {
         targetPosition = v;
         seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+        
     }
 
     /// <summary>
@@ -83,6 +87,11 @@ public class Roadmovable : MonoBehaviour {
     {
         targetPosition = targetObj.gameObject.transform.position;
 
+    }
+
+    public float getDistance()
+    {
+        return distance;
     }
 
 

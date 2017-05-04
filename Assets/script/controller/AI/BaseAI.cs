@@ -180,7 +180,10 @@ public class BaseAI : MonoBehaviour,
         //然而现在还没有得到目标地点的办法,你不可能随便一个点都可以到,你起码必须是路上的坐标(这个还没有获得方式)
         //不过我们可以这样,前面有生成的单位信息,你可以获取到敌人的单位,直接获取里面的位置信息(这个可以实时获取),
         //这个是目前位置能获取位置的唯一办法
-     //   EventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(1,new Vector3(0,0,0),message.getMineMountaion()));
-        
+        //   EventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(1,new Vector3(0,0,0),message.getMineMountaion()));
+
+
+
+
     }
 }

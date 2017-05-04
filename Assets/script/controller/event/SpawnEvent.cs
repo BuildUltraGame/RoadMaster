@@ -33,10 +33,10 @@ public class SpawnEvent : BaseEvent
     /// <returns>距离</returns>
     public float getDistance()
     {
-        NavMeshAgent nav;
-        if ((nav = getObject().GetComponent<NavMeshAgent>())!=null)
+        Roadmovable roadABble;
+        if ((roadABble = getObject().GetComponent<Roadmovable>())!=null)
         {
-           return nav.remainingDistance;
+           return roadABble.getDistance();
         }else{
             return -1;
         }
@@ -50,10 +50,29 @@ public class SpawnEvent : BaseEvent
     /// <returns>速度</returns>
     public float getSpeed()
     {
-        NavMeshAgent nav;
-        if ((nav = getObject().GetComponent<NavMeshAgent>()) != null)
+        Roadmovable roadABble;
+        if ((roadABble = getObject().GetComponent<Roadmovable>()) != null)
         {
-            return nav.speed;
+            return roadABble.speed;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+
+    /// <summary>
+    /// 获得生成单位的脚步(必须先判断是否是人)
+    /// </summary>
+    ///  <seealso cref="hasNavData"/>
+    /// <returns>速度</returns>
+    public float getStep()
+    {
+        Roadmovable roadABble;
+        if ((roadABble = getObject().GetComponent<Roadmovable>()) != null)
+        {
+            return roadABble.step;
         }
         else
         {
