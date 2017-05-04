@@ -18,11 +18,11 @@ public class TestAI : MonoBehaviour,
 
 	public float aiThinkingTime =10f;
 
-	public RoadPoint start;
+	public RoadPoint start1;
 	private RailwayMovable rm;
 
     private static float roadW = 0.1f;
-
+    private List<RoadPoint> rps=new List<RoadPoint>();
 
     // Use this for initialization
     void Awake()
@@ -32,13 +32,38 @@ public class TestAI : MonoBehaviour,
         UnityEventCenter.Register<ScoreEvent>(this);
         UnityEventCenter.Register<MineMoutainSpawnerEvent>(this);
 		rm = GetComponent<AIDetector>();
-		rm.fromPoint = start;
-		rm.nextPoint = start;
+		rm.fromPoint = start1;
+		rm.nextPoint = start1;
+
+        GameObject[] gos = GameObject.FindGameObjectsWithTag(Tags.RAILWAY_POINT);
+
+        foreach (GameObject x in gos)
+        {
+            rps.Add(x.GetComponent<RoadPoint>());
+        }
+    }
+
+    private RoadPoint getStartPoint(Vector3 v)
+    {
+        float d = float.MaxValue;
+        RoadPoint rp = null;
+
+        rps.ForEach(x => {
+            float temp = Vector3.Distance(v, x.transform.position);
+            if (temp < d)
+            {
+                d = temp;
+                rp = x;
+            }
+        });
+
+        return rp;
     }
 
     private bool canReach(Vector3 v)
     {
         //我们假设这个是车
+        RoadPoint start = getStartPoint(new Vector3(110f,0f,140f));
         rm.fromPoint = start;
         rm.nextPoint = start;
         RoadPoint temp;

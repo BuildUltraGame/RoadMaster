@@ -24,14 +24,14 @@ public class BaseAI : MonoBehaviour,
 
     private static float roadW = 0.5f;
 
-    private List<RoadPoint> rps;
+    private List<RoadPoint> rps=new List<RoadPoint>();
 
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
-        UnityEventCenter.Register<DestroyEvent>(this);
-        UnityEventCenter.Register<SpawnEvent>(this);
-        UnityEventCenter.Register<ScoreEvent>(this);
-        UnityEventCenter.Register<MineMoutainSpawnerEvent>(this);
+      //  UnityEventCenter.Register<DestroyEvent>(this);
+      //  UnityEventCenter.Register<SpawnEvent>(this);
+      //  UnityEventCenter.Register<ScoreEvent>(this);
+      //  UnityEventCenter.Register<MineMoutainSpawnerEvent>(this);
         rm = GetComponent<AIDetector>();
 
         GameObject[] gos = GameObject.FindGameObjectsWithTag(Tags.RAILWAY_POINT);
@@ -41,6 +41,12 @@ public class BaseAI : MonoBehaviour,
             rps.Add(x.GetComponent<RoadPoint>());
         }
        
+    }
+
+    private void reach(Vector3 v1,Vector3 v2)
+    {
+        print(v1+"|"+v2+"可达情况:"+ canReach(v1, v2));
+        
     }
 
 
@@ -61,57 +67,47 @@ public class BaseAI : MonoBehaviour,
         return rp;
     }
 
-    private bool canReach(Vector3 startP,Vector3 v,int type)
+    private bool canReach(Vector3 startP,Vector3 v)
     {
-        if(type==1){
+
             RoadPoint start = getStartPoint(startP);
             //我们假设这个是车
             rm.fromPoint = start;
-			rm.nextPoint = start;
+            rm.nextPoint = start;
             RoadPoint temp;
             bool flag = false;
-            //距离
-            float len = 0;
-            while (true) {
-				temp = rm.nextPoint;
+            while (true)
+            {
+                temp = rm.nextPoint;
 
-				rm.nextPoint = rm.nextPoint.getNextPoint (rm,out flag);
-                
-				rm.fromPoint = temp;
+                rm.nextPoint = rm.nextPoint.getNextPoint(rm, out flag);
 
-                int i=(Mathf.FloorToInt(Mathf.Abs(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position)) / roadW)+1);
-                Vector3 nv = (rm.fromPoint.transform.position-rm.nextPoint.transform.position)/i;
-                for (;i>=0;i--)
+                rm.fromPoint = temp;
+
+                int i = (Mathf.FloorToInt(Mathf.Abs(Vector3.Distance(rm.nextPoint.transform.position, rm.fromPoint.transform.position)) / roadW) + 1);
+                Vector3 nv = (rm.fromPoint.transform.position - rm.nextPoint.transform.position) / i;
+                for (; i >= 0; i--)
                 {
-                   
-                    Bounds bs = new Bounds(rm.fromPoint.transform.position-nv*i,new Vector3(roadW,0.01f,roadW));
-                    
-                    if (bs.Contains(v)) {
-                        //距离
-                        len += Vector3.Distance(rm.fromPoint.transform.position,bs.center);
+
+                    Bounds bs = new Bounds(rm.fromPoint.transform.position - nv * i, new Vector3(roadW, 0.1f, roadW));
+
+                    if (bs.Contains(v))
+                    {
                         return true;
                     }
                 }
 
-                //距离
-                len += Vector3.Distance(rm.fromPoint.gameObject.transform.position, rm.nextPoint.transform.position);
 
-                if (Mathf.Abs(Vector3.Distance(v,rm.nextPoint.transform.position))<0.5) {
-					return true;
-				}
+                if (Mathf.Abs(Vector3.Distance(v, rm.nextPoint.transform.position)) < 0.5)
+                {
+                    return true;
+                }
 
-				if(!flag){
-					return false;
-				}
-
+                if (!flag)
+                {
+                    return false;
+                }
             }
-
-
-
-            return false;
-
-        }
-        return false;
     }
 
     private float getCross(Vector3 v1,Vector3 v2,Vector3 v) {
@@ -121,9 +117,10 @@ public class BaseAI : MonoBehaviour,
     // Update is called once per frame
     void Update () {
 
+        reach(t1.position,t2.position);
 
-        if(Input.GetKey(KeyCode.C)){
-            bool b=canReach(Vector3.zero,t.position,1);//这里path会返回给你
+        if (Input.GetKey(KeyCode.C)){
+            bool b=canReach(Vector3.zero,t.position);//这里path会返回给你
             print(b);
 
         }
