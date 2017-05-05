@@ -289,7 +289,7 @@ public class TestAI : MonoBehaviour,
         //Debug.Log(message.getObject());//获取建造出来的单位
         //更多详细信息的话,比如
 
-        if (message.hasNavData())//对象是否是人,如果是人就会有目的地距离啥的
+        if (message.hasRoadEnd())//对象是否是人,如果是人就会有目的地距离啥的
             characterList.Add(message.getObject());
         else
             vehicleList.Add(message.getObject());

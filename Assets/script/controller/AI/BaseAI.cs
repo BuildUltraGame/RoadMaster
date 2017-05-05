@@ -30,7 +30,7 @@ public class BaseAI : MonoBehaviour,
 	// Use this for initialization
 	void Awake () {//这里不能改动,一定只能在Awake函数里
       //  UnityEventCenter.Register<DestroyEvent>(this);
-      //  UnityEventCenter.Register<SpawnEvent>(this);
+        UnityEventCenter.Register<SpawnEvent>(this);
       //  UnityEventCenter.Register<ScoreEvent>(this);
       //  UnityEventCenter.Register<MineMoutainSpawnerEvent>(this);
         rm = GetComponent<AIDetector>();
@@ -155,9 +155,9 @@ public class BaseAI : MonoBehaviour,
         Debug.Log(message.getSubject());//获取建造的生成器
         Debug.Log(message.getObject());//获取建造出来的单位
         //更多详细信息的话,比如
+        message.getDistance(delegate(float f) { print(f+""); });
 
-        message.hasNavData();//对象是否是人,如果是人就会有目的地距离啥的
-        message.getDistance();
+        message.hasRoadEnd();//对象是否是人,如果是人就会有目的地距离啥的
         message.getSpeed();
 
         //更多的信息的话,要自己去获取,如
