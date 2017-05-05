@@ -63,6 +63,9 @@ public class Roadmovable : MonoBehaviour {
             path = p;
             stopMove = false;
             distance=p.GetTotalLength();
+            if (delDistance!=null){
+                delDistance(distance);
+            }
         }
 
         
@@ -89,9 +92,11 @@ public class Roadmovable : MonoBehaviour {
 
     }
 
-    public float getDistance()
+    public delegate void DelDistance(float d);
+    private DelDistance delDistance=null;
+    public void getDistance(DelDistance del)
     {
-        return distance;
+        delDistance = del;
     }
 
 

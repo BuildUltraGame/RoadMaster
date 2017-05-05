@@ -21,9 +21,9 @@ public class SpawnEvent : BaseEvent
     /// 判断生成单位是否具有导航功能(即是否是人)
     /// </summary>
     /// <returns></returns>
-    public bool hasNavData()
+    public bool hasRoadEnd()
     {
-        return getObject().GetComponent<NavMeshAgent>() != null;
+        return getObject().GetComponent<Roadmovable>() != null;
     }
 
     /// <summary>
@@ -31,14 +31,12 @@ public class SpawnEvent : BaseEvent
     /// </summary>
     /// <seealso cref="hasNavData"/>
     /// <returns>距离</returns>
-    public float getDistance()
+    public void getDistance(Roadmovable.DelDistance del)
     {
         Roadmovable roadABble;
         if ((roadABble = getObject().GetComponent<Roadmovable>())!=null)
         {
-           return roadABble.getDistance();
-        }else{
-            return -1;
+            roadABble.getDistance(del);
         }
     }
 
