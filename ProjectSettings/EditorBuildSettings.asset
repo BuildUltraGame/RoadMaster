@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/test/realism gameStart.unity
   - enabled: 1
     path: Assets/test/wf.unity
+  - enabled: 1
+    path: Assets/test/LoadingGame.unity

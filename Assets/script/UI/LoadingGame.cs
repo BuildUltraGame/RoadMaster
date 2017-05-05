@@ -20,14 +20,22 @@ public class LoadingGame : MonoBehaviour {
 
     IEnumerator loadScene()
     {
-        async = SceneManager.LoadSceneAsync("wf");
-        yield return async;
+        async = SceneManager.LoadSceneAsync(Globe.LOADINGSCENCE);
+        async.allowSceneActivation = false;
+        while (async.progress<0.9f)
+        {
+            scrollBar.value = async.progress;
+            yield return new WaitForEndOfFrame();
+        }
+        scrollBar.value = async.progress;
+        async.allowSceneActivation = true;
+        yield return new WaitForEndOfFrame();
+        
     }
 
     void Update()
     {
-        scrollBar.value = progress;
     }
 
-
+    
 }
