@@ -24,18 +24,24 @@ public class LoadingGame : MonoBehaviour {
         async.allowSceneActivation = false;
         while (async.progress<0.9f)
         {
-            scrollBar.value = async.progress;
-            yield return new WaitForEndOfFrame();
+            Debug.Log(async.progress);
+            while(progress<= async.progress)//这里不能用if
+            {
+                progress += 0.1f;
+                setProgess(progress);
+                yield return new WaitForEndOfFrame();
+            }
         }
-        scrollBar.value = async.progress;
-        async.allowSceneActivation = true;
+        setProgess(0.99f);
         yield return new WaitForEndOfFrame();
+        async.allowSceneActivation = true;
+        yield return null;
         
     }
 
-    void Update()
+    void setProgess(float progess)
     {
+        scrollBar.value = progess;
     }
 
-    
 }
