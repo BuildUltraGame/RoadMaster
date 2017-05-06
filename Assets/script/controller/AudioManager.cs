@@ -6,7 +6,11 @@ using UnityEvent;
 /// <summary>
 /// 语音控制器
 /// </summary>
+/// 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
+
+    public AudioSource audioSource;
     public static AudioManager instance;
 
     private Queue<AudioEvent> audios = new Queue<AudioEvent>();
@@ -15,6 +19,7 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
 
 	void Awake() {
         instance = this;
+        audioSource = GetComponent<AudioSource>();
         UnityEventCenter.Register<AudioEvent>(this);
     }
 
@@ -23,7 +28,11 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
         return instance;
     }
 	
-	void Update () {
+	void FixedUpdate () {
+        if (audios.Count<=0)
+        {
+            return;
+        }
         if (audioNow==null)
         {
 
@@ -32,12 +41,12 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
                 audioNow = audios.Dequeue();
 
             } while (!audioNow.isAble());
-            
-            audioNow.getAudio().Play();
+            audioSource.clip= audioNow.getAudio();
+            audioSource.Play();
         }
         else
         {
-            if (!audioNow.getAudio().isPlaying)
+            if (!audioSource.isPlaying)
             {
                 audioNow = null;
             }

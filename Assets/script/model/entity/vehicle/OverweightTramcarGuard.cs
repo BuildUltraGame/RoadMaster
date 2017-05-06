@@ -11,8 +11,8 @@ public class OverweightTramcarGuard : GuardAbs
     public const int GUARDLEVEL = 1;
     public override bool TryDestroy(AttackAbs attackObj)
     {
-
-            Destroy(gameObject);
+        gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+       // Destroy(gameObject);
             return true;
 
 

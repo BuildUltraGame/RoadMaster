@@ -31,8 +31,10 @@ public class GunnerAttack : AttackAbs {
                     }
                     catch
                     {
-                        Destroy(guardObj.gameObject);
-                        Destroy(this.gameObject);
+                        guardObj.SendMessage(GameobjBase.TryDestroyFUNC);
+                        gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+                        //Destroy(guardObj.gameObject);
+                        //Destroy(this.gameObject);
                     }
 
                 }
@@ -44,7 +46,8 @@ public class GunnerAttack : AttackAbs {
                     }
                     catch
                     {
-                        Destroy(guardObj.gameObject);
+                        guardObj.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+                        //Destroy(guardObj.gameObject);
                     }
                 }
             }         
@@ -62,7 +65,8 @@ public class GunnerAttack : AttackAbs {
     {
         if (attackObj == this)
         {
-            Destroy(gameObject);
+           gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+            //Destroy(gameObject);
         }
         return true;
     }

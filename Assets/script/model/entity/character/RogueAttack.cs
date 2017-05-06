@@ -28,7 +28,8 @@ public class RogueAttack : AttackAbs
     public override bool TryDestroy(AttackAbs attackObj)
     {
        if(attackObj==this){
-           Destroy(gameObject);
+            gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+            //Destroy(gameObject);
        }
 
        return true;

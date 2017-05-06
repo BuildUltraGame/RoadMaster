@@ -29,8 +29,8 @@ public class ScoringBuilding : MonoBehaviour {
             return;
         }
         UnityEventCenter.SendMessage<ScoreAddEvent>(new ScoreAddEvent(gameObject, gBase.getOwner(), carrier.popGold()));//发送分数增加事件
-
-        Destroy(other.gameObject);
+        other.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+        //Destroy(other.gameObject);
         
     }
 

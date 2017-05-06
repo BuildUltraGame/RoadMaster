@@ -46,7 +46,8 @@ public class ExplorationTramcar : MonoBehaviour {
     {
         GameobjBase myBase = GetComponent<GameobjBase>();
         mineExp.GetComponent<GameobjBase>().setOwner(myBase.getOwner());//设置游戏单位为自己方
-        Destroy(gameObject);
+        gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+        //Destroy(gameObject);
     }
 
 

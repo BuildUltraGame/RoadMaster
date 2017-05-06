@@ -42,14 +42,15 @@ public class Stone : CollisionBaseHandler {
         if (unit.gameObject.layer == Layers.BUILDING || unit.tag == Tags.GATE)
         {
             //碰到建筑自身销毁
-
-            Destroy(gameObject, 0.5f);
+            gameObject.SendMessage(GameobjBase.TryDestroyDelayFUNC,0.5f);
+            //Destroy(gameObject, 0.5f);
         }
         else
         {
             if (unit.gameObject.layer == Layers.VEHICLE || unit.gameObject.layer == Layers.CHARACTER)
             {
-                Destroy(unit.gameObject, 0.3f);
+                unit.gameObject.SendMessage(GameobjBase.TryDestroyDelayFUNC,0.3f);
+                //Destroy(unit.gameObject, 0.3f);
             }
 
         }

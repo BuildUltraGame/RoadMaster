@@ -50,7 +50,8 @@ public class CheckPointAttack : AttackAbs
     {
         if (attackObj == this)
         {
-            Destroy(gameObject);
+            gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+            //Destroy(gameObject);
         }
 
         return true;
@@ -63,9 +64,8 @@ public class CheckPointAttack : AttackAbs
 
     void Start()
     {
-        Destroy(gameObject, desTime);
+        gameObject.SendMessage(GameobjBase.TryDestroyDelayFUNC,desTime);
+        //Destroy(gameObject, desTime);
     }
-
-    
 
 }

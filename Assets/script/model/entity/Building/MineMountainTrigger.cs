@@ -21,7 +21,8 @@ public class MineMountainTrigger : CollisionBaseHandler
             {
                 mineMountain.getMineFromCar(goldCarrier.popGold());
             }
-            Destroy(enemy.gameObject);
+            enemy.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+            //Destroy(enemy.gameObject);
         }
 
 
@@ -45,7 +46,8 @@ public class MineMountainTrigger : CollisionBaseHandler
                     MineMountain mineMountain = this.GetComponent<MineMountain>();
                     mineMountain.getMineFromCar(goldCarrier.popGold());
                 }
-                Destroy(selfUnit.gameObject);
+                selfUnit.gameObject.SendMessage(GameobjBase.TryDestroyFUNC,SendMessageOptions.DontRequireReceiver);
+                //Destroy(selfUnit.gameObject);
             }
         }
         else

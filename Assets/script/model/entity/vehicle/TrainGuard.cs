@@ -9,12 +9,14 @@ public class TrainGuard : GuardAbs {
     public override bool TryDestroy(AttackAbs attackObj)
     {
         if(attackObj.getAttackLevel()<=getGuardLevel()){
-            Destroy(attackObj);
+            attackObj.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+           // Destroy(attackObj);
             return false;
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+            //Destroy(gameObject);
             return true;
 
         }

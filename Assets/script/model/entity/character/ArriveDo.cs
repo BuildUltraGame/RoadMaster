@@ -8,7 +8,8 @@ public class ArriveDo : MonoBehaviour {
     public float destoryTime = 1f;
     public virtual void Arrive()
     {
-        Destroy(gameObject, destoryTime);
+        gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+        //Destroy(gameObject, destoryTime);
     }
 
 }

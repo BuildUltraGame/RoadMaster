@@ -16,7 +16,10 @@ public class FuckHole : CollisionBaseHandler{
         GameObject fuckedBoyOb = enemy.gameObject;
         Debug.Log("name:" + fuckedBoyOb.name);
         //应当调用物体的销毁脚本的销毁方法，但是好像还没有
-        Destroy(fuckedBoyOb);
+        //↑
+        //不,现在有了
+        //Destroy(fuckedBoyOb);
+        fuckedBoyOb.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
     }
 
     public override void OnSelfUnitCollisionStart(Collider selfUnit)
@@ -24,6 +27,8 @@ public class FuckHole : CollisionBaseHandler{
         GameObject fuckedBoyOb = selfUnit.gameObject;
         Debug.Log("name:" + fuckedBoyOb.name);
         //应当调用物体的销毁脚本的销毁方法，但是好像还没有
-        Destroy(fuckedBoyOb);
+        //Destroy(fuckedBoyOb);
+        selfUnit.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+
     }
 }

@@ -9,6 +9,12 @@ using UnityEvent;
 /// 
 /// </summary>
 public class GameobjBase : MonoBehaviour {
+    public static string TryDestroyFUNC = "TryDestroyGameObject";
+    public static string TryDestroyDelayFUNC = "TryDestroyDelay";
+    public static string CanDestroyFUNC = "setCanDestory";
+
+    private bool readyDestory = false;
+    private bool canDestroy = true;
 
     public const int WORLD = -1;//世界单位
 
@@ -33,6 +39,15 @@ public class GameobjBase : MonoBehaviour {
         owner = newOwner;
     }
 
+    void Update()
+    {
+        if (readyDestory&&canDestroy)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
     public int getOwner()
     {
         return owner;
@@ -43,6 +58,29 @@ public class GameobjBase : MonoBehaviour {
 
         UnityEventCenter.SendMessage<GameObjSeletEvent>(new GameObjSeletEvent(gameObject));//游戏物体被选择
         
+    }
+
+
+    public void TryDestroyGameObject()
+    {     
+        _TryDestory();
+    }
+
+    public void TryDestroyDelay(float time)
+    {
+       Invoke("_TryDestory", time);
+    }
+
+    private void _TryDestory()
+    {
+        readyDestory = true;
+        
+    }
+
+
+    public void setCanDestory(bool b)
+    {
+        canDestroy = b;
     }
 
 }

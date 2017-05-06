@@ -57,7 +57,8 @@ public abstract class MetroGate :MonoBehaviour{
    {
        foreach (GameObject obj in vehilesOnRoad)
        {
-           Destroy(obj);
+            obj.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+           //Destroy(obj);
        }
    }
 
