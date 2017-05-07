@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 114802701816100520}
   - component: {fileID: 114646105470619074}
   - component: {fileID: 114618061998118556}
+  - component: {fileID: 114631675430077108}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Untagged
@@ -1320,7 +1321,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316454725053014}
-  m_LocalRotation: {x: 0.7112264, y: 0.70284814, z: -0.0074100625, w: 0.010324802}
+  m_LocalRotation: {x: 0.7112264, y: 0.70284814, z: -0.007410062, w: 0.010324802}
   m_LocalPosition: {x: -0.068068825, y: -0.086726665, z: -0.0070245373}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1.0000004}
   m_Children:
@@ -1481,6 +1482,18 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114631675430077108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496831344149826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c723a8f0ff04b479d8161a111ec2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destoryTime: 1
 --- !u!114 &114646105470619074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1506,6 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5a9b9167fda78418788531a2caf443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletCount: 1
 --- !u!137 &137441161991497638
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2048,7 +2062,7 @@ ParticleSystem:
     boxY: 0.56
     boxZ: 0.12
     radius:
-      value: 0.13
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -2091,7 +2105,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: NaN
       mode: 0
       spread: 0
       speed:

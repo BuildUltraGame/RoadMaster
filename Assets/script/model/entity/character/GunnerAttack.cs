@@ -6,7 +6,7 @@ public class GunnerAttack : AttackAbs {
     private GunnerAttack gunnerEnemy;
     private GuardAbs enemyAbs;
     private AttackAbs myAbs;
-
+    public int bulletCount = 1;
     public const int ATTACKLEVEL = 6;
 
     void Awake()
@@ -48,6 +48,14 @@ public class GunnerAttack : AttackAbs {
                     {
                         guardObj.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
                         //Destroy(guardObj.gameObject);
+                    }
+                    finally
+                    {
+                        bulletCount--;
+                        if (bulletCount == 0)
+                        {
+                            myAbs.TryDestroy(myAbs);
+                        }
                     }
                 }
             }         
