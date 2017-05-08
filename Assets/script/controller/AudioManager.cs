@@ -56,6 +56,7 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
 
     public void Handle(AudioEvent message)
     {
-        audios.Enqueue(message);
+        AudioSource.PlayClipAtPoint(message.getAudio(),message.getSubject().transform.position);
+       // audios.Enqueue(message);
     }
 }
