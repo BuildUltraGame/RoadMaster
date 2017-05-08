@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEvent;
 
 /// <summary>
 /// 扳道闸工人脚本
 /// 使用时需要先设置目标setTargetGate
 /// </summary>
 public class GateChanger : CollisionBaseHandler {
-
+    [HideInInspector]
     public GameObject targetGate = null;
 
+    public AudioClip clip;
     private int linkNum;
 
     public void setTargetGate(GameObject target)
@@ -52,7 +54,7 @@ public class GateChanger : CollisionBaseHandler {
 
 
         if(obj.tag==Tags.GATE){
-
+            UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
             targetGate.GetComponent<MetroGate>().GateChange(transform.position);
             gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
             //Destroy(gameObject);

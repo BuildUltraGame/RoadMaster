@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114486857062378646}
   - component: {fileID: 114532578335084274}
   - component: {fileID: 114133908698123748}
+  - component: {fileID: 114088591990090930}
   m_Layer: 0
   m_Name: checkpoint
   m_TagString: Untagged
@@ -336,6 +337,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08520852, y: 0.031233262, z: 0.041808832}
   m_Center: {x: 0.024823494, y: 0.013011803, z: 0.0009044146}
+--- !u!114 &114088591990090930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399406979378804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 0}
+  vol: 1
+  destoryAudio: {fileID: 8300000, guid: 65a7ff9ff2b2ad843b6217be355c18dd, type: 3}
 --- !u!114 &114133908698123748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7b76f2983ca47439c930168b7bfee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip_1: {fileID: 8300000, guid: 5aa7cb9aeee03af4e937c21d9aae8246, type: 3}
+  clip_2: {fileID: 0}
   tax: 0.5
   desTime: 8
 --- !u!114 &114631882843593980

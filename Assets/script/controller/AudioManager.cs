@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
         instance = this;
         audioSource = GetComponent<AudioSource>();
         UnityEventCenter.Register<AudioEvent>(this);
+        AudioListener.volume = 2f;
     }
 
     public static AudioManager getInstance()
@@ -29,28 +30,7 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
     }
 	
 	void FixedUpdate () {
-        if (audios.Count<=0)
-        {
-            return;
-        }
-        if (audioNow==null)
-        {
-
-            do
-            {
-                audioNow = audios.Dequeue();
-
-            } while (!audioNow.isAble());
-            audioSource.clip= audioNow.getAudio();
-            audioSource.Play();
-        }
-        else
-        {
-            if (!audioSource.isPlaying)
-            {
-                audioNow = null;
-            }
-        }
+        
         
 	}
 

@@ -22,10 +22,11 @@ public class Builder : MonoBehaviour {
     }
     public void BuilderToBuild()
     {
-        Invoke("Build", buildTime);
+         //Invoke("Build", buildTime);
+        Build();
     }
 
-    void Build()
+     void Build()
     {
         entity = Instantiate<GameObject>(prefab, transform.position + transform.right * 2, transform.localRotation);
         entity.GetComponent<GameobjBase>().setOwner(gb.getOwner());

@@ -1156,6 +1156,7 @@ GameObject:
   - component: {fileID: 114514247083479252}
   - component: {fileID: 114160346174511346}
   - component: {fileID: 114037211108391310}
+  - component: {fileID: 114687954186942556}
   m_Layer: 9
   m_Name: GaterChanger
   m_TagString: Untagged
@@ -4232,6 +4233,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addItem1: {fileID: 1917695523779846}
   addItem2: {fileID: 1992290332128426}
+--- !u!114 &114687954186942556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547725500324574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 8300000, guid: fa31b736f2ba5574b8b57869a21d1137, type: 3}
+  vol: 200
+  destoryAudio: {fileID: 0}
 --- !u!114 &114769187314406262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4273,6 +4288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetGate: {fileID: 0}
+  clip: {fileID: 8300000, guid: 326dc55e7eeef1d408cc504b8717750d, type: 3}
 --- !u!137 &137020660194451344
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

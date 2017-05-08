@@ -593,7 +593,6 @@ GameObject:
   - component: {fileID: 65949713943443366}
   - component: {fileID: 54152849900022470}
   - component: {fileID: 114382293656441108}
-  - component: {fileID: 114370269256654580}
   m_Layer: 10
   m_Name: BaseTramcar
   m_TagString: Untagged
@@ -2139,19 +2138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a6d9e0542b2594fa40f8e2c8b805e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114370269256654580
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866666605186022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startAudio: {fileID: 8300000, guid: cab912f3009b43843b0a48ac3120c6ad, type: 3}
-  destoryAudio: {fileID: 8300000, guid: b7341374779126f4aa04c81f9f20139c, type: 3}
 --- !u!114 &114382293656441108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2196,3 +2182,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxGold: 100
+  clip: {fileID: 8300000, guid: 1a4e2b707756f1b4ab28b386764be2a1, type: 3}

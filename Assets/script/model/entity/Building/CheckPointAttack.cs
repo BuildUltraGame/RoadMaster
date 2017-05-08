@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEvent;
 /// <summary>
 /// 检查站
 /// 
@@ -10,6 +11,8 @@ using UnityEngine;
 /// </summary>
 public class CheckPointAttack : AttackAbs
 {
+    public AudioClip clip_1;
+
     public float tax = 0.5f;//税率
     public float desTime = 8f;
 
@@ -23,7 +26,7 @@ public class CheckPointAttack : AttackAbs
         {
             return;
         }
-        
+        UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject,clip_1));
             if (guardObj.getGuardLevel() <= getAttackLevel())
             {
 

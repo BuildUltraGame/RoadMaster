@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 114050942374391234}
   - component: {fileID: 114311994752337022}
   - component: {fileID: 114356728974725510}
+  - component: {fileID: 114008548331837254}
   m_Layer: 9
   m_Name: Inspector
   m_TagString: Untagged
@@ -1421,6 +1422,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114008548331837254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618872561931174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 8300000, guid: 40d985bd2742ba64f8db34473963566c, type: 3}
+  vol: 1
+  destoryAudio: {fileID: 0}
 --- !u!114 &114050942374391234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1432,6 +1447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77041fbe86778b47a1f4f75798225a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destoryTime: 1
 --- !u!114 &114311994752337022
 MonoBehaviour:
   m_ObjectHideFlags: 1

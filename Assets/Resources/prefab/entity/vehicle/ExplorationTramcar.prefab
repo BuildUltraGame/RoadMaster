@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 54333512381146190}
   - component: {fileID: 114111092609502644}
   - component: {fileID: 65406742690036904}
+  - component: {fileID: 114436758428503022}
   m_Layer: 10
   m_Name: ExplorationTramcar
   m_TagString: Untagged
@@ -1288,6 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reqTime: 3
+  clip: {fileID: 8300000, guid: 2d83ac238141bef4b8c4f38c39531574, type: 3}
 --- !u!114 &114111092609502644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1302,8 +1304,23 @@ MonoBehaviour:
   Tag: 0
   fromPoint: {fileID: 0}
   nextPoint: {fileID: 0}
+  speed: 15
   step: 0.5
   ignoreY: 1
+--- !u!114 &114436758428503022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1988851248063350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 8300000, guid: 58327122e6d366e40a847a9b413762c2, type: 3}
+  vol: 1
+  destoryAudio: {fileID: 0}
 --- !u!114 &114663017445011364
 MonoBehaviour:
   m_ObjectHideFlags: 1

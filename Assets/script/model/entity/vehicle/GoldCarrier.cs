@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEvent;
 /// <summary>
 /// 搬运金矿 模块
 /// 提供搬运金矿的所有功能
@@ -12,7 +13,8 @@ public class GoldCarrier : MonoBehaviour
     public int MaxGold = 1000;//最大运载量
 
     private int goldAmounts = 10;//运输黄金数
-    
+
+    public AudioClip clip;
 
 	// Use this for initialization
 	void Start () {
@@ -79,10 +81,13 @@ public class GoldCarrier : MonoBehaviour
     /// <returns></returns>
     public int popGold()
     {
+        UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
         int g = goldAmounts;
         goldAmounts = 0;
         return g;
     }
+
+
 
 
 

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEvent;
 /// <summary>
 /// 探勘车
 /// 功能:占领矿山
 /// </summary>
 public class ExplorationTramcar : MonoBehaviour {
     public float reqTime = 3f;//占领所需要时间
+    public AudioClip clip;
     private GameObject mineExp = null;
 
     void OnTriggerEnter(Collider other)
@@ -34,6 +36,7 @@ public class ExplorationTramcar : MonoBehaviour {
     private void HoldMineDelay()
     {
         Invoke("HoldMine",reqTime);
+        UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject,clip));
         GetComponent<RailwayMovable>().enabled=false;
         
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEvent;
 
 public class GunnerAttack : AttackAbs {
     private GunnerAttack gunnerEnemy;
@@ -8,6 +9,8 @@ public class GunnerAttack : AttackAbs {
     private AttackAbs myAbs;
     public int bulletCount = 1;
     public const int ATTACKLEVEL = 6;
+
+    public AudioClip clip;
 
     void Awake()
     {
@@ -28,11 +31,13 @@ public class GunnerAttack : AttackAbs {
                     {
                         enemyAbs.TryDestroy(myAbs);
                         myAbs.TryDestroy(myAbs);
+                        UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
                     }
                     catch
                     {
                         guardObj.SendMessage(GameobjBase.TryDestroyFUNC);
                         gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+
                         //Destroy(guardObj.gameObject);
                         //Destroy(this.gameObject);
                     }
@@ -43,10 +48,12 @@ public class GunnerAttack : AttackAbs {
                     try
                     {
                         enemyAbs.TryDestroy(myAbs);
+                        UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
                     }
                     catch
                     {
                         guardObj.gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
+                        
                         //Destroy(guardObj.gameObject);
                     }
                     finally

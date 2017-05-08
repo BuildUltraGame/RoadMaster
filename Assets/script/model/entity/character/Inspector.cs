@@ -9,7 +9,8 @@ public class Inspector : ArriveDo
 {
     public override void Arrive()
     {
-        base.Arrive();
+        
         SendMessage(Builder.BUILDFUNC);
+        base.Arrive();
     }
 }
