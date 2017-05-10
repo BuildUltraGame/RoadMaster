@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 114812014901285400}
   - component: {fileID: 65523185825752578}
   - component: {fileID: 54341849691774796}
+  - component: {fileID: 114189846949413748}
   m_Layer: 10
   m_Name: OverweightTramcar
   m_TagString: Untagged
@@ -2267,6 +2268,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -6.444044, y: 4.5807724, z: -12.127409}
   m_Center: {x: -0.27998352, y: 2.3345509, z: 0.013332367}
+--- !u!114 &114189846949413748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227299018505476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 8300000, guid: 32608f06215c5d04682f4049b0e02e1a, type: 3}
+  vol: 1
+  destoryAudio: {fileID: 0}
 --- !u!114 &114581001233334450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2294,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxGold: 150
+  clip: {fileID: 8300000, guid: 1a4e2b707756f1b4ab28b386764be2a1, type: 3}
 --- !u!114 &114812014901285400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2308,6 +2324,7 @@ MonoBehaviour:
   Tag: 0
   fromPoint: {fileID: 0}
   nextPoint: {fileID: 0}
+  speed: 15
   step: 0.25
   ignoreY: 1
 --- !u!114 &114940774351780940

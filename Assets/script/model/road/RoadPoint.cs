@@ -62,7 +62,7 @@ public class RoadPoint : MonoBehaviour {
             RoadPoint from = obj.fromPoint;//获取到玩家的来到的点
 
             RoadPoint next = null;
-
+            //print(from.transform.position);
             foreach (RoadPoint p in reachList)
             {
                 if (!p.Equals(from))

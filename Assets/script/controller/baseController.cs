@@ -84,7 +84,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
 
     // Use this for initialization
 	void Awake () {
-        UnityEventCenter.Register<MineSelectEvent>(this);
+        UnityEventCenter.Register<MineSelectEvent>(this,12);
         UnityEventCenter.Register<CreateUnitEvent>(this);
         UnityEventCenter.Register<ScoreEvent>(this);
 
@@ -113,7 +113,11 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
     {
         MineMountain temp =message.getMine();
         if (message.getObject().GetComponent<GameobjBase>().owner != GameobjBase.PLAYER)
+        {
+            message.setCancel(true);
             return;//不可选择非玩家的矿山
+        }
+          
         if (temp != null)
             mineSelected = temp;
     }

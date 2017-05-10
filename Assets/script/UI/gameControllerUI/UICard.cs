@@ -20,8 +20,27 @@ public class UICard : UIDragDropItem {
         base.OnDragDropStart();
         ts.enabled = true;
         ts.PlayForward();
-        UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(false));
+       
 
+    }
+
+    protected override void OnPress(bool isPressed)
+    {
+        base.OnPress(isPressed);
+        if (isPressed)
+        {
+            UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(false));
+        }
+        else {
+            UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));
+        }
+
+    }
+
+    protected override void OnDragDropEnd()
+    {
+        base.OnDragDropEnd();
+      
     }
 
     protected override void OnDragEnd()
@@ -67,7 +86,8 @@ public class UICard : UIDragDropItem {
         {//建造信息
             UnityEventCenter.SendMessage<CreateUnitEvent>(new CreateUnitEvent(ID,hit.point));
         }
-        UnityEventCenter.SendMessage<ViewMoveEvent>(new ViewMoveEvent(true));
+
+    
     }
 
     private void setID(int i)
@@ -108,11 +128,11 @@ public class UICard : UIDragDropItem {
         CD.fillAmount = sp.coolDown / sp.CD;
         if (CD.fillAmount.Equals(0f))
         {
-            cardCollider.enabled = true;
+            interactable = true;
         }
         else
         {
-            cardCollider.enabled = false;
+            interactable = false;
         }
 
     }

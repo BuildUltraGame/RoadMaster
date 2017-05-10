@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
         instance = this;
         audioSource = GetComponent<AudioSource>();
         UnityEventCenter.Register<AudioEvent>(this);
-        AudioListener.volume = 2f;
+        AudioListener.volume = 5f;
     }
 
     public static AudioManager getInstance()
@@ -36,7 +36,11 @@ public class AudioManager : MonoBehaviour,IListener<AudioEvent> {
 
     public void Handle(AudioEvent message)
     {
-        AudioSource.PlayClipAtPoint(message.getAudio(),message.getSubject().transform.position);
-       // audios.Enqueue(message);
+        if (message.getSubjectOwner()==GameobjBase.PLAYER)
+        {
+            AudioSource.PlayClipAtPoint(message.getAudio(), message.getSubject().transform.position);
+        
+        }
+        // audios.Enqueue(message);
     }
 }

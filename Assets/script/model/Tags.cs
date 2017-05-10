@@ -34,6 +34,7 @@ public class Tags {
         public const string INSPECTOR = "inspector";//督察员
         public const string ROGUE = "rogue";//流氓
         public const string RAILWAYDESTROIER = "railway_destroier";//道路破坏者
+        public const string GUNNER = "gunner";//枪手
     }
 
     public static class Building

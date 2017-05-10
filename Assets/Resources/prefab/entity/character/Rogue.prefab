@@ -558,6 +558,9 @@ GameObject:
   - component: {fileID: 114089869342961760}
   - component: {fileID: 114956906879889818}
   - component: {fileID: 114516517166117816}
+  - component: {fileID: 114170491154543374}
+  - component: {fileID: 114476976671367006}
+  - component: {fileID: 114749374128465570}
   m_Layer: 9
   m_Name: Rogue
   m_TagString: Untagged
@@ -846,7 +849,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730943180559496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9561954, y: 0.11951368, z: 13.499}
+  m_LocalPosition: {x: 119.59326, y: 0.2396745, z: 128.8293}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4360010390035056}
@@ -1052,7 +1055,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880966914929632}
-  m_LocalRotation: {x: 0.7112264, y: 0.70284814, z: -0.007410063, w: 0.010324802}
+  m_LocalRotation: {x: 0.71122646, y: 0.7028482, z: -0.007410063, w: 0.010324803}
   m_LocalPosition: {x: -0.06806885, y: -0.086726665, z: -0.0070245373}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1.0000004}
   m_Children:
@@ -1490,8 +1493,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.0779557, z: 1}
+  m_Center: {x: 0, y: 0.53897786, z: 0}
 --- !u!95 &95604944693349692
 Animator:
   serializedVersion: 3
@@ -1520,6 +1523,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a6bef79d231754783ecd9e1c42fdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+--- !u!114 &114170491154543374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730943180559496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccca6b90a247ab4aba7ab90703cfc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAudio: {fileID: 8300000, guid: 271ca99cc94450d4f81dcdb3d7a473bd, type: 3}
+  vol: 1
+  destoryAudio: {fileID: 0}
+--- !u!114 &114476976671367006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730943180559496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb0b09f72a1a7f4d869c666c27def92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
 --- !u!114 &114516517166117816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1547,6 +1577,18 @@ MonoBehaviour:
     tagsChange: -1
     tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &114749374128465570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730943180559496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c723a8f0ff04b479d8161a111ec2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destoryTime: 3
 --- !u!114 &114768993867180500
 MonoBehaviour:
   m_ObjectHideFlags: 1

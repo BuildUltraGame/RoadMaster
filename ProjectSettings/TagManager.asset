@@ -20,6 +20,7 @@ TagManager:
   - railway_point
   - moveObj
   - gate
+  - gunner
   layers:
   - Default
   - TransparentFX

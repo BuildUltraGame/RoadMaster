@@ -17,15 +17,18 @@ public class CheckPointAttack : AttackAbs
     public float desTime = 8f;
 
     public const int ATTACKLEVEL = 1;
+    public List<GameObject> gos = new List<GameObject>();
 
 
     public override void Attack(GuardAbs guardObj)
     {
         GoldCarrier gc = guardObj.gameObject.GetComponent<GoldCarrier>();
-        if (gc==null)
+        if (gc==null||gos.Contains(gc.gameObject))
         {
             return;
         }
+
+        gos.Add(gc.gameObject);
         UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject,clip_1));
             if (guardObj.getGuardLevel() <= getAttackLevel())
             {

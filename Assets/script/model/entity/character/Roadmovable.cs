@@ -130,4 +130,9 @@ public class Roadmovable : MonoBehaviour {
         }
     }
 
+    public Vector3 getTargetPosition()
+    {
+        return targetPosition;
+    }
+
 }
