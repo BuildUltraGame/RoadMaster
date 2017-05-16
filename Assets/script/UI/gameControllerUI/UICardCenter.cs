@@ -72,6 +72,7 @@ public class UICardCenter : MonoBehaviour,IListener<MineSelectEvent>,IListener<c
             GameObject g = NGUITools.AddChild(grid.gameObject, cardPrefab);
             cards.Add(g);
             g.GetComponent<UICard>().setSpawner(sp[i]);
+            g.GetComponent<UICardUnitBuilder>().setSpawner(sp[i]);
         }
         grid.repositionNow = true;
         grid.Reposition();

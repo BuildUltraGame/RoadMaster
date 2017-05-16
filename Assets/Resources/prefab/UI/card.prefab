@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114958544725382924}
   - component: {fileID: 114949796966026714}
   - component: {fileID: 65554452382585812}
+  - component: {fileID: 114478121302944740}
   m_Layer: 5
   m_Name: card
   m_TagString: Untagged
@@ -112,8 +113,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483720839111264}
-  m_LocalRotation: {x: -0, y: -0, z: 0.00000031714964, w: 1}
-  m_LocalPosition: {x: -445, y: 174, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0000003488646, w: 1}
+  m_LocalPosition: {x: 35511, y: -1540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4437093946141842}
@@ -275,6 +276,24 @@ MonoBehaviour:
   mAtlas: {fileID: 114603268384089070, guid: f5d4596d8b1dd2d4d8594716d6f8a981, type: 2}
   mSpriteName: card2
   mFillCenter: 1
+--- !u!114 &114478121302944740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483720839111264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c281e8144a433734fa62dc652a53b1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restriction: 0
+  cloneOnDrag: 0
+  pressAndHoldDelay: 0.1
+  interactable: 1
+  ts: {fileID: 114949796966026714}
+  CD: {fileID: 114981736913747004}
+  cardCollider: {fileID: 65554452382585812}
 --- !u!114 &114897936854737072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,13 +437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4a4c589297af94f8d7016f62147684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restriction: 2
-  cloneOnDrag: 0
-  pressAndHoldDelay: 1
-  interactable: 1
-  ts: {fileID: 114949796966026714}
-  CD: {fileID: 114981736913747004}
-  cardCollider: {fileID: 65554452382585812}
   nameLabel: {fileID: 114897936854737072}
   costLabel: {fileID: 114139804875213556}
 --- !u!114 &114981736913747004
