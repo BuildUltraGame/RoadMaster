@@ -55,7 +55,7 @@ public class MetroGate4 : MetroGate
 
 
 
-    public override void GateChange(Vector3 v, int linkNum)
+    public override void GateChangeAbs(Vector3 v, int linkNum)
     {
        setState();
        destroyVehilesOnRoad();//摧毁当前在岔道口的车辆

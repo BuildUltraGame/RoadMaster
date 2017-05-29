@@ -13,6 +13,8 @@ public abstract class MetroGate :MonoBehaviour{
     protected List<GameObject> vehilesOnRoad = new List<GameObject>();
 	protected List<RoadPoint> allPoint=new List<RoadPoint>();//按顺序存的点信息
 
+    private bool canChange = true;
+
     /// <summary>
     /// 变换道口连接情况
     /// 
@@ -28,9 +30,17 @@ public abstract class MetroGate :MonoBehaviour{
     /// </summary>
     /// <param name="v">搬道闸工人的起始点</param>
     /// <param name="linkNum">(暂时无效)需要连接的铁路的序号,从起始点顺时针算第几个铁路</param>
-   public abstract void GateChange(Vector3 v,int linkNum=1);
+   public abstract void GateChangeAbs(Vector3 v,int linkNum=1);
 
-   public void Start()
+    public  void GateChange(Vector3 v, int linkNum = 1) {
+        if (canChange)
+        {
+            GateChangeAbs(v,linkNum);
+        }
+
+    }
+
+    public void Start()
    {
         if (roadBlockPrefab == null)
         {
@@ -110,6 +120,17 @@ public abstract class MetroGate :MonoBehaviour{
 
        return minNum;
    }
+
+
+    public void setCanChange(bool can)
+    {
+        canChange = can;
+    }
+
+    public bool getCanChange()
+    {
+        return canChange;
+    }
 
 
 

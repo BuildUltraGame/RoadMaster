@@ -54,10 +54,12 @@ public class GateChanger : CollisionBaseHandler {
 
 
         if(obj.tag==Tags.GATE){
-            UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
+           
             targetGate.GetComponent<MetroGate>().GateChange(transform.position);
-            gameObject.SendMessage(GameobjBase.TryDestroyFUNC);
-            //Destroy(gameObject);
+            if (targetGate.GetComponent<MetroGate>().getCanChange())
+            {
+                UnityEventCenter.SendMessage<AudioEvent>(new AudioEvent(gameObject, clip));
+            }
         }
 
     }

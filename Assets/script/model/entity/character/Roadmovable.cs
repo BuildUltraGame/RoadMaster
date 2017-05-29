@@ -125,6 +125,11 @@ public class Roadmovable : MonoBehaviour {
                 currentWayPoint = 0;
                 path = null;
 
+                if (mAnime != null)
+                {
+                    mAnime.SetFloat("VSpeed", 0);
+                }
+
                 SendMessage(ARRIVEFUNC, SendMessageOptions.DontRequireReceiver);
             }
         }

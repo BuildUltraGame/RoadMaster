@@ -55,7 +55,7 @@ public class MetroGate3 : MetroGate {
 	
 
 
-    public override void GateChange(Vector3 v, int linkNum)
+    public override void GateChangeAbs(Vector3 v, int linkNum)
     {
         if(linkNum<=0||linkNum%3==0){
             return;

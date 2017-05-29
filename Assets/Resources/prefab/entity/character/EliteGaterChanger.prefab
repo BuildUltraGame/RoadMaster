@@ -1150,16 +1150,16 @@ GameObject:
   - component: {fileID: 54312438870877460}
   - component: {fileID: 95775115354803616}
   - component: {fileID: 65452493020269326}
-  - component: {fileID: 114856135926458944}
   - component: {fileID: 114769187314406262}
   - component: {fileID: 114845856063130112}
   - component: {fileID: 114514247083479252}
   - component: {fileID: 114160346174511346}
   - component: {fileID: 114037211108391310}
   - component: {fileID: 114687954186942556}
-  - component: {fileID: 114596692751810822}
+  - component: {fileID: 114659582163228296}
+  - component: {fileID: 114123943613830854}
   m_Layer: 9
-  m_Name: GaterChanger
+  m_Name: EliteGaterChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4194,6 +4194,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+--- !u!114 &114123943613830854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547725500324574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c723a8f0ff04b479d8161a111ec2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destoryTime: 5
 --- !u!114 &114160346174511346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4234,7 +4246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addItem1: {fileID: 1917695523779846}
   addItem2: {fileID: 1992290332128426}
---- !u!114 &114596692751810822
+--- !u!114 &114659582163228296
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -4242,10 +4254,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1547725500324574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c723a8f0ff04b479d8161a111ec2c3, type: 3}
+  m_Script: {fileID: 11500000, guid: d7f04fce413da704cafc311022f3fd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destoryTime: 0
+  targetGate: {fileID: 0}
+  clip: {fileID: 8300000, guid: 326dc55e7eeef1d408cc504b8717750d, type: 3}
 --- !u!114 &114687954186942556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4286,22 +4299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 0
-  game_ID: 1002
-  game_name: "\u642C\u9053\u95F8\u5DE5\u4EBA"
-  game_name_en: gate_worker
---- !u!114 &114856135926458944
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1547725500324574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fde94958925370498e8f17fcabef1f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetGate: {fileID: 0}
-  clip: {fileID: 8300000, guid: 326dc55e7eeef1d408cc504b8717750d, type: 3}
+  game_ID: 1004
+  game_name: "\u7CBE\u82F1\u642C\u9053\u95F8\u5DE5\u4EBA"
+  game_name_en: elite_gate_worker
 --- !u!137 &137020660194451344
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
