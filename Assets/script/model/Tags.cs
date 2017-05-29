@@ -31,6 +31,8 @@ public class Tags {
     public static class Character
     {
         public const string GATEWORKER = "gate_worker";//搬道闸工人
+        public const string ROADMAKER = "road_maker";//修路工人
+        public const string ELITEGATEWORKER = "elite_gate_worker";//精英搬道闸工人
         public const string INSPECTOR = "inspector";//督察员
         public const string ROGUE = "rogue";//流氓
         public const string RAILWAYDESTROIER = "railway_destroier";//道路破坏者
@@ -43,6 +45,7 @@ public class Tags {
         public const string MAINMINE = "main_mine";//主矿山
         public const string SCORING = "scoring_building";//终点
         public const string FUCKHOLE = "fuck_hole";
+        public const string BREAKABLEROAD = "breakable_road";
 
     }
 

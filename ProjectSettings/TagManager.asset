@@ -21,6 +21,9 @@ TagManager:
   - moveObj
   - gate
   - gunner
+  - elite_gate_worker
+  - breakable_road
+  - road_maker
   layers:
   - Default
   - TransparentFX

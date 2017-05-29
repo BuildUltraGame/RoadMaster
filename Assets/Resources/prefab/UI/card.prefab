@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c281e8144a433734fa62dc652a53b1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restriction: 0
+  restriction: 2
   cloneOnDrag: 0
   pressAndHoldDelay: 0.1
   interactable: 1
