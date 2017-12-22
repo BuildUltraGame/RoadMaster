@@ -11,7 +11,8 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
  
 
     MineMountain mineSelected;//当前选中的矿山，未选中则为null
-    
+    public static int isWin = 0;
+    public static int missionToLoad = 0;
     ////touchController部分
 
    

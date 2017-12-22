@@ -60,7 +60,8 @@ public class TestAI : MonoBehaviour,
     }
     private bool canReach(Vector3 startP, Vector3 v)
     {
-        int time = 3;
+        
+        int time = 8;
         RoadPoint start = getStartPoint(startP);
         //我们假设这个是车
         rm.fromPoint = start;
@@ -77,20 +78,26 @@ public class TestAI : MonoBehaviour,
             Vector3 nv = (rm.fromPoint.transform.position - rm.nextPoint.transform.position) / i;
             for (; i >= 0; i--)
             {
-                Bounds bs = new Bounds(rm.fromPoint.transform.position - nv * i, new Vector3(roadW, 0.1f, roadW));
+                Bounds bs = new Bounds(rm.fromPoint.transform.position - nv * i, new Vector3(roadW, 1f, roadW));
                 if (bs.Contains(v))
                 {
                     distance += Vector3.Distance(rm.fromPoint.transform.position, bs.center);
+                    Debug.Log("canReach:" + startP + "|" + v + "   true");
                     return true;
                 }
             }
             distance += Vector3.Distance(rm.fromPoint.gameObject.transform.position, rm.nextPoint.transform.position);
-            if (Mathf.Abs(Vector3.Distance(v, rm.nextPoint.transform.position)) < 0.5)
+            if (Mathf.Abs(Vector3.Distance(v, rm.nextPoint.transform.position)) < 2) {
+                Debug.Log("canReach:" + startP + "|" + v+ "   true");
                 return true;
-            if (!flag)
+            }
+            if (!flag) {
                 time--;
-            if (time < 0)
+            }
+            if (time < 0) {
+                Debug.Log("canReach:" + startP + "|" + v + "   false");
                 return false;
+            }
         }
     }
 
