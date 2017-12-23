@@ -5473,15 +5473,15 @@ Prefab:
       propertyPath: mapDes
       value: 
       objectReference: {fileID: 1908729728}
-    - target: {fileID: 114226616700460038, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: aspectRatio
-      value: 7.2173915
-      objectReference: {fileID: 0}
     - target: {fileID: 114895251741600238, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: aspectRatio
-      value: 8.028409
+      value: 9.096591
+      objectReference: {fileID: 0}
+    - target: {fileID: 114226616700460038, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: aspectRatio
+      value: 8.57971
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
