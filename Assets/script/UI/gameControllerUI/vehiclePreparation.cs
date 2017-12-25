@@ -8,8 +8,11 @@ using UnityEvent;
 /// </summary>
 public class vehiclePreparation : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public UIButton outButton;
+    public UIButton inButton;
+    public UISprite preWindow;//预放矿车的窗口
+    // Use this for initialization
+    void Start () {
         UnityEventCenter.Register<setOffEvent>(this);
     }
 
@@ -28,8 +31,8 @@ public class vehiclePreparation : MonoBehaviour {
     }
 
 
-    public int vehicleAmountUpgrd;
-    public float createGap;
+    public int vehicleAmountUpgrd;//可一次性发车的数量
+    public float createGap;//矿车发车的间隔
     /// <summary>
     /// 接收到出发消息准备发车
     /// </summary>
@@ -60,6 +63,25 @@ public class vehiclePreparation : MonoBehaviour {
     public Spawner[] getUnitInformation()
     {
         Spawner[] sp=new Spawner[10];
+        ///
+        /// 这里加入如何赋值序列的流程
+        ///
         return sp;
+    }
+
+    /// <summary>
+    /// 使选框进入场景
+    /// </summary>
+    public void onInButton()
+    {
+
+    }
+
+    /// <summary>
+    /// 使选框飞出场景
+    /// </summary>
+    public void onOutButton()
+    {
+
     }
 }
