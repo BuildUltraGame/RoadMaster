@@ -2383,6 +2383,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114340626861593856, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: mapDes
+      value: 
+      objectReference: {fileID: 1908729728}
     - target: {fileID: 114935460602442548, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mine
@@ -2393,11 +2398,6 @@ Prefab:
       propertyPath: ai
       value: 
       objectReference: {fileID: 1327106528}
-    - target: {fileID: 114340626861593856, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: mapDes
-      value: 
-      objectReference: {fileID: 1908729728}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
   m_IsPrefabParent: 0

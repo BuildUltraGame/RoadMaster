@@ -74,14 +74,28 @@ public class vehiclePreparation : MonoBehaviour {
     /// </summary>
     public void onInButton()
     {
-
+        NGUITools.SetActive(inButton.gameObject, false);
+        SpringPanel.Begin(preWindow.gameObject, new Vector3(100, 86, 0), 6);
+        Invoke("showOutButton", 1);
     }
-
     /// <summary>
     /// 使选框飞出场景
     /// </summary>
     public void onOutButton()
     {
-
+        NGUITools.SetActive(outButton.gameObject, false);
+        SpringPanel.Begin(preWindow.gameObject, new Vector3(2000, 86, 0), 6);
+        Invoke("showInButton", 1);
     }
+
+    void showOutButton()
+    {
+        NGUITools.SetActive(outButton.gameObject, true);
+    }
+
+    void showInButton()
+    {
+        NGUITools.SetActive(inButton.gameObject, true);
+    }
+    
 }
