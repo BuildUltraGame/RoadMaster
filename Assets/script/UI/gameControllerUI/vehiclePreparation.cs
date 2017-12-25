@@ -11,14 +11,30 @@ public class vehiclePreparation : MonoBehaviour {
     public UIButton outButton;
     public UIButton inButton;
     public UISprite preWindow;//预放矿车的窗口
+    public GameObject[] vehicleToBuild;//连接制造槽的数组
+    public int vehicleAmountUpgrd;//可一次性发车的数量
+    public float createGap;//矿车发车的间隔
+    public GameObject vehicleCardPrefab;
+    public UITable vehicleCardTable;
     // Use this for initialization
     void Start () {
         UnityEventCenter.Register<setOffEvent>(this);
+        UnityEventCenter.Register<setVehicleEvent>(this);
+        for(int i=0;i<vehicleAmountUpgrd;i++)//初始化发车预选框
+        {
+            GameObject vehicle = Instantiate(vehicleCardPrefab);
+            vehicle.tag = Tags.CAR_SELECTOR;
+            vehicle.transform.parent = vehicleCardTable.transform;
+            vehicle.transform.localScale = new Vector3(1, 1, 1);
+            vehicle.transform.localPosition = new Vector3(1, 1, 1);
+        }
+        vehicleCardTable.Reposition();        
     }
 
     void OnDisable()
     {
         UnityEventCenter.UnRegister<setOffEvent>(this);
+        UnityEventCenter.UnRegister<setVehicleEvent>(this);
     }
     // Update is called once per frame
     void Update () {
@@ -30,9 +46,14 @@ public class vehiclePreparation : MonoBehaviour {
 
     }
 
+    public void Handle(setVehicleEvent message)
+    {
+        message.obj.GetComponent<UISprite>().spriteName = message.name;
+        //=message.id
+        //id待完善-应建立唯一id-name对应
+    }
 
-    public int vehicleAmountUpgrd;//可一次性发车的数量
-    public float createGap;//矿车发车的间隔
+    
     /// <summary>
     /// 接收到出发消息准备发车
     /// </summary>
