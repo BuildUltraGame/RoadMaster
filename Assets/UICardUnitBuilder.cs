@@ -57,12 +57,12 @@ public class UICardUnitBuilder : UIDragDropItem
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            uiRay=UICamera.currentCamera.ScreenPointToRay(Input.mousePosition);
+            uiRay=UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
         }
         else
         {
             ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            uiRay = UICamera.currentCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            uiRay = UICamera.mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
         }
 
 
@@ -81,7 +81,7 @@ public class UICardUnitBuilder : UIDragDropItem
         {
             //这里是车辆被拖动的内容，只能够拖动到待建造面板中
             
-            Physics.Raycast(uiRay, out hit);
+            Physics.Raycast(uiRay, out hit,Mathf.Infinity,1<<Layers.UICARD);
             if(hit.transform.gameObject.tag==Tags.CAR_SELECTOR)
             {
                 int id = sp.spawnUnit.GetComponent<GameobjBase>().game_ID;

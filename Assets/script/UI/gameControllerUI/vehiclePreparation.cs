@@ -27,6 +27,7 @@ public class vehiclePreparation : MonoBehaviour {
             vehicle.transform.parent = vehicleCardTable.transform;
             vehicle.transform.localScale = new Vector3(1, 1, 1);
             vehicle.transform.localPosition = new Vector3(1, 1, 1);
+            vehicle.layer = Layers.UICARD;
         }
         vehicleCardTable.Reposition();        
     }

@@ -17,6 +17,6 @@ public class Layers
     public const int CHARACTER =9;//工人层
     public const int VEHICLE = 10;//矿车层
     public const int BUILDING = 11;//建筑层
-    
+    public const int UICARD = 14;//UIcard层
 
 }
