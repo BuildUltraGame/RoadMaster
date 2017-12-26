@@ -197,7 +197,7 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
   mMaterial: {fileID: 0}
-  mApplyGradient: 1
+  mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
@@ -300,7 +300,7 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
   mMaterial: {fileID: 0}
-  mApplyGradient: 1
+  mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
@@ -703,7 +703,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 228303812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1190, y: 46, z: 1}
+  m_LocalPosition: {x: 1353, y: 46, z: 1}
   m_LocalScale: {x: 1.0008, y: 1.0008, z: 1.0008}
   m_Children:
   - {fileID: 1391491442}
@@ -3208,7 +3208,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1205603555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 230, z: 0}
+  m_LocalPosition: {x: -1, y: 252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1765225734}
@@ -3230,7 +3230,7 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 1919486318}
     relative: 0
-    absolute: 0
+    absolute: 1
   rightAnchor:
     target: {fileID: 1919486318}
     relative: 1
@@ -3242,17 +3242,17 @@ MonoBehaviour:
   topAnchor:
     target: {fileID: 1919486318}
     relative: 1
-    absolute: 0
+    absolute: 44
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 441
-  mHeight: 98
+  mWidth: 440
+  mHeight: 142
   mDepth: 1
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.5
+  aspectRatio: 3.0985916
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -3725,7 +3725,7 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
   mMaterial: {fileID: 0}
-  mApplyGradient: 1
+  mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
@@ -3888,7 +3888,7 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
   mMaterial: {fileID: 0}
-  mApplyGradient: 1
+  mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   mSpacingX: 0
@@ -5773,7 +5773,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765225733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 24, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1205603556}
@@ -5792,35 +5792,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
-    target: {fileID: 1205603556}
+    target: {fileID: 0}
     relative: 0
     absolute: 64
   rightAnchor:
-    target: {fileID: 1205603556}
+    target: {fileID: 0}
     relative: 1
     absolute: -63
   bottomAnchor:
-    target: {fileID: 1205603556}
-    relative: 0.5
+    target: {fileID: 0}
+    relative: 0
     absolute: -49
   topAnchor:
-    target: {fileID: 1205603556}
-    relative: 0.5
+    target: {fileID: 0}
+    relative: 1
     absolute: 97
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 314
+  mWidth: 313
   mHeight: 146
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.1506848
+  aspectRatio: 2.1438355
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: b1a79eb3f9fbbeb4aaac36d4f3fa5ea6, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 6f79ae8544b8897469c507cdc62d118a, type: 3}
   mFont: {fileID: 0}
-  mText: "\u4EC0\u4E48\u8F68"
+  mText: RoadMaster
   mFontSize: 101
   mFontStyle: 0
   mAlignment: 0
@@ -5832,7 +5832,7 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
   mMaterial: {fileID: 0}
-  mApplyGradient: 1
+  mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
   mSpacingX: 0
@@ -6364,7 +6364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1919486317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -405, y: 33, z: 1}
+  m_LocalPosition: {x: -567, y: 33, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1205603556}

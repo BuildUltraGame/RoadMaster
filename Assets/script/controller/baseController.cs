@@ -10,11 +10,14 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
 
  
 
-    MineMountain mineSelected;//当前选中的矿山，未选中则为null
-    
+    static MineMountain mineSelected;//当前选中的矿山，未选中则为null
+    public static int isWin = 0;
+    public static int missionToLoad = 0;
     ////touchController部分
 
-   
+
+
+
 
     ////
     /// <summary>
@@ -87,8 +90,7 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
         UnityEventCenter.Register<MineSelectEvent>(this,12);
         UnityEventCenter.Register<CreateUnitEvent>(this);
         UnityEventCenter.Register<ScoreEvent>(this);
-
-		ScoreBoard.getInstance ().Init (2);
+        ScoreBoard.getInstance ().Init (2);
     }
 	
 	// Update is called once per frame
@@ -144,6 +146,8 @@ public class baseController : MonoBehaviour,IListener<MineSelectEvent>,IListener
         }
         return true;
      }
+
+   
     
    
 

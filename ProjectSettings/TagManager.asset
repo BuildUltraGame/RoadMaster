@@ -24,6 +24,7 @@ TagManager:
   - elite_gate_worker
   - breakable_road
   - road_maker
+  - car_selector
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - layer_building
   - layer_railway
   - 
-  - 
+  - layer_uiCard
   - 
   - 
   - 

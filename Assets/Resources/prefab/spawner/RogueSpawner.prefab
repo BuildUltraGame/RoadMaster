@@ -69,5 +69,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 80
   spawnUnit: {fileID: 1730943180559496, guid: 00cdc1d2e67f7654b9ae7927978453e1, type: 2}
-  CD: 2
+  CD: 15
   buildTime: 0
+  coolDown: 0

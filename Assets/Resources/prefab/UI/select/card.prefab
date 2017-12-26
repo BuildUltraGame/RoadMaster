@@ -54,9 +54,9 @@ GameObject:
   - component: {fileID: 114276875735222478}
   - component: {fileID: 65042765657248764}
   - component: {fileID: 114952219879872986}
-  - component: {fileID: 114126011126699186}
   - component: {fileID: 114000899764001498}
   - component: {fileID: 114402276826023358}
+  - component: {fileID: 114285464492072218}
   m_Layer: 5
   m_Name: card
   m_TagString: Untagged
@@ -195,21 +195,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!114 &114126011126699186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1680848796655482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9ee9adcf574fc42857acfaad9fb89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restriction: 2
-  cloneOnDrag: 0
-  pressAndHoldDelay: 0.1
-  interactable: 1
 --- !u!114 &114240151560705820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,13 +310,28 @@ MonoBehaviour:
   mAtlas: {fileID: 114879254658700676, guid: 44111fb398a4cd4458c07ff1884d2fa5, type: 2}
   mSpriteName: UI_CRB_Basekit_1_407_921.tex
   mFillCenter: 1
---- !u!114 &114402276826023358
+--- !u!114 &114285464492072218
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680848796655482}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9ee9adcf574fc42857acfaad9fb89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restriction: 0
+  cloneOnDrag: 1
+  pressAndHoldDelay: 0.1
+  interactable: 1
+--- !u!114 &114402276826023358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680848796655482}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
   m_Name: 

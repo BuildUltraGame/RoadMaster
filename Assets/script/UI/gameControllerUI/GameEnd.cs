@@ -12,7 +12,6 @@ public class GameEnd : MonoBehaviour,IListener<GameOverEvent> {
     public UILabel score;
     public UILabel scoreList;
 
-
     // Use this for initialization
     void Awake() {
         UnityEventCenter.Register<GameOverEvent>(this,1);
@@ -27,9 +26,13 @@ public class GameEnd : MonoBehaviour,IListener<GameOverEvent> {
     {
         if (message.getWinner()==GameobjBase.PLAYER) {
             title.text = "你赢了";
+            baseController.isWin = 1;
+            SceneManager.LoadSceneAsync("hint");
         }
         else
         {
+            baseController.isWin =-1;
+            SceneManager.LoadSceneAsync("hint");
             title.text = "你输了";
         }
 

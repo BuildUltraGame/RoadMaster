@@ -1122,12 +1122,6 @@ Prefab:
     - {fileID: 114779927468798790, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &253154648 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114445323297549898, guid: 41416f2a3265bdb44b8de295b89821aa,
-    type: 2}
-  m_PrefabInternal: {fileID: 253154647}
-  m_Script: {fileID: 11500000, guid: d279664416ca9d84480215b422b79685, type: 3}
 --- !u!1001 &296703821
 Prefab:
   m_ObjectHideFlags: 0
@@ -2389,6 +2383,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114340626861593856, guid: b88ef946633338e4bb9eb51b8e829b8f,
+        type: 2}
+      propertyPath: mapDes
+      value: 
+      objectReference: {fileID: 1908729728}
     - target: {fileID: 114935460602442548, guid: b88ef946633338e4bb9eb51b8e829b8f,
         type: 2}
       propertyPath: mine
@@ -2399,26 +2398,6 @@ Prefab:
       propertyPath: ai
       value: 
       objectReference: {fileID: 1327106528}
-    - target: {fileID: 114340626861593856, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: mapDes
-      value: 
-      objectReference: {fileID: 1908729728}
-    - target: {fileID: 114227001460766442, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 253154648}
-    - target: {fileID: 114226616700460038, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: aspectRatio
-      value: 9.746377
-      objectReference: {fileID: 0}
-    - target: {fileID: 114895251741600238, guid: b88ef946633338e4bb9eb51b8e829b8f,
-        type: 2}
-      propertyPath: aspectRatio
-      value: 9.085227
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b88ef946633338e4bb9eb51b8e829b8f, type: 2}
   m_IsPrefabParent: 0

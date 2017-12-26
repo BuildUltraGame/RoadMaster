@@ -26,6 +26,7 @@ public class UICard : MonoBehaviour {
 
         setID(sp.spawnUnit.GetComponent<GameobjBase>().game_ID);
         setName(sp.spawnUnit.GetComponent<GameobjBase>().game_name);
+        setSpriteName(sp.spawnUnit.GetComponent<GameobjBase>().game_name);
         setCost(sp.getCost());
     }
 
@@ -38,6 +39,11 @@ public class UICard : MonoBehaviour {
     private void setName(string name)
     {
         nameLabel.text=name;
+    }
+
+    private void setSpriteName(string name)
+    {
+        this.gameObject.GetComponent<UISprite>().spriteName = name;
     }
 
     public int getID()

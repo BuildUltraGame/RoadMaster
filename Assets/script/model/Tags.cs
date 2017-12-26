@@ -49,5 +49,5 @@ public class Tags {
 
     }
 
-
+    public const string CAR_SELECTOR = "car_selector";
 }

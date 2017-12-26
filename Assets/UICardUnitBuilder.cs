@@ -52,16 +52,17 @@ public class UICardUnitBuilder : UIDragDropItem
     {
         base.OnDragDropRelease(surface);
         Ray ray = new Ray();
+        Ray uiRay = new Ray();
 
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+            uiRay=UICamera.mainCamera.ScreenPointToRay(Input.mousePosition);
         }
         else
         {
             ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
+            uiRay = UICamera.mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
         }
 
 
@@ -78,8 +79,18 @@ public class UICardUnitBuilder : UIDragDropItem
         }
         else
         {
-            //如果是其他的话,随便拖
-            Physics.Raycast(ray, out hit);
+            //这里是车辆被拖动的内容，只能够拖动到待建造面板中
+
+            //广播调用面板对应函数
+            surface.BroadcastMessage("onDragCrad", gameObject, SendMessageOptions.DontRequireReceiver);
+           
+            //Physics.Raycast(uiRay, out hit,Mathf.Infinity,1<<Layers.UI);
+            //if(hit.transform.gameObject.tag==Tags.CAR_SELECTOR)
+            //{
+            //    int id = sp.spawnUnit.GetComponent<GameobjBase>().game_ID;
+            //    string name= sp.spawnUnit.GetComponent<GameobjBase>().game_name;
+            //    UnityEventCenter.SendMessage<setVehicleEvent>(new setVehicleEvent(null, hit.transform.gameObject, id,name));
+            //}
         }
 
 

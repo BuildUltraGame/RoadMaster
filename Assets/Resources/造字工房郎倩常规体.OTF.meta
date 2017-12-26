@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6f79ae8544b8897469c507cdc62d118a
+timeCreated: 1512571583
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MF LangQian (Noncommercial)
+  fontNames:
+  - MF LangQian (Noncommercial)
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
