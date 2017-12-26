@@ -22,9 +22,8 @@ public class vehiclePreparation : MonoBehaviour {
         UnityEventCenter.Register<setVehicleEvent>(this);
         for(int i=0;i<vehicleAmountUpgrd;i++)//初始化发车预选框
         {
-            GameObject vehicle = Instantiate(vehicleCardPrefab);
+            GameObject vehicle = NGUITools.AddChild(vehicleCardTable.gameObject,vehicleCardPrefab);
             vehicle.tag = Tags.CAR_SELECTOR;
-            vehicle.transform.parent = vehicleCardTable.transform;
             vehicle.transform.localScale = new Vector3(1, 1, 1);
             vehicle.transform.localPosition = new Vector3(1, 1, 1);
             vehicle.layer = Layers.UICARD;
