@@ -2667,12 +2667,8 @@ MonoBehaviour:
   outButton: {fileID: 114730282894644854}
   inButton: {fileID: 114342397196939554}
   preWindow: {fileID: 114487143879683624}
-  vehicleToBuild:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  vehicleAmountUpgrd: 0
+  vehicleToBuild: []
+  vehicleAmountUpgrd: 4
   createGap: 0
   vehicleCardPrefab: {fileID: 1789642313208456, guid: 26d4f24fc33199245a538bfa7e61550b,
     type: 2}
