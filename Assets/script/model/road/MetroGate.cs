@@ -57,8 +57,14 @@ public abstract class MetroGate :MonoBehaviour{
                allPoint.Add(p);
            }
        }
-       
-   }
+
+        allPoint.Sort(delegate(RoadPoint p1, RoadPoint p2) {
+            return p1.name.CompareTo(p2.name);
+        });
+
+        print('1');
+
+    }
 
    /// <summary>
    /// 摧毁本岔路的车

@@ -118,5 +118,16 @@ public class vehiclePreparation : MonoBehaviour {
     {
         NGUITools.SetActive(inButton.gameObject, true);
     }
-    
+
+    /// <summary>
+    /// 卡片释放
+    /// </summary>
+    /// <param name="o">卡片的游戏物体</param>
+    void onDragCrad(GameObject o)
+    {
+        print("!!!!!!!!!!!!!!!!!"+o.GetComponent<UICard>().getID());
+
+        
+    }
+
 }

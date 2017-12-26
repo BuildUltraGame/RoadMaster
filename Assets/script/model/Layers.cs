@@ -11,7 +11,7 @@ using UnityEngine;
 /// </summary>
 public class Layers 
 {
-
+    public const int UI = 5;
     public const int ROAD = 8;//人行道层
     public const int RAILWAY = 12;//铁路层
     public const int CHARACTER =9;//工人层
