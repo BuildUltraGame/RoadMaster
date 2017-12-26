@@ -28,7 +28,7 @@ public class startGameConrtroller : MonoBehaviour {
 
     void startGameNow()
     {
-        SceneManager.LoadSceneAsync("wf");
+        SceneManager.LoadSceneAsync("selector");
     }
 
     private void build()
