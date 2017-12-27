@@ -507,21 +507,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114445323297549898, guid: 41416f2a3265bdb44b8de295b89821aa,
-        type: 2}
-      propertyPath: lable
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710964179137232, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.9086672
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710964179137232, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5754778
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114779927468798790, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41416f2a3265bdb44b8de295b89821aa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &258416099
@@ -5820,27 +5806,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8e66bb2835156ce47a05ba3551c29882, type: 3}
   m_PrefabInternal: {fileID: 342032959}
---- !u!1 &1908729727 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1737747305486016, guid: 41416f2a3265bdb44b8de295b89821aa,
+--- !u!114 &1908729728 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114523094932106102, guid: 41416f2a3265bdb44b8de295b89821aa,
     type: 2}
   m_PrefabInternal: {fileID: 253154647}
---- !u!114 &1908729728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1908729727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 178bf31ed5b784c429b530f080d6eac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionScore: 1500
-  missionType: 1
-  missionNum: 2
-  gameType: 1002
-  loadFinished: 0
 --- !u!1001 &1913842423
 Prefab:
   m_ObjectHideFlags: 0
