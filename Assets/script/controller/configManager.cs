@@ -72,16 +72,20 @@ public class configManager : MonoBehaviour {
         foreach (Dictionary<string, string> temp in configManager.config.Values)//先搜索符合条件的数据
         {
             if (temp[property].Equals(content))
-                Information = temp;
-        }
-        foreach(int id in configManager.config.Keys)//再搜索id
-        {
-            if (configManager.config[id] == Information)
             {
-                idList[idCount] = id;
-                idCount++;
+                Information = temp;
+                foreach (int id in configManager.config.Keys)//再搜索id
+                {
+                    if (configManager.config[id] == Information)
+                    {
+                        idList[idCount] = id;
+                        idCount++;
+                    }
+                }
             }
+                
         }
+        
 
         return idList;
     }
